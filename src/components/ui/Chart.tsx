@@ -5,7 +5,6 @@ const options: Props["options"] = {
     chart: {
         type: "area",
         animations: {
-            easing: "linear",
             speed: 300,
         },
         sparkline: {

@@ -22,7 +22,7 @@ const Users = () => {
                      <TableColumn>ROLE</TableColumn>
                   </TableHeader>
                   <TableBody>
-                     {users.map(user => (
+                     {users.map((user: any) => (
                         <TableRow key={user.id}>
                            <TableCell><Avatar color="primary" radius="md" size="sm" showFallback name={user.name.charAt(0).toUpperCase()} src={user.avatar} /></TableCell>
                            <TableCell><HiddenTitle>{user.name}</HiddenTitle></TableCell>

@@ -27,7 +27,7 @@ const Products = () => {
                      <TableColumn>EDITAR</TableColumn>
                   </TableHeader>
                   <TableBody>
-                     {products.map(product => (
+                     {products.map((product: any) => (
                         <TableRow key={product.id}>
                            <TableCell><Avatar color="secondary" radius="sm" size="sm" src={product.images.at(0)} /></TableCell>
                            <TableCell><HiddenTitle>{product.title}</HiddenTitle></TableCell>

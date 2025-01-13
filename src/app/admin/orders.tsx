@@ -25,7 +25,7 @@ const Orders = () => {
                      <TableColumn>ORDEN</TableColumn>
                   </TableHeader>
                   <TableBody>
-                     {orders.map(order => (
+                     {orders.map((order: any) => (
                         <TableRow key={order.id}>
                            <TableCell><User name={order.user.name} description={order.user.email} avatarProps={{ radius: 'sm', size:'sm', src: order.user.avatar, color: 'secondary', name: order.user.name.charAt(0).toUpperCase() }} /></TableCell>
                            <TableCell><h4>{order.items}</h4></TableCell>
