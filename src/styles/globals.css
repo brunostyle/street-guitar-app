@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.image-gallery-icon:focus {
+  outline: none;
+}
+
+.image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg {
+  width: 30px;
+  height: 30px;
+}
+
+.table {
+  animation: darked .3s linear;
+}
+
+.table th {
+  background-color: transparent;
+  border-bottom: 1px solid hsl(var(--nextui-divider) / var(--nextui-divider-opacity, var(--tw-border-opacity)));
+}
+
+.opacity {
+  animation: darked .3s linear;
+}
+
+.opacity-slow {
+  animation: darked 1s linear;
+}
+
+.dashboard {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "cards cards cards sells"
+                       "chart chart chart sells";
+}
+
+.cards { grid-area: cards; }
+.sells { grid-area: sells; }
+.chart { grid-area: chart; }
+
+@media screen and (max-width: 1024px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-areas: "cards"
+                         "chart"
+                         "sells";
+  }
+}
+
+.wrap {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.wrap-fit {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+@keyframes darked {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+@media screen and (max-width: 900px) {
+  html { font-size: 15px }
+}
+@media screen and (max-width: 678px) {
+  html { font-size: 14px }
+}
+
+@media screen and (max-width: 444px) {
+  html { font-size: 13px }
+  .wrap {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+@media screen and (max-width: 300px) {
+  html { font-size: 12px }
+}
+
+@media screen and (max-width: 250px) {
+  html { font-size: 11px }
+}
