@@ -9,15 +9,15 @@ interface IUser {
 }
 
 export const useUser = create<IUser>(set => ({
-   // isLogged: false,
-   // user: undefined,
-   isLogged: true,
-   user: {
-      id: '677b9159137ee5cf08e0d370',
-      name: 'Bruno',
-      email: 'bruno@gmail.com',
-      role: 'admin'
-   },
+   isLogged: false,
+   user: undefined,
+   // isLogged: true,
+   // user: {
+   //    id: '677b9159137ee5cf08e0d370',
+   //    name: 'Bruno',
+   //    email: 'bruno@gmail.com',
+   //    role: 'admin'
+   // },
    login: user => set({ isLogged: true, user }),
    logout: async () => {
       set({ isLogged: false, user: undefined })

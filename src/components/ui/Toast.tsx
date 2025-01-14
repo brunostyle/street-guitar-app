@@ -2,7 +2,7 @@ import { Toaster } from 'react-hot-toast';
 import { useTheme } from '@state';
 
 const styleDark: React.CSSProperties = {
-   background: '#0c0b0b',
+   background: '#000',
    color: '#fff',
 };
 

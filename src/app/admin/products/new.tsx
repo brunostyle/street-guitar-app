@@ -5,7 +5,7 @@ import { AiOutlineSave, FaPlus } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle } from "@styles";
 import { useAddProduct } from "@hooks";
-const initial = { title: 'nuevo producto', description: 'cualquier cosa', price: 10, spotify: 'https://hola.com', tab: '', pdf: '', category: 'rock', tags: [], images: [] }
+const initial = { title: '', description: '', price: '', spotify: '', tab: '', pdf: '', category: 'rock', tags: [], images: [] }
 
 const NewProduct = () => {
     const { addProduct, isAdding } = useAddProduct();

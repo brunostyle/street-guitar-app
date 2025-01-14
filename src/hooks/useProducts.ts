@@ -75,7 +75,18 @@ export const useUpdateProduct = () => {
 export const useDeleteProduct = () => {
   const router = useNavigate();
   const { mutate: deleteProduct, isPending: isDeleting } = useMutation({
-    mutationFn: async (id: string) => fetcherWithToken({ endpoint: '/products/' + id, method: 'DELETE' }),
+    mutationFn: async (id: string) => {
+      const product = await fetcher({ endpoint: '/products/' + id, method: 'GET' })
+      if (product.pdf) {
+        await fetcherWithToken({ endpoint: '/uploads/file', method: 'PUT', data: { url: product.pdf } })
+      }
+      if (product.images) {
+        product.images.forEach(async (image: string) => {
+          await fetcherWithToken({ endpoint: '/uploads/image/products', method: 'PUT', data: { url: image } })
+        })
+      }
+      return fetcherWithToken({ endpoint: '/products/' + id, method: 'DELETE' })
+    },
     onSuccess: () => {
       toast.success('Producto eliminado')
       router('/admin/products')
@@ -83,31 +94,49 @@ export const useDeleteProduct = () => {
   })
   return { deleteProduct, isDeleting }
 }
-//--------------------------------- UPLOAD FILE ---------------------------------
-export const useAddFile = () => {
-  const { mutate: addFile, isPending: isAdding } = useMutation({
-    mutationFn: ({ file, type }: { file: File, type: 'file' | 'products' | 'users' | 'tabs' }) => {
-      const formData = new FormData();
-      formData.append('file', file);
-      if (type === 'file') {
-        return fetcherWithTokenFile({ endpoint: '/uploads/file', method: 'POST', data: formData });
-      } else {
-        return fetcherWithTokenFile({ endpoint: '/uploads/image/' + type, method: 'POST', data: formData });
+//--------------------------------- UPLOAD PDF ---------------------------------
+export const useAddPDF = (productId: string) => {
+  const { mutate: addPDF, isPending: isAdding } = useMutation({
+    mutationFn: async ({ file }: { file: File }) => {
+      if (productId) {
+        const product = await fetcher({ endpoint: '/products/' + productId, method: 'GET' })
+        if (product.pdf) {
+          await fetcherWithToken({ endpoint: '/uploads/file', method: 'PUT', data: { url: product.pdf } })
+        }
       }
+      const data = new FormData();
+      data.append('file', file);
+      return fetcherWithTokenFile({ endpoint: '/uploads/file', method: 'POST', data });
     }
   })
-  return { addFile, isAdding }
+  return { addPDF, isAdding }
 }
-//--------------------------------- DELETE FILE ---------------------------------
-export const useDeleteFile = () => {
-  const { mutate: deleteFile, isPending: isDeleting } = useMutation({
-    mutationFn: ({ url, type }: { url: string, type: 'file' | 'products' | 'users' | 'tabs' }) => {
-      if (type === 'file') {
-        return fetcherWithToken({ endpoint: '/uploads/file', method: 'PUT', data: { url } })
-      } else {
-        return fetcherWithToken({ endpoint: '/uploads/image/' + type, method: 'PUT', data: { url } })
-      }
+//--------------------------------- DELETE PDF ---------------------------------
+export const useDeletePDF = () => {
+  const { mutate: deletePDF, isPending: isDeleting } = useMutation({
+    mutationFn: ({ url }: { url: string }) => {
+      return fetcherWithToken({ endpoint: '/uploads/file', method: 'PUT', data: { url } })
     }
   })
-  return { deleteFile, isDeleting }
+  return { deletePDF, isDeleting }
+}
+//--------------------------------- UPLOAD IMAGE ---------------------------------
+export const useAddImage = () => {
+  const { mutate: addImage, isPending: isAdding } = useMutation({
+    mutationFn: ({ file }: { file: File }) => {
+      const data = new FormData();
+      data.append('file', file);
+      return fetcherWithTokenFile({ endpoint: '/uploads/image/products', method: 'POST', data });
+    }
+  })
+  return { addImage, isAdding }
+}
+//--------------------------------- DELETE IMAGE ---------------------------------
+export const useDeleteImage = () => {
+  const { mutate: deleteImage, isPending: isDeleting } = useMutation({
+    mutationFn: ({ url }: { url: string }) => {
+      return fetcherWithToken({ endpoint: '/uploads/image/products', method: 'PUT', data: { url } })
+    }
+  })
+  return { deleteImage, isDeleting }
 }

@@ -1,6 +1,6 @@
 import { Avatar, Button, Pagination, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react";
 import { Link, useNavigate } from "react-router-dom";
-import { AiOutlineTags, BiPencil, FaRegEye } from "@icons";
+import { AiOutlineTags, BiPencil, FaRegEye, MdOutlineImageNotSupported } from "@icons";
 import { FullScreenLoading, Admin, Nothing } from "@components";
 import { HiddenTitle, HiddenSubtitle, ChipCategory } from "@styles";
 import { usePaginateProducts } from "@hooks";
@@ -29,7 +29,7 @@ const Products = () => {
                   <TableBody>
                      {products.map((product: any) => (
                         <TableRow key={product.id}>
-                           <TableCell><Avatar color="secondary" radius="sm" size="sm" src={product.images.at(0)} /></TableCell>
+                           <TableCell><Avatar showFallback fallback={<MdOutlineImageNotSupported />} radius="sm" size="sm" src={product.images.at(0)} /></TableCell>
                            <TableCell><HiddenTitle>{product.title}</HiddenTitle></TableCell>
                            <TableCell><HiddenSubtitle>{product.description}</HiddenSubtitle></TableCell>
                            <TableCell><h4>${product.price}</h4></TableCell>
