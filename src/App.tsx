@@ -4,7 +4,6 @@ import { client } from '@query-client';
 import { RouterApp } from "@routes";
 import { LayoutMain, Toast } from '@components';
 import { useTheme } from '@state';
-// import { useTheme } from '@state';
 
 export const App = () => {
   const { isLight } = useTheme();
