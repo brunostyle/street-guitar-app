@@ -16,9 +16,11 @@ export const usePaginateUsers = () => {
 }
 
 export const useUpdateUser = () => {
+  const { login } = useUser();
   const { mutate: updateUser, isPending: isUpdating } = useMutation({
     mutationFn: ({ id, data }: { id?: string, data: any }) => fetcherWithToken({ endpoint: '/users/' + id, method: 'PUT', data }),
-    onSuccess: () => {
+    onSuccess: (user) => {
+      login(user);
       toast.success('Usuario actualizado');
     }
   })
