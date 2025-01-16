@@ -50,7 +50,7 @@ export const Images = () => {
          ))}
          {isAdding && <Progress label="Subiendo imagen" size="sm" className="mb-4" isIndeterminate />}
          {isDeleting && <Progress label="Eliminando imagen" size="sm" className="mb-4" isIndeterminate />}
-         <File label="Cargar imagen" onChange={handleImage} />
+         <File id="image" label="Cargar imagen" onChange={handleImage} />
       </div>
    )
 }

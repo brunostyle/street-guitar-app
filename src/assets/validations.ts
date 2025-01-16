@@ -21,7 +21,6 @@ export const productSchema = Yup.object({
    description: Yup.string().trim()
       .required('Campo requerido'),
    price: Yup.number()
-      .required('Campo requerido')
       .integer()
       .typeError('Debe ser un valor numerico')
       .min(0, 'No debe ser menor a cero'),

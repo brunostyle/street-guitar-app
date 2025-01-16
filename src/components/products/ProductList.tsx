@@ -1,7 +1,8 @@
-import { Card, CardBody, CardFooter } from '@nextui-org/react';
-import { useNavigate as useRouter } from 'react-router-dom';
-import { Between, HiddenTitle, Wrap, Title, ChipCategory } from '@styles';
+import { Button, Card, CardBody, CardFooter } from '@nextui-org/react';
+import { Link, useNavigate as useRouter } from 'react-router-dom';
+import { Between, HiddenTitle, Wrap, Title, ChipCategory, HiddenSubtitle } from '@styles';
 import { IProduct } from "@interfaces"
+import { FaSpotify } from '@icons';
 
 interface IProps {
    category: string;
@@ -22,11 +23,12 @@ export const ProductList = ({ category, icon, products }: IProps) => {
                <img src={product.images.at(0)} alt={product.title} className="w-full h-full min-h-64 rounded-none object-cover" />
                <CardBody>
                   <HiddenTitle>{product.title}</HiddenTitle>
+                  <HiddenSubtitle>{product.description}</HiddenSubtitle>
                </CardBody>
                <CardFooter>
                   <Between>
                      <ChipCategory>{product.category}</ChipCategory>
-                     <Title>${product.price}</Title>
+                     <Button as={Link} to={product?.spotify} target="_blank" isIconOnly size="sm" variant="light" color="success"><FaSpotify size="1.6em" /></Button>
                   </Between>
                </CardFooter>
             </Card>

@@ -55,7 +55,7 @@ export const PDF = () => {
                     <Button isIconOnly variant="light" size="sm" onPress={handleDelete}><MdClose /></Button>
                 </Card>
             }
-            <File label="Cargar PDF" onChange={handlePDF} />
+            <File id="pdf" label="Cargar PDF" onChange={handlePDF} />
         </div>
     )
 }
