@@ -2,7 +2,7 @@ import { Button, Avatar, Drawer, DrawerContent, DrawerHeader, DrawerBody, useDis
 import { Title, Subtitle, Between } from '@styles';
 import { Input, FileImage } from '@components';
 import { AiFillDelete, FiUsers, AiOutlineMail, MdLockOutline, BiPencil, AiOutlineSave, MdClose } from '@icons';
-import { Form, Formik } from 'formik';
+import { Form, Formik, FormikHelpers } from 'formik';
 import { useUser } from '@state';
 import { useState } from 'react';
 import { useDeleteUser, useUpdateUser } from '@hooks';
@@ -17,12 +17,17 @@ export const Profile = () => {
     const { user } = useUser();
     const initial = { name: '', email: '', password: '' };
 
-    const handleSubmit = (data: any) => {
+    const handleSubmit = (data: any, helpers: FormikHelpers<any>) => {
         const noEmptyFields = Object.fromEntries(
             Object.entries(data).filter(value => value.at(1))
         );
         if (Object.keys(noEmptyFields).length === 0) return;
-        updateUser({ id: user?.id, data: noEmptyFields });
+        updateUser({ id: user?.id, data: noEmptyFields }, {
+            onSuccess: () => {
+                setEdit(false);
+                helpers.resetForm();
+            }
+        });
     }
 
     const handleDelete = () => {
