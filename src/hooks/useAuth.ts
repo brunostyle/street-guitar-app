@@ -54,7 +54,6 @@ export const useAuthRenew = () => {
    const { mutate: renew } = useMutation({
       mutationFn: async () => fetcherWithToken({endpoint: '/users/auth/renew', method: 'GET'}),
       onSuccess: (data) => {
-         console.log(data.user)
          login(data.user);
          localStorage.setItem('token', data.token);
       },

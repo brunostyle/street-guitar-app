@@ -2,7 +2,7 @@ import { Navbar, Dropdown, Spacer, Badge, NavbarBrand, NavbarContent, NavbarItem
 import { useNavigate, Link as NextLink } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import { IoMdSearch, FiShoppingCart, IoIosMusicalNotes, BiFilter, IoSunny, FaMoon } from '@icons'
-import { Collapse, User, InputBordered, Logo, Push } from '@components';
+import { Collapse, Profile, InputBordered, Logo, Push } from '@components';
 import { searchSchema } from '@validations';
 import { useCart, useTheme, useUser } from '@state';
 import { Title } from '@styles';
@@ -63,7 +63,7 @@ export const Menu = () => {
             </NavbarItem>
 
             <NavbarItem>
-               {isLogged && <User />}
+               {isLogged && <Profile />}
             </NavbarItem>
 
             <NavbarMenuToggle />

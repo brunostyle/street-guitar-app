@@ -1,6 +1,6 @@
 import { Navbar, Spacer, NavbarBrand, NavbarContent, NavbarMenuToggle, NavbarItem, Button } from '@nextui-org/react';
 import { Link as NextLink } from 'react-router-dom'
-import { Collapse, Logo, Push, User } from '@components';
+import { Collapse, Logo, Push, Profile } from '@components';
 import { useTheme, useUser } from '@state';
 import { Title } from '@styles';
 import { FaMoon, IoSunny } from '@icons';
@@ -22,7 +22,7 @@ export const MenuAdmin = () => {
                {!isLight && <Push><Button isIconOnly variant="light" onPress={() => changeTheme(true)}><IoSunny /></Button></Push>}
             </NavbarItem>
             <NavbarItem>
-               {isLogged && <User />}
+               {isLogged && <Profile />}
             </NavbarItem>
             <NavbarMenuToggle />
          </NavbarContent>

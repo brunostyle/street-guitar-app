@@ -22,9 +22,8 @@ const Checkout = () => {
                </Grid>
                <Grid>
                   <ProductOrder total={total} items={items}>
-                     {/* <ProductPay /> */}
                   </ProductOrder>
-                  {!isLoading && <Alert color="primary" title="Disfruta las tablaturas!!!" description="Son completamente gratis" />}
+                  {!isLoading && <Alert title="Disfruta las tablaturas!!!" description="Son completamente gratis" />}
                </Grid>
             </GridContainer>
          }

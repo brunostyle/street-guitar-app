@@ -33,8 +33,8 @@ const Login = () => {
     <LayoutAuth title="Inicia Sesión" description="o crea una cuenta">
       <Formik initialValues={initial} onSubmit={handleSubmit} enableReinitialize validationSchema={loginSchema}>
         <Form className="grid gap-4">
-          <Input variant="bordered" name="email" label="Correo electronico" icon={<AiOutlineMail />} />
-          <Input variant="bordered" type="password" name="password" label="Contraseña" icon={<MdLockOutline />} />
+          <Input variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<AiOutlineMail />} />
+          <Input variant="bordered" type="password" name="password" label="Contraseña" placeholder="******" icon={<MdLockOutline />} />
           <Checkbox name="remember" isSelected={isSelected} onValueChange={handleChange}>Recuérdame</Checkbox>
           <Button type="submit" color="primary" isLoading={isPending} startContent={!isPending && <AiOutlineMail />}>Continuar con correo</Button>
           <Button variant="bordered" startContent={<FcGoogle />}>Continuar con Google</Button>

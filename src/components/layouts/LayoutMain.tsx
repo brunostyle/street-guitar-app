@@ -7,9 +7,11 @@ interface ILayout {
 
 export const LayoutMain = ({ children }: ILayout) => {
    const { renew } = useAuthRenew();
-
+   const token = localStorage.getItem('token');
    useEffect(() => {
-      renew();
+      if (token) {
+         renew();
+      }
    }, []);
 
    return <div>{children}</div>

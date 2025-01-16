@@ -2,7 +2,7 @@ import { Card, CardBody, Button, Spacer, Skeleton } from "@nextui-org/react";
 import { useParams } from "react-router-dom";
 import { Form, Formik } from "formik";
 import { Images, Input, Admin, Category, Tags, Textarea, PDF } from "@components";
-import { AiFillDelete, AiOutlineSave, BiPencil } from "@icons";
+import { AiFillDelete, AiOutlineSave, BiPencil, AiOutlineSpotify, MdOutlineSubtitles, MdOutlineAttachMoney } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle } from "@styles";
 import { useDeleteProduct, useGetProduct, useUpdateProduct } from "@hooks";
@@ -25,16 +25,16 @@ const UpdateProduct = () => {
                         <Form><GridContainer>
                             <Grid>
                                 <Skeleton isLoaded={!isLoading}>
-                                    <Input name="title" label="Titulo" />
+                                <Input name="title" label="Titulo" placeholder="Titulo del producto" icon={<MdOutlineSubtitles />} />
                                 </Skeleton>
                                 <Skeleton isLoaded={!isLoading}>
-                                    <Textarea name="description" label="Descripción" />
+                                <Textarea name="description" label="Descripción" placeholder="Descripcion del producto" />
                                 </Skeleton>
                                 <Skeleton isLoaded={!isLoading}>
-                                    <Input type="number" name="price" label="Precio" />
+                                    <Input type="number" name="price" label="Precio" placeholder="0.00" icon={<MdOutlineAttachMoney />} />
                                 </Skeleton>
                                 <Skeleton isLoaded={!isLoading}>
-                                    <Input name="spotify" label="Spotify" />
+                                <Input name="spotify" label="Spotify" placeholder="https://" icon={<AiOutlineSpotify />} />
                                 </Skeleton>
                                 <Skeleton isLoaded={!isLoading}>
                                     <Tags />

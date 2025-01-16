@@ -32,7 +32,7 @@ export const Admin = ({ children, title, icon, showTitle = false, funtional = fa
         {showTitle &&
             <Between>
                 <SectionTitle>{title}</SectionTitle>
-                <Input variant="bordered" size="sm" placeholder={'Buscar ' + title.toLowerCase()} startContent={<IoMdSearch />} className="w-80 max-w-[50%]" />
+                <Input variant="bordered" size="sm" placeholder={'Buscar ' + title.toLowerCase()} startContent={<IoMdSearch className="text-gray-500 text-small" />} className="w-80 max-w-[50%]" />
             </Between>}
         <div className="overflow-x-scroll overflow-y-hidden">
             {children}

@@ -34,5 +34,5 @@
       "@interfaces": ["interfaces"]
     }
   },
-  "include": ["src"],
+  "include": ["src"]
 }

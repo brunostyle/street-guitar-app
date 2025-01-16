@@ -14,7 +14,6 @@ export const fetcher = async ({ endpoint, method, data }: IFetch) => {
 	const res = method === 'POST' ? await fetch(baseURL + endpoint, config) : await fetch(baseURL + endpoint);
 	const info = await res.json();
 	if (!res.ok) {
-        console.log(info)
 		info.map((err: any) => toast.error(err.error));
         throw new Error;
 	}
@@ -30,7 +29,6 @@ export const fetcherWithToken = async ({ endpoint, method, data }: IFetch) => {
 	const res = await fetch(baseURL + endpoint, config);
 	const info = await res.json();
 	if (!res.ok) {
-        console.log(info);
 		info.map((err: any) => toast.error(err.error));
         throw new Error;
 	}
@@ -43,7 +41,6 @@ export const fetcherWithTokenFile = async ({ endpoint, method, data }: IFetch) =
 	const res = await fetch(baseURL + endpoint, config);
 	const info = await res.json();
 	if (!res.ok) {
-        console.log(info);
 		info.map((err: any) => toast.error(err.error));
 		throw new Error;
 	}

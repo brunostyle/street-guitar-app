@@ -32,7 +32,6 @@ export const RouterApp = () => (
       <Route path="cart/empty" element={<Empty />} />
       <Route path="checkout/:id" element={<Checkout />} />
     </Route>
-
     <Route path="/admin/*" element={
       <Private>
         <Routes>

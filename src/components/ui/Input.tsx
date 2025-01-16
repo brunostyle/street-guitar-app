@@ -7,25 +7,29 @@ interface IInput {
    label: string;
    icon?: JSX.Element;
    type?: 'text' | 'password' | 'number';
+   isDisabled?: boolean;
+   placeholder?: string;
    variant?: 'default' | 'bordered';
 }
 
-export const Input = ({ name, label, icon, type = 'text', variant = 'default' }: IInput) => {
+export const Input = ({ name, label, icon, type = 'text', isDisabled = false, placeholder, variant = 'default' }: IInput) => {
    const [_field, meta] = useField(name);
    return (
       <Field
          aria-label="input"
          name={name}
          type={type}
+         isDisabled={isDisabled}
          variant={variant}
          labelPlacement="outside"
+         placeholder={placeholder}
          label={label}
          autoComplete="off"
          size="sm"
          fullWidth
          isInvalid={!!meta.error && meta.touched}
          errorMessage={<ErrorMessage name={name} />}
-         startContent={icon}
+         startContent={<span className="text-gray-500 text-small">{icon}</span>}
          as={NextInput}
       />
    )
@@ -42,7 +46,7 @@ export const InputBordered = ({ name, label, icon }: IInput) => (
       variant="bordered"
       isClearable
       fullWidth
-      startContent={icon}
+      startContent={<span className="text-gray-500 text-small">{icon}</span>}
       as={NextInput}
    />
 )

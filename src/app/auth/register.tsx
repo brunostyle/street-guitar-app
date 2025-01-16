@@ -19,9 +19,9 @@ const Register = () => {
     <LayoutAuth title="Crea una cuenta" description="o inicia sesión">
       <Formik initialValues={initial} onSubmit={handleSubmit} validationSchema={registerSchema}>
         <Form className="grid gap-4">
-          <Input variant="bordered" name="name" label="Nombre completo" icon={<FiUsers />} />
-          <Input variant="bordered" name="email" label="Correo electronico" icon={<AiOutlineMail />} />
-          <Input variant="bordered" type="password" name="password" label="Contraseña" icon={<MdLockOutline />} />
+          <Input variant="bordered" name="name" label="Nombre completo" placeholder="nombre" icon={<FiUsers />} />
+          <Input variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<AiOutlineMail />} />
+          <Input variant="bordered" type="password" name="password" label="Contraseña" placeholder="******" icon={<MdLockOutline />} />
           <Button type="submit" color="primary" size="sm" isLoading={isPending} startContent={!isPending && <AiOutlineMail />}>Crear cuenta</Button>
         </Form>
       </Formik>

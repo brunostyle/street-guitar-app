@@ -50,3 +50,9 @@ export const paySchema = Yup.object({
       .integer()
       .typeError('Debe ser un valor numerico')
 })
+
+export const userSchema = Yup.object({
+   name: Yup.string().trim().min(3, 'Debe tener al menos 3 caracteres').max(30, 'No debe tener mas de 30 caracteres'),
+   email: Yup.string().trim().email('Correo electronico no valido').max(30, 'No debe tener mas de 30 caracteres'),
+   password: Yup.string().trim().min(6, 'Debe tener al menos 6 caracteres').max(30, 'No debe tener mas de 30 caracteres'),
+})

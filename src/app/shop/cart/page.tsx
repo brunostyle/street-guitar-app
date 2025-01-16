@@ -18,7 +18,7 @@ const Cart = () => {
       const order: IOrderCheckout = {
          items,
          total,
-         paid: true,
+         paid: false,
          user: user?.id,
          products: cart.map(product => product.id)
       }

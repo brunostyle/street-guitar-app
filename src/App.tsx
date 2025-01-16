@@ -1,9 +1,10 @@
-import { NextUIProvider } from '@nextui-org/react'
+import { NextUIProvider } from '@nextui-org/react';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { client } from '@query-client';
 import { RouterApp } from "@routes";
-import { useTheme } from '@state';
 import { LayoutMain, Toast } from '@components';
+import { useTheme } from '@state';
+// import { useTheme } from '@state';
 
 export const App = () => {
   const { isLight } = useTheme();
@@ -14,7 +15,7 @@ export const App = () => {
           <LayoutMain>
             <RouterApp />
           </LayoutMain>
-        <Toast />
+          <Toast />
         </main>
       </NextUIProvider>
     </QueryClientProvider>

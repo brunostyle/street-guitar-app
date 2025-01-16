@@ -19,7 +19,7 @@ const Category = () => {
          {isLoading
             ? <FullScreenLoading />
             : isEmpty
-               ? <Nothing text={"No se encontraron resultados para " + category} svg="/search-empty.svg" />
+               ? <Nothing text={"No se encontraron resultados para " + category} svg="/nothing.svg" />
                : <ProductList category={categoryName} icon={<IoIosMusicalNotes />} products={products ?? []} />
          }
       </section>

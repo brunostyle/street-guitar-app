@@ -1,7 +1,7 @@
 import { Card, CardBody, Button, Spacer } from "@nextui-org/react";
 import { Form, Formik } from "formik";
 import { Images, Input, Admin, Category, Tags, Textarea, PDF } from "@components";
-import { AiOutlineSave, FaPlus } from "@icons";
+import { AiOutlineSave, FaPlus, AiOutlineSpotify, MdOutlineSubtitles, MdOutlineAttachMoney } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle } from "@styles";
 import { useAddProduct } from "@hooks";
@@ -23,10 +23,10 @@ const NewProduct = () => {
                     {form => (
                         <Form><GridContainer>
                             <Grid>
-                                <Input name="title" label="Titulo" />
-                                <Textarea name="description" label="Descripción" />
-                                <Input type="number" name="price" label="Precio" />
-                                <Input name="spotify" label="Spotify" />
+                                <Input name="title" label="Titulo" placeholder="Titulo del producto" icon={<MdOutlineSubtitles />} />
+                                <Textarea name="description" label="Descripción" placeholder="Descripcion del producto" />
+                                <Input type="number" name="price" label="Precio" placeholder="0.00" icon={<MdOutlineAttachMoney />} />
+                                <Input name="spotify" label="Spotify" placeholder="https://" icon={<AiOutlineSpotify />} />
                                 <Tags />
                             </Grid>
                             <Grid>
