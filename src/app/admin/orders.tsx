@@ -1,4 +1,4 @@
-import { Button, Checkbox, Pagination, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, User } from "@nextui-org/react";
+import { Button, Checkbox, Pagination, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, User } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineFolderOpen, MdOutlineChangeHistory } from '@icons';
 import { FullScreenLoading, Admin, Nothing } from "@components";

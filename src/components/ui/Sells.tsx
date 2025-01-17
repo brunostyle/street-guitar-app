@@ -1,4 +1,4 @@
-import { Button, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, User } from "@nextui-org/react";
+import { Button, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, User } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
 import { IOrderDashboard } from "@interfaces";
 import { AiOutlineFolderOpen } from '@icons';

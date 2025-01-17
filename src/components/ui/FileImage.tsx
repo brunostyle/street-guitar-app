@@ -1,4 +1,4 @@
-import { Avatar, Button, Spinner } from '@nextui-org/react';
+import { Avatar, Button, Spinner } from '@heroui/react';
 import { MdOutlineCameraAlt } from '@icons';
 import { ChangeEvent } from 'react';
 import toast from 'react-hot-toast';

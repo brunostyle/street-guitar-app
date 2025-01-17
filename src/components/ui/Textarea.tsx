@@ -1,4 +1,4 @@
-import { Textarea as TextField } from '@nextui-org/react';
+import { Textarea as TextField } from '@heroui/react';
 import { ErrorMessage, Field } from 'formik';
 
 interface ITextarea {

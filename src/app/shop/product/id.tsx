@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, Divider, Skeleton, Spacer, Spinner } from "@nextui-org/react";
+import { Button, Card, CardBody, Divider, Skeleton, Spacer, Spinner } from "@heroui/react";
 import { Link, useParams } from "react-router-dom";
 import ImageGallery from 'react-image-gallery';
 import { useEffect } from "react";

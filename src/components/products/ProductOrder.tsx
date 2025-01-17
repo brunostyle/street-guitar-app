@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardFooter, CardHeader } from "@nextui-org/react";
+import { Button, Card, CardBody, CardFooter, CardHeader } from "@heroui/react";
 import { useNavigate as useRouter } from "react-router-dom";
 import { BiPencil } from '@icons'
 import { Between, Subtitle, Title } from "@styles";

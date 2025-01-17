@@ -1,4 +1,4 @@
-import { Avatar, Button, Pagination, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react";
+import { Avatar, Button, Pagination, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/react";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineTags, BiPencil, FaRegEye, MdOutlineImageNotSupported } from "@icons";
 import { FullScreenLoading, Admin, Nothing } from "@components";

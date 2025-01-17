@@ -1,4 +1,4 @@
-import { BreadcrumbItem, Breadcrumbs, Button, Input, Spacer } from '@nextui-org/react';
+import { BreadcrumbItem, Breadcrumbs, Button, Input, Spacer } from '@heroui/react';
 import { useNavigate } from 'react-router-dom';
 import { Between, SectionTitle } from '@styles';
 import { AiOutlineHome, AiOutlineTags, FaPlus, IoMdSearch } from "@icons";

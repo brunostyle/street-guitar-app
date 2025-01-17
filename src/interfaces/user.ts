@@ -1,4 +1,4 @@
-import { ChipProps } from "@nextui-org/react";
+import { ChipProps } from "@heroui/react";
 
 type TValidRoles = 'admin' | 'client';
 

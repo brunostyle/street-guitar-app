@@ -1,4 +1,4 @@
-import { Divider } from '@nextui-org/react';
+import { Divider } from '@heroui/react';
 import { Logo } from '@components';
 import { Between, Subtitle } from '@styles';
 

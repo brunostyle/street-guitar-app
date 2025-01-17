@@ -1,5 +1,5 @@
-import { Button, Avatar, Drawer, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Divider, Spacer, Progress, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@nextui-org/react';
-import { Title, Subtitle, Between } from '@styles';
+import { Button, Avatar, Drawer, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Divider, Spacer, Progress, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@heroui/react';
+import { HiddenTitle, HiddenSubtitle, Between } from '@styles';
 import { Input, FileImage } from '@components';
 import { AiFillDelete, FiUsers, AiOutlineMail, MdLockOutline, BiPencil, AiOutlineSave, MdClose } from '@icons';
 import { Form, Formik, FormikHelpers } from 'formik';
@@ -44,8 +44,8 @@ export const Profile = () => {
                 <DrawerHeader>
                     <Between>
                         <div>
-                            <Title>Perfil</Title>
-                            <Subtitle>Editar informacion</Subtitle>
+                            <HiddenTitle>Perfil</HiddenTitle>
+                            <HiddenSubtitle>Editar informacion</HiddenSubtitle>
                         </div>
                         <div className="flex gap-2">
                             {isEdit && <Button isIconOnly size="sm" variant="flat" onPress={onOpenModal}><AiFillDelete /></Button>}
@@ -71,9 +71,9 @@ export const Profile = () => {
                     <ModalContent>
                         <ModalHeader>
                             <div>
-                                <Title>Eliminar perfil</Title>
+                                <HiddenTitle>Eliminar perfil</HiddenTitle>
                                 <Spacer />
-                                <Subtitle>Esta acción no se puede deshacer.</Subtitle>
+                                <HiddenSubtitle>Esta acción no se puede deshacer.</HiddenSubtitle>
                             </div>
                         </ModalHeader>
                         <Divider />

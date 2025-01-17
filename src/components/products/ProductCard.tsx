@@ -1,8 +1,8 @@
-import { Button, Card, CardBody, CardFooter, Spacer } from "@nextui-org/react";
+import { Button, Card, CardBody, CardFooter, Spacer } from "@heroui/react";
 import { Link } from "react-router-dom";
 import { IProduct } from "@interfaces"
-import { AiFillDelete, FaCloudDownloadAlt } from '@icons'
-import { HiddenTitle, Subtitle, Title, ChipCategory } from "@styles";
+import { AiFillDelete, FaCloudDownloadAlt, FaSpotify } from '@icons'
+import { HiddenTitle, Subtitle, ChipCategory } from "@styles";
 import { useCart } from "@state";
 
 interface IProductCard {
@@ -11,7 +11,7 @@ interface IProductCard {
    paid?: boolean;
 }
 
-export const ProductCard = ({ cart = [], paid, editable = false }: IProductCard) => {
+export const ProductCard = ({ cart = [], editable = false }: IProductCard) => {
    const { removeProductToCart } = useCart();
    return <>
       {cart.map(product => (
@@ -26,8 +26,8 @@ export const ProductCard = ({ cart = [], paid, editable = false }: IProductCard)
                <ChipCategory>{product.category}</ChipCategory>
             </CardBody>
             <CardFooter className="col-span-2 flex flex-col justify-between">
-               <Title>${product.price}</Title>
-               {(paid && !editable) && <Button as={Link} to={product.pdf} target="_blank" download={product.title} variant="bordered" color="primary" size="sm" isIconOnly><FaCloudDownloadAlt /></Button>}
+               <Button as={Link} to={product?.spotify} target="_blank" isIconOnly size="sm" variant="light" color="success"><FaSpotify size="1.6em" /></Button>
+               {!editable && <Button as={Link} to={product.pdf} target="_blank" download={product.title} variant="bordered" color="primary" size="sm" isIconOnly><FaCloudDownloadAlt /></Button>}
                {editable && <Button isIconOnly variant="bordered" size="sm" onPress={() => removeProductToCart(product)}><AiFillDelete /></Button>}
             </CardFooter>
          </Card>

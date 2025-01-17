@@ -1,4 +1,4 @@
-import { Spinner } from "@nextui-org/react";
+import { Spinner } from "@heroui/react";
 import { Center } from "@styles";
 
 export const FullScreenLoading = () => (

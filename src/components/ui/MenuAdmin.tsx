@@ -1,4 +1,4 @@
-import { Navbar, Spacer, NavbarBrand, NavbarContent, NavbarMenuToggle, NavbarItem, Button } from '@nextui-org/react';
+import { Navbar, Spacer, NavbarBrand, NavbarContent, NavbarMenuToggle, NavbarItem, Button } from '@heroui/react';
 import { Link as NextLink } from 'react-router-dom'
 import { Collapse, Logo, Push, Profile } from '@components';
 import { useTheme, useUser } from '@state';

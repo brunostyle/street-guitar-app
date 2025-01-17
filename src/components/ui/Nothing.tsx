@@ -1,4 +1,4 @@
-import { Image } from "@nextui-org/react";
+import { Image } from "@heroui/react";
 import { Center, Title } from "@styles";
 import { Push } from "@components";
 

@@ -1,4 +1,4 @@
-import { Card, CardBody, Button, Spacer } from "@nextui-org/react";
+import { Card, CardBody, Button, Spacer } from "@heroui/react";
 import { Form, Formik } from "formik";
 import { Images, Input, Admin, Category, Tags, Textarea, PDF } from "@components";
 import { AiOutlineSave, FaPlus, AiOutlineSpotify, MdOutlineSubtitles, MdOutlineAttachMoney } from "@icons";

@@ -1,4 +1,4 @@
-import { RadioGroup, Radio as RadioNext } from "@nextui-org/react";
+import { RadioGroup, Radio as RadioNext } from "@heroui/react";
 import { ErrorMessage, useField } from "formik";
 
 export const Category = () => {

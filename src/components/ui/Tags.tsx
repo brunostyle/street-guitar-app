@@ -1,4 +1,4 @@
-import { Button, Chip } from "@nextui-org/react";
+import { Button, Chip } from "@heroui/react";
 import { useState } from "react";
 import { useField } from "formik";
 import { InputTags } from "@components";

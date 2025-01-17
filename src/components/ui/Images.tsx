@@ -1,4 +1,4 @@
-import { Badge, Image, Progress } from "@nextui-org/react";
+import { Badge, Image, Progress } from "@heroui/react";
 import { ChangeEvent } from "react";
 import { useParams } from "react-router-dom";
 import { useField } from "formik";

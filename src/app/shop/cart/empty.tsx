@@ -1,4 +1,4 @@
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import { useNavigate as useRouter } from "react-router-dom";
 import { Nothing } from "@components";
 import { AiOutlineHome } from '@icons';

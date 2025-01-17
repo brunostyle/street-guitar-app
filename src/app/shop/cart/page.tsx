@@ -1,4 +1,4 @@
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import { Navigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AiOutlineCreditCard } from '@icons'

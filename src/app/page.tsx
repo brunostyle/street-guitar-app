@@ -1,4 +1,4 @@
-import { Spinner } from '@nextui-org/react';
+import { Spinner } from '@heroui/react';
 import { Banner, ProductList } from '@components';
 import { BiGridAlt } from '@icons';
 import { useProducts } from '@hooks';

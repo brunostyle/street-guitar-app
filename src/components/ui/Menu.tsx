@@ -1,4 +1,4 @@
-import { Navbar, Dropdown, Spacer, Badge, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem, Button } from '@nextui-org/react';
+import { Navbar, Dropdown, Spacer, Badge, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem, Button } from '@heroui/react';
 import { useNavigate, Link as NextLink } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import { IoMdSearch, FiShoppingCart, IoIosMusicalNotes, BiFilter, IoSunny, FaMoon } from '@icons'

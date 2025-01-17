@@ -1,4 +1,4 @@
-import { Spacer, Button } from "@nextui-org/react"
+import { Spacer, Button } from "@heroui/react"
 import { Link } from "react-router-dom"
 import { Form, Formik } from "formik"
 import { Input, LayoutAuth } from "@components"

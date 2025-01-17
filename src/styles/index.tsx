@@ -1,4 +1,4 @@
-import { Chip as ChipNext } from "@nextui-org/react";
+import { Chip as ChipNext } from "@heroui/react";
 import { useTheme } from "@state";
 import { categories, roles } from "@interfaces";
 

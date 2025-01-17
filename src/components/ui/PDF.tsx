@@ -1,4 +1,4 @@
-import { Card, Button, CardBody, Progress } from "@nextui-org/react";
+import { Card, Button, CardBody, Progress } from "@heroui/react";
 import { ChangeEvent } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useField } from "formik";

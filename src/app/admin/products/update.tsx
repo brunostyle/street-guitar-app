@@ -1,4 +1,4 @@
-import { Card, CardBody, Button, Spacer, Skeleton } from "@nextui-org/react";
+import { Card, CardBody, Button, Spacer, Skeleton } from "@heroui/react";
 import { useParams } from "react-router-dom";
 import { Form, Formik } from "formik";
 import { Images, Input, Admin, Category, Tags, Textarea, PDF } from "@components";

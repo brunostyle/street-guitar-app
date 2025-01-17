@@ -1,4 +1,4 @@
-import { Card, CardFooter, CardHeader, Spacer } from "@nextui-org/react";
+import { Card, CardFooter, CardHeader, Spacer } from "@heroui/react";
 import { AiOutlineTags, FiUsers, MdOutlineChangeHistory } from "@icons";
 import { Title, WrapFit } from "@styles";
 

@@ -1,9 +1,10 @@
+import { Alert } from "@heroui/react";
 import { useParams } from "react-router-dom";
 import ConfettiExplosion from 'react-confetti-explosion';
 import { Grid, GridContainer, SectionSubTitle, SectionTitle } from "@styles";
 import { FullScreenLoading, ProductCard, ProductOrder } from "@components";
 import { useGetOrder } from "@hooks";
-import { Alert } from "@nextui-org/react";
+import { FaGuitar } from "@icons";
 
 const Checkout = () => {
    const { id } = useParams();
@@ -21,9 +22,8 @@ const Checkout = () => {
                   <ProductCard cart={products} paid={paid} />
                </Grid>
                <Grid>
-                  <ProductOrder total={total} items={items}>
-                  </ProductOrder>
-                  {!isLoading && <Alert title="Disfruta las tablaturas!!!" description="Son completamente gratis" />}
+                  <ProductOrder total={total} items={items} />
+                  <Alert className="max-h-max" isVisible={!isLoading} isClosable title="Disfruta las tablaturas!!!" description="Son completamente gratis" icon={<FaGuitar />} />
                </Grid>
             </GridContainer>
          }

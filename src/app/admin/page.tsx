@@ -1,4 +1,4 @@
-import { Spacer } from "@nextui-org/react";
+import { Spacer } from "@heroui/react";
 import { DashboardCards, Sells, Admin, Chart, FullScreenLoading } from "@components";
 import { SectionTitle } from "@styles";
 import { useDashboard } from "@hooks";
