@@ -1,10 +1,9 @@
 import { Button } from "@heroui/react";
 import { Navigate } from "react-router-dom";
-import toast from "react-hot-toast";
 import { AiOutlineCreditCard } from '@icons'
 import { SectionTitle, SectionSubTitle, GridContainer, Grid } from "@styles";
 import { useCart, useUser } from "@state";
-import { ProductCard, ProductOrder } from "@components";
+import { ProductCard, ProductOrder, notify } from "@components";
 import { IOrderCheckout } from "@interfaces";
 import { useAddOrder } from "@hooks";
 
@@ -14,7 +13,7 @@ const Cart = () => {
    const { isLogged, user } = useUser();
 
    const handleCart = () => {
-      if (!isLogged) return toast.error("Debes iniciar sesión");
+      if (!isLogged) return notify.error("Debes iniciar sesión");
       const order: IOrderCheckout = {
          items,
          total,

@@ -1,12 +1,13 @@
 import { create } from 'zustand';
 
+type TypeTheme = 'light' | 'dark';
+
 interface ITheme {
-   isLight: boolean;
-   changeTheme: (mode: boolean) => void;
+   theme: TypeTheme;
+   changeTheme: (theme: TypeTheme) => void;
 }
 
 export const useTheme = create<ITheme>(set => ({
-   isLight: false,
-   
-   changeTheme: (mode) => set({ isLight: mode })
+   theme: 'dark',
+   changeTheme: (theme: TypeTheme) => set({ theme })
 }))

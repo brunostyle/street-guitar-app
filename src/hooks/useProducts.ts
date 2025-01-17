@@ -1,9 +1,9 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
 import { IProduct } from "@interfaces";
 import { fetcher, fetcherWithToken, fetcherWithTokenFile } from "@fetch";
 import { useState } from "react";
+import { notify } from "@components";
 
 //--------------------------------- GET ---------------------------------
 export const useProducts = () => {
@@ -53,7 +53,7 @@ export const useAddProduct = () => {
   const { mutate: addProduct, isPending: isAdding } = useMutation({
     mutationFn: async (product: IProduct) => fetcherWithToken({ endpoint: '/products', method: 'POST', data: product }),
     onSuccess: () => {
-      toast.success('Producto añadido')
+      notify.success('Producto añadido')
       router('/admin/products')
     }
   })
@@ -65,7 +65,7 @@ export const useUpdateProduct = () => {
   const { mutate: updateProduct, isPending: isUpdating } = useMutation({
     mutationFn: async (product: IProduct) => fetcherWithToken({ endpoint: '/products/' + product.id, method: 'PUT', data: product }),
     onSuccess: () => {
-      toast.success('Producto actualizado')
+      notify.success('Producto actualizado')
       router('/admin/products')
     }
   })
@@ -88,7 +88,7 @@ export const useDeleteProduct = () => {
       return fetcherWithToken({ endpoint: '/products/' + id, method: 'DELETE' })
     },
     onSuccess: () => {
-      toast.success('Producto eliminado')
+      notify.success('Producto eliminado')
       router('/admin/products')
     }
   })

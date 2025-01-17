@@ -7,7 +7,7 @@ import { FaMoon, IoSunny } from '@icons';
 
 export const MenuAdmin = () => {
    const { isLogged } = useUser();
-   const { isLight, changeTheme } = useTheme();
+   const { theme, changeTheme } = useTheme();
    return (
       <Navbar isBordered maxWidth="full">
          <NavbarBrand>
@@ -18,8 +18,8 @@ export const MenuAdmin = () => {
 
          <NavbarContent justify="end">
             <NavbarItem>
-               {isLight && <Push><Button isIconOnly variant="light" onPress={() => changeTheme(false)}><FaMoon /></Button></Push>}
-               {!isLight && <Push><Button isIconOnly variant="light" onPress={() => changeTheme(true)}><IoSunny /></Button></Push>}
+               {theme === 'light' && <Push><Button isIconOnly variant="light" onPress={() => changeTheme('dark')}><FaMoon /></Button></Push>}
+               {theme === 'dark' && <Push><Button isIconOnly variant="light" onPress={() => changeTheme('light')}><IoSunny /></Button></Push>}
             </NavbarItem>
             <NavbarItem>
                {isLogged && <Profile />}

@@ -6,11 +6,11 @@ import { LayoutMain, Toast } from '@components';
 import { useTheme } from '@state';
 
 export const App = () => {
-  const { isLight } = useTheme();
+  const { theme } = useTheme();
   return (
     <QueryClientProvider client={client}>
       <HeroUIProvider>
-        <main className={isLight ? 'light text-foreground bg-background' : 'dark text-foreground bg-background'}>
+        <main className={`${theme} text-foreground bg-background`}>
           <LayoutMain>
             <RouterApp />
           </LayoutMain>

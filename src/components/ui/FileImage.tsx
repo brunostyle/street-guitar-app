@@ -1,9 +1,9 @@
 import { Avatar, Button, Spinner } from '@heroui/react';
 import { MdOutlineCameraAlt } from '@icons';
 import { ChangeEvent } from 'react';
-import toast from 'react-hot-toast';
 import { useAddImageUser } from '@hooks';
 import { useUser } from '@state';
+import { notify } from './Toast';
 
 export const FileImage = () => {
     const { addImage, isAdding } = useAddImageUser();
@@ -11,7 +11,7 @@ export const FileImage = () => {
     const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
         const [file] = e.target.files!;
         const extension = file.name.split('.').pop();
-        if (!['jpg', 'jpeg', 'png', 'jfif'].includes(extension!)) return toast.error('Extension no valida')
+        if (!['jpg', 'jpeg', 'png', 'jfif'].includes(extension!)) return notify.error('Extension no valida')
         addImage({ file });
     };
 

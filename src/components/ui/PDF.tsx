@@ -5,9 +5,8 @@ import { useField } from "formik";
 import { MdClose, IoDocumentText } from "@icons";
 import { TitlePDF } from "@styles";
 import { useAddPDF, useDeletePDF } from "@hooks";
-import { File } from "@components";
+import { File, notify } from "@components";
 import { fetcherWithToken } from "@fetch";
-import toast from "react-hot-toast";
 
 export const PDF = () => {
     const { id } = useParams();
@@ -31,7 +30,7 @@ export const PDF = () => {
     const handlePDF = (e: ChangeEvent<HTMLInputElement>) => {
         const [file] = e.target.files!;
         const extension = file.name.split('.').pop();
-        if (extension !== 'pdf') return toast.error('Extension no valida')
+        if (extension !== 'pdf') return notify.error('Extension no valida')
         helpersTAB.setValue(file.name);
         addPDF({ file }, {
             onSuccess: async (url) => {

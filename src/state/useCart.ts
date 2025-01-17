@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-import toast from 'react-hot-toast';
 import { IProduct } from "@interfaces"
+import { notify } from '@components';
 
 interface ICart {
    cart: IProduct[];
@@ -16,8 +16,8 @@ export const useCart = create<ICart>((set, get) => ({
    total: 0,
    items: 0,
    addProductToCart: product => {
-      if (get().cart.find(p => p.id === product.id)) return
-      toast.success('Producto añadido al carrito');
+      if (get().cart.find(p => p.id === product.id)) return;
+      notify.success('Producto añadido al carrito');
       set(state => ({
          cart: [...state.cart, product],
          total: state.total + product.price,
@@ -36,5 +36,4 @@ export const useCart = create<ICart>((set, get) => ({
       total: 0,
       items: 0
    })
-
 }))

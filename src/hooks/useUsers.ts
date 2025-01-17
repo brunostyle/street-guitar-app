@@ -2,8 +2,8 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 import { fetcher, fetcherWithToken, fetcherWithTokenFile } from "@fetch";
 import { useState } from "react";
 import { IAuth } from "@interfaces";
-import toast from "react-hot-toast";
 import { useUser } from "@state";
+import { notify } from "@components";
 
 export const usePaginateUsers = () => {
   const [page, setPage] = useState(1);
@@ -21,7 +21,7 @@ export const useUpdateUser = () => {
     mutationFn: ({ id, data }: { id?: string, data: any }) => fetcherWithToken({ endpoint: '/users/' + id, method: 'PUT', data }),
     onSuccess: (user) => {
       login(user);
-      toast.success('Usuario actualizado');
+      notify.success('Usuario actualizado');
     }
   })
   return { updateUser, isUpdating }

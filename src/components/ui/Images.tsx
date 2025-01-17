@@ -4,9 +4,8 @@ import { useParams } from "react-router-dom";
 import { useField } from "formik";
 import { MdClose } from "@icons";
 import { useAddImage, useDeleteImage } from "@hooks";
-import { File } from "@components";
+import { File, notify } from "@components";
 import { fetcherWithToken } from "@fetch";
-import toast from "react-hot-toast";
 
 export const Images = () => {
    const { id } = useParams();
@@ -29,7 +28,7 @@ export const Images = () => {
    const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
       const [file] = e.target.files!;
       const extension = file.name.split('.').pop();
-      if (!['jpg', 'jpeg', 'png', 'jfif'].includes(extension!)) return toast.error('Extension no valida')
+      if (!['jpg', 'jpeg', 'png', 'jfif'].includes(extension!)) return notify.error('Extension no valida')
       addImage({ file }, {
          onSuccess: async (url) => {
             const images = [...field.value, url];
