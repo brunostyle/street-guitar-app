@@ -101,12 +101,12 @@ export const useAddPDF = (productId: string) => {
       if (productId) {
         const product = await fetcher({ endpoint: '/products/' + productId, method: 'GET' })
         if (product.pdf) {
-          await fetcherWithToken({ endpoint: '/uploads/file', method: 'PUT', data: { url: product.pdf } })
+          await fetcherWithToken({ endpoint: '/uploads/file/tabs', method: 'PUT', data: { url: product.pdf } })
         }
       }
       const data = new FormData();
       data.append('file', file);
-      return fetcherWithTokenFile({ endpoint: '/uploads/file', method: 'POST', data });
+      return fetcherWithTokenFile({ endpoint: '/uploads/file/tabs', method: 'POST', data });
     }
   })
   return { addPDF, isAdding }
@@ -115,7 +115,7 @@ export const useAddPDF = (productId: string) => {
 export const useDeletePDF = () => {
   const { mutate: deletePDF, isPending: isDeleting } = useMutation({
     mutationFn: ({ url }: { url: string }) => {
-      return fetcherWithToken({ endpoint: '/uploads/file', method: 'PUT', data: { url } })
+      return fetcherWithToken({ endpoint: '/uploads/file/tabs', method: 'PUT', data: { url } })
     }
   })
   return { deletePDF, isDeleting }
