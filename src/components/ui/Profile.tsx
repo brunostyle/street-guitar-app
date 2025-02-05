@@ -1,6 +1,6 @@
-import { Button, Avatar, Drawer, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Divider, Spacer, Progress, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@heroui/react';
+import { Avatar, Drawer, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Divider, Spacer, Progress, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@heroui/react';
 import { HiddenTitle, HiddenSubtitle, Between } from '@styles';
-import { Input, FileImage } from '@components';
+import { Input, FileImage, CustomIconButton, CustomButton } from '@components';
 import { AiFillDelete, FiUsers, AiOutlineMail, MdLockOutline, BiPencil, AiOutlineSave, MdClose } from '@icons';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { useUser } from '@state';
@@ -36,9 +36,9 @@ export const Profile = () => {
     };
 
     return <>
-        <Button isIconOnly size="sm" variant="light" onPress={onOpen}>
+        <CustomIconButton variant="light" onPress={onOpen}>
             <Avatar size="sm" color="primary" showFallback name={user?.name.charAt(0).toUpperCase()} src={user?.avatar} />
-        </Button>
+        </CustomIconButton>
         <Drawer hideCloseButton isOpen={isOpen} onOpenChange={onOpenChange} size="sm" placement="left" radius="none">
             <DrawerContent>
                 <DrawerHeader>
@@ -48,8 +48,8 @@ export const Profile = () => {
                             <HiddenSubtitle>Editar informacion</HiddenSubtitle>
                         </div>
                         <div className="flex gap-2">
-                            {isEdit && <Button isIconOnly size="sm" variant="flat" onPress={onOpenModal}><AiFillDelete /></Button>}
-                            <Button isIconOnly size="sm" variant="flat" onPress={() => setEdit(!isEdit)}><BiPencil /></Button>
+                            {isEdit && <CustomIconButton onPress={onOpenModal}><AiFillDelete /></CustomIconButton>}
+                            <CustomIconButton onPress={() => setEdit(!isEdit)}><BiPencil /></CustomIconButton>
                         </div>
                     </Between>
                 </DrawerHeader>
@@ -62,7 +62,7 @@ export const Profile = () => {
                             <Input name="email" label="Email" placeholder={user?.email} isDisabled={!isEdit} variant="bordered" icon={<AiOutlineMail />} />
                             <Input name="password" label="Comtraseña" placeholder="******" isDisabled={!isEdit} variant="bordered" icon={<MdLockOutline />} />
                             <Spacer />
-                            <Button type="submit" isDisabled={!isEdit} size="sm" color="primary" startContent={<AiOutlineSave />}>Guardar</Button>
+                            <CustomButton type="submit" isDisabled={!isEdit} color="primary" startContent={<AiOutlineSave />}>Guardar</CustomButton>
                             {(isUpdating || isDeleting) && <Progress size="sm" className="mt-4" isIndeterminate />}
                         </Form>
                     </Formik>
@@ -81,8 +81,8 @@ export const Profile = () => {
                             <p className="text-sm">Todos tus datos serán eliminados de forma permanente.</p>
                         </ModalBody>
                         <ModalFooter>
-                            <Button size="sm" variant="flat" onPress={onCloseModal} startContent={<MdClose />}>Cancelar</Button>
-                            <Button size="sm" color="danger" onPress={handleDelete} startContent={<AiFillDelete />}>Eliminar</Button>
+                            <CustomButton variant="flat" onPress={onCloseModal} startContent={<MdClose />}>Cancelar</CustomButton>
+                            <CustomButton color="danger" onPress={handleDelete} startContent={<AiFillDelete />}>Eliminar</CustomButton>
                         </ModalFooter>
                     </ModalContent>
                 </Modal>

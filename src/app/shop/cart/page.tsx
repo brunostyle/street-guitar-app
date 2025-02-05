@@ -1,9 +1,8 @@
-import { Button } from "@heroui/react";
 import { Navigate } from "react-router-dom";
 import { AiOutlineCreditCard } from '@icons'
 import { SectionTitle, SectionSubTitle, GridContainer, Grid } from "@styles";
 import { useCart, useUser } from "@state";
-import { ProductCard, ProductOrder, notify } from "@components";
+import { CustomButton, ProductCard, ProductOrder, notify } from "@components";
 import { IOrderCheckout } from "@interfaces";
 import { useAddOrder } from "@hooks";
 
@@ -37,7 +36,7 @@ const Cart = () => {
                </Grid>
                <Grid>
                   <ProductOrder editable total={total} items={items}>
-                     <Button fullWidth size="sm" color="primary" isLoading={isAddingOrder} startContent={!isAddingOrder && <AiOutlineCreditCard />} onPress={handleCart}>Ver tabs</Button>
+                     <CustomButton fullWidth color="primary" isLoading={isAddingOrder} startContent={!isAddingOrder && <AiOutlineCreditCard />} onPress={handleCart}>Ver tabs</CustomButton>
                   </ProductOrder>
                </Grid>
             </GridContainer>

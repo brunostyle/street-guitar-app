@@ -1,6 +1,7 @@
-import { Button, Card, CardBody, CardFooter, Spacer } from "@heroui/react";
+import { Card, CardBody, CardFooter, Spacer } from "@heroui/react";
 import { Link } from "react-router-dom";
 import { IProduct } from "@interfaces"
+import { CustomIconButton, CustomLinkButton } from "@components"
 import { AiFillDelete, FaGuitar, FaSpotify } from '@icons'
 import { HiddenTitle, Subtitle, ChipCategory } from "@styles";
 import { useCart } from "@state";
@@ -26,9 +27,9 @@ export const ProductCard = ({ cart = [], editable = false }: IProductCard) => {
                <ChipCategory>{product.category}</ChipCategory>
             </CardBody>
             <CardFooter className="col-span-2 flex flex-col justify-between">
-               <Button as={Link} to={product?.spotify} target="_blank" isIconOnly size="sm" variant="light" color="success"><FaSpotify size="1.6em" /></Button>
-               {(!editable && product.pdf) && <Button as={Link} to={product.pdf} target="_blank" download={product.tab} variant="bordered" color="primary" size="sm" isIconOnly><FaGuitar /></Button>}
-               {editable && <Button isIconOnly variant="bordered" size="sm" onPress={() => removeProductToCart(product)}><AiFillDelete /></Button>}
+               <CustomLinkButton to={product?.spotify} variant="light" color="success"><FaSpotify size="1.6em" /></CustomLinkButton>
+               {(!editable && product.pdf) && <CustomLinkButton to={product.pdf} download={product.tab} color="primary"><FaGuitar /></CustomLinkButton>}
+               {editable && <CustomIconButton onPress={() => removeProductToCart(product)}><AiFillDelete /></CustomIconButton>}
             </CardFooter>
          </Card>
       ))}

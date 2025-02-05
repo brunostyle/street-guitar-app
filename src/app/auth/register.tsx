@@ -1,7 +1,7 @@
-import { Spacer, Button } from "@heroui/react"
+import { Spacer } from "@heroui/react"
 import { Link } from "react-router-dom"
 import { Form, Formik } from "formik"
-import { Input, LayoutAuth } from "@components"
+import { CustomButton, Input, LayoutAuth } from "@components"
 import { AiOutlineMail, MdLockOutline, FiUsers } from "@icons";
 import { registerSchema } from "@validations";
 import { IRegister } from "@interfaces";
@@ -22,7 +22,7 @@ const Register = () => {
           <Input variant="bordered" name="name" label="Nombre completo" placeholder="nombre" icon={<FiUsers />} />
           <Input variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<AiOutlineMail />} />
           <Input variant="bordered" type="password" name="password" label="Contraseña" placeholder="******" icon={<MdLockOutline />} />
-          <Button type="submit" color="primary" size="sm" isLoading={isPending} startContent={!isPending && <AiOutlineMail />}>Crear cuenta</Button>
+          <CustomButton type="submit" color="primary" isLoading={isPending} startContent={!isPending && <AiOutlineMail />}>Crear cuenta</CustomButton>
         </Form>
       </Formik>
       <Spacer y={2} />

@@ -1,8 +1,8 @@
-import { Spacer, Button, Checkbox } from "@heroui/react"
+import { Spacer, Checkbox } from "@heroui/react"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import { Form, Formik } from "formik"
-import { Input, LayoutAuth } from "@components"
+import { CustomButton, Input, LayoutAuth } from "@components"
 import { AiOutlineMail, FcGoogle, MdLockOutline } from "@icons";
 import { loginSchema } from "@validations"
 import { ILogin } from "@interfaces"
@@ -23,10 +23,10 @@ const Login = () => {
     login(data);
     if (isSelected) localStorage.setItem(storage, JSON.stringify(data))
   }
- 
+
   const handleChange = () => {
     changeIsSelected(!isSelected);
-    if(isSelected) localStorage.removeItem(storage);
+    if (isSelected) localStorage.removeItem(storage);
   }
 
   return (
@@ -36,8 +36,8 @@ const Login = () => {
           <Input variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<AiOutlineMail />} />
           <Input variant="bordered" type="password" name="password" label="Contraseña" placeholder="******" icon={<MdLockOutline />} />
           <Checkbox name="remember" isSelected={isSelected} onValueChange={handleChange}>Recuérdame</Checkbox>
-          <Button type="submit" color="primary" isLoading={isPending} startContent={!isPending && <AiOutlineMail />}>Continuar con correo</Button>
-          <Button variant="bordered" startContent={<FcGoogle />}>Continuar con Google</Button>
+          <CustomButton type="submit" color="primary" isLoading={isPending} startContent={!isPending && <AiOutlineMail />}>Continuar con correo</CustomButton>
+          <CustomButton variant="bordered" startContent={<FcGoogle />}>Continuar con Google</CustomButton>
         </Form>
       </Formik>
       <Spacer y={2} />

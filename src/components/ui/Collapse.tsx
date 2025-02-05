@@ -1,8 +1,8 @@
-import { Button, Divider, NavbarMenuItem, NavbarMenu } from '@heroui/react';
+import { Divider, NavbarMenuItem, NavbarMenu } from '@heroui/react';
 import { useNavigate as useRouter, useLocation } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import { IoMdSearch, AiOutlineHome, BsKey, FiUsers, BiGridAlt, AiOutlineTags, MdOutlineChangeHistory, BiExit } from '@icons'
-import { InputBordered } from '@components';
+import { CustomButton, InputBordered } from '@components';
 import { Subtitle } from '@styles';
 import { searchSchema } from '@validations';
 import { useCart, useUser } from '@state';
@@ -57,9 +57,9 @@ export const Item = ({ to, text, icon }: IItem) => {
    const location = useLocation();
    return (
       <NavbarMenuItem>
-         <Button fullWidth color={location.pathname === to ? "primary" : "default"} className="justify-start" startContent={icon} variant={location.pathname === to ? "flat" : "light"} onPress={() => router(to)}>
+         <CustomButton fullWidth color={location.pathname === to ? "primary" : "default"} className="justify-start" startContent={icon} variant={location.pathname === to ? "flat" : "light"} onPress={() => router(to)}>
             {text}
-         </Button>
+         </CustomButton>
       </NavbarMenuItem>
    )
 }
@@ -82,7 +82,7 @@ export const Exit = () => {
 
    return (
       <NavbarMenuItem>
-         <Button fullWidth variant="light" className="justify-start" startContent={<BiExit />} onPress={handleLogout}>Salir</Button>
+         <CustomButton fullWidth variant="light" className="justify-start" startContent={<BiExit />} onPress={handleLogout}>Salir</CustomButton>
       </NavbarMenuItem>
    )
 }

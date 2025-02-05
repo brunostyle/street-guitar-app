@@ -1,6 +1,5 @@
-import { Button } from "@heroui/react";
 import { useNavigate as useRouter } from "react-router-dom";
-import { Nothing } from "@components";
+import { CustomButton, Nothing } from "@components";
 import { AiOutlineHome } from '@icons';
 
 const Empty = () => {
@@ -8,7 +7,7 @@ const Empty = () => {
 
    return (
       <Nothing text="Tu carrito esta vacío." svg="/cart.svg">
-         <Button size="sm" color="primary" onPress={() => router('/')} startContent={<AiOutlineHome />}>Ir a la tienda</Button>
+         <CustomButton color="primary" onPress={() => router('/')} startContent={<AiOutlineHome />}>Ir a la tienda</CustomButton>
       </Nothing>
    )
 };

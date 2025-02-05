@@ -1,6 +1,5 @@
 import { Input as NextInput } from "@heroui/react";
 import { ErrorMessage, Field, useField } from "formik";
-import React from "react";
 
 interface IInput {
    name: string;

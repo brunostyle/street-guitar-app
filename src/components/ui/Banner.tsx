@@ -1,7 +1,7 @@
-import { Button, Image } from "@heroui/react";
+import { Image } from "@heroui/react";
 import { BsInstagram, FaFacebookF } from "@icons";
 import { Gradient, Subtitle } from "@styles";
-import { Push } from "@components";
+import { CustomButton, Push } from "@components";
 
 export const Banner = () => (
    <Gradient>
@@ -14,8 +14,8 @@ export const Banner = () => (
             </h1>
             <Subtitle>Tablaturas gratis, tracks, covers, etc</Subtitle>
             <div className="flex gap-4">
-               <Button color="primary" size="sm" startContent={<FaFacebookF />}>Facebook</Button>
-               <Button color="primary" size="sm" as="a" variant="bordered" startContent={<BsInstagram />} href="" target="_blank">Instagram</Button>
+               <CustomButton color="primary" startContent={<FaFacebookF />}>Facebook</CustomButton>
+               <CustomButton color="primary" variant="bordered" startContent={<BsInstagram />}>Instagram</CustomButton>
             </div>
          </div>
          <div className="hidden md:block mb-36 dark:opacity-80">

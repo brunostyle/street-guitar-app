@@ -1,6 +1,6 @@
-import { Card, CardBody, Button, Spacer } from "@heroui/react";
+import { Card, CardBody, Spacer } from "@heroui/react";
 import { Form, Formik } from "formik";
-import { Images, Input, Admin, Category, Tags, Textarea, PDF } from "@components";
+import { Images, Input, Admin, Category, Tags, Textarea, PDF, CustomButton } from "@components";
 import { AiOutlineSave, FaPlus, AiOutlineSpotify, MdOutlineSubtitles, MdOutlineAttachMoney } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle } from "@styles";
@@ -33,7 +33,7 @@ const NewProduct = () => {
                                 <Category />
                                 <PDF />
                                 <Images />
-                                <Button variant="bordered" fullWidth isLoading={isAdding} startContent={!isAdding && <AiOutlineSave />} size="sm" onPress={() => form.handleSubmit()}>Guardar</Button>
+                                <CustomButton variant="bordered" isLoading={isAdding} startContent={!isAdding && <AiOutlineSave />} onPress={() => form.handleSubmit()}>Guardar</CustomButton>
                             </Grid>
                         </GridContainer></Form>
                     )}

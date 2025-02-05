@@ -1,6 +1,6 @@
-import { Navbar, Spacer, NavbarBrand, NavbarContent, NavbarMenuToggle, NavbarItem, Button } from '@heroui/react';
+import { Navbar, Spacer, NavbarBrand, NavbarContent, NavbarMenuToggle, NavbarItem } from '@heroui/react';
 import { Link as NextLink } from 'react-router-dom'
-import { Collapse, Logo, Push, Profile } from '@components';
+import { Collapse, Logo, Push, Profile, CustomIconButton } from '@components';
 import { useTheme, useUser } from '@state';
 import { Title } from '@styles';
 import { FaMoon, IoSunny } from '@icons';
@@ -18,8 +18,8 @@ export const MenuAdmin = () => {
 
          <NavbarContent justify="end">
             <NavbarItem>
-               {theme === 'light' && <Push><Button isIconOnly variant="light" onPress={() => changeTheme('dark')}><FaMoon /></Button></Push>}
-               {theme === 'dark' && <Push><Button isIconOnly variant="light" onPress={() => changeTheme('light')}><IoSunny /></Button></Push>}
+               {theme === 'light' && <Push><CustomIconButton variant="light" onPress={() => changeTheme('dark')}><FaMoon /></CustomIconButton></Push>}
+               {theme === 'dark' && <Push><CustomIconButton variant="light" onPress={() => changeTheme('light')}><IoSunny /></CustomIconButton></Push>}
             </NavbarItem>
             <NavbarItem>
                {isLogged && <Profile />}

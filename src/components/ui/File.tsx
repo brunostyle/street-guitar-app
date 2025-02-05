@@ -1,5 +1,5 @@
-import { Button } from '@heroui/react';
 import { AiOutlineCloudUpload } from "@icons";
+import { CustomButton } from "@components";
 
 interface IProps {
 	id: string;
@@ -13,6 +13,6 @@ export const File = ({ id, label, onChange }: IProps) => {
 	};
 	return <>
 		<input onChange={onChange} type="file" id={id} style={{ display: 'none' }} />
-		<Button fullWidth size="sm" variant="bordered" onPress={handleClick} startContent={<AiOutlineCloudUpload />}>{label}</Button>
+		<CustomButton fullWidth variant="bordered" onPress={handleClick} startContent={<AiOutlineCloudUpload />}>{label}</CustomButton>
 	</>
 }

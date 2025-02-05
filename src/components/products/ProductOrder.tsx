@@ -1,6 +1,7 @@
-import { Button, Card, CardBody, CardFooter, CardHeader } from "@heroui/react";
+import { Card, CardBody, CardFooter, CardHeader } from "@heroui/react";
 import { useNavigate as useRouter } from "react-router-dom";
 import { BiPencil } from '@icons'
+import { CustomIconButton } from '@components'
 import { Between, Subtitle, Title } from "@styles";
 
 interface IProductOrder {
@@ -21,7 +22,7 @@ export const ProductOrder = ({ editable = false, children, total, items }: IProd
             {!editable &&
                <Between>
                   <Title>Orden</Title>
-                  <Button isIconOnly variant="bordered" size="sm" onPress={() => router('/cart')}><BiPencil /></Button>
+                  <CustomIconButton onPress={() => router('/cart')}><BiPencil /></CustomIconButton>
                </Between>}
             <Between>
                <Subtitle>No. Productos</Subtitle>

@@ -1,7 +1,8 @@
-import { BreadcrumbItem, Breadcrumbs, Button, Input, Spacer } from '@heroui/react';
+import { BreadcrumbItem, Breadcrumbs, Input, Spacer } from '@heroui/react';
 import { useNavigate } from 'react-router-dom';
 import { Between, SectionTitle } from '@styles';
 import { AiOutlineHome, AiOutlineTags, FaPlus, IoMdSearch } from "@icons";
+import { CustomButton } from "@components";
 
 interface ILayout {
     children: JSX.Element | JSX.Element[];
@@ -26,7 +27,7 @@ export const Admin = ({ children, title, icon, showTitle = false, funtional = fa
                 <Spacer y={4} />
                 <Between>
                     <Input variant="bordered" size="sm" placeholder="Buscar producto" startContent={<IoMdSearch />} className="w-80 max-w-[50%]" />
-                    <Button size="sm" color="primary" startContent={<FaPlus />} onPress={() => router('/admin/products/new')}>Agregar</Button>
+                    <CustomButton color="primary" startContent={<FaPlus />} onPress={() => router('/admin/products/new')}>Agregar</CustomButton>
                 </Between>
             </div>}
         {showTitle &&

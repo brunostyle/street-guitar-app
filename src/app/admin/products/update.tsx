@@ -1,7 +1,7 @@
-import { Card, CardBody, Button, Spacer, Skeleton } from "@heroui/react";
+import { Card, CardBody, Spacer, Skeleton } from "@heroui/react";
 import { useParams } from "react-router-dom";
 import { Form, Formik } from "formik";
-import { Images, Input, Admin, Category, Tags, Textarea, PDF } from "@components";
+import { Images, Input, Admin, Category, Tags, Textarea, PDF, CustomButton } from "@components";
 import { AiFillDelete, AiOutlineSave, BiPencil, AiOutlineSpotify, MdOutlineSubtitles, MdOutlineAttachMoney } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle } from "@styles";
@@ -48,8 +48,8 @@ const UpdateProduct = () => {
                                     <PDF />
                                 </Skeleton>
                                 <Images />
-                                <Button fullWidth variant="bordered" size="sm" isLoading={isDeleting} startContent={!isDeleting && <AiFillDelete />} onPress={() => deleteProduct(String(id))}>Eliminar</Button>
-                                <Button fullWidth variant="bordered" size="sm" isLoading={isUpdating} startContent={!isUpdating && <AiOutlineSave />} onPress={() => form.handleSubmit()}>Actualizar</Button>
+                                <CustomButton variant="bordered" isLoading={isDeleting} startContent={!isDeleting && <AiFillDelete />} onPress={() => deleteProduct(String(id))}>Eliminar</CustomButton>
+                                <CustomButton variant="bordered" isLoading={isUpdating} startContent={!isUpdating && <AiOutlineSave />} onPress={() => form.handleSubmit()}>Actualizar</CustomButton>
                             </Grid>
                         </GridContainer></Form>
                     )}

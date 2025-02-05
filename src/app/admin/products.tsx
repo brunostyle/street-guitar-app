@@ -1,7 +1,7 @@
-import { Avatar, Button, Pagination, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/react";
-import { Link, useNavigate } from "react-router-dom";
+import { Avatar, Pagination, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/react";
+import { useNavigate } from "react-router-dom";
 import { AiOutlineTags, BiPencil, FaRegEye, MdOutlineImageNotSupported } from "@icons";
-import { FullScreenLoading, Admin, Nothing } from "@components";
+import { FullScreenLoading, Admin, Nothing, CustomIconButton, CustomLinkButton } from "@components";
 import { HiddenTitle, HiddenSubtitle, ChipCategory } from "@styles";
 import { usePaginateProducts } from "@hooks";
 
@@ -34,8 +34,8 @@ const Products = () => {
                            <TableCell><HiddenSubtitle>{product.description}</HiddenSubtitle></TableCell>
                            <TableCell><h4>${product.price}</h4></TableCell>
                            <TableCell><ChipCategory>{product.category}</ChipCategory></TableCell>
-                           <TableCell><Button as={Link} to={product.pdf} target="_blank" isDisabled={!product.pdf} isIconOnly variant="bordered" size="sm"><FaRegEye /></Button></TableCell>
-                           <TableCell><Button isIconOnly variant="bordered" size="sm" onPress={() => router(String(product.id))}><BiPencil /></Button></TableCell>
+                           <TableCell><CustomLinkButton to={product.pdf} isDisabled={!product.pdf}><FaRegEye /></CustomLinkButton></TableCell>
+                           <TableCell><CustomIconButton onPress={() => router(String(product.id))}><BiPencil /></CustomIconButton></TableCell>
                         </TableRow>
                      ))}
                   </TableBody>

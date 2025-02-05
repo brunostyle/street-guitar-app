@@ -1,8 +1,9 @@
-import { Button, Card, CardBody, CardFooter } from '@heroui/react';
-import { Link, useNavigate as useRouter } from 'react-router-dom';
+import { Card, CardBody, CardFooter } from '@heroui/react';
+import { useNavigate as useRouter } from 'react-router-dom';
 import { Between, HiddenTitle, Wrap, Title, ChipCategory, HiddenSubtitle } from '@styles';
 import { IProduct } from "@interfaces"
 import { FaSpotify } from '@icons';
+import { CustomLinkButton } from '@components';
 
 interface IProps {
    category: string;
@@ -28,7 +29,7 @@ export const ProductList = ({ category, icon, products }: IProps) => {
                <CardFooter>
                   <Between>
                      <ChipCategory>{product.category}</ChipCategory>
-                     <Button as={Link} to={product?.spotify} target="_blank" isIconOnly size="sm" variant="light" color="success"><FaSpotify size="1.6em" /></Button>
+                     <CustomLinkButton to={product?.spotify} variant="light" color="success"><FaSpotify size="1.6em" /></CustomLinkButton>
                   </Between>
                </CardFooter>
             </Card>

@@ -1,5 +1,5 @@
-import { Button, Card, CardBody, Divider, Skeleton, Spacer, Spinner } from "@heroui/react";
-import { Link, useParams } from "react-router-dom";
+import { Card, CardBody, Divider, Skeleton, Spacer, Spinner } from "@heroui/react";
+import { useParams } from "react-router-dom";
 import ImageGallery from 'react-image-gallery';
 import { useEffect } from "react";
 import { FiShoppingCart, FaSpotify } from "@icons";
@@ -7,6 +7,7 @@ import { Between, Grid, GridContainer, Subtitle, Title, ChipCategory } from "@st
 import { useCart } from "@state";
 import { useGetProduct } from "@hooks";
 import "react-image-gallery/styles/css/image-gallery.css";
+import { CustomButton, CustomLinkButton } from "@components";
 
 const Product = () => {
    const { id } = useParams();
@@ -51,11 +52,11 @@ const Product = () => {
                   </Skeleton>
                   <Spacer y={4} />
                   <Skeleton className="rounded-md" isLoaded={!isLoading}>
-                     <Button as={Link} to={product?.spotify} target="_blank" fullWidth color="success" size="sm" startContent={<FaSpotify size="1.5em" />}>Escuchala en spotify</Button>
+                     <CustomLinkButton to={product?.spotify} isButtonLink variant="solid" color="success" startContent={<FaSpotify size="1.5em" />}>Escuchala en spotify</CustomLinkButton>
                   </Skeleton>
                   <Spacer y={4} />
                   <Skeleton className="rounded-md" isLoaded={!isLoading}>
-                     <Button fullWidth color="primary" size="sm" startContent={<FiShoppingCart />} onPress={handleAddToCart}>Agregar al carrito</Button>
+                     <CustomButton fullWidth color="primary" startContent={<FiShoppingCart />} onPress={handleAddToCart}>Agregar al carrito</CustomButton>
                   </Skeleton>
                </CardBody>
             </Grid>
