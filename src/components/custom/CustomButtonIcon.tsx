@@ -9,7 +9,7 @@ interface IButton {
     onPress?: () => void;
 }
 
-export const CustomIconButton = ({ children, onPress, size = 'sm', color = 'default', variant = 'bordered' }: IButton) => (
+export const CustomButtonIcon = ({ children, onPress, size = 'sm', color = 'default', variant = 'bordered' }: IButton) => (
     <Button
         isIconOnly
         size={size}

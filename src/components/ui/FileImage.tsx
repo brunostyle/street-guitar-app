@@ -3,7 +3,7 @@ import { MdOutlineCameraAlt } from '@icons';
 import { ChangeEvent } from 'react';
 import { useAddImageUser } from '@hooks';
 import { useUser } from '@state';
-import { notify } from './Toast';
+import { notify } from '../custom/CustomToast';
 
 export const FileImage = () => {
     const { addImage, isAdding } = useAddImageUser();

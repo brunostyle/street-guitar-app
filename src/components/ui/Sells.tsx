@@ -2,7 +2,7 @@ import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, User }
 import { useNavigate } from "react-router-dom";
 import { IOrderDashboard } from "@interfaces";
 import { AiOutlineFolderOpen } from '@icons';
-import { CustomIconButton } from "@components";
+import { CustomButtonIcon } from "@components";
 
 interface ISells {
     sells?: IOrderDashboard[];
@@ -22,7 +22,7 @@ export const Sells = ({ sells = [] }: ISells) => {
                     <TableRow key={sell.id}>
                         <TableCell><User name={sell.user.name} description={sell.user.email} avatarProps={{ radius: 'sm', size:'sm', src: sell.user.avatar, color: 'secondary', name: sell.user.name.charAt(0).toUpperCase() }} /></TableCell>
                         <TableCell><h4>{new Date(sell.createdAt).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: '2-digit' })}</h4></TableCell>
-                        <TableCell><CustomIconButton onPress={() => router('/checkout/' + sell.id)}><AiOutlineFolderOpen /></CustomIconButton></TableCell>
+                        <TableCell><CustomButtonIcon onPress={() => router('/checkout/' + sell.id)}><AiOutlineFolderOpen /></CustomButtonIcon></TableCell>
                     </TableRow>
                 ))}
             </TableBody>

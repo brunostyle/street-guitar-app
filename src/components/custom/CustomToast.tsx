@@ -7,7 +7,7 @@ const styleDark: React.CSSProperties = {
    color: '#fff',
 };
 
-export const Toast = () => {
+export const CustomToast = () => {
    const { theme } = useTheme();
    return (
       <Toaster

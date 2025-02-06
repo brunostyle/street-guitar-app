@@ -16,7 +16,7 @@ interface IButton {
     onPress?: () => void;
 }
 
-export const CustomLinkButton = ({ children, onPress, to, download, isButtonLink = false, isDisabled = false, size = 'sm', color = 'default', variant = 'bordered', startContent }: IButton) => (
+export const CustomButtonLink = ({ children, onPress, to, download, isButtonLink = false, isDisabled = false, size = 'sm', color = 'default', variant = 'bordered', startContent }: IButton) => (
     <Button
         isIconOnly={!isButtonLink}
         isDisabled={isDisabled}

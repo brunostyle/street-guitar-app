@@ -1,7 +1,7 @@
 import { Chip } from "@heroui/react";
 import { useState } from "react";
 import { useField } from "formik";
-import { CustomIconButton, InputTags } from "@components";
+import { CustomButtonIcon, CustomInputTags } from "@components";
 import { GrAdd } from "@icons";
 
 export const Tags = () => {
@@ -22,8 +22,8 @@ export const Tags = () => {
 
    return (
       <div>
-         <InputTags label="Etiquetas" value={tagValue} onChange={setTagValue} addTag={addTag} content={
-            <CustomIconButton variant="light" onPress={addTag}><GrAdd /></CustomIconButton>
+         <CustomInputTags label="Etiquetas" value={tagValue} onChange={setTagValue} addTag={addTag} content={
+            <CustomButtonIcon variant="light" onPress={addTag}><GrAdd /></CustomButtonIcon>
          }/>
          <div className="flex gap-1 mt-4">
             {field.value && field.value.map((tag: string) => (

@@ -2,13 +2,13 @@ import { Spacer, Checkbox } from "@heroui/react"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import { Form, Formik } from "formik"
-import { CustomButton, Input, LayoutAuth } from "@components"
+import { CustomButton, CustomInput, LayoutAuth } from "@components"
 import { AiOutlineMail, FcGoogle, MdLockOutline } from "@icons";
 import { loginSchema } from "@validations"
 import { ILogin } from "@interfaces"
 import { useLogin } from "@hooks";
 
-const storage = 'login-lb-digital';
+const storage = 'login-street-guitar';
 
 const Login = () => {
   const { mutate: login, isPending } = useLogin();
@@ -31,10 +31,10 @@ const Login = () => {
 
   return (
     <LayoutAuth title="Inicia Sesión" description="o crea una cuenta">
-      <Formik initialValues={initial} onSubmit={handleSubmit} enableReinitialize validationSchema={loginSchema}>
+      <Formik enableReinitialize initialValues={initial} onSubmit={handleSubmit} validationSchema={loginSchema}>
         <Form className="grid gap-4">
-          <Input variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<AiOutlineMail />} />
-          <Input variant="bordered" type="password" name="password" label="Contraseña" placeholder="******" icon={<MdLockOutline />} />
+          <CustomInput variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<AiOutlineMail />} />
+          <CustomInput variant="bordered" type="password" name="password" label="Contraseña" placeholder="******" icon={<MdLockOutline />} />
           <Checkbox name="remember" isSelected={isSelected} onValueChange={handleChange}>Recuérdame</Checkbox>
           <CustomButton type="submit" color="primary" isLoading={isPending} startContent={!isPending && <AiOutlineMail />}>Continuar con correo</CustomButton>
           <CustomButton variant="bordered" startContent={<FcGoogle />}>Continuar con Google</CustomButton>

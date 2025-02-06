@@ -2,7 +2,7 @@ import { Divider, NavbarMenuItem, NavbarMenu } from '@heroui/react';
 import { useNavigate as useRouter, useLocation } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import { IoMdSearch, AiOutlineHome, BsKey, FiUsers, BiGridAlt, AiOutlineTags, MdOutlineChangeHistory, BiExit } from '@icons'
-import { CustomButton, InputBordered } from '@components';
+import { CustomButton, CustomInputBordered } from '@components';
 import { Subtitle } from '@styles';
 import { searchSchema } from '@validations';
 import { useCart, useUser } from '@state';
@@ -23,7 +23,7 @@ export const Collapse = () => {
          <NavbarMenuItem className="lg:hidden">
             <Formik initialValues={values} onSubmit={handleSubmit} validationSchema={searchSchema}>
                <Form>
-                  <InputBordered name="query" label="Buscar..." icon={<IoMdSearch />} />
+                  <CustomInputBordered name="query" label="Buscar..." icon={<IoMdSearch />} />
                </Form>
             </Formik>
          </NavbarMenuItem>

@@ -1,7 +1,7 @@
 import { Card, CardBody, Spacer, Skeleton } from "@heroui/react";
 import { useParams } from "react-router-dom";
 import { Form, Formik } from "formik";
-import { Images, Input, Admin, Category, Tags, Textarea, PDF, CustomButton } from "@components";
+import { Images, CustomInput, Admin, Category, Tags, CustomTextarea, PDF, CustomButton } from "@components";
 import { AiFillDelete, AiOutlineSave, BiPencil, AiOutlineSpotify, MdOutlineSubtitles, MdOutlineAttachMoney } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle } from "@styles";
@@ -25,16 +25,16 @@ const UpdateProduct = () => {
                         <Form><GridContainer>
                             <Grid>
                                 <Skeleton isLoaded={!isLoading}>
-                                <Input name="title" label="Titulo" placeholder="Titulo del producto" icon={<MdOutlineSubtitles />} />
+                                    <CustomInput name="title" label="Titulo" placeholder="Titulo del producto" icon={<MdOutlineSubtitles />} />
                                 </Skeleton>
                                 <Skeleton isLoaded={!isLoading}>
-                                <Textarea name="description" label="Descripción" placeholder="Descripcion del producto" />
+                                    <CustomTextarea name="description" label="Descripción" placeholder="Descripcion del producto" />
                                 </Skeleton>
                                 <Skeleton isLoaded={!isLoading}>
-                                    <Input type="number" name="price" label="Precio" placeholder="0.00" icon={<MdOutlineAttachMoney />} />
+                                    <CustomInput type="number" name="price" label="Precio" placeholder="0.00" icon={<MdOutlineAttachMoney />} />
                                 </Skeleton>
                                 <Skeleton isLoaded={!isLoading}>
-                                <Input name="spotify" label="Spotify" placeholder="https://" icon={<AiOutlineSpotify />} />
+                                    <CustomInput name="spotify" label="Spotify" placeholder="https://" icon={<AiOutlineSpotify />} />
                                 </Skeleton>
                                 <Skeleton isLoaded={!isLoading}>
                                     <Tags />

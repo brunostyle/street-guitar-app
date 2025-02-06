@@ -7,7 +7,7 @@ import { Between, Grid, GridContainer, Subtitle, Title, ChipCategory } from "@st
 import { useCart } from "@state";
 import { useGetProduct } from "@hooks";
 import "react-image-gallery/styles/css/image-gallery.css";
-import { CustomButton, CustomLinkButton } from "@components";
+import { CustomButton, CustomButtonLink } from "@components";
 
 const Product = () => {
    const { id } = useParams();
@@ -52,7 +52,7 @@ const Product = () => {
                   </Skeleton>
                   <Spacer y={4} />
                   <Skeleton className="rounded-md" isLoaded={!isLoading}>
-                     <CustomLinkButton to={product?.spotify} isButtonLink variant="solid" color="success" startContent={<FaSpotify size="1.5em" />}>Escuchala en spotify</CustomLinkButton>
+                     <CustomButtonLink to={product?.spotify} isButtonLink variant="solid" color="success" startContent={<FaSpotify size="1.5em" />}>Escuchala en spotify</CustomButtonLink>
                   </Skeleton>
                   <Spacer y={4} />
                   <Skeleton className="rounded-md" isLoaded={!isLoading}>

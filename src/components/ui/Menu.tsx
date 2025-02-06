@@ -1,8 +1,8 @@
-import { Navbar, Dropdown, Spacer, Badge, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem } from '@heroui/react';
+import { Navbar, Dropdown, Spacer, Badge, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem, Button } from '@heroui/react';
 import { useNavigate, Link as NextLink } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import { IoMdSearch, FiShoppingCart, IoIosMusicalNotes, BiFilter, IoSunny, FaMoon } from '@icons'
-import { Collapse, Profile, InputBordered, Logo, Push, CustomButton, CustomIconButton } from '@components';
+import { Collapse, Profile, CustomInputBordered, Logo, Push, CustomButtonIcon } from '@components';
 import { searchSchema } from '@validations';
 import { useCart, useTheme, useUser } from '@state';
 import { Title } from '@styles';
@@ -31,7 +31,7 @@ export const Menu = () => {
             <NavbarItem className="hidden lg:block">
                <Formik initialValues={values} onSubmit={handleSubmit} validationSchema={searchSchema}>
                   <Form>
-                     <InputBordered name="query" label="Buscar..." icon={<IoMdSearch />} />
+                     <CustomInputBordered name="query" label="Buscar..." icon={<IoMdSearch />} />
                   </Form>
                </Formik>
             </NavbarItem>
@@ -39,7 +39,7 @@ export const Menu = () => {
             <NavbarItem>
                <Dropdown>
                   <DropdownTrigger>
-                     <CustomButton variant="light" startContent={<BiFilter />}>Filtrar</CustomButton>
+                     <Button variant="light" size="sm" startContent={<BiFilter />}>Filtrar</Button>
                   </DropdownTrigger>
                   <DropdownMenu variant="bordered" aria-label="filtrado de productos" onAction={category => router('/category/' + category)}>
                      <DropdownSection title="Categorias">
@@ -52,13 +52,13 @@ export const Menu = () => {
             </NavbarItem>
 
             <NavbarItem>
-               {theme === 'light' && <Push><CustomIconButton variant="light" onPress={() => changeTheme('dark')}><FaMoon /></CustomIconButton></Push>}
-               {theme === 'dark' && <Push><CustomIconButton variant="light" onPress={() => changeTheme('light')}><IoSunny /></CustomIconButton></Push>}
+               {theme === 'light' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('dark')}><FaMoon /></CustomButtonIcon></Push>}
+               {theme === 'dark' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('light')}><IoSunny /></CustomButtonIcon></Push>}
             </NavbarItem>
 
             <NavbarItem>
                <Badge isInvisible={items === 0} content={items < 10 ? items : "+9"} showOutline={false} color="primary" size="sm" >
-                  <CustomIconButton variant="light" onPress={() => router('/cart')}><FiShoppingCart /></CustomIconButton>
+                  <CustomButtonIcon variant="light" onPress={() => router('/cart')}><FiShoppingCart /></CustomButtonIcon>
                </Badge>
             </NavbarItem>
 

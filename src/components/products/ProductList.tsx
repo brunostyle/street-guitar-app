@@ -3,7 +3,7 @@ import { useNavigate as useRouter } from 'react-router-dom';
 import { Between, HiddenTitle, Wrap, Title, ChipCategory, HiddenSubtitle } from '@styles';
 import { IProduct } from "@interfaces"
 import { FaSpotify } from '@icons';
-import { CustomLinkButton } from '@components';
+import { CustomButtonLink } from '@components';
 
 interface IProps {
    category: string;
@@ -29,7 +29,7 @@ export const ProductList = ({ category, icon, products }: IProps) => {
                <CardFooter>
                   <Between>
                      <ChipCategory>{product.category}</ChipCategory>
-                     <CustomLinkButton to={product?.spotify} variant="light" color="success"><FaSpotify size="1.6em" /></CustomLinkButton>
+                     <CustomButtonLink to={product?.spotify} variant="light" color="success"><FaSpotify size="1.6em" /></CustomButtonLink>
                   </Between>
                </CardFooter>
             </Card>

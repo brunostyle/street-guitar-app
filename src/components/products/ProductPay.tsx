@@ -2,7 +2,7 @@ import { Spacer, Button, DatePicker } from "@heroui/react"
 import { useState } from "react";
 import { Formik, Form } from "formik"
 import { Between } from "@styles"
-import { Input } from "@components"
+import { CustomInput } from "@components"
 import { AiOutlineCreditCard, BsPaypal, MdClose } from "@icons";
 import { paySchema } from "@validations";
 const initial = { name: '', number: '', expires: '', csc: '' };
@@ -27,13 +27,13 @@ export const ProductPay = () => {
             <Formik initialValues={initial} onSubmit={handleSubmit} validationSchema={paySchema}>
                <Form className="opacity">
                   <Spacer y={2} />
-                  <Input name="name" label="Nombre" />
+                  <CustomInput name="name" label="Nombre" />
                   <Spacer y={2} />
-                  <Input type="number" name="number" label="Numero tarjeta" />
+                  <CustomInput type="number" name="number" label="Numero tarjeta" />
                   <Spacer y={2} />
                   <Between>
                      <DatePicker granularity="day" size="sm" label="Expiracion" labelPlacement="outside" />
-                     <Input type="number" name="csc" label="Nro seguridad" />
+                     <CustomInput type="number" name="csc" label="Nro seguridad" />
                   </Between>
                   <Spacer y={4} />
                   <Button fullWidth size="sm" color="primary" type="submit" startContent={<AiOutlineCreditCard />}>Pagar</Button>

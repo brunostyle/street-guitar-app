@@ -1,6 +1,6 @@
 import { Card, CardBody, Spacer } from "@heroui/react";
 import { Form, Formik } from "formik";
-import { Images, Input, Admin, Category, Tags, Textarea, PDF, CustomButton } from "@components";
+import { Images, CustomInput, Admin, Category, Tags, CustomTextarea, PDF, CustomButton } from "@components";
 import { AiOutlineSave, FaPlus, AiOutlineSpotify, MdOutlineSubtitles, MdOutlineAttachMoney } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle } from "@styles";
@@ -23,10 +23,10 @@ const NewProduct = () => {
                     {form => (
                         <Form><GridContainer>
                             <Grid>
-                                <Input name="title" label="Titulo" placeholder="Titulo del producto" icon={<MdOutlineSubtitles />} />
-                                <Textarea name="description" label="Descripción" placeholder="Descripcion del producto" />
-                                <Input type="number" name="price" label="Precio" placeholder="0.00" icon={<MdOutlineAttachMoney />} />
-                                <Input name="spotify" label="Spotify" placeholder="https://" icon={<AiOutlineSpotify />} />
+                                <CustomInput name="title" label="Titulo" placeholder="Titulo del producto" icon={<MdOutlineSubtitles />} />
+                                <CustomTextarea name="description" label="Descripción" placeholder="Descripcion del producto" />
+                                <CustomInput type="number" name="price" label="Precio" placeholder="0.00" icon={<MdOutlineAttachMoney />} />
+                                <CustomInput name="spotify" label="Spotify" placeholder="https://" icon={<AiOutlineSpotify />} />
                                 <Tags />
                             </Grid>
                             <Grid>

@@ -1,7 +1,7 @@
 import { Spacer } from "@heroui/react"
 import { Link } from "react-router-dom"
 import { Form, Formik } from "formik"
-import { CustomButton, Input, LayoutAuth } from "@components"
+import { CustomButton, CustomInput, LayoutAuth } from "@components"
 import { AiOutlineMail, MdLockOutline, FiUsers } from "@icons";
 import { registerSchema } from "@validations";
 import { IRegister } from "@interfaces";
@@ -19,9 +19,9 @@ const Register = () => {
     <LayoutAuth title="Crea una cuenta" description="o inicia sesión">
       <Formik initialValues={initial} onSubmit={handleSubmit} validationSchema={registerSchema}>
         <Form className="grid gap-4">
-          <Input variant="bordered" name="name" label="Nombre completo" placeholder="nombre" icon={<FiUsers />} />
-          <Input variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<AiOutlineMail />} />
-          <Input variant="bordered" type="password" name="password" label="Contraseña" placeholder="******" icon={<MdLockOutline />} />
+          <CustomInput variant="bordered" name="name" label="Nombre completo" placeholder="nombre" icon={<FiUsers />} />
+          <CustomInput variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<AiOutlineMail />} />
+          <CustomInput variant="bordered" type="password" name="password" label="Contraseña" placeholder="******" icon={<MdLockOutline />} />
           <CustomButton type="submit" color="primary" isLoading={isPending} startContent={!isPending && <AiOutlineMail />}>Crear cuenta</CustomButton>
         </Form>
       </Formik>
