@@ -6,6 +6,7 @@ import { AiOutlineMail, MdLockOutline, FiUsers } from "@icons";
 import { registerSchema } from "@validations";
 import { IRegister } from "@interfaces";
 import { useRegister } from "@hooks";
+import { Between } from "@styles";
 
 const initial: IRegister = { name: '', email: '', password: '' };
 
@@ -25,10 +26,11 @@ const Register = () => {
           <CustomButton type="submit" color="primary" isLoading={isPending} startContent={!isPending && <AiOutlineMail />}>Crear cuenta</CustomButton>
         </Form>
       </Formik>
-      <Spacer y={2} />
-      <div className="flex">
-        <h4>¿Ya tienes cuenta?</h4><Spacer /><Link to="/auth/login" className="text-purple-600">Inicia sesion</Link>
-      </div>
+      <Spacer y={4} />
+      <Between>
+        <h4>¿Ya tienes cuenta?</h4>
+        <Link to="/auth/login" className="text-purple-600">Inicia sesion</Link>
+      </Between>
     </LayoutAuth>
   )
 };

@@ -1,6 +1,6 @@
 import { Avatar, Pagination, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineTags, BiPencil, FaRegEye, MdOutlineImageNotSupported } from "@icons";
+import { BiPencil, FaRegEye, MdOutlineImageNotSupported } from "@icons";
 import { FullScreenLoading, Admin, Nothing, CustomButtonIcon, CustomButtonLink } from "@components";
 import { HiddenTitle, HiddenSubtitle, ChipCategory } from "@styles";
 import { usePaginateProducts } from "@hooks";
@@ -9,7 +9,7 @@ const Products = () => {
    const router = useNavigate();
    const { products = [], isEmpty, isLoading, page, setPage, total } = usePaginateProducts();
    return (
-      <Admin funtional title="Productos" icon={<AiOutlineTags />}>
+      <Admin funtional title="Productos">
          {isLoading
             ? <FullScreenLoading />
             : isEmpty

@@ -9,7 +9,7 @@ export const usePaginateOrders = () => {
    const limit = 10;
    const { data, isLoading } = useQuery({
       queryKey: ["orders", page],
-      queryFn: async () => fetcher({ endpoint: `/orders/?page=${page}&limit=${limit}`, method: 'GET' })
+      queryFn: () => fetcher({ endpoint: `/orders/?page=${page}&limit=${limit}`, method: 'GET' })
    })
    return { orders: data?.orders, isEmpty: data?.orders?.length === 0, isLoading, page, setPage, total: Math.ceil(data?.total / limit) }
 }
@@ -25,7 +25,7 @@ export const useGetOrder = (id: string) => {
 export const useAddOrder = () => {
    const router = useNavigate();
    const { mutate: addOrder, isPending: isAddingOrder } = useMutation({
-      mutationFn: async (order: IOrderCheckout) => fetcherWithToken({ endpoint: '/orders', method: 'POST', data: order }),
+      mutationFn: (order: IOrderCheckout) => fetcherWithToken({ endpoint: '/orders', method: 'POST', data: order }),
       onSuccess: (order) => {
          router('/checkout/' + order?.id);
       }

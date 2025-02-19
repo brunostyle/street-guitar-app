@@ -8,7 +8,7 @@ export const useLogin = () => {
    const router = useNavigate();
    const { login } = useUser();
    return useMutation({
-      mutationFn: async (user: ILogin) => fetcher({ endpoint: '/users/login', method: 'POST', data: user }),
+      mutationFn: (user: ILogin) => fetcher({ endpoint: '/users/login', method: 'POST', data: user }),
       onSuccess: (data) => {
          login(data.user);
          localStorage.setItem('token', data.token);
@@ -21,7 +21,7 @@ export const useRegister = () => {
    const router = useNavigate();
    const { login } = useUser();
    return useMutation({
-      mutationFn: async (user: IRegister) =>  fetcher({ endpoint: '/users/register', method: 'POST', data: user }),
+      mutationFn: (user: IRegister) =>  fetcher({ endpoint: '/users/register', method: 'POST', data: user }),
       onSuccess: (data) => {
          login(data.user);
          localStorage.setItem('token', data.token);
@@ -52,7 +52,7 @@ export const useAddUserImage = ({ user }: { user?: IAuth }) => {
 export const useAuthRenew = () => {
    const { login } = useUser();
    const { mutate: renew } = useMutation({
-      mutationFn: async () => fetcherWithToken({endpoint: '/users/auth/renew', method: 'GET'}),
+      mutationFn: () => fetcherWithToken({endpoint: '/users/auth/renew', method: 'GET'}),
       onSuccess: (data) => {
          login(data.user);
          localStorage.setItem('token', data.token);

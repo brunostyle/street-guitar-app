@@ -1,13 +1,12 @@
 import { Avatar, Pagination, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/react";
 import { FullScreenLoading, Admin, Nothing } from "@components";
-import { FiUsers } from "@icons";
 import { HiddenTitle, HiddenSubtitle, ChipUser } from "@styles";
 import { usePaginateUsers } from "@hooks";
 
 const Users = () => {
    const { users = [], isEmpty, isLoading, page, setPage, total } = usePaginateUsers();
    return (
-      <Admin showTitle={!isEmpty} title="Usuarios" icon={<FiUsers />}>
+      <Admin showTitle={!isEmpty} title="Usuarios">
          {isLoading
             ? <FullScreenLoading />
             : isEmpty

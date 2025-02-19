@@ -9,7 +9,7 @@ import { notify } from "@components";
 export const useProducts = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["products"],
-    queryFn: async () => fetcher({ endpoint: '/products', method: 'GET' })
+    queryFn: () => fetcher({ endpoint: '/products', method: 'GET' })
   })
   return { products: data?.products, isEmpty: data?.products?.length === 0, isLoading }
 }
@@ -19,7 +19,7 @@ export const usePaginateProducts = () => {
   const limit = 10;
   const { data, isLoading } = useQuery({
     queryKey: ["products", page],
-    queryFn: async () => fetcher({ endpoint: `/products/?page=${page}&limit=${limit}`, method: 'GET' })
+    queryFn: () => fetcher({ endpoint: `/products/?page=${page}&limit=${limit}`, method: 'GET' })
   })
   return { products: data?.products, isEmpty: data?.products?.length === 0, isLoading, page, setPage, total: Math.ceil(data?.total / limit) }
 }
@@ -43,7 +43,7 @@ export const useGetCategory = (category: string) => {
 export const useGetProductsQuery = (query: string): { products?: IProduct[], isEmpty: boolean, isLoading: boolean } => {
   const { data: products, isLoading } = useQuery({
     queryKey: ["products", query],
-    queryFn: async (): Promise<IProduct[]> => fetcher({ endpoint: '/products/query/' + query, method: 'GET' })
+    queryFn: (): Promise<IProduct[]> => fetcher({ endpoint: '/products/query/' + query, method: 'GET' })
   })
   return { products, isLoading, isEmpty: products?.length === 0 }
 }
@@ -51,7 +51,7 @@ export const useGetProductsQuery = (query: string): { products?: IProduct[], isE
 export const useAddProduct = () => {
   const router = useNavigate();
   const { mutate: addProduct, isPending: isAdding } = useMutation({
-    mutationFn: async (product: IProduct) => fetcherWithToken({ endpoint: '/products', method: 'POST', data: product }),
+    mutationFn: (product: IProduct) => fetcherWithToken({ endpoint: '/products', method: 'POST', data: product }),
     onSuccess: () => {
       notify.success('Producto añadido')
       router('/admin/products')
@@ -63,7 +63,7 @@ export const useAddProduct = () => {
 export const useUpdateProduct = () => {
   const router = useNavigate();
   const { mutate: updateProduct, isPending: isUpdating } = useMutation({
-    mutationFn: async (product: IProduct) => fetcherWithToken({ endpoint: '/products/' + product.id, method: 'PUT', data: product }),
+    mutationFn: (product: IProduct) => fetcherWithToken({ endpoint: '/products/' + product.id, method: 'PUT', data: product }),
     onSuccess: () => {
       notify.success('Producto actualizado')
       router('/admin/products')

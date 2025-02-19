@@ -8,10 +8,10 @@ interface IInput {
    type?: 'text' | 'password' | 'number';
    isDisabled?: boolean;
    placeholder?: string;
-   variant?: 'default' | 'bordered';
+   variant?: 'flat' | 'bordered' | 'underlined' | 'faded';
 }
 
-export const CustomInput = ({ name, label, icon, type = 'text', isDisabled = false, placeholder, variant = 'default' }: IInput) => {
+export const CustomInput = ({ name, label, icon, type = 'text', isDisabled = false, placeholder, variant = 'flat' }: IInput) => {
    const [_field, meta] = useField(name);
    return (
       <Field
@@ -20,9 +20,9 @@ export const CustomInput = ({ name, label, icon, type = 'text', isDisabled = fal
          type={type}
          isDisabled={isDisabled}
          variant={variant}
+         label={label}
          labelPlacement="outside"
          placeholder={placeholder}
-         label={label}
          autoComplete="off"
          size="sm"
          fullWidth

@@ -2,7 +2,7 @@ import { Card, CardBody, Spacer, Skeleton } from "@heroui/react";
 import { useParams } from "react-router-dom";
 import { Form, Formik } from "formik";
 import { Images, CustomInput, Admin, Category, Tags, CustomTextarea, PDF, CustomButton } from "@components";
-import { AiFillDelete, AiOutlineSave, BiPencil, AiOutlineSpotify, MdOutlineSubtitles, MdOutlineAttachMoney } from "@icons";
+import { AiFillDelete, AiOutlineSave, AiOutlineSpotify, MdOutlineSubtitles, MdOutlineAttachMoney } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle } from "@styles";
 import { useDeleteProduct, useGetProduct, useUpdateProduct } from "@hooks";
@@ -16,7 +16,7 @@ const UpdateProduct = () => {
     const handleSubmit = (values: any) => updateProduct({ ...values, id })
 
     return (
-        <Admin isProductPage title="Actualizar" icon={<BiPencil />}>
+        <Admin isProductPage title="Actualizar">
             <SectionTitle>Actualizar un producto</SectionTitle>
             <Spacer y={4} />
             <Card><CardBody>

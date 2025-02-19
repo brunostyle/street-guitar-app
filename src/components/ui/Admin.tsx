@@ -1,25 +1,24 @@
 import { BreadcrumbItem, Breadcrumbs, Input, Spacer } from '@heroui/react';
 import { useNavigate } from 'react-router-dom';
 import { Between, SectionTitle } from '@styles';
-import { AiOutlineHome, AiOutlineTags, FaPlus, IoMdSearch } from "@icons";
+import { FaPlus, IoMdSearch } from "@icons";
 import { CustomButton } from "@components";
 
 interface ILayout {
     children: JSX.Element | JSX.Element[];
     title: string;
-    icon?: JSX.Element;
     showTitle?: boolean;
     funtional?: boolean;
     isProductPage?: boolean;
 }
 
-export const Admin = ({ children, title, icon, showTitle = false, funtional = false, isProductPage }: ILayout) => {
+export const Admin = ({ children, title, showTitle = false, funtional = false, isProductPage }: ILayout) => {
     const router = useNavigate();
     return <>
-        <Breadcrumbs separator="/">
-            <BreadcrumbItem onPress={() => router('/')} startContent={<AiOutlineHome />}>Home</BreadcrumbItem>
-            {isProductPage && <BreadcrumbItem onPress={() => router('/admin/products')} startContent={<AiOutlineTags />}>Productos</BreadcrumbItem>}
-            <BreadcrumbItem startContent={icon}>{title}</BreadcrumbItem>
+        <Breadcrumbs>
+            <BreadcrumbItem onPress={() => router('/')}>Home</BreadcrumbItem>
+            {isProductPage && <BreadcrumbItem onPress={() => router('/admin/products')}>Productos</BreadcrumbItem>}
+            <BreadcrumbItem>{title}</BreadcrumbItem>
         </Breadcrumbs>
         {funtional &&
             <div>

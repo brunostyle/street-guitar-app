@@ -7,6 +7,7 @@ import { AiOutlineMail, FcGoogle, MdLockOutline } from "@icons";
 import { loginSchema } from "@validations"
 import { ILogin } from "@interfaces"
 import { useLogin } from "@hooks";
+import { Between } from "@styles";
 
 const storage = 'login-street-guitar';
 
@@ -40,10 +41,11 @@ const Login = () => {
           <CustomButton variant="bordered" startContent={<FcGoogle />}>Continuar con Google</CustomButton>
         </Form>
       </Formik>
-      <Spacer y={2} />
-      <div className="flex">
-        <h4>¿No tienes cuenta?</h4><Spacer /><Link to="/auth/register" className="text-purple-600">Registrate</Link>
-      </div>
+      <Spacer y={4} />
+      <Between>
+        <h4>¿No tienes cuenta?</h4>
+        <Link to="/auth/register" className="text-purple-600">Registrate</Link>
+      </Between>
     </LayoutAuth>
   )
 };

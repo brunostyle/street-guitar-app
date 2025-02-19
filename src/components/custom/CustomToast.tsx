@@ -1,32 +1,30 @@
-import { Toaster, toast } from 'react-hot-toast';
-import { useTheme } from '@state';
-import { MdClose, FaCheck } from "@icons";
+import { ToastProvider, addToast } from '@heroui/react';
 
-const styleDark: React.CSSProperties = {
-   background: '#09090b',
-   color: '#fff',
-};
-
-export const CustomToast = () => {
-   const { theme } = useTheme();
-   return (
-      <Toaster
-         toastOptions={{
-            style: theme === 'light' ? undefined : styleDark,
-            duration: 5000,
-            position: 'bottom-right'
-         }}
-      />
-   )
-}
+export const CustomToast = () => (
+   <ToastProvider
+      placement="bottom-right"
+      toastProps={{
+         timeout: 4000,
+         variant: 'bordered'
+      }}
+   />
+)
 
 export const notify = {
-   error: (message: string) => toast.error(message, {
-      icon: <MdClose color="red" />,
-      className: 'dark:border-y dark:border-zinc-900'
+   error: (message: string) => addToast({
+      title: 'Ocurrió un error.',
+      description: message,
+      color: 'danger',
+      classNames: {
+         icon: "text-red-500",
+      }
    }),
-   success: (message: string) => toast.success(message, {
-      icon: <FaCheck color="green" />,
-      className: 'dark:border-y dark:border-zinc-900'
-   }),
+   success: (message: string) => addToast({
+      title: '¡Éxito!',
+      description: message,
+      color: 'success',
+      classNames: {
+         icon: "text-green-500",
+      }
+   })
 }
