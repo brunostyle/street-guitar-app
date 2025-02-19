@@ -19,7 +19,7 @@ export const Profile = () => {
 
     const handleSubmit = (data: any, helpers: FormikHelpers<any>) => {
         const noEmptyFields = Object.fromEntries(
-            Object.entries(data).filter(value => value.at(1))
+            Object.entries(data).filter(value => value[1])
         );
         if (Object.keys(noEmptyFields).length === 0) return;
         updateUser({ id: user?.id, data: noEmptyFields }, {
