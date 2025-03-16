@@ -5,7 +5,7 @@ export const CustomToast = () => (
    <ToastProvider
       placement="bottom-right"
       toastProps={{
-         timeout: 14000,
+         timeout: 4000,
          shouldShowTimeoutProgress: true,
          variant: 'flat'
       }}
