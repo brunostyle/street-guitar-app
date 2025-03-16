@@ -3,6 +3,6 @@ import { Center } from "@styles";
 
 export const FullScreenLoading = () => (
    <Center>
-      <Spinner />
+      <Spinner variant="spinner" />
    </Center>
 )

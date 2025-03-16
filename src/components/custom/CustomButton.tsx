@@ -1,4 +1,4 @@
-import { Button } from "@heroui/react";
+import { Button, Spinner } from "@heroui/react";
 import { ReactNode } from "react";
 
 interface IButton {
@@ -19,6 +19,7 @@ export const CustomButton = ({ children, onPress, className, type = 'button', si
     <Button
         fullWidth={fullWidth}
         isLoading={isLoading}
+        spinner={<Spinner variant="spinner" color="white" size="sm" />}
         isDisabled={isDisabled}
         className={className}
         type={type}

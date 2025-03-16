@@ -23,7 +23,7 @@ const Product = () => {
          <GridContainer>
             <Grid>
                {isLoading
-                  ? <div className="grid place-content-center h-[500px]"><Spinner /></div>
+                  ? <div className="grid place-content-center h-[500px]"><Spinner variant="spinner" /></div>
                   : <ImageGallery showThumbnails showPlayButton={false} showFullscreenButton={false} items={images} additionalClass="opacity-slow min-h-[500px]" />
                }
             </Grid>
@@ -32,8 +32,7 @@ const Product = () => {
                   <Skeleton className="rounded-md" isLoaded={!isLoading}>
                      <Title>{product?.title}.</Title>
                   </Skeleton>
-                  <Divider />
-                  <Spacer y={4} />
+                  <Divider className="my-4" />
                   <Between>
                      <Skeleton className="rounded-md min-w-10" isLoaded={!isLoading}>
                         <Title>${product?.price}</Title>

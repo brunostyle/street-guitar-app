@@ -21,7 +21,7 @@
 
 .table th {
   background-color: transparent;
-  border-bottom: 1px solid hsl(var(--nextui-divider) / var(--nextui-divider-opacity, var(--tw-border-opacity)));
+  border-bottom: 1px solid hsl(var(--heroui-divider) / var(--heroui-divider-opacity, var(--tw-border-opacity)));
 }
 
 .opacity {

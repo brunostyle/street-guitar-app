@@ -9,7 +9,7 @@ const Home = () => {
 		<section>
 			<Banner />
 			{isLoading
-				? <Spinner className="flex justify-center" /> 
+				? <Spinner variant="spinner" className="flex justify-center mb-80" /> 
 				: <ProductList category="Todos los productos" icon={<BiGridAlt />} products={products ?? []} />
 			}
 		</section>

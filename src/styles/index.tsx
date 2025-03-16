@@ -1,17 +1,18 @@
 import { Chip as ChipNext } from "@heroui/react";
 import { useTheme } from "@state";
 import { categories, roles } from "@interfaces";
+import { MdLockOutline, IoIosMusicalNotes } from "@icons";
 
 interface Props {
   children: React.ReactNode;
 }
 
 export const ChipCategory = ({ children }: { children: string }) => (
-  <ChipNext size="sm" variant="flat" color={categories[children]}>{children}</ChipNext>
+  <ChipNext className="gap-1" startContent={<IoIosMusicalNotes />} size="sm" variant="flat" color={categories[children]}>{children}</ChipNext>
 )
 
 export const ChipUser = ({ children }: { children: string }) => (
-  <ChipNext size="sm" variant="flat" color={roles[children]}>{children}</ChipNext>
+  <ChipNext className="gap-1" startContent={<MdLockOutline />} size="sm" variant="flat" color={roles[children]}>{children}</ChipNext>
 )
 
 export const Wrap = ({ children }: Props) => (
@@ -81,6 +82,6 @@ export const Gradient = ({ children }: Props) => {
     background: theme === 'light' ?
       'radial-gradient(circle, rgba(228, 206, 248,1) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 0%)'
       :
-      'radial-gradient(circle, rgba(9,9,71,9) 0%, rgba(0,0,0,1) 40%, rgba(0,0,0,1) 100%)'
+      'radial-gradient(circle, rgba(9,9,50,9) 0%, rgba(0,0,0,1) 40%, rgba(0,0,0,1) 100%)'
   }}>{children}</div>
 }

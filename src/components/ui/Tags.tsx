@@ -2,7 +2,7 @@ import { Chip } from "@heroui/react";
 import { useState } from "react";
 import { useField } from "formik";
 import { CustomButtonIcon, CustomInputTags } from "@components";
-import { GrAdd } from "@icons";
+import { AiOutlineTags, GrAdd } from "@icons";
 
 export const Tags = () => {
    const [field, _meta, helpers] = useField('tags');
@@ -27,7 +27,7 @@ export const Tags = () => {
          }/>
          <div className="flex gap-1 mt-4">
             {field.value && field.value.map((tag: string) => (
-               <Chip key={tag} color="primary" size="sm" variant="flat" onClose={() => removeTag(tag)}>{tag}</Chip>
+               <Chip key={tag} color="primary" size="sm" variant="flat" onClose={() => removeTag(tag)} className="gap-1" startContent={<AiOutlineTags />}>{tag}</Chip>
             ))}
          </div>
       </div>

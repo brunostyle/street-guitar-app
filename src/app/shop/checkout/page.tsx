@@ -23,7 +23,7 @@ const Checkout = () => {
                </Grid>
                <Grid>
                   <ProductOrder total={total} items={items} />
-                  <Alert className="max-h-max" isVisible={!isLoading} isClosable title="Disfruta las tablaturas!!!" description="Son completamente gratis" icon={<FaGuitar />} />
+                  <Alert className="max-h-max" isVisible={!isLoading} title="Disfruta las tablaturas!!!" description="Son completamente gratis" icon={<FaGuitar />} />
                </Grid>
             </GridContainer>
          }

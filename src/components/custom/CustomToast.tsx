@@ -1,11 +1,13 @@
 import { ToastProvider, addToast } from '@heroui/react';
+import { MdClose, FaCheck } from '@icons';
 
 export const CustomToast = () => (
    <ToastProvider
       placement="bottom-right"
       toastProps={{
-         timeout: 4000,
-         variant: 'bordered'
+         timeout: 14000,
+         shouldShowTimeoutProgress: true,
+         variant: 'flat'
       }}
    />
 )
@@ -14,17 +16,17 @@ export const notify = {
    error: (message: string) => addToast({
       title: 'Ocurrió un error.',
       description: message,
-      color: 'danger',
+      icon: <MdClose />,
       classNames: {
-         icon: "text-red-500",
+         icon: "size-6 text-red-500",
       }
    }),
    success: (message: string) => addToast({
       title: '¡Éxito!',
       description: message,
-      color: 'success',
+      icon: <FaCheck />,
       classNames: {
-         icon: "text-green-500",
+         icon: "size-4 text-green-500",
       }
    })
 }

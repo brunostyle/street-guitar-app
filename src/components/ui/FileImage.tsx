@@ -24,7 +24,7 @@ export const FileImage = () => {
             <Avatar isBordered showFallback color="primary" name={user?.name.charAt(0).toUpperCase()} src={user?.avatar} className="w-32 h-32 text-2xl" />
             <input type="file" id="file-input" style={{ display: 'none' }} onChange={handleFileChange} />
             <Button onPress={handleClick} isIconOnly size="sm" color="primary" radius="full" className="absolute bottom-0 right-1/3 border-small border-foreground-50">
-                {isAdding ? <Spinner size="sm" color="white" /> : <MdOutlineCameraAlt />}
+                {isAdding ? <Spinner size="sm" color="white" variant="spinner" /> : <MdOutlineCameraAlt />}
             </Button>
         </div>
     );

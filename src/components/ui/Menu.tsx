@@ -57,7 +57,7 @@ export const Menu = () => {
             </NavbarItem>
 
             <NavbarItem>
-               <Badge isInvisible={items === 0} content={items < 10 ? items : "+9"} showOutline={false} color="primary" size="sm" >
+               <Badge isInvisible={items === 0} content={items < 10 ? items : "+9"} showOutline={false} color="primary" size="sm" shape="circle">
                   <CustomButtonIcon variant="light" onPress={() => router('/cart')}><FiShoppingCart /></CustomButtonIcon>
                </Badge>
             </NavbarItem>
