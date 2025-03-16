@@ -34,3 +34,4 @@ export * from './products/ProductCard';
 export * from './products/ProductList';
 export * from './products/ProductOrder';
 export * from './products/ProductPay';
+export * from './products/ProductSkeleton';
