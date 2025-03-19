@@ -17,7 +17,7 @@ const Register = () => {
   }
 
   return (
-    <LayoutAuth title="Crea una cuenta" description="o inicia sesión">
+    <LayoutAuth title="Crea una cuenta">
       <Formik initialValues={initial} onSubmit={handleSubmit} validationSchema={registerSchema}>
         <Form className="grid gap-4">
           <CustomInput variant="bordered" name="name" label="Nombre completo" placeholder="nombre" icon={<FiUsers />} />

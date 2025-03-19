@@ -31,7 +31,7 @@ const Login = () => {
   }
 
   return (
-    <LayoutAuth title="Inicia Sesión" description="o crea una cuenta">
+    <LayoutAuth title="Inicia Sesión">
       <Formik enableReinitialize initialValues={initial} onSubmit={handleSubmit} validationSchema={loginSchema}>
         <Form className="grid gap-4">
           <CustomInput variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<AiOutlineMail />} />

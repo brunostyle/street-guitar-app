@@ -23,7 +23,7 @@ export const Menu = () => {
       <Navbar isBordered maxWidth="full">
          <NavbarBrand>
             <NextLink to="/"><Logo /></NextLink>
-            <Spacer x={2} />
+            <Spacer x={3} />
             <Title>Street Guitar</Title>
          </NavbarBrand>
 

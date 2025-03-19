@@ -14,6 +14,7 @@ export const CustomTextarea = ({ name, label, placeholder }: ITextarea) => (
 		labelPlacement="outside"
       	label={label} 
 		placeholder={placeholder}
+		size="sm"
 		fullWidth
 		isInvalid={<ErrorMessage name={name} />}
       	errorMessage={<ErrorMessage name={name} />}

@@ -9,12 +9,12 @@ export const Banner = () => (
          <div className="flex flex-col gap-4 mb-48">
             <h1 className="text-5xl leading-snug font-bold">
                Encontra las mejores tablaturas en
-               <span className="bg-gradient-to-bl from-blue-400 to-blue-950  bg-clip-text text-transparent leading-normal"> Street Guitar </span>
+               <span className="drop-shadow-[0_0_1px_#006FEE] bg-gradient-to-bl from-blue-400 to-blue-950  bg-clip-text text-transparent leading-normal"> Street Guitar </span>
                y aprende de forma rápida
             </h1>
             <Subtitle>Tablaturas gratis, tracks, covers, etc</Subtitle>
             <div className="flex gap-4">
-               <CustomButton color="primary" startContent={<FaFacebookF />}>Facebook</CustomButton>
+               <CustomButton color="primary" variant="flat" startContent={<FaFacebookF />}>Facebook</CustomButton>
                <CustomButton color="primary" variant="bordered" startContent={<BsInstagram />}>Instagram</CustomButton>
             </div>
          </div>
