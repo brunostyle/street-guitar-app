@@ -5,7 +5,7 @@ import { CustomButton, Push } from "@components";
 
 export const Banner = () => (
    <Gradient>
-      <div className="grid gap-4 md:grid-cols-2 min-h-screen items-center ">
+      <div className="grid gap-4 md:grid-cols-2 min-h-screen items-center">
          <div className="flex flex-col gap-4 mb-48">
             <h1 className="text-5xl leading-snug font-bold">
                Encontra las mejores tablaturas en

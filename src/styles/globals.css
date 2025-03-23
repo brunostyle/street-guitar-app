@@ -54,6 +54,10 @@
   }
 }
 
+.chart svg {
+  display: none;
+}
+
 .wrap {
   display: grid;
   gap: 1rem;

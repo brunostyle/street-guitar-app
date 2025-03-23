@@ -8,7 +8,7 @@ export * from './custom/CustomTextarea';
 export * from './custom/CustomToast';
 export * from './ui/Admin';
 export * from './ui/Banner';
-export * from './ui/Chart';
+export * from './ui/ChartArea';
 export * from './ui/Collapse';
 export * from './ui/DashboardCards';
 export * from './ui/File';
