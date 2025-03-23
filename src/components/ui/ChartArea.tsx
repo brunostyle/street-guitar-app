@@ -38,6 +38,8 @@ export const ChartArea = ({ data }: ChartComponentProps) => {
             },
             width: chartContainerRef.current.clientWidth,
             height: 400,
+            handleScale: false,
+            handleScroll: false,
         });
 
         const newAreaSeries = newChart.addSeries(AreaSeries, {
