@@ -4,7 +4,7 @@ import { Formik, Form } from 'formik'
 import { IoMdSearch, FiShoppingCart, IoIosMusicalNotes, BiFilter, IoSunny, FaMoon } from '@icons'
 import { Collapse, Profile, CustomInputBordered, Logo, Push, CustomButtonIcon } from '@components';
 import { searchSchema } from '@validations';
-import { useCart, useTheme, useUser } from '@state';
+import { useCart, useTheme } from '@state';
 import { Title } from '@styles';
 
 interface ISearch { query: string }
@@ -14,7 +14,7 @@ export const Menu = () => {
    const router = useNavigate();
    const { theme, changeTheme } = useTheme();
    const { items } = useCart();
-   const { isLogged } = useUser();
+   const token = localStorage.getItem('token');
    const handleSubmit = ({ query }: ISearch) => {
       router('/search/' + query);
    }
@@ -63,7 +63,7 @@ export const Menu = () => {
             </NavbarItem>
 
             <NavbarItem>
-               {isLogged && <Profile />}
+               {token && <Profile />}
             </NavbarItem>
 
             <NavbarMenuToggle />

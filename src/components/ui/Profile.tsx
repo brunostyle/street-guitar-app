@@ -1,4 +1,4 @@
-import { Avatar, Drawer, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Divider, Spacer, Progress, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@heroui/react';
+import { Avatar, Drawer, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Divider, Spacer, Progress, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Skeleton } from '@heroui/react';
 import { HiddenTitle, HiddenSubtitle, Between } from '@styles';
 import { CustomInput, FileImage, CustomButtonIcon, CustomButton } from '@components';
 import { AiFillDelete, FiUsers, AiOutlineMail, MdLockOutline, BiPencil, AiOutlineSave, MdClose } from '@icons';
@@ -14,7 +14,7 @@ export const Profile = () => {
     const [isEdit, setEdit] = useState(false);
     const { updateUser, isUpdating } = useUpdateUser();
     const { deleteUser, isDeleting } = useDeleteUser();
-    const { user } = useUser();
+    const { isLogged, user } = useUser();
     const initial = { name: '', email: '', password: '' };
 
     const handleSubmit = (data: any, helpers: FormikHelpers<any>) => {
@@ -37,7 +37,9 @@ export const Profile = () => {
 
     return <>
         <CustomButtonIcon variant="light" onPress={onOpen}>
-            <Avatar size="sm" color="primary" showFallback name={user?.name.charAt(0).toUpperCase()} src={user?.avatar} />
+            <Skeleton isLoaded={isLogged} className="rounded-large">
+                <Avatar size="sm" color="primary" showFallback name={user?.name.charAt(0).toUpperCase()} src={user?.avatar} />
+            </Skeleton>
         </CustomButtonIcon>
         <Drawer hideCloseButton isOpen={isOpen} onOpenChange={onOpenChange} size="sm" placement="left" radius="none">
             <DrawerContent>
