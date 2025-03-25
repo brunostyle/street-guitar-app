@@ -4,12 +4,14 @@ import { Collapse, Logo, Push, Profile, CustomButtonIcon } from '@components';
 import { useTheme, useUser } from '@state';
 import { Title } from '@styles';
 import { FaMoon, IoSunny } from '@icons';
+import { useState } from 'react';
 
 export const MenuAdmin = () => {
+   const [isMenuOpen, setIsMenuOpen] = useState(false);
    const { isLogged } = useUser();
    const { theme, changeTheme } = useTheme();
    return (
-      <Navbar isBordered maxWidth="full">
+      <Navbar isBordered maxWidth="full" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
          <NavbarBrand>
             <NextLink to="/"><Logo /></NextLink>
             <Spacer x={3} />
@@ -26,7 +28,7 @@ export const MenuAdmin = () => {
             </NavbarItem>
             <NavbarMenuToggle />
          </NavbarContent>
-         <Collapse />
+         <Collapse setIsMenuOpen={setIsMenuOpen} />
       </Navbar>
    )
 };

@@ -6,12 +6,14 @@ import { Collapse, Profile, CustomInputBordered, Logo, Push, CustomButtonIcon } 
 import { searchSchema } from '@validations';
 import { useCart, useTheme } from '@state';
 import { Title } from '@styles';
+import { useState } from 'react';
 
 interface ISearch { query: string }
 const values: ISearch = { query: '' }
 
 export const Menu = () => {
    const router = useNavigate();
+   const [isMenuOpen, setIsMenuOpen] = useState(false);
    const { theme, changeTheme } = useTheme();
    const { items } = useCart();
    const token = localStorage.getItem('token');
@@ -20,7 +22,7 @@ export const Menu = () => {
    }
 
    return (
-      <Navbar isBordered maxWidth="full">
+      <Navbar isBordered maxWidth="full" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
          <NavbarBrand>
             <NextLink to="/"><Logo /></NextLink>
             <Spacer x={3} />
@@ -68,7 +70,7 @@ export const Menu = () => {
 
             <NavbarMenuToggle />
          </NavbarContent>
-         <Collapse />
+         <Collapse setIsMenuOpen={setIsMenuOpen} />
       </Navbar>
    )
 };
