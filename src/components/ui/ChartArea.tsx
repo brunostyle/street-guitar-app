@@ -1,18 +1,18 @@
 import { createChart, ColorType, AreaSeries } from 'lightweight-charts';
-import { Card } from '@heroui/react';
+import { Card, CardBody } from '@heroui/react';
 import { useEffect, useRef } from 'react';
 import { useTheme } from '@state';
 
 const themes = {
     dark: {
-        layout: { background: { color: '#000000' }, textColor: '#c1c1c1' },
-        grid: { vertLines: { color: '#001111' }, horzLines: { color: '#001111' } },
-        areaStyles: { topColor: '#4B0082', bottomColor: '#000000', lineColor: '#8A2BE2' }
+        layout: { background: { color: '#09090b' }, textColor: '#857575' },
+        grid: { vertLines: { color: '#001111' }, horzLines: { color: '#001111' }, border: { color: '#141414' } },
+        areaStyles: { topColor: '#4B0082', bottomColor: '#09090b', lineColor: '#004493' }
     },
     light: {
         layout: { background: { color: '#FFFFFF' }, textColor: '#141414' },
-        grid: { vertLines: { color: '#E6E6E6' }, horzLines: { color: '#E6E6E6' } },
-        areaStyles: { topColor: '#4B0082', bottomColor: '#ffffff', lineColor: '#8A2BE2' }
+        grid: { vertLines: { color: '#E6E6E6' }, horzLines: { color: '#E6E6E6' }, border: { color: '#c1c1c1' }  },
+        areaStyles: { topColor: '#4B0082', bottomColor: '#ffffff', lineColor: '#004493' }
     }
 };
 
@@ -40,6 +40,12 @@ export const ChartArea = ({ data }: ChartComponentProps) => {
             height: 400,
             handleScale: false,
             handleScroll: false,
+            timeScale: {
+                borderColor: themes[theme].grid.border.color,
+            },
+            rightPriceScale: {
+                borderColor: themes[theme].grid.border.color,
+            }
         });
 
         const newAreaSeries = newChart.addSeries(AreaSeries, {
@@ -68,7 +74,9 @@ export const ChartArea = ({ data }: ChartComponentProps) => {
 
     return (
         <Card>
-            <div className="chart" ref={chartContainerRef} />
+            <CardBody>
+                <div className="chart" ref={chartContainerRef} />
+            </CardBody>
         </Card>
     );
 };
