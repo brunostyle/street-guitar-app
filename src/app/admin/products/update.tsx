@@ -2,7 +2,7 @@ import { Card, CardBody, Spacer, Skeleton } from "@heroui/react";
 import { useParams } from "react-router-dom";
 import { Form, Formik } from "formik";
 import { Images, CustomInput, Admin, Category, Tags, CustomTextarea, PDF, CustomButton } from "@components";
-import { AiFillDelete, AiOutlineSave, AiOutlineSpotify, MdOutlineSubtitles, MdOutlineAttachMoney } from "@icons";
+import { IoTrashOutline, IoSaveOutline, FaSpotify, IoCodeOutline, IoLogoUsd } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle } from "@styles";
 import { useDeleteProduct, useGetProduct, useUpdateProduct } from "@hooks";
@@ -25,16 +25,16 @@ const UpdateProduct = () => {
                         <Form><GridContainer>
                             <Grid>
                                 <Skeleton isLoaded={!isLoading}>
-                                    <CustomInput name="title" label="Titulo" placeholder="Titulo del producto" icon={<MdOutlineSubtitles />} />
+                                    <CustomInput name="title" label="Titulo" placeholder="Titulo del producto" icon={<IoCodeOutline />} />
                                 </Skeleton>
                                 <Skeleton isLoaded={!isLoading}>
                                     <CustomTextarea name="description" label="Descripción" placeholder="Descripcion del producto" />
                                 </Skeleton>
                                 <Skeleton isLoaded={!isLoading}>
-                                    <CustomInput type="number" name="price" label="Precio" placeholder="0.00" icon={<MdOutlineAttachMoney />} />
+                                    <CustomInput type="number" name="price" label="Precio" placeholder="0.00" icon={<IoLogoUsd />} />
                                 </Skeleton>
                                 <Skeleton isLoaded={!isLoading}>
-                                    <CustomInput name="spotify" label="Spotify" placeholder="https://" icon={<AiOutlineSpotify />} />
+                                    <CustomInput name="spotify" label="Spotify" placeholder="https://" icon={<FaSpotify />} />
                                 </Skeleton>
                                 <Skeleton isLoaded={!isLoading}>
                                     <Tags />
@@ -48,8 +48,8 @@ const UpdateProduct = () => {
                                     <PDF />
                                 </Skeleton>
                                 <Images />
-                                <CustomButton variant="bordered" isLoading={isDeleting} startContent={!isDeleting && <AiFillDelete />} onPress={() => deleteProduct(String(id))}>Eliminar</CustomButton>
-                                <CustomButton variant="bordered" isLoading={isUpdating} startContent={!isUpdating && <AiOutlineSave />} onPress={() => form.handleSubmit()}>Actualizar</CustomButton>
+                                <CustomButton variant="bordered" isLoading={isDeleting} startContent={!isDeleting && <IoTrashOutline />} onPress={() => deleteProduct(String(id))}>Eliminar</CustomButton>
+                                <CustomButton variant="bordered" isLoading={isUpdating} startContent={!isUpdating && <IoSaveOutline />} onPress={() => form.handleSubmit()}>Actualizar</CustomButton>
                             </Grid>
                         </GridContainer></Form>
                     )}

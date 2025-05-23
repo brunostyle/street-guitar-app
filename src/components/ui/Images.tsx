@@ -2,7 +2,7 @@ import { Badge, Image, Progress } from "@heroui/react";
 import { ChangeEvent } from "react";
 import { useParams } from "react-router-dom";
 import { useField } from "formik";
-import { MdClose } from "@icons";
+import { IoCloseOutline  } from "@icons";
 import { useAddImage, useDeleteImage } from "@hooks";
 import { File, notify } from "@components";
 import { fetcherWithToken } from "@fetch";
@@ -43,7 +43,7 @@ export const Images = () => {
    return (
       <div className="flex gap-2 justify-evenly flex-wrap">
          {field.value && field.value.map((img: string) => (
-            <Badge key={img} content={<MdClose />} onClick={() => handleDelete(img)} color="primary" variant="shadow" isOneChar showOutline={false} className="cursor-pointer">
+            <Badge key={img} content={<IoCloseOutline  />} onClick={() => handleDelete(img)} color="primary" variant="shadow" isOneChar showOutline={false} className="cursor-pointer">
                <Image src={img} width="120px" height="120px" className="object-cover" />
             </Badge>
          ))}

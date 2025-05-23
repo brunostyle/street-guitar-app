@@ -1,7 +1,7 @@
 import { Avatar, Drawer, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Divider, Spacer, Progress, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Skeleton } from '@heroui/react';
 import { HiddenTitle, HiddenSubtitle, Between } from '@styles';
 import { CustomInput, FileImage, CustomButtonIcon, CustomButton } from '@components';
-import { AiFillDelete, FiUsers, AiOutlineMail, MdLockOutline, BiPencil, AiOutlineSave, MdClose } from '@icons';
+import { IoTrashOutline, IoPersonOutline, IoMailOutline, IoLockClosedOutline, IoPencil, IoSaveOutline, IoCloseOutline } from '@icons';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { useUser } from '@state';
 import { useState } from 'react';
@@ -50,8 +50,8 @@ export const Profile = () => {
                             <HiddenSubtitle>Editar informacion</HiddenSubtitle>
                         </div>
                         <div className="flex gap-2">
-                            {isEdit && <CustomButtonIcon onPress={onOpenModal}><AiFillDelete /></CustomButtonIcon>}
-                            <CustomButtonIcon onPress={() => setEdit(!isEdit)}><BiPencil /></CustomButtonIcon>
+                            {isEdit && <CustomButtonIcon onPress={onOpenModal}><IoTrashOutline /></CustomButtonIcon>}
+                            <CustomButtonIcon onPress={() => setEdit(!isEdit)}><IoPencil /></CustomButtonIcon>
                         </div>
                     </Between>
                 </DrawerHeader>
@@ -60,11 +60,11 @@ export const Profile = () => {
                     <FileImage />
                     <Formik enableReinitialize initialValues={initial} onSubmit={handleSubmit} validationSchema={userSchema}>
                         <Form className="grid gap-4">
-                            <CustomInput name="name" label="Nombre" placeholder={user?.name} isDisabled={!isEdit} variant="bordered" icon={<FiUsers />} />
-                            <CustomInput name="email" label="Email" placeholder={user?.email} isDisabled={!isEdit} variant="bordered" icon={<AiOutlineMail />} />
-                            <CustomInput name="password" label="Comtraseña" placeholder="******" isDisabled={!isEdit} variant="bordered" icon={<MdLockOutline />} />
+                            <CustomInput name="name" label="Nombre" placeholder={user?.name} isDisabled={!isEdit} variant="bordered" icon={<IoPersonOutline />} />
+                            <CustomInput name="email" label="Email" placeholder={user?.email} isDisabled={!isEdit} variant="bordered" icon={<IoMailOutline />} />
+                            <CustomInput name="password" label="Comtraseña" placeholder="******" isDisabled={!isEdit} variant="bordered" icon={<IoLockClosedOutline />} />
                             <Spacer />
-                            <CustomButton type="submit" isDisabled={!isEdit} color="primary" startContent={<AiOutlineSave />}>Guardar</CustomButton>
+                            <CustomButton type="submit" isDisabled={!isEdit} color="primary" startContent={<IoSaveOutline />}>Guardar</CustomButton>
                             {(isUpdating || isDeleting) && <Progress size="sm" className="mt-4" isIndeterminate />}
                         </Form>
                     </Formik>
@@ -83,8 +83,8 @@ export const Profile = () => {
                             <p className="text-sm">Todos tus datos serán eliminados de forma permanente.</p>
                         </ModalBody>
                         <ModalFooter>
-                            <CustomButton variant="flat" onPress={onCloseModal} startContent={<MdClose />}>Cancelar</CustomButton>
-                            <CustomButton color="danger" onPress={handleDelete} startContent={<AiFillDelete />}>Eliminar</CustomButton>
+                            <CustomButton variant="flat" onPress={onCloseModal} startContent={<IoCloseOutline />}>Cancelar</CustomButton>
+                            <CustomButton color="danger" onPress={handleDelete} startContent={<IoTrashOutline />}>Eliminar</CustomButton>
                         </ModalFooter>
                     </ModalContent>
                 </Modal>

@@ -1,5 +1,5 @@
 import { Banner, ProductList } from '@components';
-import { BiGridAlt } from '@icons';
+import { IoGridOutline } from '@icons';
 import { useProducts } from '@hooks';
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
 	return (
 		<section>
 			<Banner />
-			<ProductList category="Todos los productos" icon={<BiGridAlt />} products={products ?? []} isLoading={isLoading} />
+			<ProductList category="Todas las tablaturas" icon={<IoGridOutline />} products={products ?? []} isLoading={isLoading} />
 		</section>
 	)
 }

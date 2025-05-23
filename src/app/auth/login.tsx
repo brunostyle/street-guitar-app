@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import { Form, Formik } from "formik"
 import { CustomButton, CustomInput, LayoutAuth } from "@components"
-import { AiOutlineMail, FcGoogle, MdLockOutline } from "@icons";
+import { IoMailOutline , IoLogoGoogle, IoLockClosedOutline  } from "@icons";
 import { loginSchema } from "@validations"
 import { ILogin } from "@interfaces"
 import { useLogin } from "@hooks";
@@ -34,11 +34,11 @@ const Login = () => {
     <LayoutAuth title="Inicia Sesión">
       <Formik enableReinitialize initialValues={initial} onSubmit={handleSubmit} validationSchema={loginSchema}>
         <Form className="grid gap-4">
-          <CustomInput variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<AiOutlineMail />} />
-          <CustomInput variant="bordered" type="password" name="password" label="Contraseña" placeholder="******" icon={<MdLockOutline />} />
+          <CustomInput variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<IoMailOutline  />} />
+          <CustomInput variant="bordered" type="password" name="password" label="Contraseña" placeholder="******" icon={<IoLockClosedOutline  />} />
           <Checkbox name="remember" isSelected={isSelected} onValueChange={handleChange}>Recuérdame</Checkbox>
-          <CustomButton type="submit" color="primary" isLoading={isPending} startContent={!isPending && <AiOutlineMail />}>Continuar con correo</CustomButton>
-          <CustomButton variant="bordered" startContent={<FcGoogle />}>Continuar con Google</CustomButton>
+          <CustomButton type="submit" color="primary" isLoading={isPending} startContent={!isPending && <IoMailOutline  />}>Continuar con correo</CustomButton>
+          <CustomButton variant="bordered" startContent={<IoLogoGoogle />}>Continuar con Google</CustomButton>
         </Form>
       </Formik>
       <Spacer y={4} />

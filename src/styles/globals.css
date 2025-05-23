@@ -28,6 +28,10 @@
   animation: darked .3s linear;
 }
 
+.shadow-card {
+  box-shadow: 0 0 0 1px hsl(var(--heroui-divider) / var(--heroui-divider-opacity, var(--tw-border-opacity))) !important;
+}
+
 .opacity-slow {
   animation: darked 1s linear;
 }

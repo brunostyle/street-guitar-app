@@ -2,7 +2,7 @@ import { Card, CardBody, Divider, Skeleton, Spacer, Spinner } from "@heroui/reac
 import { useParams } from "react-router-dom";
 import ImageGallery from 'react-image-gallery';
 import { useEffect } from "react";
-import { FiShoppingCart, FaSpotify } from "@icons";
+import { IoCartOutline, FaSpotify } from "@icons";
 import { Between, Grid, GridContainer, Subtitle, Title, ChipCategory } from "@styles";
 import { useCart } from "@state";
 import { useGetProduct } from "@hooks";
@@ -55,7 +55,7 @@ const Product = () => {
                   </Skeleton>
                   <Spacer y={4} />
                   <Skeleton className="rounded-md" isLoaded={!isLoading}>
-                     <CustomButton fullWidth color="primary" startContent={<FiShoppingCart />} onPress={handleAddToCart}>Agregar al carrito</CustomButton>
+                     <CustomButton fullWidth color="primary" startContent={<IoCartOutline />} onPress={handleAddToCart}>Agregar al carrito</CustomButton>
                   </Skeleton>
                </CardBody>
             </Grid>

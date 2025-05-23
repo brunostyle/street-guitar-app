@@ -1,5 +1,5 @@
 import { ToastProvider, addToast } from '@heroui/react';
-import { MdClose, FaCheck } from '@icons';
+import { IoCloseOutline, IoCheckmarkOutline } from '@icons';
 
 export const CustomToast = () => (
    <ToastProvider
@@ -16,7 +16,7 @@ export const notify = {
    error: (message: string) => addToast({
       title: 'Ocurrió un error.',
       description: message,
-      icon: <MdClose />,
+      icon: <IoCloseOutline />,
       classNames: {
          icon: "size-6 text-red-500",
       }
@@ -24,7 +24,7 @@ export const notify = {
    success: (message: string) => addToast({
       title: '¡Éxito!',
       description: message,
-      icon: <FaCheck />,
+      icon: <IoCheckmarkOutline />,
       classNames: {
          icon: "size-4 text-green-500",
       }

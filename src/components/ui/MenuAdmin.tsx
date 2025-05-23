@@ -3,7 +3,7 @@ import { Link as NextLink } from 'react-router-dom'
 import { Collapse, Logo, Push, Profile, CustomButtonIcon } from '@components';
 import { useTheme, useUser } from '@state';
 import { Title } from '@styles';
-import { FaMoon, IoSunny } from '@icons';
+import { IoMoonSharp , IoSunnySharp   } from '@icons';
 import { useState } from 'react';
 
 export const MenuAdmin = () => {
@@ -20,8 +20,8 @@ export const MenuAdmin = () => {
 
          <NavbarContent justify="end">
             <NavbarItem>
-               {theme === 'light' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('dark')}><FaMoon /></CustomButtonIcon></Push>}
-               {theme === 'dark' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('light')}><IoSunny /></CustomButtonIcon></Push>}
+               {theme === 'light' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('dark')}><IoMoonSharp  /></CustomButtonIcon></Push>}
+               {theme === 'dark' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('light')}><IoSunnySharp   /></CustomButtonIcon></Push>}
             </NavbarItem>
             <NavbarItem>
                {isLogged && <Profile />}

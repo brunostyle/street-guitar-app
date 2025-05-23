@@ -4,7 +4,6 @@ import ConfettiExplosion from 'react-confetti-explosion';
 import { Grid, GridContainer, SectionSubTitle, SectionTitle } from "@styles";
 import { FullScreenLoading, ProductCard, ProductOrder } from "@components";
 import { useGetOrder } from "@hooks";
-import { FaGuitar } from "@icons";
 
 const Checkout = () => {
    const { id } = useParams();
@@ -23,7 +22,7 @@ const Checkout = () => {
                </Grid>
                <Grid>
                   <ProductOrder total={total} items={items} />
-                  <Alert className="max-h-max" isVisible={!isLoading} title="Disfruta las tablaturas!!!" description="Son completamente gratis" icon={<FaGuitar />} />
+                  <Alert className="max-h-max" isVisible={!isLoading} title="Disfruta las tablaturas!!!" description="Son completamente gratis" />
                </Grid>
             </GridContainer>
          }

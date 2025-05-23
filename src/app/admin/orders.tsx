@@ -1,6 +1,6 @@
 import { Checkbox, Pagination, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, User } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineFolderOpen } from '@icons';
+import { IoFolderOutline  } from '@icons';
 import { FullScreenLoading, Admin, Nothing, CustomButtonIcon } from "@components";
 import { usePaginateOrders } from "@hooks";
 
@@ -32,7 +32,7 @@ const Orders = () => {
                            <TableCell><h4>${order.total}</h4></TableCell>
                            <TableCell><h4>{new Date(order.createdAt).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: '2-digit' })}</h4></TableCell>
                            <TableCell><Checkbox aria-label="Pagada" isSelected={order.paid} isReadOnly /></TableCell>
-                           <TableCell><CustomButtonIcon onPress={() => router('/checkout/' + order.id)}><AiOutlineFolderOpen /></CustomButtonIcon></TableCell>
+                           <TableCell><CustomButtonIcon onPress={() => router('/checkout/' + order.id)}><IoFolderOutline  /></CustomButtonIcon></TableCell>
                         </TableRow>
                      ))}
                   </TableBody>

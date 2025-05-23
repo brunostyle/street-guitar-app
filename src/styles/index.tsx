@@ -1,18 +1,18 @@
 import { Chip as ChipNext } from "@heroui/react";
 import { useTheme } from "@state";
 import { categories, roles } from "@interfaces";
-import { MdLockOutline, IoIosMusicalNotes } from "@icons";
+import { IoLockClosedOutline, IoMusicalNotesSharp } from "@icons";
 
 interface Props {
   children: React.ReactNode;
 }
 
 export const ChipCategory = ({ children }: { children: string }) => (
-  <ChipNext className="gap-1" startContent={<IoIosMusicalNotes />} size="sm" variant="flat" color={categories[children]}>{children}</ChipNext>
+  <ChipNext className="gap-1" startContent={<IoMusicalNotesSharp />} size="sm" variant="flat" color={categories[children]}>{children}</ChipNext>
 )
 
 export const ChipUser = ({ children }: { children: string }) => (
-  <ChipNext className="gap-1" startContent={<MdLockOutline />} size="sm" variant="flat" color={roles[children]}>{children}</ChipNext>
+  <ChipNext className="gap-1" startContent={<IoLockClosedOutline />} size="sm" variant="flat" color={roles[children]}>{children}</ChipNext>
 )
 
 export const Wrap = ({ children }: Props) => (

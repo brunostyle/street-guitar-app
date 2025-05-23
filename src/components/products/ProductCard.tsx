@@ -2,7 +2,7 @@ import { Card, CardBody, CardFooter, Spacer } from "@heroui/react";
 import { Link } from "react-router-dom";
 import { IProduct } from "@interfaces"
 import { CustomButtonIcon, CustomButtonLink } from "@components"
-import { AiFillDelete, FaGuitar, FaSpotify } from '@icons'
+import { IoTrashOutline , IoCloudDownloadOutline, FaSpotify } from '@icons'
 import { HiddenTitle, Subtitle, ChipCategory } from "@styles";
 import { useCart } from "@state";
 
@@ -28,8 +28,8 @@ export const ProductCard = ({ cart = [], editable = false }: IProductCard) => {
             </CardBody>
             <CardFooter className="col-span-2 flex flex-col justify-between">
                <CustomButtonLink to={product?.spotify} variant="light" color="success"><FaSpotify size="1.6em" /></CustomButtonLink>
-               {(!editable && product.pdf) && <CustomButtonLink to={product.pdf} download={product.tab} color="primary"><FaGuitar /></CustomButtonLink>}
-               {editable && <CustomButtonIcon onPress={() => removeProductToCart(product)}><AiFillDelete /></CustomButtonIcon>}
+               {(!editable && product.pdf) && <CustomButtonLink to={product.pdf} download={product.tab} color="primary"><IoCloudDownloadOutline /></CustomButtonLink>}
+               {editable && <CustomButtonIcon onPress={() => removeProductToCart(product)}><IoTrashOutline  /></CustomButtonIcon>}
             </CardFooter>
          </Card>
       ))}

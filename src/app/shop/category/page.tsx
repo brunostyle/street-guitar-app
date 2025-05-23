@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { FullScreenLoading, Nothing, ProductList } from "@components";
-import { IoIosMusicalNotes } from "@icons";
+import { IoMusicalNotesSharp } from "@icons";
 import { useGetCategory } from "@hooks";
 
 const categories = {
@@ -20,7 +20,7 @@ const Category = () => {
             ? <FullScreenLoading />
             : isEmpty
                ? <Nothing text={"No se encontraron resultados para " + category} svg="/nothing.svg" />
-               : <ProductList category={categoryName} icon={<IoIosMusicalNotes />} products={products ?? []} />
+               : <ProductList category={categoryName} icon={<IoMusicalNotesSharp />} products={products ?? []} />
          }
       </section>
    )

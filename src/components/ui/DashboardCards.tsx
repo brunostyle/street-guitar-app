@@ -1,21 +1,21 @@
 import { Card, CardFooter, CardHeader, Spacer } from "@heroui/react";
-import { AiOutlineTags, FiUsers, MdOutlineChangeHistory } from "@icons";
+import { IoPricetagsOutline, IoPersonAddOutline, IoTriangleOutline } from "@icons";
 import { Title, WrapFit } from "@styles";
 
 interface IDashboardCards {
    numberOfClients?: number;
-	numberOfProducts?: number;
-	numberOfOrders?: number;
+   numberOfProducts?: number;
+   numberOfOrders?: number;
 }
 
-export const DashboardCards = ({numberOfClients = 0, numberOfProducts = 0, numberOfOrders = 0}:IDashboardCards) => (
+export const DashboardCards = ({ numberOfClients = 0, numberOfProducts = 0, numberOfOrders = 0 }: IDashboardCards) => (
    <WrapFit>
       <Card className="bg-primary text-white">
          <CardHeader>
             <Title>Total clientes</Title>
          </CardHeader>
          <CardFooter>
-            <FiUsers />
+            <IoPersonAddOutline />
             <Spacer />
             <Title>{numberOfClients}</Title>
          </CardFooter>
@@ -25,7 +25,7 @@ export const DashboardCards = ({numberOfClients = 0, numberOfProducts = 0, numbe
             <Title>Total productos</Title>
          </CardHeader>
          <CardFooter>
-            <AiOutlineTags />
+            <IoPricetagsOutline />
             <Spacer />
             <Title>{numberOfProducts}</Title>
          </CardFooter>
@@ -35,7 +35,7 @@ export const DashboardCards = ({numberOfClients = 0, numberOfProducts = 0, numbe
             <Title>Total ventas</Title>
          </CardHeader>
          <CardFooter>
-            <MdOutlineChangeHistory />
+            <IoTriangleOutline />
             <Spacer />
             <Title>{numberOfOrders}</Title>
          </CardFooter>

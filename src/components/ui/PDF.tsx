@@ -2,7 +2,7 @@ import { Card, CardBody, Progress } from "@heroui/react";
 import { ChangeEvent } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useField } from "formik";
-import { MdClose, IoDocumentText } from "@icons";
+import { IoCloseOutline, IoDocumentText } from "@icons";
 import { TitlePDF } from "@styles";
 import { useAddPDF, useDeletePDF } from "@hooks";
 import { CustomButtonIcon, File, notify } from "@components";
@@ -51,7 +51,7 @@ export const PDF = () => {
                         <Link to={fieldPDF.value} target="_blank"><TitlePDF>{fieldTAB.value}</TitlePDF></Link>
                         {(isAdding || isDeleting) && <Progress size="sm" className="mt-4" isIndeterminate />}
                     </CardBody>
-                    <CustomButtonIcon variant="light" onPress={handleDelete}><MdClose /></CustomButtonIcon>
+                    <CustomButtonIcon variant="light" onPress={handleDelete}><IoCloseOutline /></CustomButtonIcon>
                 </Card>
             }
             <File id="pdf" label="Cargar PDF" onChange={handlePDF} />

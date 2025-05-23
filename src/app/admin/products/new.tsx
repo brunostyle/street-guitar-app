@@ -1,7 +1,7 @@
 import { Card, CardBody, Spacer } from "@heroui/react";
 import { Form, Formik } from "formik";
 import { Images, CustomInput, Admin, Category, Tags, CustomTextarea, PDF, CustomButton } from "@components";
-import { AiOutlineSave, AiOutlineSpotify, MdOutlineSubtitles, MdOutlineAttachMoney } from "@icons";
+import { IoSaveOutline, FaSpotify, IoCodeOutline, IoLogoUsd } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle } from "@styles";
 import { useAddProduct } from "@hooks";
@@ -23,17 +23,17 @@ const NewProduct = () => {
                     {form => (
                         <Form><GridContainer>
                             <Grid>
-                                <CustomInput name="title" label="Titulo" placeholder="Titulo del producto" icon={<MdOutlineSubtitles />} />
+                                <CustomInput name="title" label="Titulo" placeholder="Titulo del producto" icon={<IoCodeOutline />} />
                                 <CustomTextarea name="description" label="Descripción" placeholder="Descripcion del producto" />
-                                <CustomInput type="number" name="price" label="Precio" placeholder="0.00" icon={<MdOutlineAttachMoney />} />
-                                <CustomInput name="spotify" label="Spotify" placeholder="https://" icon={<AiOutlineSpotify />} />
+                                <CustomInput type="number" name="price" label="Precio" placeholder="0.00" icon={<IoLogoUsd />} />
+                                <CustomInput name="spotify" label="Spotify" placeholder="https://" icon={<FaSpotify />} />
                                 <Tags />
                             </Grid>
                             <Grid>
                                 <Category />
                                 <PDF />
                                 <Images />
-                                <CustomButton variant="bordered" isLoading={isAdding} startContent={!isAdding && <AiOutlineSave />} onPress={() => form.handleSubmit()}>Guardar</CustomButton>
+                                <CustomButton variant="bordered" isLoading={isAdding} startContent={!isAdding && <IoSaveOutline />} onPress={() => form.handleSubmit()}>Guardar</CustomButton>
                             </Grid>
                         </GridContainer></Form>
                     )}

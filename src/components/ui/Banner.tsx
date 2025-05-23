@@ -1,5 +1,5 @@
 import { Image } from "@heroui/react";
-import { BsInstagram, FaFacebookF } from "@icons";
+import { FaInstagram , FaFacebookF } from "@icons";
 import { Gradient, Subtitle } from "@styles";
 import { CustomButton, Push } from "@components";
 
@@ -9,13 +9,13 @@ export const Banner = () => (
          <div className="flex flex-col gap-4 mb-48">
             <h1 className="text-5xl leading-snug font-bold">
                Encontra las mejores tablaturas en
-               <span className="drop-shadow-[0_0_1px_#006FEE] bg-gradient-to-bl from-blue-400 to-blue-950  bg-clip-text text-transparent leading-normal"> Street Guitar </span>
+               <span className="drop-shadow-[0_0_1px_#006FEE] bg-gradient-to-bl from-blue-300 to-blue-950  bg-clip-text text-transparent leading-normal"> Street Guitar </span>
                y aprende de forma rápida
             </h1>
             <Subtitle>Tablaturas gratis, tracks, covers, etc</Subtitle>
             <div className="flex gap-4">
                <CustomButton color="primary" variant="flat" startContent={<FaFacebookF />}>Facebook</CustomButton>
-               <CustomButton color="primary" variant="bordered" startContent={<BsInstagram />}>Instagram</CustomButton>
+               <CustomButton color="primary" variant="bordered" startContent={<FaInstagram  />}>Instagram</CustomButton>
             </div>
          </div>
          <div className="hidden md:block mb-36 dark:opacity-80">

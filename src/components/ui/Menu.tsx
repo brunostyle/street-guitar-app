@@ -1,7 +1,7 @@
 import { Navbar, Dropdown, Spacer, Badge, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem, Button } from '@heroui/react';
 import { useNavigate, Link as NextLink } from 'react-router-dom'
 import { Formik, Form } from 'formik'
-import { IoMdSearch, FiShoppingCart, IoIosMusicalNotes, BiFilter, IoSunny, FaMoon } from '@icons'
+import { IoSearchOutline, IoCartOutline, IoFilterOutline, IoSunnySharp, IoMoonSharp, IoMusicalNotesSharp } from '@icons'
 import { Collapse, Profile, CustomInputBordered, Logo, Push, CustomButtonIcon } from '@components';
 import { searchSchema } from '@validations';
 import { useCart, useTheme } from '@state';
@@ -33,7 +33,7 @@ export const Menu = () => {
             <NavbarItem className="hidden lg:block">
                <Formik initialValues={values} onSubmit={handleSubmit} validationSchema={searchSchema}>
                   <Form>
-                     <CustomInputBordered name="query" label="Buscar..." icon={<IoMdSearch />} />
+                     <CustomInputBordered name="query" label="Buscar..." icon={<IoSearchOutline />} />
                   </Form>
                </Formik>
             </NavbarItem>
@@ -41,26 +41,26 @@ export const Menu = () => {
             <NavbarItem>
                <Dropdown>
                   <DropdownTrigger>
-                     <Button variant="light" size="sm" startContent={<BiFilter />}>Filtrar</Button>
+                     <Button variant="light" size="sm" startContent={<IoFilterOutline />}>Filtrar</Button>
                   </DropdownTrigger>
                   <DropdownMenu variant="bordered" aria-label="filtrado de productos" onAction={category => router('/category/' + category)}>
                      <DropdownSection title="Categorias">
-                        <DropdownItem key="rock" startContent={<IoIosMusicalNotes />}>Rock</DropdownItem>
-                        <DropdownItem key="folclore" startContent={<IoIosMusicalNotes />}>Folclore</DropdownItem>
-                        <DropdownItem key="pop" startContent={<IoIosMusicalNotes />}>Pop</DropdownItem>
+                        <DropdownItem key="rock" startContent={<IoMusicalNotesSharp />}>Rock</DropdownItem>
+                        <DropdownItem key="folclore" startContent={<IoMusicalNotesSharp />}>Folclore</DropdownItem>
+                        <DropdownItem key="pop" startContent={<IoMusicalNotesSharp />}>Pop</DropdownItem>
                      </DropdownSection>
                   </DropdownMenu>
                </Dropdown>
             </NavbarItem>
 
             <NavbarItem>
-               {theme === 'light' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('dark')}><FaMoon /></CustomButtonIcon></Push>}
-               {theme === 'dark' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('light')}><IoSunny /></CustomButtonIcon></Push>}
+               {theme === 'light' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('dark')}><IoMoonSharp /></CustomButtonIcon></Push>}
+               {theme === 'dark' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('light')}><IoSunnySharp /></CustomButtonIcon></Push>}
             </NavbarItem>
 
             <NavbarItem>
                <Badge isInvisible={items === 0} content={items < 10 ? items : "+9"} showOutline={false} color="primary" size="sm" shape="circle">
-                  <CustomButtonIcon variant="light" onPress={() => router('/cart')}><FiShoppingCart /></CustomButtonIcon>
+                  <CustomButtonIcon variant="light" onPress={() => router('/cart')}><IoCartOutline /></CustomButtonIcon>
                </Badge>
             </NavbarItem>
 

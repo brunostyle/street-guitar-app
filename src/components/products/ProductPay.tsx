@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Formik, Form } from "formik"
 import { Between } from "@styles"
 import { CustomInput } from "@components"
-import { AiOutlineCreditCard, BsPaypal, MdClose } from "@icons";
+import { IoCardOutline, IoLogoPaypal, IoCloseOutline } from "@icons";
 import { paySchema } from "@validations";
 const initial = { name: '', number: '', expires: '', csc: '' };
 
@@ -16,11 +16,11 @@ export const ProductPay = () => {
 
    return (
       <div className="w-full">
-         <Button fullWidth size="sm" color="warning" startContent={<BsPaypal />}>
+         <Button fullWidth size="sm" color="warning" startContent={<IoLogoPaypal />}>
             <h4 className="font-extrabold text-blue-700">Pay</h4><h4 className="font-extrabold text-white">Pal</h4>
          </Button>
          <Spacer y={4} />
-         <Button fullWidth size="sm" color="primary" startContent={showPay ? <MdClose /> : <AiOutlineCreditCard />} onPress={() => setShowPay(!showPay)}>
+         <Button fullWidth size="sm" color="primary" startContent={showPay ? <IoCloseOutline /> : <IoCardOutline />} onPress={() => setShowPay(!showPay)}>
             {showPay ? 'Cancelar' : 'Tarjeta de credito'}
          </Button>
          {showPay &&
@@ -36,7 +36,7 @@ export const ProductPay = () => {
                      <CustomInput type="number" name="csc" label="Nro seguridad" />
                   </Between>
                   <Spacer y={4} />
-                  <Button fullWidth size="sm" color="primary" type="submit" startContent={<AiOutlineCreditCard />}>Pagar</Button>
+                  <Button fullWidth size="sm" color="primary" type="submit" startContent={<IoCardOutline />}>Pagar</Button>
                </Form>
             </Formik>
          }

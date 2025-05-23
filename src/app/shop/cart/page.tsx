@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { AiOutlineCreditCard } from '@icons'
+import { IoCloudDownloadOutline } from '@icons'
 import { SectionTitle, SectionSubTitle, GridContainer, Grid } from "@styles";
 import { useCart, useUser } from "@state";
 import { CustomButton, ProductCard, ProductOrder, notify } from "@components";
@@ -36,7 +36,7 @@ const Cart = () => {
                </Grid>
                <Grid>
                   <ProductOrder editable total={total} items={items}>
-                     <CustomButton fullWidth color="primary" isLoading={isAddingOrder} startContent={!isAddingOrder && <AiOutlineCreditCard />} onPress={handleCart}>Ver tabs</CustomButton>
+                     <CustomButton fullWidth color="primary" isLoading={isAddingOrder} startContent={!isAddingOrder && <IoCloudDownloadOutline />} onPress={handleCart}>Ver tabs</CustomButton>
                   </ProductOrder>
                </Grid>
             </GridContainer>

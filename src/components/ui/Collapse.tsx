@@ -1,7 +1,7 @@
 import { Divider, NavbarMenuItem, NavbarMenu } from '@heroui/react';
 import { useNavigate as useRouter, useLocation } from 'react-router-dom'
 import { Formik, Form } from 'formik'
-import { IoMdSearch, AiOutlineHome, BsKey, FiUsers, BiGridAlt, AiOutlineTags, MdOutlineChangeHistory, BiExit } from '@icons'
+import { IoSearchOutline, IoHomeOutline, IoKeyOutline, IoPersonAddOutline, IoGridOutline, IoPricetagsOutline, IoTriangleOutline, IoExitOutline } from '@icons'
 import { CustomButton, CustomInputBordered } from '@components';
 import { Subtitle } from '@styles';
 import { searchSchema } from '@validations';
@@ -27,23 +27,23 @@ export const Collapse = ({ setIsMenuOpen }: IProps) => {
          <NavbarMenuItem className="lg:hidden">
             <Formik initialValues={values} onSubmit={handleSubmit} validationSchema={searchSchema}>
                <Form>
-                  <CustomInputBordered name="query" label="Buscar..." icon={<IoMdSearch />} />
+                  <CustomInputBordered name="query" label="Buscar..." icon={<IoSearchOutline />} />
                </Form>
             </Formik>
          </NavbarMenuItem>
 
          <Divisor text="Menu" />
-         <Item text="Inicio" to="/" icon={<AiOutlineHome />} setIsMenuOpen={setIsMenuOpen} />
-         {!isLogged && <Item text="Ingresar" to="/auth/login" icon={<BsKey />} setIsMenuOpen={setIsMenuOpen} />}
+         <Item text="Inicio" to="/" icon={<IoHomeOutline />} setIsMenuOpen={setIsMenuOpen} />
+         {!isLogged && <Item text="Ingresar" to="/auth/login" icon={<IoKeyOutline />} setIsMenuOpen={setIsMenuOpen} />}
          {isLogged && <Exit setIsMenuOpen={setIsMenuOpen} />}
 
          {user?.role === "admin" &&
             <>
                <Divisor text="Administración" />
-               <Item text="Dashboard" to="/admin" icon={<BiGridAlt />} setIsMenuOpen={setIsMenuOpen} />
-               <Item text="Productos" to="/admin/products" icon={<AiOutlineTags />} setIsMenuOpen={setIsMenuOpen} />
-               <Item text="Ordenes" to="/admin/orders" icon={<MdOutlineChangeHistory />} setIsMenuOpen={setIsMenuOpen} />
-               <Item text="Usuarios" to="/admin/users" icon={<FiUsers />} setIsMenuOpen={setIsMenuOpen} />
+               <Item text="Dashboard" to="/admin" icon={<IoGridOutline />} setIsMenuOpen={setIsMenuOpen} />
+               <Item text="Productos" to="/admin/products" icon={<IoPricetagsOutline />} setIsMenuOpen={setIsMenuOpen} />
+               <Item text="Ordenes" to="/admin/orders" icon={<IoTriangleOutline />} setIsMenuOpen={setIsMenuOpen} />
+               <Item text="Usuarios" to="/admin/users" icon={<IoPersonAddOutline />} setIsMenuOpen={setIsMenuOpen} />
             </>
          }
       </NavbarMenu>
@@ -87,7 +87,7 @@ export const Exit = ({ setIsMenuOpen }: IProps) => {
 
    return (
       <NavbarMenuItem>
-         <CustomButton fullWidth variant="light" className="justify-start" startContent={<BiExit />} onPress={() => { handleLogout(); setIsMenuOpen(false); }}>Salir</CustomButton>
+         <CustomButton fullWidth variant="light" className="justify-start" startContent={<IoExitOutline />} onPress={() => { handleLogout(); setIsMenuOpen(false); }}>Salir</CustomButton>
       </NavbarMenuItem>
    )
 }
