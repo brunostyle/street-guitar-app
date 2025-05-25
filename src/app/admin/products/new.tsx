@@ -1,7 +1,7 @@
 import { Card, CardBody, Spacer } from "@heroui/react";
 import { Form, Formik } from "formik";
 import { Images, CustomInput, Admin, Category, Tags, CustomTextarea, PDF, CustomButton } from "@components";
-import { IoSaveOutline, FaSpotify, IoCodeOutline, IoLogoUsd } from "@icons";
+import { IoSaveOutline, FaSpotify, IoCodeOutline, IoLogoUsd, IoAddOutline } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle } from "@styles";
 import { useAddProduct } from "@hooks";
@@ -15,7 +15,7 @@ const NewProduct = () => {
     };
 
     return (
-        <Admin isProductPage title="Agregar">
+        <Admin isProductPage title="Agregar" icon={<IoAddOutline />}>
             <SectionTitle>Agregar un producto</SectionTitle>
             <Spacer y={4} />
             <Card><CardBody>

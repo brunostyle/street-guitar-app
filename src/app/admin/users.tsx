@@ -2,11 +2,12 @@ import { Avatar, Pagination, Table, TableBody, TableCell, TableColumn, TableHead
 import { FullScreenLoading, Admin, Nothing } from "@components";
 import { HiddenTitle, HiddenSubtitle, ChipUser } from "@styles";
 import { usePaginateUsers } from "@hooks";
+import { IoPersonAddOutline } from "@icons";
 
 const Users = () => {
    const { users = [], isEmpty, isLoading, page, setPage, total } = usePaginateUsers();
    return (
-      <Admin showTitle={!isEmpty} title="Usuarios">
+      <Admin showTitle={!isEmpty} title="Usuarios" icon={<IoPersonAddOutline />}>
          {isLoading
             ? <FullScreenLoading />
             : isEmpty

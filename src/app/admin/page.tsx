@@ -2,11 +2,12 @@ import { Spacer } from "@heroui/react";
 import { DashboardCards, Sells, Admin, FullScreenLoading, ChartArea } from "@components";
 import { SectionTitle } from "@styles";
 import { useDashboard } from "@hooks";
+import { IoGridOutline } from "@icons";
 
 const Dashboard = () => {
    const { numberOfClients, numberOfProducts, numberOfOrders, lastSells, chartData, isLoading } = useDashboard();
    return (
-      <Admin title="Dashboard">
+      <Admin title="Dashboard" icon={<IoGridOutline />}>
          {isLoading
             ? <FullScreenLoading />
             :

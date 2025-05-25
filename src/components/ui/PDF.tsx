@@ -2,7 +2,7 @@ import { Card, CardBody, Progress } from "@heroui/react";
 import { ChangeEvent } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useField } from "formik";
-import { IoCloseOutline, IoDocumentText } from "@icons";
+import { IoCloseOutline, IoDocumentTextOutline } from "@icons";
 import { TitlePDF } from "@styles";
 import { useAddPDF, useDeletePDF } from "@hooks";
 import { CustomButtonIcon, File, notify } from "@components";
@@ -46,7 +46,7 @@ export const PDF = () => {
         <div>
             {fieldTAB.value &&
                 <Card className="flex flex-row items-center mb-4 px-2">
-                    <IoDocumentText size="2rem" className="text-primary mx-2" />
+                    <IoDocumentTextOutline size="2rem" className="text-primary mx-2" />
                     <CardBody>
                         <Link to={fieldPDF.value} target="_blank"><TitlePDF>{fieldTAB.value}</TitlePDF></Link>
                         {(isAdding || isDeleting) && <Progress size="sm" className="mt-4" isIndeterminate />}

@@ -1,12 +1,14 @@
-import { Navigate } from "react-router-dom";
-import { IoCloudDownloadOutline } from '@icons'
+import { Navigate, useNavigate } from "react-router-dom";
+import { IoCartOutline, IoCloudDownloadOutline, IoHomeOutline } from '@icons'
 import { SectionTitle, SectionSubTitle, GridContainer, Grid, Container } from "@styles";
 import { useCart, useUser } from "@state";
 import { CustomButton, ProductCard, ProductOrder, notify } from "@components";
 import { IOrderCheckout } from "@interfaces";
 import { useAddOrder } from "@hooks";
+import { BreadcrumbItem, Breadcrumbs, Spacer } from "@heroui/react";
 
 const Cart = () => {
+   const router = useNavigate();
    const { addOrder, isAddingOrder } = useAddOrder();
    const { cart, total, items } = useCart();
    const { isLogged, user } = useUser();
@@ -28,6 +30,11 @@ const Cart = () => {
          ? <Navigate to="/cart/empty" />
          :
          <Container>
+            <Breadcrumbs>
+               <BreadcrumbItem startContent={<IoHomeOutline />} onPress={() => router('/')}>Home</BreadcrumbItem>
+               <BreadcrumbItem startContent={<IoCartOutline />}>Carrito</BreadcrumbItem>
+            </Breadcrumbs>
+            <Spacer y={2} />
             <SectionTitle>Carrito</SectionTitle>
             <SectionSubTitle>Mis productos</SectionSubTitle>
             <GridContainer>

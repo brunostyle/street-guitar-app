@@ -1,15 +1,23 @@
-import { Alert } from "@heroui/react";
-import { useParams } from "react-router-dom";
+import { Alert, BreadcrumbItem, Breadcrumbs, Spacer } from "@heroui/react";
+import { useNavigate, useParams } from "react-router-dom";
 import ConfettiExplosion from 'react-confetti-explosion';
 import { Container, Grid, GridContainer, SectionSubTitle, SectionTitle } from "@styles";
 import { FullScreenLoading, ProductCard, ProductOrder } from "@components";
 import { useGetOrder } from "@hooks";
+import { IoCartOutline, IoDocumentTextOutline, IoHomeOutline } from "@icons";
 
 const Checkout = () => {
    const { id } = useParams();
+   const router = useNavigate();
    const { products, total, items, paid, isLoading } = useGetOrder(id!);
    return (
       <Container>
+         <Breadcrumbs>
+            <BreadcrumbItem startContent={<IoHomeOutline />} onPress={() => router('/')}>Home</BreadcrumbItem>
+            <BreadcrumbItem startContent={<IoCartOutline />} onPress={() => router('/cart')}>Carrito</BreadcrumbItem>
+            <BreadcrumbItem startContent={<IoDocumentTextOutline />}>Orden</BreadcrumbItem>
+         </Breadcrumbs>
+         <Spacer y={2} />
          <SectionTitle>Orden: {id}</SectionTitle>
          <SectionSubTitle>Resumen de la orden</SectionSubTitle>
          {!isLoading && <ConfettiExplosion force={0.8} duration={3000} particleCount={250} width={1600} />}

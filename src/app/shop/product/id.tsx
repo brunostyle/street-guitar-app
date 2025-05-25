@@ -1,8 +1,8 @@
-import { Card, CardBody, Divider, Skeleton, Spacer, Spinner } from "@heroui/react";
-import { useParams } from "react-router-dom";
+import { BreadcrumbItem, Breadcrumbs, Card, CardBody, Divider, Skeleton, Spacer, Spinner } from "@heroui/react";
+import { useNavigate, useParams } from "react-router-dom";
 import ImageGallery from 'react-image-gallery';
 import { useEffect } from "react";
-import { IoCartOutline, FaSpotify } from "@icons";
+import { IoCartOutline, FaSpotify, IoHomeOutline, IoMusicalNotesSharp } from "@icons";
 import { Between, Grid, GridContainer, Subtitle, Title, ChipCategory, Container } from "@styles";
 import { useCart } from "@state";
 import { useGetProduct } from "@hooks";
@@ -10,6 +10,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { CustomButton, CustomButtonLink } from "@components";
 
 const Product = () => {
+   const router = useNavigate();
    const { id } = useParams();
    const { addProductToCart } = useCart();
    const { product, isLoading } = useGetProduct(String(id));
@@ -20,6 +21,11 @@ const Product = () => {
    }, []);
    return (
       <Container>
+         <Breadcrumbs>
+            <BreadcrumbItem startContent={<IoHomeOutline />} onPress={() => router('/')}>Home</BreadcrumbItem>
+            <BreadcrumbItem startContent={<IoMusicalNotesSharp />}>Tablatura</BreadcrumbItem>
+         </Breadcrumbs>
+         <Spacer y={4} />
          <Card className="max-w-[1200px] mx-auto" isBlurred>
             <GridContainer>
                <Grid>

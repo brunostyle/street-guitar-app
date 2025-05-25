@@ -1,6 +1,6 @@
 export { FaFacebookF, FaSpotify, FaInstagram } from 'react-icons/fa';
 export {
-    IoDocumentText,
+    IoDocumentTextOutline,
     IoSunnySharp,
     IoAddOutline,
     IoGridOutline,
