@@ -1,15 +1,18 @@
 import { Banner, ProductList } from '@components';
 import { IoGridOutline } from '@icons';
 import { useProducts } from '@hooks';
+import { Container } from '@styles';
 
 const Home = () => {
 	const { products, isLoading } = useProducts();
 
 	return (
-		<section>
+		<>
 			<Banner />
-			<ProductList category="Todas las tablaturas" icon={<IoGridOutline />} products={products ?? []} isLoading={isLoading} />
-		</section>
+			<Container>
+				<ProductList category="Todas las tablaturas" icon={<IoGridOutline />} products={products ?? []} isLoading={isLoading} />
+			</Container>
+		</>
 	)
 }
 

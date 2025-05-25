@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { FullScreenLoading, Nothing, ProductList } from "@components";
 import { IoMusicalNotesSharp } from "@icons";
 import { useGetCategory } from "@hooks";
+import { Container } from "@styles";
 
 const categories = {
    rock: "Rock",
@@ -15,14 +16,14 @@ const Category = () => {
    const categoryName = categories[category as keyof typeof categories];
 
    return (
-      <section>
+      <Container>
          {isLoading
             ? <FullScreenLoading />
             : isEmpty
                ? <Nothing text={"No se encontraron resultados para " + category} svg="/nothing.svg" />
                : <ProductList category={categoryName} icon={<IoMusicalNotesSharp />} products={products ?? []} />
          }
-      </section>
+      </Container>
    )
 };
 

@@ -1,5 +1,5 @@
 import { Card, CardBody, CardHeader, Image } from "@heroui/react";
-import { Gradient, SectionSubTitle, SectionTitle } from "@styles";
+import { Container, SectionSubTitle, SectionTitle } from "@styles";
 import { Logo } from "@components";
 
 interface ILayout {
@@ -8,9 +8,11 @@ interface ILayout {
 }
 
 export const LayoutAuth = ({ children, title }: ILayout) => (
-   <Gradient>
-      <div className="container mx-auto px-4 grid grid-cols-2 gap-4 min-h-screen place-content-center">
-         <Image disableSkeleton className="hidden md:block" src="/auris.png" alt="Ilustracion" />
+   <div className="pattern">
+      <Container className="grid grid-cols-2 gap-4 place-content-center">
+         <div className="flex justify-center items-center">
+            <Image disableSkeleton className="hidden md:block" src="/auris.png" alt="Ilustracion" />
+         </div>
          <Card className="col-span-2 md:col-span-1 bg-opacity-40">
             <CardHeader className="grid justify-center text-center">
                <Logo big />
@@ -21,6 +23,6 @@ export const LayoutAuth = ({ children, title }: ILayout) => (
                {children}
             </CardBody>
          </Card>
-      </div>
-   </Gradient>
+      </Container>
+   </div>
 )

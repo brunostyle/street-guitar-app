@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { IoCloudDownloadOutline } from '@icons'
-import { SectionTitle, SectionSubTitle, GridContainer, Grid } from "@styles";
+import { SectionTitle, SectionSubTitle, GridContainer, Grid, Container } from "@styles";
 import { useCart, useUser } from "@state";
 import { CustomButton, ProductCard, ProductOrder, notify } from "@components";
 import { IOrderCheckout } from "@interfaces";
@@ -27,7 +27,7 @@ const Cart = () => {
       (items < 1)
          ? <Navigate to="/cart/empty" />
          :
-         <section>
+         <Container>
             <SectionTitle>Carrito</SectionTitle>
             <SectionSubTitle>Mis productos</SectionSubTitle>
             <GridContainer>
@@ -40,7 +40,7 @@ const Cart = () => {
                   </ProductOrder>
                </Grid>
             </GridContainer>
-         </section>
+         </Container>
    )
 };
 

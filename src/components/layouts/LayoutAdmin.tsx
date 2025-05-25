@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router-dom';
 import { MenuAdmin } from '@components';
+import { Container } from '@styles';
 
 export const LayoutAdmin = () => (
    <>
       <MenuAdmin />
-      <div className="container mx-auto py-6 px-4 flex flex-col gap-4 min-h-screen overflow-x-hidden">
-        <Outlet />
-      </div>
+      <Container className="flex flex-col gap-4 overflow-x-hidden py-6">
+         <Outlet />
+      </Container>
    </>
 )

@@ -1,7 +1,7 @@
 import { Chip as ChipNext } from "@heroui/react";
-import { useTheme } from "@state";
 import { categories, roles } from "@interfaces";
 import { IoLockClosedOutline, IoMusicalNotesSharp } from "@icons";
+import React from "react";
 
 interface Props {
   children: React.ReactNode;
@@ -75,13 +75,6 @@ export const Center = ({ children }: Props) => (
   <div className="absolute left-0 top-0 w-full grid place-content-center gap-4 text-center min-h-screen">{children}</div>
 )
 
-export const Gradient = ({ children }: Props) => {
-  const { theme } = useTheme();
-  return <div style={{
-    minHeight: '100vh',
-    background: theme === 'light' ?
-      'radial-gradient(circle, rgba(228, 206, 248,1) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 0%)'
-      :
-      'radial-gradient(circle, rgba(9,9,50,9) 0%, rgba(0,0,0,1) 40%, rgba(0,0,0,1) 100%)'
-  }}>{children}</div>
-}
+export const Container = ({ children, className }: { children: React.ReactNode, className?: string }) => (
+  <div className={`container mx-auto p-4 min-h-screen ${className}`}>{children}</div>
+)

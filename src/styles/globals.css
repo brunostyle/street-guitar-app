@@ -10,7 +10,8 @@
   outline: none;
 }
 
-.image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg {
+.image-gallery-left-nav .image-gallery-svg,
+.image-gallery-right-nav .image-gallery-svg {
   width: 30px;
   height: 30px;
 }
@@ -36,25 +37,45 @@
   animation: darked 1s linear;
 }
 
+.pattern {
+  width: 100%;
+  height: 100vh;
+  background: url('/public/pattern.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.mask {
+  mask-image: linear-gradient(black 90%, transparent);
+}
+
 .dashboard {
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas: "cards cards cards sells"
-                       "chart chart chart sells";
+    "chart chart chart sells";
 }
 
-.cards { grid-area: cards; }
-.sells { grid-area: sells; }
-.chart { grid-area: chart; }
+.cards {
+  grid-area: cards;
+}
+
+.sells {
+  grid-area: sells;
+}
+
+.chart {
+  grid-area: chart;
+}
 
 @media screen and (max-width: 1024px) {
   .dashboard {
     grid-template-columns: 1fr;
     grid-template-areas: "cards"
-                         "chart"
-                         "sells";
+      "chart"
+      "sells";
   }
 }
 
@@ -75,28 +96,45 @@
 }
 
 @keyframes darked {
-  0% { opacity: 0 }
-  100% { opacity: 1 }
+  0% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
 }
 
 @media screen and (max-width: 900px) {
-  html { font-size: 15px }
+  html {
+    font-size: 15px
+  }
 }
+
 @media screen and (max-width: 678px) {
-  html { font-size: 14px }
+  html {
+    font-size: 14px
+  }
 }
 
 @media screen and (max-width: 444px) {
-  html { font-size: 13px }
+  html {
+    font-size: 13px
+  }
+
   .wrap {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }
 }
 
 @media screen and (max-width: 300px) {
-  html { font-size: 12px }
+  html {
+    font-size: 12px
+  }
 }
 
 @media screen and (max-width: 250px) {
-  html { font-size: 11px }
+  html {
+    font-size: 11px
+  }
 }
