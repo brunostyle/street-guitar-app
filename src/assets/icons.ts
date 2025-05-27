@@ -1,12 +1,14 @@
-export { FaFacebookF, FaSpotify, FaInstagram } from 'react-icons/fa';
+export { FaSpotify } from 'react-icons/fa';
 export {
+    IoLogoInstagram,
+    IoLogoGithub,
     IoDocumentTextOutline,
     IoSunnySharp,
     IoAddOutline,
     IoGridOutline,
     IoPricetagsOutline,
     IoSearchOutline,
-    IoMusicalNotesSharp,
+    IoMusicalNoteSharp,
     IoCartOutline,
     IoLogoGoogle,
     IoFilterOutline,

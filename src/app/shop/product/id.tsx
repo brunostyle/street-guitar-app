@@ -2,7 +2,7 @@ import { BreadcrumbItem, Breadcrumbs, Card, CardBody, Divider, Skeleton, Spacer,
 import { useNavigate, useParams } from "react-router-dom";
 import ImageGallery from 'react-image-gallery';
 import { useEffect } from "react";
-import { IoCartOutline, FaSpotify, IoHomeOutline, IoMusicalNotesSharp } from "@icons";
+import { IoCartOutline, FaSpotify, IoHomeOutline, IoMusicalNoteSharp } from "@icons";
 import { Between, Grid, GridContainer, Subtitle, Title, ChipCategory, Container } from "@styles";
 import { useCart } from "@state";
 import { useGetProduct } from "@hooks";
@@ -23,7 +23,7 @@ const Product = () => {
       <Container>
          <Breadcrumbs>
             <BreadcrumbItem startContent={<IoHomeOutline />} onPress={() => router('/')}>Home</BreadcrumbItem>
-            <BreadcrumbItem startContent={<IoMusicalNotesSharp />}>Tablatura</BreadcrumbItem>
+            <BreadcrumbItem startContent={<IoMusicalNoteSharp />}>Tablatura</BreadcrumbItem>
          </Breadcrumbs>
          <Spacer y={4} />
          <Card className="max-w-[1200px] mx-auto" isBlurred>
@@ -37,7 +37,7 @@ const Product = () => {
                <Grid>
                   <CardBody>
                      <Skeleton className="rounded-md" isLoaded={!isLoading}>
-                        <Title>{product?.title}.</Title>
+                        <Title>{product?.title}</Title>
                      </Skeleton>
                      <Divider className="my-4" />
                      <Between>

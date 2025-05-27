@@ -1,7 +1,7 @@
 import { Navbar, Dropdown, Spacer, Badge, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem, Button } from '@heroui/react';
 import { useNavigate, Link as NextLink } from 'react-router-dom'
 import { Formik, Form } from 'formik'
-import { IoSearchOutline, IoCartOutline, IoFilterOutline, IoSunnySharp, IoMoonSharp, IoMusicalNotesSharp } from '@icons'
+import { IoSearchOutline, IoCartOutline, IoFilterOutline, IoSunnySharp, IoMoonSharp, IoMusicalNoteSharp } from '@icons'
 import { Collapse, Profile, CustomInputBordered, Logo, Push, CustomButtonIcon } from '@components';
 import { searchSchema } from '@validations';
 import { useCart, useTheme } from '@state';
@@ -45,9 +45,9 @@ export const Menu = () => {
                   </DropdownTrigger>
                   <DropdownMenu variant="bordered" aria-label="filtrado de productos" onAction={category => router('/category/' + category)}>
                      <DropdownSection title="Categorias">
-                        <DropdownItem key="rock" startContent={<IoMusicalNotesSharp />}>Rock</DropdownItem>
-                        <DropdownItem key="folclore" startContent={<IoMusicalNotesSharp />}>Folclore</DropdownItem>
-                        <DropdownItem key="pop" startContent={<IoMusicalNotesSharp />}>Pop</DropdownItem>
+                        <DropdownItem key="rock" startContent={<IoMusicalNoteSharp />}>Rock</DropdownItem>
+                        <DropdownItem key="folclore" startContent={<IoMusicalNoteSharp />}>Folclore</DropdownItem>
+                        <DropdownItem key="pop" startContent={<IoMusicalNoteSharp />}>Pop</DropdownItem>
                      </DropdownSection>
                   </DropdownMenu>
                </Dropdown>
