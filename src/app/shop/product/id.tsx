@@ -1,20 +1,17 @@
 import { BreadcrumbItem, Breadcrumbs, Card, CardBody, Chip, Skeleton, Spacer, Spinner } from "@heroui/react";
 import { useNavigate, useParams } from "react-router-dom";
-import ImageGallery from 'react-image-gallery';
 import { useEffect } from "react";
 import { IoCartOutline, FaSpotify, IoHomeOutline, IoMusicalNoteSharp } from "@icons";
 import { Between, Grid, GridContainer, Subtitle, ChipCategory, Container } from "@styles";
 import { useCart } from "@state";
 import { useGetProduct } from "@hooks";
-import "react-image-gallery/styles/css/image-gallery.css";
-import { CustomButton, CustomButtonLink, Separator } from "@components";
+import { CustomButton, CustomButtonLink, Gallery, Separator } from "@components";
 
 const Product = () => {
    const router = useNavigate();
    const { id } = useParams();
    const { addProductToCart } = useCart();
    const { product, isLoading } = useGetProduct(String(id));
-   const images = product?.images.map(img => ({ original: img, thumbnail: img }))
    const handleAddToCart = () => addProductToCart(product!);
    useEffect(() => {
       window.scroll({ top: 0 });
@@ -30,8 +27,8 @@ const Product = () => {
             <GridContainer>
                <Grid>
                   {isLoading
-                     ? <div className="grid place-content-center h-[500px]"><Spinner variant="spinner" /></div>
-                     : <ImageGallery showThumbnails showPlayButton={false} showFullscreenButton={false} items={images} additionalClass="opacity-slow min-h-[500px]" />
+                     ? <div className="grid place-content-center h-[550px]"><Spinner variant="spinner" /></div>
+                     : <Gallery images={product?.images} />
                   }
                </Grid>
                <Grid>

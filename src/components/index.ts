@@ -15,6 +15,7 @@ export * from './ui/File';
 export * from './ui/FileImage';
 export * from './ui/Footer';
 export * from './ui/FullScreenLoading';
+export * from './ui/Gallery';
 export * from './ui/Images';
 export * from './ui/PDF';
 export * from './ui/Profile';
