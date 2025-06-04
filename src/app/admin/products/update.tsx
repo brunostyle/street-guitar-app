@@ -19,7 +19,7 @@ const UpdateProduct = () => {
         <Admin isProductPage title="Actualizar" icon={<IoPencil />}>
             <SectionTitle>Actualizar un producto</SectionTitle>
             <Spacer y={4} />
-            <Card><CardBody>
+            <Card className="shadow-inset"><CardBody>
                 <Formik enableReinitialize initialValues={product} onSubmit={handleSubmit} validationSchema={productSchema}>
                     {form => (
                         <Form><GridContainer>

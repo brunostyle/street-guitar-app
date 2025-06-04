@@ -14,7 +14,7 @@ interface IProductOrder {
 export const ProductOrder = ({ editable = false, children, total, items }: IProductOrder) => {
    const router = useRouter();
    return (
-      <Card className="h-max">
+      <Card className="h-max shadow-outset">
          <CardHeader>
             {editable ? <Title>Orden</Title> : <Title>Resumen ({items} {items === 1 ? 'producto' : 'productos'})</Title>}
          </CardHeader>

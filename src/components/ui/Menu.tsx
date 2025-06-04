@@ -43,7 +43,7 @@ export const Menu = () => {
                   <DropdownTrigger>
                      <Button variant="light" size="sm" startContent={<IoFilterOutline />}>Filtrar</Button>
                   </DropdownTrigger>
-                  <DropdownMenu variant="bordered" aria-label="filtrado de productos" onAction={category => router('/category/' + category)}>
+                  <DropdownMenu variant="flat" aria-label="filtrado de productos" onAction={category => router('/category/' + category)}>
                      <DropdownSection title="Categorias">
                         <DropdownItem key="rock" startContent={<IoMusicalNoteSharp />}>Rock</DropdownItem>
                         <DropdownItem key="folclore" startContent={<IoMusicalNoteSharp />}>Folclore</DropdownItem>

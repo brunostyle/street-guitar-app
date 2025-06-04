@@ -20,7 +20,7 @@ export const DashboardCards = ({ numberOfClients = 0, numberOfProducts = 0, numb
             <Title>{numberOfClients}</Title>
          </CardFooter>
       </Card>
-      <Card>
+      <Card className="shadow-outset">
          <CardHeader>
             <Title>Total productos</Title>
          </CardHeader>

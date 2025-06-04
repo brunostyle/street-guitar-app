@@ -1,9 +1,8 @@
-import { Divider, NavbarMenuItem, NavbarMenu } from '@heroui/react';
+import { NavbarMenuItem, NavbarMenu } from '@heroui/react';
 import { useNavigate as useRouter, useLocation } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import { IoSearchOutline, IoHomeOutline, IoKeyOutline, IoPersonAddOutline, IoGridOutline, IoPricetagsOutline, IoTriangleOutline, IoExitOutline } from '@icons'
-import { CustomButton, CustomInputBordered } from '@components';
-import { Subtitle } from '@styles';
+import { CustomButton, CustomInputBordered, Separator } from '@components';
 import { searchSchema } from '@validations';
 import { useCart, useUser } from '@state';
 
@@ -23,7 +22,7 @@ export const Collapse = ({ setIsMenuOpen }: IProps) => {
    }
 
    return (
-      <NavbarMenu className="min-w-52 max-w-max left-auto">
+      <NavbarMenu className="min-w-56 max-w-max left-auto">
          <NavbarMenuItem className="lg:hidden">
             <Formik initialValues={values} onSubmit={handleSubmit} validationSchema={searchSchema}>
                <Form>
@@ -32,14 +31,19 @@ export const Collapse = ({ setIsMenuOpen }: IProps) => {
             </Formik>
          </NavbarMenuItem>
 
-         <Divisor text="Menu" />
+         <NavbarMenuItem>
+            <Separator>Menu</Separator>
+         </NavbarMenuItem>
+
          <Item text="Inicio" to="/" icon={<IoHomeOutline />} setIsMenuOpen={setIsMenuOpen} />
          {!isLogged && <Item text="Ingresar" to="/auth" icon={<IoKeyOutline />} setIsMenuOpen={setIsMenuOpen} />}
          {isLogged && <Exit setIsMenuOpen={setIsMenuOpen} />}
 
          {user?.role === "admin" &&
             <>
-               <Divisor text="Administración" />
+               <NavbarMenuItem>
+                  <Separator>Administración</Separator>
+               </NavbarMenuItem>
                <Item text="Dashboard" to="/admin" icon={<IoGridOutline />} setIsMenuOpen={setIsMenuOpen} />
                <Item text="Productos" to="/admin/products" icon={<IoPricetagsOutline />} setIsMenuOpen={setIsMenuOpen} />
                <Item text="Ordenes" to="/admin/orders" icon={<IoTriangleOutline />} setIsMenuOpen={setIsMenuOpen} />
@@ -68,13 +72,6 @@ export const Item = ({ to, text, icon, setIsMenuOpen }: IItem) => {
       </NavbarMenuItem>
    )
 }
-
-export const Divisor = ({ text }: { text: string }) => (
-   <NavbarMenuItem>
-      <Subtitle>{text}</Subtitle>
-      <Divider />
-   </NavbarMenuItem>
-)
 
 export const Exit = ({ setIsMenuOpen }: IProps) => {
    const { purgateCart } = useCart();

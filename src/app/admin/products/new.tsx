@@ -18,7 +18,7 @@ const NewProduct = () => {
         <Admin isProductPage title="Agregar" icon={<IoAddOutline />}>
             <SectionTitle>Agregar un producto</SectionTitle>
             <Spacer y={4} />
-            <Card><CardBody>
+            <Card className="shadow-inset"><CardBody>
                 <Formik initialValues={initial} onSubmit={handleSubmit} validationSchema={productSchema}>
                     {form => (
                         <Form><GridContainer>

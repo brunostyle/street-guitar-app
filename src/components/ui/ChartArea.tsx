@@ -73,7 +73,7 @@ export const ChartArea = ({ data }: ChartComponentProps) => {
     }, [data, theme]);
 
     return (
-        <Card>
+        <Card className="shadow-inset">
             <CardBody>
                 <div className="chart" ref={chartContainerRef} />
             </CardBody>

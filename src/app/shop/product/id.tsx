@@ -1,13 +1,13 @@
-import { BreadcrumbItem, Breadcrumbs, Card, CardBody, Divider, Skeleton, Spacer, Spinner } from "@heroui/react";
+import { BreadcrumbItem, Breadcrumbs, Card, CardBody, Chip, Skeleton, Spacer, Spinner } from "@heroui/react";
 import { useNavigate, useParams } from "react-router-dom";
 import ImageGallery from 'react-image-gallery';
 import { useEffect } from "react";
 import { IoCartOutline, FaSpotify, IoHomeOutline, IoMusicalNoteSharp } from "@icons";
-import { Between, Grid, GridContainer, Subtitle, Title, ChipCategory, Container } from "@styles";
+import { Between, Grid, GridContainer, Subtitle, ChipCategory, Container } from "@styles";
 import { useCart } from "@state";
 import { useGetProduct } from "@hooks";
 import "react-image-gallery/styles/css/image-gallery.css";
-import { CustomButton, CustomButtonLink } from "@components";
+import { CustomButton, CustomButtonLink, Separator } from "@components";
 
 const Product = () => {
    const router = useNavigate();
@@ -35,32 +35,43 @@ const Product = () => {
                   }
                </Grid>
                <Grid>
-                  <CardBody>
+                  <CardBody className="flex flex-col gap-4">
                      <Skeleton className="rounded-md" isLoaded={!isLoading}>
-                        <Title>{product?.title}</Title>
+                        <h1 className="text-xl">{product?.title}</h1>
                      </Skeleton>
-                     <Divider className="my-4" />
+                     <Skeleton className="rounded-md" isLoaded={!isLoading}>
+                        <Separator>Descripción</Separator>
+                     </Skeleton>
                      <Between>
-                        <Skeleton className="rounded-md min-w-10" isLoaded={!isLoading}>
-                           <Title>${product?.price}</Title>
+                        <Skeleton className="rounded-md" isLoaded={!isLoading}>
+                           <Subtitle>Artista:</Subtitle>
+                        </Skeleton>
+                        <Skeleton className="rounded-md" isLoaded={!isLoading}>
+                           <h4 className="text-base">{product?.description}</h4>
+                        </Skeleton>
+                     </Between>
+                     <Between>
+                        <Skeleton className="rounded-md" isLoaded={!isLoading}>
+                           <Subtitle>Categoria:</Subtitle>
                         </Skeleton>
                         <Skeleton className="rounded-md min-w-10" isLoaded={!isLoading}>
                            <ChipCategory>{product?.category}</ChipCategory>
                         </Skeleton>
                      </Between>
-                     <Spacer y={4} />
-                     <Skeleton className="rounded-md" isLoaded={!isLoading}>
-                        <Title>Artista</Title>
-                     </Skeleton>
-                     <Spacer y={4} />
-                     <Skeleton className="rounded-md" isLoaded={!isLoading}>
-                        <Subtitle>{product?.description}</Subtitle>
-                     </Skeleton>
-                     <Spacer y={4} />
+                     <Between>
+                        <Skeleton className="rounded-md min-w-10" isLoaded={!isLoading}>
+                           <div className="flex gap-2">
+                              <span className="text-lg font-medium">${product?.price}</span>
+                              <span className="text-sm line-through text-gray-500">$10</span>
+                           </div>
+                        </Skeleton>
+                        <Skeleton className="rounded-md min-w-10" isLoaded={!isLoading}>
+                           <Chip size="sm" color="success" variant="flat">Gratis</Chip>
+                        </Skeleton>
+                     </Between>
                      <Skeleton className="rounded-md" isLoaded={!isLoading}>
                         <CustomButtonLink to={product?.spotify} isButtonLink variant="solid" color="success" startContent={<FaSpotify size="1.5em" />}>Escuchala en spotify</CustomButtonLink>
                      </Skeleton>
-                     <Spacer y={4} />
                      <Skeleton className="rounded-md" isLoaded={!isLoading}>
                         <CustomButton fullWidth color="primary" startContent={<IoCartOutline />} onPress={handleAddToCart}>Agregar al carrito</CustomButton>
                      </Skeleton>
@@ -68,7 +79,7 @@ const Product = () => {
                </Grid>
             </GridContainer>
          </Card>
-      </Container>
+      </Container >
    )
 }
 
