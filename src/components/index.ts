@@ -24,6 +24,7 @@ export * from './ui/Menu';
 export * from './ui/MenuAdmin';
 export * from './ui/Nothing';
 export * from './ui/Category';
+export * from './ui/Separator';
 export * from './ui/Tags';
 export * from './ui/Sells';
 export * from './layouts/LayoutAdmin';

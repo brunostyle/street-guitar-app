@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Private, Public } from '@routes';
 
 import Home from '../app/page';
@@ -17,9 +17,7 @@ import UpdateProduct from '../app/admin/products/update';
 import Orders from '../app/admin/orders';
 import Users from '../app/admin/users';
 
-import Login from '../app/auth/login';
-import Register from '../app/auth/register';
-import { LayoutAdmin, LayoutApp } from '@components';
+import { LayoutAdmin, LayoutApp, LayoutAuth } from '@components';
 
 export const RouterApp = () => (
   <Routes>
@@ -31,6 +29,7 @@ export const RouterApp = () => (
       <Route path="cart" element={<Cart />} />
       <Route path="cart/empty" element={<Empty />} />
       <Route path="checkout/:id" element={<Checkout />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Route>
     <Route path="/admin/*" element={
       <Private>
@@ -49,8 +48,8 @@ export const RouterApp = () => (
     <Route path="/auth/*" element={
       <Public>
         <Routes>
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
+          <Route index element={<LayoutAuth />} />
+          <Route path="*" element={<Navigate to="/auth/" />} />
         </Routes>
       </Public>
     } />

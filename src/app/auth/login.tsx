@@ -1,13 +1,11 @@
-import { Spacer, Checkbox } from "@heroui/react"
+import { Checkbox } from "@heroui/react"
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom"
 import { Form, Formik } from "formik"
-import { CustomButton, CustomInput, LayoutAuth } from "@components"
-import { IoMailOutline , IoLogoGoogle, IoLockClosedOutline  } from "@icons";
+import { CustomButton, CustomInput, Separator } from "@components"
+import { IoMailOutline, FcGoogle, IoLockClosedOutline } from "@icons";
 import { loginSchema } from "@validations"
 import { ILogin } from "@interfaces"
 import { useLogin } from "@hooks";
-import { Between } from "@styles";
 
 const storage = 'login-street-guitar';
 
@@ -31,22 +29,16 @@ const Login = () => {
   }
 
   return (
-    <LayoutAuth title="Inicia Sesión">
-      <Formik enableReinitialize initialValues={initial} onSubmit={handleSubmit} validationSchema={loginSchema}>
-        <Form className="grid gap-4">
-          <CustomInput variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<IoMailOutline  />} />
-          <CustomInput variant="bordered" type="password" name="password" label="Contraseña" placeholder="******" icon={<IoLockClosedOutline  />} />
-          <Checkbox name="remember" isSelected={isSelected} onValueChange={handleChange}>Recuérdame</Checkbox>
-          <CustomButton type="submit" color="primary" isLoading={isPending} startContent={!isPending && <IoMailOutline  />}>Continuar con correo</CustomButton>
-          <CustomButton variant="bordered" startContent={<IoLogoGoogle />}>Continuar con Google</CustomButton>
-        </Form>
-      </Formik>
-      <Spacer y={4} />
-      <Between>
-        <h4>¿No tienes cuenta?</h4>
-        <Link to="/auth/register" className="text-purple-600">Registrate</Link>
-      </Between>
-    </LayoutAuth>
+    <Formik enableReinitialize initialValues={initial} onSubmit={handleSubmit} validationSchema={loginSchema}>
+      <Form className="grid gap-4">
+        <CustomInput variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<IoMailOutline />} />
+        <CustomInput variant="bordered" type="password" name="password" label="Contraseña" placeholder="******" icon={<IoLockClosedOutline />} />
+        <Checkbox name="remember" isSelected={isSelected} onValueChange={handleChange}>Recuérdame</Checkbox>
+        <CustomButton type="submit" color="primary" isLoading={isPending} startContent={!isPending && <IoMailOutline />}>Continuar con correo</CustomButton>
+        <Separator>OR</Separator>
+        <CustomButton variant="bordered" startContent={<FcGoogle />}>Continuar con Google</CustomButton>
+      </Form>
+    </Formik>
   )
 };
 

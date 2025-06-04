@@ -1,4 +1,5 @@
 export { FaSpotify } from 'react-icons/fa';
+export { FcGoogle } from "react-icons/fc";
 export {
     IoLogoInstagram,
     IoLogoGithub,

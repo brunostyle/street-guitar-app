@@ -34,7 +34,7 @@ export const Collapse = ({ setIsMenuOpen }: IProps) => {
 
          <Divisor text="Menu" />
          <Item text="Inicio" to="/" icon={<IoHomeOutline />} setIsMenuOpen={setIsMenuOpen} />
-         {!isLogged && <Item text="Ingresar" to="/auth/login" icon={<IoKeyOutline />} setIsMenuOpen={setIsMenuOpen} />}
+         {!isLogged && <Item text="Ingresar" to="/auth" icon={<IoKeyOutline />} setIsMenuOpen={setIsMenuOpen} />}
          {isLogged && <Exit setIsMenuOpen={setIsMenuOpen} />}
 
          {user?.role === "admin" &&
