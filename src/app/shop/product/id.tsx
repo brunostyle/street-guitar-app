@@ -23,11 +23,11 @@ const Product = () => {
             <BreadcrumbItem startContent={<IoMusicalNoteSharp />}>Tablatura</BreadcrumbItem>
          </Breadcrumbs>
          <Spacer y={4} />
-         <Card className="max-w-[1200px] mx-auto" isBlurred>
+         <Card className="max-w-[1200px] mx-auto bg-gradient-to-t from-background via-default-50 to-background">
             <GridContainer>
                <Grid>
                   {isLoading
-                     ? <div className="grid place-content-center h-[550px]"><Spinner variant="spinner" /></div>
+                     ? <div className="grid place-content-center h-[550px]"><Spinner color="default" variant="spinner" /></div>
                      : <Gallery images={product?.images} />
                   }
                </Grid>

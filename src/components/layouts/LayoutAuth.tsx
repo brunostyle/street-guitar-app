@@ -14,7 +14,7 @@ export const LayoutAuth = () => {
             <div className="flex justify-center items-center">
                <Image disableSkeleton className="hidden md:block" src="/auris.png" alt="Ilustracion" />
             </div>
-            <Card className="col-span-2 md:col-span-1 border border-white/20 bg-gradient-to-tr from-background via-default-50 to-background">
+            <Card className="col-span-2 md:col-span-1 bg-gradient-to-r from-background via-default-50 to-background border border-white/20">
                <CardHeader className="grid justify-center text-center">
                   <Logo big />
                   <SectionTitle>Street Guitar</SectionTitle>
