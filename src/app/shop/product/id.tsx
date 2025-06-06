@@ -1,4 +1,4 @@
-import { BreadcrumbItem, Breadcrumbs, Card, CardBody, Chip, Skeleton, Spacer, Spinner } from "@heroui/react";
+import { BreadcrumbItem, Breadcrumbs, Card, CardBody, Chip, Skeleton, Spacer } from "@heroui/react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { IoCartOutline, FaSpotify, IoHomeOutline, IoMusicalNoteSharp } from "@icons";
@@ -16,6 +16,7 @@ const Product = () => {
    useEffect(() => {
       window.scroll({ top: 0 });
    }, []);
+
    return (
       <Container>
          <Breadcrumbs>
@@ -26,10 +27,7 @@ const Product = () => {
          <Card className="max-w-[1200px] mx-auto bg-gradient-to-t from-background via-default-50 to-background">
             <GridContainer>
                <Grid>
-                  {isLoading
-                     ? <div className="grid place-content-center h-[550px]"><Spinner color="default" variant="spinner" /></div>
-                     : <Gallery images={product?.images} />
-                  }
+                  <Gallery images={product?.images} isLoading={isLoading} />
                </Grid>
                <Grid>
                   <CardBody className="flex flex-col gap-4">
