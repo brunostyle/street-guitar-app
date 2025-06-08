@@ -1,6 +1,6 @@
-import { Card, CardBody, CardFooter, CardHeader } from "@heroui/react";
+import { Card, CardBody, Divider } from "@heroui/react";
 import { useNavigate as useRouter } from "react-router-dom";
-import { IoPencil  } from '@icons'
+import { IoPencil } from '@icons'
 import { CustomButtonIcon } from '@components'
 import { Between, Subtitle, Title } from "@styles";
 
@@ -15,27 +15,34 @@ export const ProductOrder = ({ editable = false, children, total, items }: IProd
    const router = useRouter();
    return (
       <Card className="h-max shadow-outset">
-         <CardHeader>
-            {editable ? <Title>Orden</Title> : <Title>Resumen ({items} {items === 1 ? 'producto' : 'productos'})</Title>}
-         </CardHeader>
-         <CardBody className="gap-2">
+         <CardBody className="gap-3">
+            {editable ? <Title>Orden</Title> : <Title>Resumen ({items} {items === 1 ? 'tablatura' : 'tablaturas'})</Title>}
             {!editable &&
                <Between>
                   <Title>Orden</Title>
-                  <CustomButtonIcon onPress={() => router('/cart')}><IoPencil  /></CustomButtonIcon>
+                  <CustomButtonIcon onPress={() => router('/cart')}><IoPencil /></CustomButtonIcon>
                </Between>}
             <Between>
-               <Subtitle>No. Productos</Subtitle>
+               <Subtitle>Nro. Tablaturas:</Subtitle>
                <Subtitle>{items} {items === 1 ? 'item' : 'items'}</Subtitle>
             </Between>
             <Between>
-               <Title>Total</Title>
+               <Subtitle>Subtotal:</Subtitle>
+               <Subtitle>${10 * items!}</Subtitle>
+            </Between>
+            <Between>
+               <Subtitle>Descuento:</Subtitle>
+               <Subtitle>-${10 * items!}</Subtitle>
+            </Between>
+            <Divider />
+            <Between>
+               <Title>Total:</Title>
                <Title>${total}</Title>
             </Between>
+            <div>
+               {children}
+            </div>
          </CardBody>
-         <CardFooter>
-            {children}
-         </CardFooter>
       </Card>
    )
 }
