@@ -76,5 +76,5 @@ export const Center = ({ children }: Props) => (
 )
 
 export const Container = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-  <div className={`container mx-auto p-4 min-h-screen ${className}`}>{children}</div>
+  <div className={`container mx-auto p-4 min-h-dvh ${className}`}>{children}</div>
 )
