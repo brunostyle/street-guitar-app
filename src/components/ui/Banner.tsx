@@ -11,7 +11,7 @@ export const Banner = () => (
             <Logo big />
             <h1 className="text-center text-4xl leading-snug font-bold">
                Encontra las mejores tablaturas en
-               <span className="drop-shadow-[0_0_1px_#006FEE] bg-gradient-to-bl from-blue-300 to-blue-950  bg-clip-text text-transparent leading-normal"> Street Guitar </span>
+               <span className="drop-shadow-[0_0_1px_#006FEE] bg-gradient-to-bl from-blue-300 to-blue-950 bg-clip-text text-transparent leading-normal"> Street Guitar </span>
                y aprende de forma rápida
             </h1>
             <Subtitle>Tablaturas gratis, tracks, covers, etc</Subtitle>
