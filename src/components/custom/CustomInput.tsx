@@ -5,7 +5,7 @@ interface IInput {
    name: string;
    label: string;
    icon?: JSX.Element;
-   type?: 'text' | 'password' | 'number';
+   type?: 'text' | 'number';
    isDisabled?: boolean;
    placeholder?: string;
    variant?: 'flat' | 'bordered' | 'underlined' | 'faded';

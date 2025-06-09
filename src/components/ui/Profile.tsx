@@ -1,6 +1,6 @@
 import { Avatar, Drawer, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Divider, Spacer, Progress, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Skeleton } from '@heroui/react';
 import { HiddenTitle, HiddenSubtitle, Between } from '@styles';
-import { CustomInput, FileImage, CustomButtonIcon, CustomButton } from '@components';
+import { CustomInput, FileImage, CustomButtonIcon, CustomButton, CustomInputPassword } from '@components';
 import { IoTrashOutline, IoPersonOutline, IoMailOutline, IoLockClosedOutline, IoPencil, IoSaveOutline, IoCloseOutline } from '@icons';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { useUser } from '@state';
@@ -12,6 +12,7 @@ export const Profile = () => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const { isOpen: isOpenModal, onOpen: onOpenModal, onClose: onCloseModal } = useDisclosure();
     const [isEdit, setEdit] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
     const { updateUser, isUpdating } = useUpdateUser();
     const { deleteUser, isDeleting } = useDeleteUser();
     const { isLogged, user } = useUser();
@@ -62,7 +63,7 @@ export const Profile = () => {
                         <Form className="grid gap-4">
                             <CustomInput name="name" label="Nombre" placeholder={user?.name} isDisabled={!isEdit} variant="bordered" icon={<IoPersonOutline />} />
                             <CustomInput name="email" label="Email" placeholder={user?.email} isDisabled={!isEdit} variant="bordered" icon={<IoMailOutline />} />
-                            <CustomInput name="password" label="Comtraseña" placeholder="******" isDisabled={!isEdit} variant="bordered" icon={<IoLockClosedOutline />} />
+                            <CustomInputPassword name="password" label="Contraseña" placeholder="******" isDisabled={!isEdit} variant="bordered" icon={<IoLockClosedOutline />} isVisible={isVisible} setIsVisible={setIsVisible} />
                             <Spacer />
                             <CustomButton type="submit" isDisabled={!isEdit} color="primary" startContent={<IoSaveOutline />}>Guardar</CustomButton>
                             {(isUpdating || isDeleting) && <Progress size="sm" className="mt-4" isIndeterminate />}

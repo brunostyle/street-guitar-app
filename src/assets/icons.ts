@@ -25,6 +25,7 @@ export {
     IoMailOutline,
     IoLockClosedOutline,
     IoEyeOutline,
+    IoEyeOffOutline,
     IoCloudUploadOutline,
     IoCloudDownloadOutline,
     IoFolderOutline,

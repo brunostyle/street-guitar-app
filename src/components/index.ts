@@ -3,6 +3,7 @@ export * from './custom/CustomButtonIcon';
 export * from './custom/CustomButtonLink';
 export * from './custom/CustomInput';
 export * from './custom/CustomInputBordered';
+export * from './custom/CustomInputPassword';
 export * from './custom/CustomInputTags';
 export * from './custom/CustomTextarea';
 export * from './custom/CustomToast';

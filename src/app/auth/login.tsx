@@ -1,7 +1,7 @@
 import { Checkbox } from "@heroui/react"
 import { useEffect, useState } from "react";
 import { Form, Formik } from "formik"
-import { CustomButton, CustomInput, Separator } from "@components"
+import { CustomButton, CustomInput, CustomInputPassword, Separator } from "@components"
 import { IoMailOutline, FcGoogle, IoLockClosedOutline } from "@icons";
 import { loginSchema } from "@validations"
 import { ILogin } from "@interfaces"
@@ -13,6 +13,7 @@ const Login = () => {
   const { mutate: login, isPending } = useLogin();
   const [isSelected, changeIsSelected] = useState(!!localStorage.getItem(storage));
   const [initial, changeInitial] = useState({ email: '', password: '' });
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     changeInitial(JSON.parse(localStorage.getItem(storage)!) ?? initial);
@@ -32,7 +33,7 @@ const Login = () => {
     <Formik enableReinitialize initialValues={initial} onSubmit={handleSubmit} validationSchema={loginSchema}>
       <Form className="grid gap-4">
         <CustomInput variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<IoMailOutline />} />
-        <CustomInput variant="bordered" type="password" name="password" label="Contraseña" placeholder="******" icon={<IoLockClosedOutline />} />
+        <CustomInputPassword variant="bordered" name="password" label="Contraseña" placeholder="******" icon={<IoLockClosedOutline />} isVisible={isVisible} setIsVisible={setIsVisible} />
         <Checkbox name="remember" isSelected={isSelected} onValueChange={handleChange}>Recuérdame</Checkbox>
         <CustomButton type="submit" color="primary" isLoading={isPending} startContent={!isPending && <IoMailOutline />}>Continuar con correo</CustomButton>
         <Separator>OR</Separator>
