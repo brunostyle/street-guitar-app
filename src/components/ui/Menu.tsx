@@ -66,7 +66,7 @@ export const Menu = () => {
             </NavbarItem>
 
             <NavbarItem>
-               {(token && isLogged) && <Profile />}
+               {(token || isLogged) && <Profile />}
             </NavbarItem>
 
             <NavbarMenuToggle />
