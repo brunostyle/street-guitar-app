@@ -47,26 +47,20 @@
   gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto 1fr;
-  grid-template-areas: "cards cards cards sells"
+  grid-template-areas: 
+    "cards cards cards sells"
     "chart chart chart sells";
 }
 
-.cards {
-  grid-area: cards;
-}
-
-.sells {
-  grid-area: sells;
-}
-
-.chart {
-  grid-area: chart;
-}
+.cards { grid-area: cards; }
+.sells { grid-area: sells; }
+.chart { grid-area: chart; }
 
 @media screen and (max-width: 1024px) {
   .dashboard {
     grid-template-columns: 1fr;
-    grid-template-areas: "cards"
+    grid-template-areas: 
+      "cards"
       "chart"
       "sells";
   }
@@ -76,15 +70,11 @@
   display: none;
 }
 
-.wrap {
-  display: grid;
-  gap: 1rem;
+.wrap-fill {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 .wrap-fit {
-  display: grid;
-  gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
@@ -104,7 +94,7 @@
 @media screen and (max-width: 444px) {
   html { font-size: 13px }
 
-  .wrap {
+  .wrap-fill {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }
 }

@@ -1,12 +1,12 @@
 import { Card, CardBody, CardFooter, Skeleton } from "@heroui/react";
-import { Between, Wrap } from "@styles";
+import { Between, WrapFill } from "@styles";
 
 interface ProductSkeletonProps {
     count?: number;
 }
 
 export const ProductSkeleton = ({ count = 8 }: ProductSkeletonProps) => (
-    <Wrap>
+    <WrapFill>
         {Array(count).fill(0).map((_, index) => (
             <Card key={index} radius="lg">
                 <Skeleton className="rounded-md">
@@ -32,5 +32,5 @@ export const ProductSkeleton = ({ count = 8 }: ProductSkeletonProps) => (
                 </CardFooter>
             </Card>
         ))}
-    </Wrap >
+    </WrapFill >
 );

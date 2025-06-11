@@ -1,12 +1,12 @@
 import { ChipProps } from "@heroui/react";
 
-type TValidRoles = 'admin' | 'client';
+export type TValidRoles = 'admin' | 'client';
 
 export interface IUser {
    id: string;
    name: string;
    email: string;
-	password?: string;
+   password?: string;
    role: TValidRoles;
    avatar?: string;
 }

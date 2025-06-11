@@ -1,6 +1,6 @@
 import { Card, CardBody, CardFooter } from '@heroui/react';
 import { useNavigate as useRouter } from 'react-router-dom';
-import { Between, HiddenTitle, Wrap, Title, ChipCategory, HiddenSubtitle } from '@styles';
+import { Between, HiddenTitle, WrapFill, Title, ChipCategory, HiddenSubtitle } from '@styles';
 import { IProduct } from "@interfaces"
 import { FaSpotify } from '@icons';
 import { CustomButtonLink, ProductSkeleton } from '@components';
@@ -22,7 +22,7 @@ export const ProductList = ({ category, icon, products, isLoading = false }: IPr
       {isLoading
          ? <ProductSkeleton />
          :
-         <Wrap>
+         <WrapFill>
             {products.map(product => (
                <Card className="shadow-outset" key={product.id} isHoverable isPressable onPress={() => router('/product/' + product.id)}>
                   <img src={product.images[0]} alt={product.title} className="w-full h-full min-h-64 rounded-none object-cover opacity" />
@@ -38,7 +38,7 @@ export const ProductList = ({ category, icon, products, isLoading = false }: IPr
                   </CardFooter>
                </Card>
             ))}
-         </Wrap>
+         </WrapFill>
       }
    </>
 }
