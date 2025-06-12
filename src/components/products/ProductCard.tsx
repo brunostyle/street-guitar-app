@@ -16,18 +16,18 @@ export const ProductCard = ({ cart = [], editable = false }: IProductCard) => {
    const { removeProductToCart } = useCart();
    return <>
       {cart.map(product => (
-         <Card key={product.id} className="grid grid-cols-12 shadow-outset">
-            <Link to={"/product/" + product.id} className="col-span-2 h-28">
+         <Card key={product.id} className="grid grid-cols-[2fr_10fr_auto] shadow-outset">
+            <Link to={"/product/" + product.id} className="h-28">
                <img src={product.images[0]} alt={product.title} className="w-full h-full rounded-none object-cover" />
             </Link>
-            <CardBody className="col-span-8 flex flex-col justify-between">
+            <CardBody className="flex flex-col justify-between">
                <div>
                   <HiddenTitle>{product.title}</HiddenTitle>
                   <Subtitle>{product.description}</Subtitle>
                </div>
                <ChipCategory>{product.category}</ChipCategory>
             </CardBody>
-            <CardFooter className="col-span-2 flex flex-col justify-between">
+            <CardFooter className="flex flex-col justify-between">
                <CustomButtonLink to={product?.spotify} variant="light" color="success"><FaSpotify size="1.6em" /></CustomButtonLink>
                {(!editable && product.pdf) && <CustomButtonLink to={product.pdf} download={product.tab} color="primary"><IoCloudDownloadOutline /></CustomButtonLink>}
                {editable && <CustomButtonIcon onPress={() => removeProductToCart(product)}><IoTrashOutline /></CustomButtonIcon>}
