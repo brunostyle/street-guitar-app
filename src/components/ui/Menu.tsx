@@ -1,11 +1,11 @@
-import { Navbar, Dropdown, Spacer, Badge, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem, Button } from '@heroui/react';
+import { Navbar, Dropdown, Badge, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem, Button } from '@heroui/react';
 import { useNavigate, Link as NextLink } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import { IoSearchOutline, IoCartOutline, IoFilterOutline, IoSunnySharp, IoMoonSharp, IoMusicalNoteSharp } from '@icons'
 import { Collapse, Profile, CustomInputBordered, Logo, Push, CustomButtonIcon } from '@components';
 import { searchSchema } from '@validations';
 import { useCart, useTheme, useUser } from '@state';
-import { Title } from '@styles';
+import { Flex, Title } from '@styles';
 import { useState } from 'react';
 
 interface ISearch { query: string }
@@ -25,9 +25,10 @@ export const Menu = () => {
    return (
       <Navbar isBordered maxWidth="full" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
          <NavbarBrand>
-            <NextLink to="/"><Logo /></NextLink>
-            <Spacer x={3} />
-            <Title>Street Guitar</Title>
+            <Flex>
+               <NextLink to="/"><Logo /></NextLink>
+               <Title>Street Guitar</Title>
+            </Flex>
          </NavbarBrand>
 
          <NavbarContent justify="end">

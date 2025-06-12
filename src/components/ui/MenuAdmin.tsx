@@ -1,9 +1,9 @@
-import { Navbar, Spacer, NavbarBrand, NavbarContent, NavbarMenuToggle, NavbarItem } from '@heroui/react';
+import { Navbar, NavbarBrand, NavbarContent, NavbarMenuToggle, NavbarItem } from '@heroui/react';
 import { Link as NextLink } from 'react-router-dom'
 import { Collapse, Logo, Push, Profile, CustomButtonIcon } from '@components';
 import { useTheme, useUser } from '@state';
-import { Title } from '@styles';
-import { IoMoonSharp , IoSunnySharp   } from '@icons';
+import { Flex, Title } from '@styles';
+import { IoMoonSharp, IoSunnySharp } from '@icons';
 import { useState } from 'react';
 
 export const MenuAdmin = () => {
@@ -13,15 +13,16 @@ export const MenuAdmin = () => {
    return (
       <Navbar isBordered maxWidth="full" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
          <NavbarBrand>
-            <NextLink to="/"><Logo /></NextLink>
-            <Spacer x={3} />
-            <Title>Street Guitar</Title>
+            <Flex>
+               <NextLink to="/"><Logo /></NextLink>
+               <Title>Street Guitar</Title>
+            </Flex>
          </NavbarBrand>
 
          <NavbarContent justify="end">
             <NavbarItem>
-               {theme === 'light' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('dark')}><IoMoonSharp  /></CustomButtonIcon></Push>}
-               {theme === 'dark' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('light')}><IoSunnySharp   /></CustomButtonIcon></Push>}
+               {theme === 'light' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('dark')}><IoMoonSharp /></CustomButtonIcon></Push>}
+               {theme === 'dark' && <Push><CustomButtonIcon variant="light" onPress={() => changeTheme('light')}><IoSunnySharp /></CustomButtonIcon></Push>}
             </NavbarItem>
             <NavbarItem>
                {isLogged && <Profile />}

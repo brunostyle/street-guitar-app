@@ -1,4 +1,4 @@
-import { Avatar, Drawer, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Divider, Spacer, Progress, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Skeleton } from '@heroui/react';
+import { Avatar, Drawer, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Divider, Progress, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Skeleton } from '@heroui/react';
 import { HiddenTitle, HiddenSubtitle, Between, Flex, Gap } from '@styles';
 import { CustomInput, FileImage, CustomButtonIcon, CustomButton, CustomInputPassword } from '@components';
 import { IoTrashOutline, IoPersonOutline, IoMailOutline, IoLockClosedOutline, IoPencil, IoSaveOutline, IoCloseOutline } from '@icons';
@@ -65,7 +65,6 @@ export const Profile = () => {
                                 <CustomInput name="name" label="Nombre" placeholder={user?.name} isDisabled={!isEdit} variant="bordered" icon={<IoPersonOutline />} />
                                 <CustomInput name="email" label="Email" placeholder={user?.email} isDisabled={!isEdit} variant="bordered" icon={<IoMailOutline />} />
                                 <CustomInputPassword name="password" label="Contraseña" placeholder="******" isDisabled={!isEdit} variant="bordered" icon={<IoLockClosedOutline />} isVisible={isVisible} setIsVisible={setIsVisible} />
-                                <Spacer />
                                 <CustomButton type="submit" isDisabled={!isEdit} color="primary" startContent={<IoSaveOutline />}>Guardar</CustomButton>
                                 {(isUpdating || isDeleting) && <Progress size="sm" className="mt-4" isIndeterminate />}
                             </Gap>
@@ -77,7 +76,6 @@ export const Profile = () => {
                         <ModalHeader>
                             <div>
                                 <HiddenTitle>Eliminar perfil</HiddenTitle>
-                                <Spacer />
                                 <HiddenSubtitle>Esta acción no se puede deshacer.</HiddenSubtitle>
                             </div>
                         </ModalHeader>
