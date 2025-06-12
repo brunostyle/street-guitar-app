@@ -3,7 +3,7 @@ import { ChangeEvent } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useField } from "formik";
 import { IoCloseOutline, IoDocumentTextOutline } from "@icons";
-import { TitlePDF } from "@styles";
+import { Between, Gap, TitlePDF } from "@styles";
 import { useAddPDF, useDeletePDF } from "@hooks";
 import { CustomButtonIcon, File, notify } from "@components";
 import { fetcherWithToken } from "@fetch";
@@ -43,18 +43,20 @@ export const PDF = () => {
     };
 
     return (
-        <div>
+        <Gap>
             {fieldTAB.value &&
-                <Card className="flex flex-row items-center mb-4 px-2">
-                    <IoDocumentTextOutline size="2rem" className="text-primary mx-2" />
-                    <CardBody>
-                        <Link to={fieldPDF.value} target="_blank"><TitlePDF>{fieldTAB.value}</TitlePDF></Link>
-                        {(isAdding || isDeleting) && <Progress size="sm" className="mt-4" isIndeterminate />}
-                    </CardBody>
-                    <CustomButtonIcon variant="light" onPress={handleDelete}><IoCloseOutline /></CustomButtonIcon>
+                <Card className="px-2">
+                    <Between>
+                        <IoDocumentTextOutline size="2rem" className="text-primary mx-2" />
+                        <CardBody>
+                            <Link to={fieldPDF.value} target="_blank"><TitlePDF>{fieldTAB.value}</TitlePDF></Link>
+                            {(isAdding || isDeleting) && <Progress size="sm" className="mt-4" isIndeterminate />}
+                        </CardBody>
+                        <CustomButtonIcon variant="light" onPress={handleDelete}><IoCloseOutline /></CustomButtonIcon>
+                    </Between>
                 </Card>
             }
             <File id="pdf" label="Cargar PDF" onChange={handlePDF} />
-        </div>
+        </Gap>
     )
 }

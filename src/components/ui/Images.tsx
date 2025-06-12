@@ -2,10 +2,11 @@ import { Badge, Image, Progress } from "@heroui/react";
 import { ChangeEvent } from "react";
 import { useParams } from "react-router-dom";
 import { useField } from "formik";
-import { IoCloseOutline  } from "@icons";
+import { IoCloseOutline } from "@icons";
 import { useAddImage, useDeleteImage } from "@hooks";
 import { File, notify } from "@components";
 import { fetcherWithToken } from "@fetch";
+import { Flex, Gap } from "@styles";
 
 export const Images = () => {
    const { id } = useParams();
@@ -41,15 +42,17 @@ export const Images = () => {
    };
 
    return (
-      <div className="flex gap-2 justify-evenly flex-wrap">
-         {field.value && field.value.map((img: string) => (
-            <Badge key={img} content={<IoCloseOutline  />} onClick={() => handleDelete(img)} color="primary" variant="shadow" isOneChar showOutline={false} className="cursor-pointer">
-               <Image src={img} width="120px" height="120px" className="object-cover" />
-            </Badge>
-         ))}
-         {isAdding && <Progress label="Subiendo imagen" size="sm" className="mb-4" isIndeterminate />}
-         {isDeleting && <Progress label="Eliminando imagen" size="sm" className="mb-4" isIndeterminate />}
+      <Gap>
+         <Flex className="justify-evenly flex-wrap">
+            {field.value && field.value.map((img: string) => (
+               <Badge key={img} content={<IoCloseOutline />} onClick={() => handleDelete(img)} color="primary" variant="shadow" isOneChar showOutline={false} className="cursor-pointer">
+                  <Image src={img} width="120px" height="120px" className="object-cover" />
+               </Badge>
+            ))}
+         </Flex>
+         {isAdding && <Progress label="Subiendo imagen" size="sm" isIndeterminate />}
+         {isDeleting && <Progress label="Eliminando imagen" size="sm" isIndeterminate />}
          <File id="image" label="Cargar imagen" onChange={handleImage} />
-      </div>
+      </Gap>
    )
 }

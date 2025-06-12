@@ -31,6 +31,14 @@ export const Between = ({ children, className, ...props }: ComponentProps<"div">
   <div className={`w-full flex justify-between items-center gap-4 ${className}`} {...props}>{children}</div>
 )
 
+export const Gap = ({ children, className, ...props }: ComponentProps<"div">) => (
+  <div className={`flex flex-col gap-4 ${className}`} {...props}>{children}</div>
+)
+
+export const Flex = ({ children, className, ...props }: ComponentProps<"div">) => (
+  <div className={`flex gap-4 items-center ${className}`} {...props}>{children}</div>
+)
+
 export const Center = ({ children, className, ...props }: ComponentProps<"div">) => (
   <div className={`absolute left-0 top-0 w-full grid place-content-center gap-4 text-center min-h-screen ${className}`} {...props}>{children}</div>
 )

@@ -1,5 +1,5 @@
 import { Avatar, Drawer, DrawerContent, DrawerHeader, DrawerBody, useDisclosure, Divider, Spacer, Progress, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Skeleton } from '@heroui/react';
-import { HiddenTitle, HiddenSubtitle, Between } from '@styles';
+import { HiddenTitle, HiddenSubtitle, Between, Flex, Gap } from '@styles';
 import { CustomInput, FileImage, CustomButtonIcon, CustomButton, CustomInputPassword } from '@components';
 import { IoTrashOutline, IoPersonOutline, IoMailOutline, IoLockClosedOutline, IoPencil, IoSaveOutline, IoCloseOutline } from '@icons';
 import { Form, Formik, FormikHelpers } from 'formik';
@@ -50,23 +50,25 @@ export const Profile = () => {
                             <HiddenTitle>Perfil</HiddenTitle>
                             <HiddenSubtitle>Editar informacion</HiddenSubtitle>
                         </div>
-                        <div className="flex gap-2">
+                        <Flex>
                             {isEdit && <CustomButtonIcon onPress={onOpenModal}><IoTrashOutline /></CustomButtonIcon>}
                             <CustomButtonIcon onPress={() => setEdit(!isEdit)}><IoPencil /></CustomButtonIcon>
-                        </div>
+                        </Flex>
                     </Between>
                 </DrawerHeader>
                 <Divider />
                 <DrawerBody>
                     <FileImage />
                     <Formik enableReinitialize initialValues={initial} onSubmit={handleSubmit} validationSchema={userSchema}>
-                        <Form className="grid gap-4">
-                            <CustomInput name="name" label="Nombre" placeholder={user?.name} isDisabled={!isEdit} variant="bordered" icon={<IoPersonOutline />} />
-                            <CustomInput name="email" label="Email" placeholder={user?.email} isDisabled={!isEdit} variant="bordered" icon={<IoMailOutline />} />
-                            <CustomInputPassword name="password" label="Contraseña" placeholder="******" isDisabled={!isEdit} variant="bordered" icon={<IoLockClosedOutline />} isVisible={isVisible} setIsVisible={setIsVisible} />
-                            <Spacer />
-                            <CustomButton type="submit" isDisabled={!isEdit} color="primary" startContent={<IoSaveOutline />}>Guardar</CustomButton>
-                            {(isUpdating || isDeleting) && <Progress size="sm" className="mt-4" isIndeterminate />}
+                        <Form>
+                            <Gap>
+                                <CustomInput name="name" label="Nombre" placeholder={user?.name} isDisabled={!isEdit} variant="bordered" icon={<IoPersonOutline />} />
+                                <CustomInput name="email" label="Email" placeholder={user?.email} isDisabled={!isEdit} variant="bordered" icon={<IoMailOutline />} />
+                                <CustomInputPassword name="password" label="Contraseña" placeholder="******" isDisabled={!isEdit} variant="bordered" icon={<IoLockClosedOutline />} isVisible={isVisible} setIsVisible={setIsVisible} />
+                                <Spacer />
+                                <CustomButton type="submit" isDisabled={!isEdit} color="primary" startContent={<IoSaveOutline />}>Guardar</CustomButton>
+                                {(isUpdating || isDeleting) && <Progress size="sm" className="mt-4" isIndeterminate />}
+                            </Gap>
                         </Form>
                     </Formik>
                 </DrawerBody>
@@ -84,8 +86,10 @@ export const Profile = () => {
                             <p className="text-sm">Todos tus datos serán eliminados de forma permanente.</p>
                         </ModalBody>
                         <ModalFooter>
-                            <CustomButton variant="flat" onPress={onCloseModal} startContent={<IoCloseOutline />}>Cancelar</CustomButton>
-                            <CustomButton color="danger" onPress={handleDelete} startContent={<IoTrashOutline />}>Eliminar</CustomButton>
+                            <Flex>
+                                <CustomButton variant="flat" onPress={onCloseModal} startContent={<IoCloseOutline />}>Cancelar</CustomButton>
+                                <CustomButton color="danger" onPress={handleDelete} startContent={<IoTrashOutline />}>Eliminar</CustomButton>
+                            </Flex>
                         </ModalFooter>
                     </ModalContent>
                 </Modal>

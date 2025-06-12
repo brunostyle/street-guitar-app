@@ -1,6 +1,6 @@
-import { BreadcrumbItem, Breadcrumbs, Input, Spacer } from '@heroui/react';
+import { BreadcrumbItem, Breadcrumbs, Input } from '@heroui/react';
 import { useNavigate } from 'react-router-dom';
-import { Between, SectionTitle } from '@styles';
+import { Between, Gap, SectionTitle } from '@styles';
 import { IoAddOutline, IoHomeOutline, IoPricetagsOutline, IoSearchOutline } from "@icons";
 import { CustomButton } from "@components";
 
@@ -22,14 +22,13 @@ export const Admin = ({ children, title, showTitle = false, funtional = false, i
             <BreadcrumbItem startContent={icon}>{title}</BreadcrumbItem>
         </Breadcrumbs>
         {funtional &&
-            <div>
+            <Gap>
                 <SectionTitle>{title}</SectionTitle>
-                <Spacer y={4} />
                 <Between>
                     <Input variant="bordered" size="sm" placeholder="Buscar producto" startContent={<IoSearchOutline />} className="w-80 max-w-[50%]" />
                     <CustomButton color="primary" startContent={<IoAddOutline />} onPress={() => router('/admin/products/new')}>Agregar</CustomButton>
                 </Between>
-            </div>}
+            </Gap>}
         {showTitle &&
             <Between>
                 <SectionTitle>{title}</SectionTitle>

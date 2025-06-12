@@ -6,6 +6,7 @@ import { IoMailOutline, FcGoogle, IoLockClosedOutline } from "@icons";
 import { loginSchema } from "@validations"
 import { ILogin } from "@interfaces"
 import { useLogin } from "@hooks";
+import { Gap } from "@styles";
 
 const storage = 'login-street-guitar';
 
@@ -31,13 +32,15 @@ const Login = () => {
 
   return (
     <Formik enableReinitialize initialValues={initial} onSubmit={handleSubmit} validationSchema={loginSchema}>
-      <Form className="grid gap-4">
-        <CustomInput variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<IoMailOutline />} />
-        <CustomInputPassword variant="bordered" name="password" label="Contraseña" placeholder="******" icon={<IoLockClosedOutline />} isVisible={isVisible} setIsVisible={setIsVisible} />
-        <Checkbox name="remember" isSelected={isSelected} onValueChange={handleChange}>Recuérdame</Checkbox>
-        <CustomButton type="submit" color="primary" isLoading={isPending} startContent={!isPending && <IoMailOutline />}>Continuar con correo</CustomButton>
-        <Separator>OR</Separator>
-        <CustomButton variant="bordered" startContent={<FcGoogle />}>Continuar con Google</CustomButton>
+      <Form>
+        <Gap>
+          <CustomInput variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<IoMailOutline />} />
+          <CustomInputPassword variant="bordered" name="password" label="Contraseña" placeholder="******" icon={<IoLockClosedOutline />} isVisible={isVisible} setIsVisible={setIsVisible} />
+          <Checkbox name="remember" isSelected={isSelected} onValueChange={handleChange}>Recuérdame</Checkbox>
+          <CustomButton type="submit" color="primary" isLoading={isPending} startContent={!isPending && <IoMailOutline />}>Continuar con correo</CustomButton>
+          <Separator>OR</Separator>
+          <CustomButton variant="bordered" startContent={<FcGoogle />}>Continuar con Google</CustomButton>
+        </Gap>
       </Form>
     </Formik>
   )
