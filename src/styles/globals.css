@@ -30,14 +30,6 @@
   animation: darked 1s linear;
 }
 
-.pattern {
-  width: 100%;
-  height: 100dvh;
-  background: url('/pattern.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .mask {
   mask-image: linear-gradient(black 90%, transparent);
 }

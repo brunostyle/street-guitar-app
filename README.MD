@@ -1,4 +1,4 @@
-![Street Guitar](https://eefsagpdpdoxkxeaeyzu.supabase.co/storage/v1/object/public/products/223f5bff-2c5f-4cbd-9c2b-3e8278806836)
+![Street Guitar](https://res.cloudinary.com/di18krsr5/image/upload/v1749706968/fpzkfupnwqg176g2j6g3.png)
 
 # Street Guitar
 

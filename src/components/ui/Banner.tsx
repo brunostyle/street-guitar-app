@@ -1,11 +1,11 @@
 import { Image } from "@heroui/react";
 import { IoLogoGithub, IoLogoInstagram } from "@icons";
-import { Container, Flex, Gap, Subtitle } from "@styles";
+import { Container, Flex, Gap, Pattern, Subtitle } from "@styles";
 import { CustomButton, Logo, Push } from "@components";
 import { Link } from "react-router-dom";
 
 export const Banner = () => (
-   <div className="pattern mask">
+   <Pattern mask>
       <Container className="grid gap-4 md:grid-cols-2 items-center">
          <Gap className="items-center mb-20 md:mb-52 p-4 backdrop-blur border-y-1.5 dark:border-slate-900">
             <Logo big />
@@ -30,5 +30,5 @@ export const Banner = () => (
             </div>
          </div>
       </Container>
-   </div>
+   </Pattern>
 )

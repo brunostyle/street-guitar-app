@@ -1,5 +1,5 @@
 import { Card, CardBody, CardHeader, Image, Tab, Tabs } from "@heroui/react";
-import { Container, SectionTitle } from "@styles";
+import { Container, Pattern, SectionTitle } from "@styles";
 import { Logo } from "@components";
 import Login from "../../app/auth/login";
 import Register from "../../app/auth/register";
@@ -9,7 +9,7 @@ import { Key, useState } from "react";
 export const LayoutAuth = () => {
    const [selected, setSelected] = useState("sign-in");
    return (
-      <div className="pattern">
+      <Pattern>
          <Container className="grid grid-cols-2 gap-4 place-content-center items-center">
             <div className="flex justify-center items-center">
                <Image disableSkeleton className="hidden md:block" src="/auris.png" alt="Ilustracion" />
@@ -32,6 +32,6 @@ export const LayoutAuth = () => {
                </CardBody>
             </Card>
          </Container>
-      </div>
+      </Pattern>
    )
 }

@@ -19,6 +19,10 @@ export const Container = ({ children, className, ...props }: ComponentProps<"div
   <div className={`container mx-auto p-4 min-h-dvh ${className}`} {...props}>{children}</div>
 )
 
+export const Pattern = ({ children, className, mask = false, ...props }: ComponentProps<"div"> & { mask?: boolean }) => (
+  <div className={`w-full min-h-dvh bg-center bg-no-repeat ${mask && 'mask'} ${className}`} style={{ backgroundImage: 'url(/pattern.svg)' }} {...props}>{children}</div>
+)
+
 export const GridContainer = ({ children, className, ...props }: ComponentProps<"div">) => (
   <div className={`grid grid-cols-12 gap-4 ${className}`} {...props}>{children}</div>
 )
