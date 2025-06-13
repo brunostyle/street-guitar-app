@@ -23,11 +23,11 @@ export const Banner = () => (
             </Flex>
          </Gap>
          <div className="hidden md:block mb-36 dark:opacity-80">
-            <div className="flex justify-center items-center">
+            <Flex className="justify-center">
                <Push>
                   <Image disableSkeleton src="auris.png" alt="Ilustracion" />
                </Push>
-            </div>
+            </Flex>
          </div>
       </Container>
    </Pattern>

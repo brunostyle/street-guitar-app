@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useField } from "formik";
 import { CustomButtonIcon, CustomInputTags } from "@components";
 import { IoPricetagsOutline, IoAddOutline } from "@icons";
+import { Flex, Gap } from "@styles";
 
 export const Tags = () => {
    const [field, _meta, helpers] = useField('tags');
@@ -21,16 +22,16 @@ export const Tags = () => {
    }
 
    return (
-      <div>
+      <Gap>
          <CustomInputTags label="Etiquetas" value={tagValue} onChange={setTagValue} addTag={addTag} content={
             <CustomButtonIcon variant="light" onPress={addTag}><IoAddOutline /></CustomButtonIcon>
          } />
-         <div className="flex gap-1 mt-4">
+         <Flex space="gap-2">
             {field.value && field.value.map((tag: string) => (
                <Chip key={tag} color="primary" size="sm" variant="flat" onClose={() => removeTag(tag)} className="gap-1" startContent={<IoPricetagsOutline />}>{tag}</Chip>
             ))}
-         </div>
-      </div>
+         </Flex>
+      </Gap>
 
    )
 };

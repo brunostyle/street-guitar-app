@@ -1,5 +1,5 @@
 import { Card, CardBody, CardHeader, Image, Tab, Tabs } from "@heroui/react";
-import { Container, Pattern, SectionTitle } from "@styles";
+import { Container, Flex, Pattern, SectionTitle, Subtitle } from "@styles";
 import { Logo } from "@components";
 import Login from "../../app/auth/login";
 import Register from "../../app/auth/register";
@@ -11,27 +11,27 @@ export const LayoutAuth = () => {
    return (
       <Pattern>
          <Container className="grid grid-cols-2 gap-4 place-content-center items-center">
-            <div className="flex justify-center items-center">
+            <Flex className="justify-center">
                <Image disableSkeleton className="hidden md:block" src="/auris.png" alt="Ilustracion" />
-            </div>
+            </Flex>
             <Card className="col-span-2 md:col-span-1 bg-gradient-to-r from-background via-default-50 to-background border border-white/20">
-               <CardHeader className="grid justify-center text-center">
+               <CardHeader className="grid gap-2 justify-center text-center">
                   <Logo big />
                   <SectionTitle>Street Guitar</SectionTitle>
-                  <h3 className="text-gray-500 text-sm">Tablaturas, tracks, covers gratis</h3>
+                  <Subtitle>Tablaturas, tracks, covers gratis</Subtitle>
                </CardHeader>
                <CardBody>
                   <Tabs fullWidth size="sm" variant="bordered" color="primary" selectedKey={selected} onSelectionChange={(key: Key) => setSelected(String(key))}>
-                     <Tab key="sign-in" title={<div className="flex items-center gap-2"><IoKeyOutline /><span>Inicia sesion</span></div>}>
+                     <Tab key="sign-in" title={<Flex space="gap-2"><IoKeyOutline /><p>Inicia sesion</p></Flex>}>
                         <Login />
                      </Tab>
-                     <Tab key="sign-up" title={<div className="flex items-center gap-2"><IoPersonAddOutline /><span>Registrate</span></div>}>
+                     <Tab key="sign-up" title={<Flex space="gap-2"><IoPersonAddOutline /><p>Registrate</p></Flex>}>
                         <Register />
                      </Tab>
                   </Tabs>
                </CardBody>
             </Card>
          </Container>
-      </Pattern>
+      </Pattern >
    )
 }

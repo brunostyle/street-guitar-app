@@ -39,8 +39,8 @@ export const Gap = ({ children, className, ...props }: ComponentProps<"div">) =>
   <div className={`flex flex-col gap-4 ${className}`} {...props}>{children}</div>
 )
 
-export const Flex = ({ children, className, ...props }: ComponentProps<"div">) => (
-  <div className={`flex gap-4 items-center ${className}`} {...props}>{children}</div>
+export const Flex = ({ children, className, space = 'gap-4', ...props }: ComponentProps<"div"> & { space?: string }) => (
+  <div className={`flex items-center ${space} ${className}`} {...props}>{children}</div>
 )
 
 export const Center = ({ children, className, ...props }: ComponentProps<"div">) => (
