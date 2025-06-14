@@ -16,7 +16,7 @@ const UpdateProduct = () => {
     const handleSubmit = (values: any) => updateProduct({ ...values, id })
 
     return (
-        <Admin isProductPage title="Actualizar" icon={<IoPencil />}>
+        <Admin show="extra-breadcrumb" title="Actualizar" icon={<IoPencil />}>
             <SectionTitle>Actualizar un producto</SectionTitle>
             <Spacer y={4} />
             <Card className="shadow-inset"><CardBody>

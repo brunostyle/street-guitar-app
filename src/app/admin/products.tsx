@@ -9,7 +9,7 @@ const Products = () => {
    const router = useNavigate();
    const { products = [], isEmpty, isLoading, page, setPage, total } = usePaginateProducts();
    return (
-      <Admin funtional title="Productos" icon={<IoPricetagsOutline />}>
+      <Admin show="title-input-button" title="Productos" icon={<IoPricetagsOutline />}>
          {isLoading
             ? <FullScreenLoading />
             : isEmpty

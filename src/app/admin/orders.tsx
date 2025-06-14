@@ -8,7 +8,7 @@ const Orders = () => {
    const { orders = [], isEmpty, isLoading, page, setPage, total } = usePaginateOrders();
    const router = useNavigate();
    return (
-      <Admin showTitle={!isEmpty} title="Ordenes" icon={<IoTriangleOutline />}>
+      <Admin show={isEmpty ? "nothing" : "title-input"} title="Ordenes" icon={<IoTriangleOutline />}>
          {isLoading
             ? <FullScreenLoading />
             : isEmpty

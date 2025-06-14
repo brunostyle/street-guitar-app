@@ -15,7 +15,7 @@ const NewProduct = () => {
     };
 
     return (
-        <Admin isProductPage title="Agregar" icon={<IoAddOutline />}>
+        <Admin show="extra-breadcrumb" title="Agregar" icon={<IoAddOutline />}>
             <SectionTitle>Agregar un producto</SectionTitle>
             <Spacer y={4} />
             <Card className="shadow-inset"><CardBody>
