@@ -27,7 +27,7 @@ const Product = () => {
          <Card className="max-w-[1200px] mx-auto bg-gradient-to-t from-background via-default-50 to-background">
             <GridContainer>
                <Grid>
-                  <Gallery images={product?.images} isLoading={isLoading} />
+                  <Gallery images={product?.images!} isLoading={isLoading} />
                </Grid>
                <Grid>
                   <CardBody>
@@ -51,7 +51,7 @@ const Product = () => {
                               <Subtitle>Categoria:</Subtitle>
                            </Skeleton>
                            <Skeleton className="rounded-md min-w-10" isLoaded={!isLoading}>
-                              <ChipCategory>{product?.category}</ChipCategory>
+                              <ChipCategory>{product?.category!}</ChipCategory>
                            </Skeleton>
                         </Between>
                         <Between>
@@ -66,7 +66,7 @@ const Product = () => {
                            </Skeleton>
                         </Between>
                         <Skeleton className="rounded-md" isLoaded={!isLoading}>
-                           <CustomButtonLink to={product?.spotify} isButtonLink variant="solid" color="success" startContent={<FaSpotify size="1.5em" />}>Escuchala en spotify</CustomButtonLink>
+                           <CustomButtonLink to={product?.spotify!} isButtonLink variant="solid" color="success" startContent={<FaSpotify size="1.5em" />}>Escuchala en spotify</CustomButtonLink>
                         </Skeleton>
                         <Skeleton className="rounded-md" isLoaded={!isLoading}>
                            <CustomButton fullWidth color="primary" startContent={<IoCartOutline />} onPress={handleAddToCart}>Agregar al carrito</CustomButton>

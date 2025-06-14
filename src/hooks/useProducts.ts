@@ -6,8 +6,16 @@ import { useState } from "react";
 import { notify } from "@components";
 
 //--------------------------------- GET ---------------------------------
+
+interface useProductsProps {
+  limit: number;
+  page: number;
+  total: number;
+  products: IProduct[];
+}
+
 export const useProducts = () => {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading } = useQuery<useProductsProps>({
     queryKey: ["products"],
     queryFn: () => fetcher({ endpoint: '/products', method: 'GET' })
   })
@@ -17,15 +25,15 @@ export const useProducts = () => {
 export const usePaginateProducts = () => {
   const [page, setPage] = useState(1);
   const limit = 10;
-  const { data, isLoading } = useQuery({
+  const { data, isLoading } = useQuery<useProductsProps>({
     queryKey: ["products", page],
     queryFn: () => fetcher({ endpoint: `/products/?page=${page}&limit=${limit}`, method: 'GET' })
   })
-  return { products: data?.products, isEmpty: data?.products?.length === 0, isLoading, page, setPage, total: Math.ceil(data?.total / limit) }
+  return { products: data?.products, isEmpty: data?.products?.length === 0, isLoading, page, setPage, total: Math.ceil(data?.total! / limit) }
 }
 //--------------------------------- GET PRODUCT---------------------------------
-export const useGetProduct = (id: string): { product: IProduct, isLoading: boolean } => {
-  const { data: product, isLoading } = useQuery({
+export const useGetProduct = (id: string) => {
+  const { data: product, isLoading } = useQuery<IProduct>({
     queryKey: ["product", id],
     queryFn: () => fetcher({ endpoint: '/products/' + id, method: 'GET' })
   })
@@ -33,17 +41,17 @@ export const useGetProduct = (id: string): { product: IProduct, isLoading: boole
 }
 //--------------------------------- GET CATEGORY---------------------------------
 export const useGetCategory = (category: string) => {
-  const { data: products, isLoading } = useQuery({
+  const { data: products, isLoading } = useQuery<IProduct[]>({
     queryKey: ["products", category],
     queryFn: () => fetcher({ endpoint: '/products/category/' + category, method: 'GET' })
   })
   return { products, isLoading, isEmpty: products?.length === 0 }
 }
 //--------------------------------- GET QUERY---------------------------------
-export const useGetProductsQuery = (query: string): { products?: IProduct[], isEmpty: boolean, isLoading: boolean } => {
-  const { data: products, isLoading } = useQuery({
+export const useGetProductsQuery = (query: string) => {
+  const { data: products, isLoading } = useQuery<IProduct[]>({
     queryKey: ["products", query],
-    queryFn: (): Promise<IProduct[]> => fetcher({ endpoint: '/products/query/' + query, method: 'GET' })
+    queryFn: () => fetcher({ endpoint: '/products/query/' + query, method: 'GET' })
   })
   return { products, isLoading, isEmpty: products?.length === 0 }
 }

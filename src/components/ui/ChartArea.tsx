@@ -2,6 +2,7 @@ import { createChart, ColorType, AreaSeries } from 'lightweight-charts';
 import { Card, CardBody } from '@heroui/react';
 import { useEffect, useRef } from 'react';
 import { useTheme } from '@state';
+import { IChartData } from '@interfaces';
 
 const themes = {
     dark: {
@@ -11,16 +12,16 @@ const themes = {
     },
     light: {
         layout: { background: { color: '#FFFFFF' }, textColor: '#141414' },
-        grid: { vertLines: { color: '#E6E6E6' }, horzLines: { color: '#E6E6E6' }, border: { color: '#c1c1c1' }  },
+        grid: { vertLines: { color: '#E6E6E6' }, horzLines: { color: '#E6E6E6' }, border: { color: '#c1c1c1' } },
         areaStyles: { topColor: '#4B0082', bottomColor: '#ffffff', lineColor: '#004493' }
     }
 };
 
 interface ChartComponentProps {
-    data: { time: string; value: number }[];
+    data?: IChartData[];
 }
 
-export const ChartArea = ({ data }: ChartComponentProps) => {
+export const ChartArea = ({ data = [] }: ChartComponentProps) => {
     const chartContainerRef = useRef<HTMLDivElement>(null);
     const { theme } = useTheme();
 

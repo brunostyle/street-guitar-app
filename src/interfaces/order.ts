@@ -1,3 +1,5 @@
+import { IProduct } from "./product";
+
 export interface IUserOrder {
    name: string;
    email: string;
@@ -10,6 +12,7 @@ export interface IOrder {
    paid: boolean;
    items: number;
    total: number;
+   products: IProduct[];
 	createdAt: Date;
 }
 

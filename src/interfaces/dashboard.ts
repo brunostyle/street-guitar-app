@@ -10,15 +10,12 @@ export interface IOrderDashboard {
 	createdAt: string;
 }
 
+export interface IChartData {
+	time: string;
+	value: number;
+}
+
 export interface IChart {
 	clients: number[];
 	sells: number[];
-}
-
-export interface IDashboard {
-	numberOfClients: number;
-	numberOfProducts: number;
-	numberOfOrders: number;
-	lastSells: IOrderDashboard[];
-	chart: IChart;
 }

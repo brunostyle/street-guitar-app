@@ -27,14 +27,14 @@ const Products = () => {
                      <TableColumn>EDITAR</TableColumn>
                   </TableHeader>
                   <TableBody>
-                     {products.map((product: any) => (
+                     {products.map((product) => (
                         <TableRow key={product.id}>
-                           <TableCell><Avatar showFallback fallback={<IoImageOutline />} radius="sm" size="sm" src={product.images.at(0)} /></TableCell>
+                           <TableCell><Avatar showFallback fallback={<IoImageOutline />} radius="sm" size="sm" src={product.images[0]} /></TableCell>
                            <TableCell><HiddenTitle>{product.title}</HiddenTitle></TableCell>
                            <TableCell><HiddenSubtitle>{product.description}</HiddenSubtitle></TableCell>
                            <TableCell><h4>${product.price}</h4></TableCell>
                            <TableCell><ChipCategory>{product.category}</ChipCategory></TableCell>
-                           <TableCell><CustomButtonLink to={product.pdf} isDisabled={!product.pdf}><IoEyeOutline /></CustomButtonLink></TableCell>
+                           <TableCell><CustomButtonLink to={product.pdf!} isDisabled={!product.pdf}><IoEyeOutline /></CustomButtonLink></TableCell>
                            <TableCell><CustomButtonIcon onPress={() => router(String(product.id))}><IoPencil /></CustomButtonIcon></TableCell>
                         </TableRow>
                      ))}

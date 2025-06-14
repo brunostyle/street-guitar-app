@@ -1,18 +1,25 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
 import { fetcher, fetcherWithToken, fetcherWithTokenFile } from "@fetch";
 import { useState } from "react";
-import { IAuth } from "@interfaces";
+import { IAuth, IUser } from "@interfaces";
 import { useUser } from "@state";
 import { notify } from "@components";
+
+interface usePaginateUsersProps {
+  limit: number;
+  page: number;
+  total: number;
+  users: IUser[];
+}
 
 export const usePaginateUsers = () => {
   const [page, setPage] = useState(1);
   const limit = 10;
-  const { data, isLoading } = useQuery({
+  const { data, isLoading } = useQuery<usePaginateUsersProps>({
     queryKey: ["users", page],
     queryFn: () => fetcher({ endpoint: `/users/?page=${page}&limit=${limit}`, method: 'GET' })
   })
-  return { users: data?.users, isEmpty: data?.users?.length === 0, isLoading, page, setPage, total: Math.ceil(data?.total / limit) }
+  return { users: data?.users, isEmpty: data?.users?.length === 0, isLoading, page, setPage, total: Math.ceil(data?.total! / limit) }
 }
 
 export const useUpdateUser = () => {
