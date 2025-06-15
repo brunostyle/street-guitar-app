@@ -4,6 +4,7 @@ import { Between, HiddenTitle, WrapFill, Title, ChipCategory, HiddenSubtitle, Fl
 import { IProduct } from "@interfaces"
 import { FaSpotify } from '@icons';
 import { CustomButtonLink, ProductSkeleton } from '@components';
+import { ROUTES } from '@navigation';
 
 interface IProps {
    category: string;
@@ -25,7 +26,7 @@ export const ProductList = ({ category, icon, products, isLoading = false }: IPr
             :
             <WrapFill>
                {products.map(product => (
-                  <Card className="shadow-outset" key={product.id} isHoverable isPressable onPress={() => router('/product/' + product.id)}>
+                  <Card className="shadow-outset" key={product.id} isHoverable isPressable onPress={() => router(ROUTES.product + product.id)}>
                      <img src={product.images[0]} alt={product.title} className="w-full h-full min-h-64 rounded-none object-cover opacity" />
                      <CardBody>
                         <HiddenTitle>{product.title}</HiddenTitle>

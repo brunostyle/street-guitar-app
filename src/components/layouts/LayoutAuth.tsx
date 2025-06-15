@@ -5,9 +5,10 @@ import Login from "../../app/auth/login";
 import Register from "../../app/auth/register";
 import { IoKeyOutline, IoPersonAddOutline } from "@icons";
 import { Key, useState } from "react";
+import { ROUTES } from "@navigation";
 
 export const LayoutAuth = () => {
-   const [selected, setSelected] = useState("sign-in");
+   const [selected, setSelected] = useState(ROUTES.login);
    return (
       <Pattern>
          <Container className="grid grid-cols-2 gap-4 place-content-center items-center">
@@ -22,10 +23,10 @@ export const LayoutAuth = () => {
                </CardHeader>
                <CardBody>
                   <Tabs fullWidth size="sm" variant="bordered" color="primary" selectedKey={selected} onSelectionChange={(key: Key) => setSelected(String(key))}>
-                     <Tab key="sign-in" title={<Flex space="gap-2"><IoKeyOutline /><p>Inicia sesion</p></Flex>}>
+                     <Tab key={ROUTES.login} title={<Flex space="gap-2"><IoKeyOutline /><p>Inicia sesion</p></Flex>}>
                         <Login />
                      </Tab>
-                     <Tab key="sign-up" title={<Flex space="gap-2"><IoPersonAddOutline /><p>Registrate</p></Flex>}>
+                     <Tab key={ROUTES.register} title={<Flex space="gap-2"><IoPersonAddOutline /><p>Registrate</p></Flex>}>
                         <Register />
                      </Tab>
                   </Tabs>

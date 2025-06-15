@@ -5,6 +5,7 @@ import { useTheme, useUser } from '@state';
 import { Flex, Title } from '@styles';
 import { IoMoonSharp, IoSunnySharp } from '@icons';
 import { useState } from 'react';
+import { ROUTES } from '@navigation';
 
 export const MenuAdmin = () => {
    const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ export const MenuAdmin = () => {
       <Navbar isBordered maxWidth="full" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
          <NavbarBrand>
             <Flex>
-               <NextLink to="/"><Logo /></NextLink>
+               <NextLink to={ROUTES.home}><Logo /></NextLink>
                <Title>Street Guitar</Title>
             </Flex>
          </NavbarBrand>

@@ -2,6 +2,7 @@ import { useNavigate as useRouter } from "react-router-dom";
 import { CustomButton, Nothing } from "@components";
 import { IoHomeOutline } from '@icons';
 import { Container, Pattern } from "@styles";
+import { ROUTES } from "@navigation";
 
 const Empty = () => {
    const router = useRouter();
@@ -10,7 +11,7 @@ const Empty = () => {
       <Pattern mask>
          <Container>
             <Nothing text="Tu carrito esta vacío." svg="/cart.svg">
-               <CustomButton color="primary" onPress={() => router('/')} startContent={<IoHomeOutline />}>Ir a la tienda</CustomButton>
+               <CustomButton color="primary" onPress={() => router(ROUTES.home)} startContent={<IoHomeOutline />}>Ir a la tienda</CustomButton>
             </Nothing>
          </Container>
       </Pattern>

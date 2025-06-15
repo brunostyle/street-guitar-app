@@ -6,6 +6,7 @@ import { Between, Grid, GridContainer, Subtitle, ChipCategory, Container, Gap } 
 import { useCart } from "@state";
 import { useGetProduct } from "@hooks";
 import { CustomButton, CustomButtonLink, Gallery, Separator } from "@components";
+import { ROUTES } from "@navigation";
 
 const Product = () => {
    const router = useNavigate();
@@ -13,6 +14,7 @@ const Product = () => {
    const { addProductToCart } = useCart();
    const { product, isLoading } = useGetProduct(String(id));
    const handleAddToCart = () => addProductToCart(product!);
+
    useEffect(() => {
       window.scroll({ top: 0 });
    }, []);
@@ -20,7 +22,7 @@ const Product = () => {
    return (
       <Container>
          <Breadcrumbs>
-            <BreadcrumbItem startContent={<IoHomeOutline />} onPress={() => router('/')}>Home</BreadcrumbItem>
+            <BreadcrumbItem startContent={<IoHomeOutline />} onPress={() => router(ROUTES.home)}>Home</BreadcrumbItem>
             <BreadcrumbItem startContent={<IoMusicalNoteSharp />}>Tablatura</BreadcrumbItem>
          </Breadcrumbs>
          <Spacer y={4} />

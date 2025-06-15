@@ -7,6 +7,7 @@ import { searchSchema } from '@validations';
 import { useCart, useTheme, useUser } from '@state';
 import { Flex, Title } from '@styles';
 import { useState } from 'react';
+import { ROUTES } from '@navigation';
 
 interface ISearch { query: string }
 const values: ISearch = { query: '' }
@@ -19,14 +20,14 @@ export const Menu = () => {
    const { isLogged } = useUser();
    const token = localStorage.getItem('token');
    const handleSubmit = ({ query }: ISearch) => {
-      router('/search/' + query);
+      router(ROUTES.search + query);
    }
 
    return (
       <Navbar isBordered maxWidth="full" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
          <NavbarBrand>
             <Flex>
-               <NextLink to="/"><Logo /></NextLink>
+               <NextLink to={ROUTES.home}><Logo /></NextLink>
                <Title>Street Guitar</Title>
             </Flex>
          </NavbarBrand>
@@ -45,7 +46,7 @@ export const Menu = () => {
                   <DropdownTrigger>
                      <Button variant="light" size="sm" startContent={<IoFilterOutline />}>Filtrar</Button>
                   </DropdownTrigger>
-                  <DropdownMenu variant="flat" aria-label="filtrado de productos" onAction={category => router('/category/' + category)}>
+                  <DropdownMenu variant="flat" aria-label="filtrado de productos" onAction={category => router(ROUTES.category + category)}>
                      <DropdownSection title="Categorias">
                         <DropdownItem key="rock" startContent={<IoMusicalNoteSharp />}>Rock</DropdownItem>
                         <DropdownItem key="folclore" startContent={<IoMusicalNoteSharp />}>Folclore</DropdownItem>
@@ -62,7 +63,7 @@ export const Menu = () => {
 
             <NavbarItem>
                <Badge isInvisible={items === 0} content={items < 10 ? items : "+9"} showOutline={false} color="primary" size="sm" shape="circle">
-                  <CustomButtonIcon variant="light" onPress={() => router('/cart')}><IoCartOutline /></CustomButtonIcon>
+                  <CustomButtonIcon variant="light" onPress={() => router(ROUTES.cart)}><IoCartOutline /></CustomButtonIcon>
                </Badge>
             </NavbarItem>
 

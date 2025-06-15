@@ -24,6 +24,7 @@
       "@database": ["assets/database"],
       "@fetch": ["assets/fetch"],
       "@icons": ["assets/icons"],
+      "@navigation": ["assets/navigation"],
       "@query-client": ["assets/query-client"],
       "@validations": ["assets/validations"],
       "@components": ["components"],

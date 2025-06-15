@@ -2,6 +2,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { IoCartOutline, IoCloudDownloadOutline, IoHomeOutline } from '@icons'
 import { SectionTitle, SectionSubTitle, GridContainer, Grid, Container } from "@styles";
 import { useCart, useUser } from "@state";
+import { ROUTES } from "@navigation";
 import { CustomButton, ProductCard, ProductOrder, notify } from "@components";
 import { IOrderCheckout } from "@interfaces";
 import { useAddOrder } from "@hooks";
@@ -27,11 +28,11 @@ const Cart = () => {
 
    return (
       (items < 1)
-         ? <Navigate to="/cart/empty" />
+         ? <Navigate to={ROUTES.cartEmpty} />
          :
          <Container>
             <Breadcrumbs>
-               <BreadcrumbItem startContent={<IoHomeOutline />} onPress={() => router('/')}>Home</BreadcrumbItem>
+               <BreadcrumbItem startContent={<IoHomeOutline />} onPress={() => router(ROUTES.home)}>Home</BreadcrumbItem>
                <BreadcrumbItem startContent={<IoCartOutline />}>Carrito</BreadcrumbItem>
             </Breadcrumbs>
             <Spacer y={2} />
@@ -39,10 +40,10 @@ const Cart = () => {
             <SectionSubTitle>Mis productos</SectionSubTitle>
             <GridContainer>
                <Grid>
-                  <ProductCard editable cart={cart} />
+                  <ProductCard page="cart" cart={cart} />
                </Grid>
                <Grid>
-                  <ProductOrder editable total={total} items={items}>
+                  <ProductOrder page="cart" total={total} items={items}>
                      <CustomButton fullWidth color="primary" isLoading={isAddingOrder} startContent={!isAddingOrder && <IoCloudDownloadOutline />} onPress={handleCart}>Ver tabs</CustomButton>
                   </ProductOrder>
                </Grid>

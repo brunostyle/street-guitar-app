@@ -4,6 +4,7 @@ import { IoPencil, IoEyeOutline, IoImageOutline, IoPricetagsOutline } from "@ico
 import { FullScreenLoading, Admin, Nothing, CustomButtonIcon, CustomButtonLink } from "@components";
 import { HiddenTitle, HiddenSubtitle, ChipCategory } from "@styles";
 import { usePaginateProducts } from "@hooks";
+import { ROUTES } from "@navigation";
 
 const Products = () => {
    const router = useNavigate();
@@ -35,7 +36,7 @@ const Products = () => {
                            <TableCell><h4>${product.price}</h4></TableCell>
                            <TableCell><ChipCategory>{product.category}</ChipCategory></TableCell>
                            <TableCell><CustomButtonLink to={product.pdf!} isDisabled={!product.pdf}><IoEyeOutline /></CustomButtonLink></TableCell>
-                           <TableCell><CustomButtonIcon onPress={() => router(String(product.id))}><IoPencil /></CustomButtonIcon></TableCell>
+                           <TableCell><CustomButtonIcon onPress={() => router(ROUTES.updateProduct + product.id)}><IoPencil /></CustomButtonIcon></TableCell>
                         </TableRow>
                      ))}
                   </TableBody>

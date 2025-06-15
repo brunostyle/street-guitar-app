@@ -5,6 +5,7 @@ import { Container, Grid, GridContainer, SectionSubTitle, SectionTitle } from "@
 import { FullScreenLoading, ProductCard, ProductOrder } from "@components";
 import { useGetOrder } from "@hooks";
 import { IoCartOutline, IoDocumentTextOutline, IoHomeOutline } from "@icons";
+import { ROUTES } from "@navigation";
 
 const Checkout = () => {
    const { id } = useParams();
@@ -13,8 +14,8 @@ const Checkout = () => {
    return (
       <Container>
          <Breadcrumbs>
-            <BreadcrumbItem startContent={<IoHomeOutline />} onPress={() => router('/')}>Home</BreadcrumbItem>
-            <BreadcrumbItem startContent={<IoCartOutline />} onPress={() => router('/cart')}>Carrito</BreadcrumbItem>
+            <BreadcrumbItem startContent={<IoHomeOutline />} onPress={() => router(ROUTES.home)}>Home</BreadcrumbItem>
+            <BreadcrumbItem startContent={<IoCartOutline />} onPress={() => router(ROUTES.cart)}>Carrito</BreadcrumbItem>
             <BreadcrumbItem startContent={<IoDocumentTextOutline />}>Orden</BreadcrumbItem>
          </Breadcrumbs>
          <Spacer y={2} />
@@ -26,10 +27,10 @@ const Checkout = () => {
             :
             <GridContainer>
                <Grid>
-                  <ProductCard cart={products} paid={paid} />
+                  <ProductCard page="checkout" cart={products} paid={paid} />
                </Grid>
                <Grid>
-                  <ProductOrder total={total} items={items} />
+                  <ProductOrder page="checkout" total={total} items={items} />
                   <Alert className="max-h-max" isVisible={!isLoading} title="Disfruta las tablaturas!!!" description="Son completamente gratis" />
                </Grid>
             </GridContainer>

@@ -5,6 +5,7 @@ import { IoSearchOutline, IoHomeOutline, IoKeyOutline, IoPersonAddOutline, IoGri
 import { CustomButton, CustomInputBordered, Separator } from '@components';
 import { searchSchema } from '@validations';
 import { useCart, useUser } from '@state';
+import { ROUTES } from '@navigation';
 
 interface ISearch { query: string }
 const values: ISearch = { query: '' }
@@ -18,7 +19,7 @@ export const Collapse = ({ setIsMenuOpen }: IProps) => {
    const { user, isLogged } = useUser();
 
    const handleSubmit = ({ query }: ISearch) => {
-      router('/search/' + query);
+      router(ROUTES.search + query);
    }
 
    return (
@@ -44,10 +45,10 @@ export const Collapse = ({ setIsMenuOpen }: IProps) => {
                <NavbarMenuItem>
                   <Separator>Administración</Separator>
                </NavbarMenuItem>
-               <Item text="Dashboard" to="/admin" icon={<IoGridOutline />} setIsMenuOpen={setIsMenuOpen} />
-               <Item text="Productos" to="/admin/products" icon={<IoPricetagsOutline />} setIsMenuOpen={setIsMenuOpen} />
-               <Item text="Ordenes" to="/admin/orders" icon={<IoTriangleOutline />} setIsMenuOpen={setIsMenuOpen} />
-               <Item text="Usuarios" to="/admin/users" icon={<IoPersonAddOutline />} setIsMenuOpen={setIsMenuOpen} />
+               <Item text="Dashboard" to={ROUTES.dashboard} icon={<IoGridOutline />} setIsMenuOpen={setIsMenuOpen} />
+               <Item text="Productos" to={ROUTES.products} icon={<IoPricetagsOutline />} setIsMenuOpen={setIsMenuOpen} />
+               <Item text="Ordenes" to={ROUTES.orders} icon={<IoTriangleOutline />} setIsMenuOpen={setIsMenuOpen} />
+               <Item text="Usuarios" to={ROUTES.users} icon={<IoPersonAddOutline />} setIsMenuOpen={setIsMenuOpen} />
             </>
          }
       </NavbarMenu>

@@ -49,7 +49,7 @@ export const RouterApp = () => (
       <Public>
         <Routes>
           <Route index element={<LayoutAuth />} />
-          <Route path="*" element={<Navigate to="/auth/" />} />
+          <Route path="*" element={<Navigate to="/auth" />} />
         </Routes>
       </Public>
     } />

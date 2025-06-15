@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { IoFolderOutline, IoTriangleOutline } from '@icons';
 import { FullScreenLoading, Admin, Nothing, CustomButtonIcon } from "@components";
 import { usePaginateOrders } from "@hooks";
+import { ROUTES } from "@navigation";
 
 const Orders = () => {
    const { orders = [], isEmpty, isLoading, page, setPage, total } = usePaginateOrders();
@@ -32,7 +33,7 @@ const Orders = () => {
                            <TableCell><h4>${order.total}</h4></TableCell>
                            <TableCell><h4>{new Date(order.createdAt).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: '2-digit' })}</h4></TableCell>
                            <TableCell><Checkbox aria-label="Pagada" isSelected={order.paid} isReadOnly /></TableCell>
-                           <TableCell><CustomButtonIcon onPress={() => router('/checkout/' + order.id)}><IoFolderOutline /></CustomButtonIcon></TableCell>
+                           <TableCell><CustomButtonIcon onPress={() => router(ROUTES.checkout + order.id)}><IoFolderOutline /></CustomButtonIcon></TableCell>
                         </TableRow>
                      ))}
                   </TableBody>

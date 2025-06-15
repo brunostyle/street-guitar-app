@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Between, Gap, SectionTitle } from '@styles';
 import { IoAddOutline, IoHomeOutline, IoPricetagsOutline, IoSearchOutline } from "@icons";
 import { CustomButton } from "@components";
+import { ROUTES } from '@navigation';
 
 interface ILayout {
     children: JSX.Element | JSX.Element[];
@@ -15,8 +16,8 @@ export const Admin = ({ children, title, icon, show = 'nothing' }: ILayout) => {
     const router = useNavigate();
     return <>
         <Breadcrumbs>
-            <BreadcrumbItem startContent={<IoHomeOutline />} onPress={() => router('/')}>Home</BreadcrumbItem>
-            {show === "extra-breadcrumb" && <BreadcrumbItem startContent={<IoPricetagsOutline />} onPress={() => router('/admin/products')}>Productos</BreadcrumbItem>}
+            <BreadcrumbItem startContent={<IoHomeOutline />} onPress={() => router(ROUTES.home)}>Home</BreadcrumbItem>
+            {show === "extra-breadcrumb" && <BreadcrumbItem startContent={<IoPricetagsOutline />} onPress={() => router(ROUTES.products)}>Productos</BreadcrumbItem>}
             <BreadcrumbItem startContent={icon}>{title}</BreadcrumbItem>
         </Breadcrumbs>
         {show === "title-input" &&
@@ -30,7 +31,7 @@ export const Admin = ({ children, title, icon, show = 'nothing' }: ILayout) => {
                 <SectionTitle>{title}</SectionTitle>
                 <Between>
                     <Input variant="bordered" size="sm" placeholder={'Buscar ' + title.toLowerCase()} startContent={<IoSearchOutline className="text-gray-500 text-small" />} className="w-80 max-w-[50%]" />
-                    <CustomButton color="primary" startContent={<IoAddOutline />} onPress={() => router('/admin/products/new')}>Agregar</CustomButton>
+                    <CustomButton color="primary" startContent={<IoAddOutline />} onPress={() => router(ROUTES.newProduct)}>Agregar</CustomButton>
                 </Between>
             </Gap>
         }

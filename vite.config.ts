@@ -9,6 +9,7 @@ export default defineConfig({
       "@database": "/src/assets/database",
       "@fetch": "/src/assets/fetch",
       "@icons": "/src/assets/icons",
+      "@navigation": "/src/assets/navigation",
       "@query-client": "/src/assets/query-client",
       "@validations": "/src/assets/validations",
       "@components": "/src/components",
