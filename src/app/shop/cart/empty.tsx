@@ -4,7 +4,7 @@ import { IoHomeOutline } from '@icons';
 import { Container, Pattern } from "@styles";
 import { ROUTES } from "@navigation";
 
-const Empty = () => {
+const CartEmpty = () => {
    const router = useRouter();
 
    return (
@@ -18,4 +18,4 @@ const Empty = () => {
    )
 };
 
-export default Empty;
+export default CartEmpty;

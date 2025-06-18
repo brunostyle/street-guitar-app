@@ -1,3 +1,4 @@
+import { ValidCategory } from '@interfaces';
 import * as Yup from 'yup'
 
 export const searchSchema = Yup.object({
@@ -24,10 +25,12 @@ export const productSchema = Yup.object({
       .integer()
       .typeError('Debe ser un valor numerico')
       .min(0, 'No debe ser menor a cero'),
-   category: Yup.mixed().oneOf(['rock', 'folclore', 'pop'], 'La categoria no existe'),
+   category: Yup.mixed().oneOf(ValidCategory, 'La categoria no existe'),
    spotify: Yup.string()
       .required('Campo requerido')
       .trim().url('Debe ser una url valida'),
+   difficulty: Yup.number()
+      .required('Campo requerido'),
    tags: Yup.array()
       .of(Yup.string()).optional(),
    images: Yup.array()

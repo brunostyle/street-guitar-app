@@ -40,16 +40,17 @@ export const Images = () => {
          }
       })
    };
-
    return (
       <Gap>
-         <Flex className="justify-evenly flex-wrap">
-            {field.value && field.value.map((img: string) => (
-               <Badge key={img} content={<IoCloseOutline />} onClick={() => handleDelete(img)} color="primary" variant="shadow" isOneChar showOutline={false} className="cursor-pointer">
-                  <Image src={img} width="120px" height="120px" className="object-cover" />
-               </Badge>
-            ))}
-         </Flex>
+         {field.value.length !== 0 &&
+            <Flex className="justify-evenly flex-wrap">
+               {field.value.map((img: string) => (
+                  <Badge key={img} content={<IoCloseOutline />} onClick={() => handleDelete(img)} color="primary" variant="shadow" isOneChar showOutline={false} className="cursor-pointer">
+                     <Image src={img} width="120px" height="120px" className="object-cover" />
+                  </Badge>
+               ))}
+            </Flex>
+         }
          {isAdding && <Progress label="Subiendo imagen" size="sm" isIndeterminate />}
          {isDeleting && <Progress label="Eliminando imagen" size="sm" isIndeterminate />}
          <File id="image" label="Cargar imagen" onChange={handleImage} />

@@ -3,17 +3,12 @@ import { FullScreenLoading, Nothing, ProductList } from "@components";
 import { IoMusicalNoteSharp } from "@icons";
 import { useGetCategory } from "@hooks";
 import { Container } from "@styles";
-
-const categories = {
-   rock: "Rock",
-   folclore: "Folclore",
-   pop: "Pop",
-}
+import { categoriesObject } from "@interfaces";
 
 const Category = () => {
    const { category } = useParams();
    const { products, isEmpty, isLoading } = useGetCategory(String(category));
-   const categoryName = categories[category as keyof typeof categories];
+   const categoryName = categoriesObject[category as keyof typeof categoriesObject];
 
    return (
       <Container>

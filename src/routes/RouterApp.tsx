@@ -4,10 +4,10 @@ import { Private, Public } from '@routes';
 import Home from '../app/page';
 
 import Category from '../app/shop/category/page';
-import Search from '../app/shop/search/query';
+import Search from '../app/shop/search/page';
 import Product from '../app/shop/product/id';
 import Cart from '../app/shop/cart/page';
-import Empty from '../app/shop/cart/empty';
+import CartEmpty from '../app/shop/cart/empty';
 import Checkout from '../app/shop/checkout/page';
 
 import Dashboard from '../app/admin/page';
@@ -27,7 +27,7 @@ export const RouterApp = () => (
       <Route path="search/:query" element={<Search />} />
       <Route path="product/:id" element={<Product />} />
       <Route path="cart" element={<Cart />} />
-      <Route path="cart/empty" element={<Empty />} />
+      <Route path="cart/empty" element={<CartEmpty />} />
       <Route path="checkout/:id" element={<Checkout />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Route>

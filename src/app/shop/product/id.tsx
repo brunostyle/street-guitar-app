@@ -5,7 +5,7 @@ import { IoCartOutline, FaSpotify, IoHomeOutline, IoMusicalNoteSharp } from "@ic
 import { Between, Grid, GridContainer, Subtitle, ChipCategory, Container, Gap } from "@styles";
 import { useCart } from "@state";
 import { useGetProduct } from "@hooks";
-import { CustomButton, CustomButtonLink, Gallery, Separator } from "@components";
+import { CustomButton, CustomButtonLink, Difficulty, Gallery, Separator } from "@components";
 import { ROUTES } from "@navigation";
 
 const Product = () => {
@@ -26,7 +26,7 @@ const Product = () => {
             <BreadcrumbItem startContent={<IoMusicalNoteSharp />}>Tablatura</BreadcrumbItem>
          </Breadcrumbs>
          <Spacer y={4} />
-         <Card className="max-w-[1200px] mx-auto bg-gradient-to-t from-background via-default-50 to-background">
+         <Card>
             <GridContainer>
                <Grid>
                   <Gallery images={product?.images!} isLoading={isLoading} />
@@ -40,6 +40,14 @@ const Product = () => {
                         <Skeleton className="rounded-md" isLoaded={!isLoading}>
                            <Separator>Descripción</Separator>
                         </Skeleton>
+                        <Between>
+                           <Skeleton className="rounded-md" isLoaded={!isLoading}>
+                              <Subtitle>Dificultad:</Subtitle>
+                           </Skeleton>
+                           <Skeleton className="rounded-md" isLoaded={!isLoading}>
+                              <Difficulty difficulty={product?.difficulty!} />
+                           </Skeleton>
+                        </Between>
                         <Between>
                            <Skeleton className="rounded-md" isLoaded={!isLoading}>
                               <Subtitle>Artista:</Subtitle>

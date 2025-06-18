@@ -1,11 +1,11 @@
 import { Card, CardBody, Spacer } from "@heroui/react";
 import { Form, Formik } from "formik";
-import { Images, CustomInput, Admin, Category, Tags, CustomTextarea, PDF, CustomButton } from "@components";
+import { Images, CustomInput, Admin, Category, Tags, CustomTextarea, PDF, CustomButton, CustomInputDifficulty } from "@components";
 import { IoSaveOutline, FaSpotify, IoCodeOutline, IoLogoUsd, IoAddOutline } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle } from "@styles";
 import { useAddProduct } from "@hooks";
-const initial = { title: '', description: '', price: '', spotify: '', tab: '', pdf: '', category: 'rock', tags: [], images: [] }
+const initial = { title: '', description: '', price: '', spotify: '', tab: '', pdf: '', difficulty: 1, category: 'rock', tags: [], images: [] }
 
 const NewProduct = () => {
     const { addProduct, isAdding } = useAddProduct();
@@ -31,6 +31,7 @@ const NewProduct = () => {
                             </Grid>
                             <Grid>
                                 <Category />
+                                <CustomInputDifficulty />
                                 <PDF />
                                 <Images />
                                 <CustomButton variant="bordered" isLoading={isAdding} startContent={!isAdding && <IoSaveOutline />} onPress={() => form.handleSubmit()}>Guardar</CustomButton>

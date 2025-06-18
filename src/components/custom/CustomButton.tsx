@@ -18,14 +18,14 @@ interface IButton {
 export const CustomButton = ({ children, onPress, className, type = 'button', size = 'sm', color = 'default', variant = 'solid', fullWidth = false, isLoading = false, isDisabled = false, startContent }: IButton) => (
     <Button
         fullWidth={fullWidth}
+        startContent={startContent}
+        className={className}
         isLoading={isLoading}
         spinner={<Spinner variant="spinner" color="white" size="sm" />}
         isDisabled={isDisabled}
-        className={className}
         type={type}
         size={size}
         color={color}
-        startContent={startContent}
         variant={variant}
         onPress={onPress}
     >

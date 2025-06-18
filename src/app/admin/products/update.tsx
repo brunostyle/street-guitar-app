@@ -1,7 +1,7 @@
 import { Card, CardBody, Spacer, Skeleton } from "@heroui/react";
 import { useParams } from "react-router-dom";
 import { Form, Formik } from "formik";
-import { Images, CustomInput, Admin, Category, Tags, CustomTextarea, PDF, CustomButton } from "@components";
+import { Images, CustomInput, Admin, Category, Tags, CustomTextarea, PDF, CustomButton, CustomInputDifficulty } from "@components";
 import { IoTrashOutline, IoSaveOutline, FaSpotify, IoCodeOutline, IoLogoUsd, IoPencil } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle } from "@styles";
@@ -13,7 +13,9 @@ const UpdateProduct = () => {
     const { updateProduct, isUpdating } = useUpdateProduct();
     const { deleteProduct, isDeleting } = useDeleteProduct();
 
-    const handleSubmit = (values: any) => updateProduct({ ...values, id })
+    const handleSubmit = (values: any) => {
+        updateProduct({ ...values, id })
+    }
 
     return (
         <Admin show="extra-breadcrumb" title="Actualizar" icon={<IoPencil />}>
@@ -43,6 +45,9 @@ const UpdateProduct = () => {
                             <Grid>
                                 <Skeleton isLoaded={!isLoading}>
                                     <Category />
+                                </Skeleton>
+                                <Skeleton isLoaded={!isLoading}>
+                                    <CustomInputDifficulty />
                                 </Skeleton>
                                 <Skeleton isLoaded={!isLoading}>
                                     <PDF />

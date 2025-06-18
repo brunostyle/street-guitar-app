@@ -47,7 +47,7 @@ export const PDF = () => {
             {fieldTAB.value &&
                 <Card className="px-2">
                     <Between>
-                        <IoDocumentTextOutline size="2rem" className="text-primary mx-2" />
+                        <IoDocumentTextOutline size="2rem" className="text-primary" />
                         <CardBody>
                             <Link to={fieldPDF.value} target="_blank"><TitlePDF>{fieldTAB.value}</TitlePDF></Link>
                             {(isAdding || isDeleting) && <Progress size="sm" className="mt-4" isIndeterminate />}
