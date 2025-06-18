@@ -42,7 +42,7 @@ export const Images = () => {
    };
    return (
       <Gap>
-         {field.value.length !== 0 &&
+         {field.value && field.value.length !== 0 &&
             <Flex className="justify-evenly flex-wrap">
                {field.value.map((img: string) => (
                   <Badge key={img} content={<IoCloseOutline />} onClick={() => handleDelete(img)} color="primary" variant="shadow" isOneChar showOutline={false} className="cursor-pointer">
