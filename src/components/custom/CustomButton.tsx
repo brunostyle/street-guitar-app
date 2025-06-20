@@ -3,10 +3,10 @@ import { ReactNode } from "react";
 
 interface IButton {
     children: ReactNode;
-    startContent?: ReactNode;
     className?: string;
     fullWidth?: boolean;
     isLoading?: boolean;
+    startContent?: ReactNode;
     isDisabled?: boolean;
     type?: 'button' | 'submit' | 'reset';
     size?: 'sm' | 'md' | 'lg';
@@ -18,9 +18,9 @@ interface IButton {
 export const CustomButton = ({ children, onPress, className, type = 'button', size = 'sm', color = 'default', variant = 'solid', fullWidth = false, isLoading = false, isDisabled = false, startContent }: IButton) => (
     <Button
         fullWidth={fullWidth}
-        startContent={startContent}
         className={className}
         isLoading={isLoading}
+        startContent={!isLoading && startContent}
         spinner={<Spinner variant="spinner" color="white" size="sm" />}
         isDisabled={isDisabled}
         type={type}

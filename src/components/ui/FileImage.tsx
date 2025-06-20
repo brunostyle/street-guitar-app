@@ -1,9 +1,10 @@
-import { Avatar, Button, Spinner } from '@heroui/react';
+import { Avatar, Spinner } from '@heroui/react';
 import { IoCameraOutline } from '@icons';
 import { ChangeEvent } from 'react';
 import { useAddImageUser } from '@hooks';
 import { useUser } from '@state';
 import { notify } from '../custom/CustomToast';
+import { CustomButtonIcon } from '@components';
 
 export const FileImage = () => {
     const { addImage, isAdding } = useAddImageUser();
@@ -23,9 +24,9 @@ export const FileImage = () => {
         <div className="flex justify-center my-4 relative">
             <Avatar isBordered showFallback color="primary" name={user?.name.charAt(0).toUpperCase()} src={user?.avatar} className="w-32 h-32 text-2xl" />
             <input type="file" id="file-input" style={{ display: 'none' }} onChange={handleFileChange} />
-            <Button onPress={handleClick} isIconOnly size="sm" color="primary" radius="full" className="absolute bottom-0 right-1/3 border-small border-foreground-50">
+            <CustomButtonIcon onPress={handleClick} className="absolute bottom-0 right-1/3 border-foreground-50 bg-primary rounded-full">
                 {isAdding ? <Spinner size="sm" color="white" variant="spinner" /> : <IoCameraOutline />}
-            </Button>
+            </CustomButtonIcon>
         </div>
     );
 }

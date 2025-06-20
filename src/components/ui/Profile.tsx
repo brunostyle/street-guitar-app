@@ -66,7 +66,7 @@ export const Profile = () => {
                                 <CustomInput name="email" label="Email" placeholder={user?.email} isDisabled={!isEdit} variant="bordered" icon={<IoMailOutline />} />
                                 <CustomInputPassword name="password" label="Contraseña" placeholder="******" isDisabled={!isEdit} variant="bordered" icon={<IoLockClosedOutline />} isVisible={isVisible} setIsVisible={setIsVisible} />
                                 <CustomButton type="submit" isDisabled={!isEdit} color="primary" startContent={<IoSaveOutline />}>Guardar</CustomButton>
-                                {(isUpdating || isDeleting) && <Progress size="sm" className="mt-4" isIndeterminate />}
+                                {(isUpdating || isDeleting) && <Progress size="sm" isIndeterminate />}
                             </Gap>
                         </Form>
                     </Formik>

@@ -44,7 +44,7 @@ const Cart = () => {
                </Grid>
                <Grid>
                   <ProductOrder page="cart" total={total} items={items}>
-                     <CustomButton fullWidth color="primary" isLoading={isAddingOrder} startContent={!isAddingOrder && <IoCloudDownloadOutline />} onPress={handleCart}>Ver tabs</CustomButton>
+                     <CustomButton fullWidth color="primary" isLoading={isAddingOrder} startContent={<IoCloudDownloadOutline />} onPress={handleCart}>Ver tabs</CustomButton>
                   </ProductOrder>
                </Grid>
             </GridContainer>

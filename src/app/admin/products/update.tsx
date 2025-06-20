@@ -53,8 +53,8 @@ const UpdateProduct = () => {
                                     <PDF />
                                 </Skeleton>
                                 <Images />
-                                <CustomButton variant="bordered" isLoading={isDeleting} startContent={!isDeleting && <IoTrashOutline />} onPress={() => deleteProduct(String(id))}>Eliminar</CustomButton>
-                                <CustomButton variant="bordered" isLoading={isUpdating} startContent={!isUpdating && <IoSaveOutline />} onPress={() => form.handleSubmit()}>Actualizar</CustomButton>
+                                <CustomButton variant="bordered" isLoading={isDeleting} startContent={<IoTrashOutline />} onPress={() => deleteProduct(String(id))}>Eliminar</CustomButton>
+                                <CustomButton variant="bordered" isLoading={isUpdating} startContent={<IoSaveOutline />} onPress={() => form.handleSubmit()}>Actualizar</CustomButton>
                             </Grid>
                         </GridContainer></Form>
                     )}

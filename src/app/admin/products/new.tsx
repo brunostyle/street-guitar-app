@@ -34,7 +34,7 @@ const NewProduct = () => {
                                 <CustomInputDifficulty />
                                 <PDF />
                                 <Images />
-                                <CustomButton variant="bordered" isLoading={isAdding} startContent={!isAdding && <IoSaveOutline />} onPress={() => form.handleSubmit()}>Guardar</CustomButton>
+                                <CustomButton variant="bordered" isLoading={isAdding} startContent={<IoSaveOutline />} onPress={() => form.handleSubmit()}>Guardar</CustomButton>
                             </Grid>
                         </GridContainer></Form>
                     )}

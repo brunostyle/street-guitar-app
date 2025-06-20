@@ -24,7 +24,7 @@ const Register = () => {
           <CustomInput variant="bordered" name="name" label="Nombre completo" placeholder="nombre" icon={<IoPersonOutline />} />
           <CustomInput variant="bordered" name="email" label="Correo electronico" placeholder="email@gmail.com" icon={<IoMailOutline />} />
           <CustomInputPassword variant="bordered" name="password" label="Contraseña" placeholder="******" icon={<IoLockClosedOutline />} isVisible={isVisible} setIsVisible={setIsVisible} />
-          <CustomButton type="submit" color="primary" isLoading={isPending} startContent={!isPending && <IoMailOutline />}>Crear cuenta</CustomButton>
+          <CustomButton type="submit" color="primary" isLoading={isPending} startContent={<IoMailOutline />}>Crear cuenta</CustomButton>
         </Gap>
       </Form>
     </Formik>
