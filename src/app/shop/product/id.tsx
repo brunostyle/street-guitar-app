@@ -13,7 +13,6 @@ const Product = () => {
    const { id } = useParams();
    const { addProductToCart } = useCart();
    const { product, isLoading } = useGetProduct(String(id));
-   const handleAddToCart = () => addProductToCart(product!);
 
    useEffect(() => {
       window.scroll({ top: 0 });
@@ -79,7 +78,7 @@ const Product = () => {
                            <CustomButtonLink to={product?.spotify!} isButtonLink variant="solid" color="success" startContent={<FaSpotify size="1.5em" />}>Escuchala en spotify</CustomButtonLink>
                         </Skeleton>
                         <Skeleton className="rounded-md" isLoaded={!isLoading}>
-                           <CustomButton fullWidth color="primary" startContent={<IoCartOutline />} onPress={handleAddToCart}>Agregar al carrito</CustomButton>
+                           <CustomButton fullWidth color="primary" startContent={<IoCartOutline />} onPress={() => addProductToCart(product!)}>Agregar al carrito</CustomButton>
                         </Skeleton>
                      </Gap>
                   </CardBody>
