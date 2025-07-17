@@ -5,7 +5,7 @@ interface ProductSkeletonProps {
     count?: number;
 }
 
-export const ProductSkeleton = ({ count = 8 }: ProductSkeletonProps) => (
+export const ProductSkeleton = ({ count = 10 }: ProductSkeletonProps) => (
     <WrapFill>
         {Array(count).fill(0).map((_, index) => (
             <Card key={index} radius="lg">
