@@ -17,7 +17,7 @@ interface useProductsProps {
 export const useProducts = () => {
   const { data, isLoading } = useQuery<useProductsProps>({
     queryKey: ["products"],
-    queryFn: () => fetcher({ endpoint: '/products', method: 'GET' })
+    queryFn: () => fetcher({ endpoint: '/products?limit=100', method: 'GET' })
   })
   return { products: data?.products, isEmpty: data?.products?.length === 0, isLoading }
 }
