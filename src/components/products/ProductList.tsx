@@ -22,17 +22,17 @@ export const ProductList = ({ category, icon, products, isLoading = false }: IPr
                {icon && icon}
                <Title>{category}</Title>
             </Flex>
-            <Dropdown>
+            <Dropdown className="min-w-fit">
                <DropdownTrigger>
                   <Button variant="light" size="sm" startContent={<IoFilterOutline />}>Dificultad</Button>
                </DropdownTrigger>
                <DropdownMenu variant="flat" aria-label="filtrado de productos" onAction={difficulty => router(ROUTES.difficulty + difficulty)}>
-                  <DropdownSection>
-                     <DropdownItem key="1"><Difficulty difficulty={1} /></DropdownItem>
-                     <DropdownItem key="2"><Difficulty difficulty={2} /></DropdownItem>
-                     <DropdownItem key="3"><Difficulty difficulty={3} /></DropdownItem>
-                     <DropdownItem key="4"><Difficulty difficulty={4} /></DropdownItem>
-                     <DropdownItem key="5"><Difficulty difficulty={5} /></DropdownItem>
+                  <DropdownSection className="mb-0">
+                     <DropdownItem key="1" showDivider className="p-0"><Difficulty difficulty={1} /></DropdownItem>
+                     <DropdownItem key="2" showDivider className="p-0"><Difficulty difficulty={2} /></DropdownItem>
+                     <DropdownItem key="3" showDivider className="p-0"><Difficulty difficulty={3} /></DropdownItem>
+                     <DropdownItem key="4" showDivider className="p-0"><Difficulty difficulty={4} /></DropdownItem>
+                     <DropdownItem key="5" className="p-0"><Difficulty difficulty={5} /></DropdownItem>
                   </DropdownSection>
                </DropdownMenu>
             </Dropdown>
