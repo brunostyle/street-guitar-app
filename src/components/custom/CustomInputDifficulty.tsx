@@ -1,6 +1,6 @@
 import { Flex } from "@styles";
 import { CustomButtonIcon } from "@components";
-import { IoStarOutline, IoStarSharp } from "react-icons/io5";
+import { IoStarOutline, IoStarSharp } from "@icons";
 import { useField } from "formik";
 
 const stars = [1, 2, 3, 4, 5];

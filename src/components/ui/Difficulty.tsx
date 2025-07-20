@@ -1,6 +1,6 @@
 import { Flex } from "@styles";
 import { CustomButtonIcon } from "@components";
-import { IoStarOutline, IoStarSharp } from "react-icons/io5";
+import { IoStarOutline, IoStarSharp } from "@icons";
 
 interface IProps {
     difficulty: number;
@@ -11,7 +11,7 @@ const stars = [1, 2, 3, 4, 5];
 export const Difficulty = ({ difficulty }: IProps) => (
     <Flex space="gap-0">
         {stars.map(star => (
-            <CustomButtonIcon key={star} variant="light" color="primary">
+            <CustomButtonIcon key={star} variant="light" color="primary" className="hover:bg-none">
                 {star <= difficulty ? <IoStarSharp size="1.2em" /> : <IoStarOutline size="1.2em" opacity=".5" />}
             </CustomButtonIcon>
         ))}

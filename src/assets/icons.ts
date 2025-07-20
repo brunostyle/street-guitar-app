@@ -38,4 +38,6 @@ export {
     IoLogoUsd,
     IoPersonAddOutline,
     IoPersonOutline,
+    IoStarOutline,
+    IoStarSharp
 } from "react-icons/io5";

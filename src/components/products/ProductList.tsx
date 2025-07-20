@@ -1,9 +1,9 @@
-import { Card, CardBody, CardFooter } from '@heroui/react';
+import { Card, CardBody, CardFooter, Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem, Button } from '@heroui/react';
 import { useNavigate as useRouter } from 'react-router-dom';
 import { Between, HiddenTitle, WrapFill, Title, ChipCategory, HiddenSubtitle, Flex, Gap } from '@styles';
 import { IProduct } from "@interfaces"
-import { FaSpotify } from '@icons';
-import { CustomButtonLink, ProductSkeleton } from '@components';
+import { FaSpotify, IoFilterOutline } from '@icons';
+import { CustomButtonLink, Difficulty, ProductSkeleton } from '@components';
 import { ROUTES } from '@navigation';
 
 interface IProps {
@@ -17,10 +17,26 @@ export const ProductList = ({ category, icon, products, isLoading = false }: IPr
    const router = useRouter();
    return (
       <Gap>
-         <Flex>
-            {icon && icon}
-            <Title>{category}</Title>
-         </Flex>
+         <Between>
+            <Flex>
+               {icon && icon}
+               <Title>{category}</Title>
+            </Flex>
+            <Dropdown>
+               <DropdownTrigger>
+                  <Button variant="light" size="sm" startContent={<IoFilterOutline />}>Dificultad</Button>
+               </DropdownTrigger>
+               <DropdownMenu variant="flat" aria-label="filtrado de productos" onAction={difficulty => router(ROUTES.difficulty + difficulty)}>
+                  <DropdownSection>
+                     <DropdownItem key="1"><Difficulty difficulty={1} /></DropdownItem>
+                     <DropdownItem key="2"><Difficulty difficulty={2} /></DropdownItem>
+                     <DropdownItem key="3"><Difficulty difficulty={3} /></DropdownItem>
+                     <DropdownItem key="4"><Difficulty difficulty={4} /></DropdownItem>
+                     <DropdownItem key="5"><Difficulty difficulty={5} /></DropdownItem>
+                  </DropdownSection>
+               </DropdownMenu>
+            </Dropdown>
+         </Between>
          {isLoading
             ? <ProductSkeleton />
             :

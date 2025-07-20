@@ -47,6 +47,14 @@ export const useGetCategory = (category: string) => {
   })
   return { products, isLoading, isEmpty: products?.length === 0 }
 }
+//--------------------------------- GET CATEGORY---------------------------------
+export const useGetDifficulty = (difficulty: number) => {
+  const { data: products, isLoading } = useQuery<IProduct[]>({
+    queryKey: ["products", difficulty],
+    queryFn: () => fetcher({ endpoint: '/products/difficulty/' + difficulty, method: 'GET' })
+  })
+  return { products, isLoading, isEmpty: products?.length === 0 }
+}
 //--------------------------------- GET QUERY---------------------------------
 export const useGetProductsQuery = (query: string) => {
   const { data: products, isLoading } = useQuery<IProduct[]>({

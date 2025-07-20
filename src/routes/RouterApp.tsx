@@ -4,6 +4,7 @@ import { Private, Public } from '@routes';
 import Home from '../app/page';
 
 import Category from '../app/shop/category/page';
+import Difficulty from '../app/shop/difficulty/page';
 import Search from '../app/shop/search/page';
 import Product from '../app/shop/product/id';
 import Cart from '../app/shop/cart/page';
@@ -24,6 +25,7 @@ export const RouterApp = () => (
     <Route path="/" element={<LayoutApp />}>
       <Route index element={<Home />} />
       <Route path="category/:category" element={<Category />} />
+      <Route path="difficulty/:difficulty" element={<Difficulty />} />
       <Route path="search/:query" element={<Search />} />
       <Route path="product/:id" element={<Product />} />
       <Route path="cart" element={<Cart />} />
