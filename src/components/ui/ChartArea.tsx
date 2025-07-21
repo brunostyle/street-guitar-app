@@ -24,6 +24,7 @@ interface ChartComponentProps {
 export const ChartArea = ({ data = [] }: ChartComponentProps) => {
     const chartContainerRef = useRef<HTMLDivElement>(null);
     const { theme } = useTheme();
+    data.sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime());
 
     useEffect(() => {
         if (!chartContainerRef.current) return;
