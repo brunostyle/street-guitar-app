@@ -8,8 +8,8 @@ interface ProductSkeletonProps {
 export const ProductSkeleton = ({ count = 10 }: ProductSkeletonProps) => (
     <WrapFill>
         {Array(count).fill(0).map((_, index) => (
-            <Card key={index} radius="lg">
-                <Skeleton className="rounded-md">
+            <Card key={index} className="shadow-inset" radius="lg">
+                <Skeleton>
                     <div className="h-[370px]" />
                 </Skeleton>
                 <CardBody className="space-y-3">
