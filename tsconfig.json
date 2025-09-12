@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+     "baseUrl": "./src",
+    "paths": {
+      "@database": ["assets/database"],
+      "@fetch": ["assets/fetch"],
+      "@icons": ["assets/icons"],
+      "@navigation": ["assets/navigation"],
+      "@query-client": ["assets/query-client"],
+      "@validations": ["assets/validations"],
+      "@components": ["components"],
+      "@hooks": ["hooks"],
+      "@routes": ["routes"],
+      "@state": ["state"],
+      "@styles": ["styles"],
+      "@interfaces": ["interfaces"]
+    }
+  },
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
