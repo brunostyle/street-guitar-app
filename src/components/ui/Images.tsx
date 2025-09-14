@@ -1,10 +1,9 @@
-import { Badge, Image, Progress } from "@heroui/react";
+import { Progress } from "@heroui/react";
 import type { ChangeEvent } from "react";
 import { useParams } from "react-router";
 import { useField } from "formik";
-import { IoCloseOutline } from "@icons";
 import { useAddImage, useDeleteImage } from "@hooks";
-import { File, notify } from "@components";
+import { FileCover, notify } from "@components";
 import { fetcherWithToken } from "@fetch";
 import { Flex, Gap } from "@styles";
 
@@ -42,18 +41,12 @@ export const Images = () => {
    };
    return (
       <Gap>
-         {field.value && field.value.length !== 0 &&
-            <Flex className="justify-evenly flex-wrap">
-               {field.value.map((img: string) => (
-                  <Badge key={img} content={<IoCloseOutline />} onClick={() => handleDelete(img)} color="primary" variant="shadow" isOneChar showOutline={false} className="cursor-pointer">
-                     <Image src={img} width="120px" height="120px" className="object-cover" />
-                  </Badge>
-               ))}
-            </Flex>
-         }
+         <Flex className="gap-x-8 justify-center flex-wrap">
+            <FileCover id="image-cover" image={field.value && field.value[0]} isLoading={isAdding || isDeleting} onChange={handleImage} onDelete={handleDelete} />
+            <FileCover id="image-tab" image={field.value && field.value[1]} isLoading={isAdding || isDeleting} onChange={handleImage} onDelete={handleDelete} />
+         </Flex>
          {isAdding && <Progress label="Subiendo imagen" size="sm" isIndeterminate />}
          {isDeleting && <Progress label="Eliminando imagen" size="sm" isIndeterminate />}
-         <File id="image" label="Cargar imagen" onChange={handleImage} />
       </Gap>
    )
 }

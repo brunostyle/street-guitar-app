@@ -5,7 +5,7 @@ import { useField } from "formik";
 import { IoCloseOutline, IoDocumentTextOutline } from "@icons";
 import { Between, Gap, TitlePDF } from "@styles";
 import { useAddPDF, useDeletePDF } from "@hooks";
-import { CustomButtonIcon, File, notify } from "@components";
+import { CustomButtonIcon, FileInput, notify } from "@components";
 import { fetcherWithToken } from "@fetch";
 
 export const PDF = () => {
@@ -56,7 +56,7 @@ export const PDF = () => {
                     </Between>
                 </Card>
             }
-            <File id="pdf" label="Cargar PDF" onChange={handlePDF} />
+            <FileInput id="pdf" label="Cargar PDF" onChange={handlePDF} />
         </Gap>
     )
 }

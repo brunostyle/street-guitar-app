@@ -7,7 +7,7 @@ interface IProps {
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const File = ({ id, label, onChange }: IProps) => {
+export const FileInput = ({ id, label, onChange }: IProps) => {
 	const handleClick = () => {
 		document.getElementById(id)?.click();
 	};

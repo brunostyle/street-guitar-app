@@ -22,4 +22,4 @@ Street Guitar es una plataforma en línea donde los usuarios pueden encontrar re
 
 **Clona el repositorio**:
    ```sh
-   git clone https://github.com/tu-usuario/street-guitar.git
+   git clone https://github.com/tu-usuario/street-guitar-app.git
