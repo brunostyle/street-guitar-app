@@ -1,4 +1,4 @@
-import { IoCloseOutline, IoCloudUploadOutline } from "@icons";
+import { IoImageOutline, IoCloseOutline } from "@icons";
 import { Avatar, Badge } from "@heroui/react";
 
 interface IProps {
@@ -18,14 +18,14 @@ export const FileCover = ({ id, image, isLoading, onChange, onDelete }: IProps) 
 	return <>
 		<input onChange={onChange} type="file" id={id} style={{ display: 'none' }} />
 		<Badge isInvisible={!!!image} content={<IoCloseOutline />} onClick={() => onDelete(image!)} color="primary" variant="faded" isOneChar showOutline={false} className="cursor-pointer">
-			<Avatar 
-				showFallback 
-				radius="sm" 
-				src={image} 
-				onClick={handleClick} 
-				isDisabled={isLoading} 
-				fallback={<IoCloudUploadOutline />} 
-				className={`object-cover  w-[120px] h-[120px] ${!isLoading && 'cursor-pointer'}`} 
+			<Avatar
+				showFallback
+				radius="sm"
+				src={image}
+				onClick={handleClick}
+				isDisabled={isLoading}
+				fallback={<IoImageOutline size={15} />}
+				className={`object-cover w-[120px] h-[120px] bg-content2 ${!isLoading && 'cursor-pointer'}`}
 			/>
 		</Badge>
 	</>
