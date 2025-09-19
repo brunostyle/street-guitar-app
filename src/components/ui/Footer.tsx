@@ -5,10 +5,10 @@ import { Between, Subtitle } from '@styles';
 export const Footer = () => (
     <footer>
         <Divider className="container mx-auto" />
-        <footer className="container mx-auto px-4 py-2">
+        <footer className="container mx-auto px-4 py-3">
             <Between>
                 <Logo />
-                <Subtitle>©Copyright 2024 Bruno Millalipe</Subtitle>
+                <Subtitle>©Copyright 2026 Bruno Millalipe</Subtitle>
             </Between>
         </footer>
     </footer>

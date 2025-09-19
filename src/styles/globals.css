@@ -63,7 +63,7 @@
 }
 
 .wrap-fill {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 
 }
 

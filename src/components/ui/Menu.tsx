@@ -71,7 +71,7 @@ export const Menu = () => {
                {(token || isLogged) && <Profile />}
             </NavbarItem>
 
-            <NavbarMenuToggle />
+            <NavbarMenuToggle className="cursor-pointer" />
          </NavbarContent>
          <Collapse setIsMenuOpen={setIsMenuOpen} />
       </Navbar>
