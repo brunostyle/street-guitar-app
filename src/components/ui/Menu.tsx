@@ -8,6 +8,7 @@ import { useCart, useTheme, useUser } from '@state';
 import { Flex, Title } from '@styles';
 import { useState } from 'react';
 import { ROUTES } from '@navigation';
+import { CATEGORIES } from '@categories';
 
 interface ISearch { query: string }
 const values: ISearch = { query: '' }
@@ -48,9 +49,9 @@ export const Menu = () => {
                   </DropdownTrigger>
                   <DropdownMenu variant="flat" aria-label="filtrado de productos" onAction={category => router(ROUTES.category + category)}>
                      <DropdownSection title="Categorias">
-                        <DropdownItem key="rock" startContent={<IoMusicalNoteSharp />}>Rock</DropdownItem>
-                        <DropdownItem key="folclore" startContent={<IoMusicalNoteSharp />}>Folclore</DropdownItem>
-                        <DropdownItem key="pop" startContent={<IoMusicalNoteSharp />}>Pop</DropdownItem>
+                        {CATEGORIES.map(category => (
+                           <DropdownItem key={category.key} startContent={<IoMusicalNoteSharp />}>{category.value}</DropdownItem>
+                        ))}
                      </DropdownSection>
                   </DropdownMenu>
                </Dropdown>

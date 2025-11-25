@@ -1,7 +1,4 @@
-import type { ChipProps } from "@heroui/react";
-
-export type TValidCategory = 'rock' | 'folclore' | 'pop';
-export const ValidCategory = ['rock', 'folclore', 'pop'];
+import type { TValidCategory } from "@categories";
 
 export interface IProduct {
 	id: string;
@@ -17,16 +14,4 @@ export interface IProduct {
 	tags: string[];
 	tab?: string;
 	pdf?: string;
-}
-
-export const categoriesObject = {
-	rock: "Rock",
-	folclore: "Folclore",
-	pop: "Pop",
-}
-
-export const categories: Record<string, ChipProps["color"]> = {
-	rock: 'warning',
-	folclore: 'danger',
-	pop: 'secondary',
 }

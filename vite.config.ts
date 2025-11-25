@@ -11,6 +11,7 @@ export default defineConfig({
       "@fetch": "/src/assets/fetch",
       "@icons": "/src/assets/icons",
       "@navigation": "/src/assets/navigation",
+      "@categories": "/src/assets/categories",
       "@query-client": "/src/assets/query-client",
       "@validations": "/src/assets/validations",
       "@components": "/src/components",

@@ -1,3 +1,4 @@
+import { CATEGORIES } from "@categories";
 import { RadioGroup, Radio as RadioNext } from "@heroui/react";
 import { ErrorMessage, useField } from "formik";
 
@@ -15,9 +16,9 @@ export const Category = () => {
             onValueChange={helpers.setValue}
             errorMessage={<ErrorMessage name={field.name} />}
          >
-            <RadioNext value="rock">Rock</RadioNext>
-            <RadioNext value="folclore">Folclore</RadioNext>
-            <RadioNext value="pop">Pop</RadioNext>
+            {CATEGORIES.map(category => (
+               <RadioNext value={category.key}>{category.value}</RadioNext>
+            ))}
          </RadioGroup>
       </div>
    );

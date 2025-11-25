@@ -6,6 +6,7 @@
       "@fetch": ["assets/fetch"],
       "@icons": ["assets/icons"],
       "@navigation": ["assets/navigation"],
+      "@categories": ["assets/categories"],
       "@query-client": ["assets/query-client"],
       "@validations": ["assets/validations"],
       "@components": ["components"],

@@ -1,6 +1,8 @@
 import { Chip as ChipNext } from "@heroui/react";
-import type { TValidCategory, TValidRoles } from "@interfaces";
-import { categories, roles } from "@interfaces";
+import type { TValidCategory } from "@categories";
+import { categories } from "@categories";
+import type { TValidRoles } from "@interfaces";
+import { roles } from "@interfaces";
 import { IoLockClosedOutline, IoMusicalNoteSharp } from "@icons";
 import type { ComponentProps } from "react";
 

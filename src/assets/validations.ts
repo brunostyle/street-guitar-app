@@ -1,4 +1,4 @@
-import { ValidCategory } from '@interfaces';
+import { ValidCategory } from '@categories';
 import { array, date, mixed, number, object, string } from 'yup'
 
 export const searchSchema = object({
