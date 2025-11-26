@@ -5,7 +5,7 @@ interface ProductSkeletonProps {
     count?: number;
 }
 
-export const ProductSkeleton = ({ count = 12 }: ProductSkeletonProps) => (
+export const ProductSkeleton = ({ count = 18 }: ProductSkeletonProps) => (
     <WrapFill>
         {Array(count).fill(0).map((_, index) => (
             <Card key={index} className="shadow-inset" radius="lg">
