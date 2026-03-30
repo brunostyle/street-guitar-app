@@ -1,0 +1,41 @@
+import { Card, CardContent, CardFooter } from "@heroui/react";
+import { Link } from "react-router";
+import type { IProduct } from "@interfaces"
+import { CustomButtonIcon, CustomButtonLink } from "@components"
+import { IoTrashOutline, IoCloudDownloadOutline, FaSpotify } from '@icons'
+import { HiddenTitle, Subtitle, ChipCategory } from "@styles";
+import { useCart } from "@state";
+import { ROUTES } from "@navigation";
+
+interface IProductCard {
+   page: 'cart' | 'checkout';
+   cart?: IProduct[];
+   paid?: boolean;
+}
+
+export const ProductCard = ({ cart = [], page }: IProductCard) => {
+   const { removeProductToCart } = useCart();
+   return <>
+      {cart.map(product => (
+         <Card key={product.id} className="grid grid-cols-[2fr_10fr_auto] shadow-outset p-0 ">
+            <Link to={ROUTES.product + product.id} className="h-28">
+               <img src={product.images[0]} alt={product.title} className="w-full h-full rounded-none object-cover" />
+            </Link>
+            <CardContent className="flex flex-col justify-between py-2">
+               <div>
+                  <HiddenTitle>{product.title}</HiddenTitle>
+                  <Subtitle>{product.description}</Subtitle>
+               </div>
+               <div>
+                  <ChipCategory>{product.category}</ChipCategory>
+               </div>
+            </CardContent>
+            <CardFooter className="flex flex-col justify-between p-2">
+               <CustomButtonLink to={product?.spotify} variant="ghost"><span><FaSpotify className="text-success size-[1.6em]" /></span></CustomButtonLink>
+               {(page === "checkout" && product.pdf) && <CustomButtonLink to={product.pdf} download={product.tab}><IoCloudDownloadOutline /></CustomButtonLink>}
+               {page === "cart" && <CustomButtonIcon onPress={() => removeProductToCart(product)}><IoTrashOutline /></CustomButtonIcon>}
+            </CardFooter>
+         </Card>
+      ))}
+   </>
+}

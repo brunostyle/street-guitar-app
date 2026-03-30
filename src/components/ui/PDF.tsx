@@ -1,0 +1,67 @@
+import { Card, CardContent, ProgressBar, ProgressBarFill, ProgressBarTrack } from "@heroui/react";
+import type { ChangeEvent } from "react";
+import { Link, useParams } from "react-router";
+import { useField } from "formik";
+import { IoCloseOutline, IoDocumentTextOutline } from "@icons";
+import { Between, Gap, TitlePDF } from "@styles";
+import { useAddPDF, useDeletePDF } from "@hooks";
+import { CustomButtonIcon, FileInput, notify } from "@components";
+import { fetcherWithToken } from "@fetch";
+
+export const PDF = () => {
+    const { id } = useParams();
+    const { addPDF, isAdding } = useAddPDF(id!);
+    const { deletePDF, isDeleting } = useDeletePDF();
+    const [fieldPDF, _metaPDF, helpersPDF] = useField('pdf');
+    const [fieldTAB, _metaTAB, helpersTAB] = useField('tab');
+
+    const handleDelete = () => {
+        deletePDF({ url: fieldPDF.value }, {
+            onSuccess: async () => {
+                helpersPDF.setValue('');
+                helpersTAB.setValue('');
+                if (id) {
+                    await fetcherWithToken({ endpoint: '/products/' + id, method: 'PUT', data: { pdf: '', tab: '' } });
+                }
+            }
+        });
+    }
+
+    const handlePDF = (e: ChangeEvent<HTMLInputElement>) => {
+        const [file] = e.target.files!;
+        const extension = file.name.split('.').pop();
+        if (extension !== 'pdf') return notify.error('Extension no valida')
+        helpersTAB.setValue(file.name);
+        addPDF({ file }, {
+            onSuccess: async (url) => {
+                helpersPDF.setValue(url)
+                if (id) {
+                    await fetcherWithToken({ endpoint: '/products/' + id, method: 'PUT', data: { pdf: url, tab: file.name } });
+                }
+            }
+        });
+    };
+
+    return (
+        <Gap>
+            {fieldTAB.value &&
+                <Card className="p-1 shadow-outset">
+                    <Between>
+                        <IoDocumentTextOutline size="1.5rem" className="text-accent" />
+                        <CardContent>
+                            <Link to={fieldPDF.value} target="_blank"><TitlePDF>{fieldTAB.value}</TitlePDF></Link>
+                            {(isAdding || isDeleting) &&
+                                <ProgressBar size="sm" className="mt-4" isIndeterminate>
+                                    <ProgressBarTrack>
+                                        <ProgressBarFill />
+                                    </ProgressBarTrack>
+                                </ProgressBar>}
+                        </CardContent>
+                        <CustomButtonIcon variant="ghost" onPress={handleDelete}><IoCloseOutline /></CustomButtonIcon>
+                    </Between>
+                </Card>
+            }
+            <FileInput id="pdf" label="Cargar PDF" onChange={handlePDF} />
+        </Gap>
+    )
+}
