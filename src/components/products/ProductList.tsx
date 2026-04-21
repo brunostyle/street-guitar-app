@@ -1,8 +1,8 @@
-import { Card, CardContent, CardFooter, Dropdown, DropdownMenu, DropdownSection, DropdownItem, Button, DropdownPopover, Separator } from '@heroui/react';
+import { Card, CardContent, CardFooter, Dropdown, DropdownMenu, DropdownSection, DropdownItem, Button, DropdownPopover, Separator, Avatar, AvatarImage, AvatarFallback } from '@heroui/react';
 import { useNavigate as useRouter } from 'react-router';
 import { Between, HiddenTitle, WrapFill, Title, ChipCategory, HiddenSubtitle, Flex, Gap } from '@styles';
 import type { IProduct } from "@interfaces"
-import { FaSpotify, IoFilterOutline } from '@icons';
+import { FaSpotify, IoFilterOutline, IoImageOutline } from '@icons';
 import { CustomButtonLink, Difficulty, ProductSkeleton } from '@components';
 import { ROUTES } from '@navigation';
 
@@ -47,7 +47,10 @@ export const ProductList = ({ category, icon, products, isLoading = false }: IPr
             <WrapFill>
                {products.map(product => (
                   <Card className="shadow-outset p-0 cursor-pointer" key={product.id} onClick={() => router(ROUTES.product + product.id)}>
-                     <img src={product.images[0]} alt={product.title} className="w-full h-full min-h-64 rounded-none object-cover opacity" />
+                     <Avatar className="w-full min-h-92.5 rounded-none opacity">
+                        <AvatarImage src={product.images[0]} alt={product.title} className="object-cover" />
+                        <AvatarFallback><IoImageOutline /></AvatarFallback>
+                     </Avatar>
                      <CardContent className="px-2">
                         <HiddenTitle>{product.title}</HiddenTitle>
                         <HiddenSubtitle>{product.description}</HiddenSubtitle>

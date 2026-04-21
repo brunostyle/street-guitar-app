@@ -1,8 +1,8 @@
-import { Card, CardContent, CardFooter } from "@heroui/react";
+import { Avatar, AvatarFallback, AvatarImage, Card, CardContent, CardFooter } from "@heroui/react";
 import { Link } from "react-router";
 import type { IProduct } from "@interfaces"
 import { CustomButtonIcon, CustomButtonLink } from "@components"
-import { IoTrashOutline, IoCloudDownloadOutline, FaSpotify } from '@icons'
+import { IoTrashOutline, IoCloudDownloadOutline, FaSpotify, IoImageOutline } from '@icons'
 import { HiddenTitle, Subtitle, ChipCategory } from "@styles";
 import { useCart } from "@state";
 import { ROUTES } from "@navigation";
@@ -19,7 +19,10 @@ export const ProductCard = ({ cart = [], page }: IProductCard) => {
       {cart.map(product => (
          <Card key={product.id} className="grid grid-cols-[2fr_10fr_auto] shadow-outset p-0 ">
             <Link to={ROUTES.product + product.id} className="h-28">
-               <img src={product.images[0]} alt={product.title} className="w-full h-full rounded-none object-cover" />
+               <Avatar className="w-full h-full rounded-none">
+                  <AvatarImage src={product.images[0]} alt={product.title} className="object-cover" />
+                  <AvatarFallback><IoImageOutline /></AvatarFallback>
+               </Avatar>
             </Link>
             <CardContent className="flex flex-col justify-between py-2">
                <div>

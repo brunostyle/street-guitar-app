@@ -1,4 +1,5 @@
-import { Avatar, AvatarImage, Skeleton } from "@heroui/react"
+import { Avatar, AvatarFallback, AvatarImage, Skeleton } from "@heroui/react"
+import { IoImageOutline } from "@icons";
 import { useEffect, useState } from "react"
 
 interface IProps {
@@ -26,6 +27,7 @@ export const Gallery = ({ images = [], isLoading }: IProps) => {
                                 className={`opacity w-full h-36 rounded-2xl cursor-pointer ${image === selected && 'outline-2 outline-separator'}`}
                             >
                                 <AvatarImage src={image} className="object-cover" />
+                                <AvatarFallback><IoImageOutline /></AvatarFallback>
                             </Avatar>
                         ))}
                 </div>
@@ -35,6 +37,7 @@ export const Gallery = ({ images = [], isLoading }: IProps) => {
                     ? <Skeleton className="w-full h-137.5 rounded-3xl" />
                     : <Avatar className="w-full h-137.5 rounded-lg shadow-outset">
                         <AvatarImage src={selected} className="object-cover" />
+                        <AvatarFallback><IoImageOutline /></AvatarFallback>
                     </Avatar>
                 }
             </div>
