@@ -21,47 +21,43 @@ export const Menu = () => {
    }
 
    return (
-      <Navbar
-         items={
-            <>
-               <div className="hidden lg:block">
-                  <Formik initialValues={values} onSubmit={handleSubmit}>
-                     <Form>
-                        <CustomInput name="query" placeholder="Buscar..." icon={<IoSearchOutline />} />
-                     </Form>
-                  </Formik>
-               </div>
+      <Navbar>
+         <div className="hidden lg:block">
+            <Formik initialValues={values} onSubmit={handleSubmit}>
+               <Form>
+                  <CustomInput name="query" placeholder="Buscar..." icon={<IoSearchOutline />} />
+               </Form>
+            </Formik>
+         </div>
 
-               <Dropdown>
-                  <Button variant="ghost" size="sm"><IoFilterOutline />Filtrar</Button>
-                  <DropdownPopover>
-                     <DropdownMenu aria-label="filtrado de productos" onAction={category => router(ROUTES.category + category)}>
-                        <Header>Categorias</Header>
-                        {CATEGORIES.map(category => (
-                           <DropdownItem key={category.key} id={category.key}>
-                              <IoMusicalNoteSharp />
-                              <Label>{category.value}</Label>
-                           </DropdownItem>
-                        ))}
-                     </DropdownMenu>
-                  </DropdownPopover>
-               </Dropdown>
+         <Dropdown>
+            <Button variant="ghost" size="sm"><IoFilterOutline />Filtrar</Button>
+            <DropdownPopover>
+               <DropdownMenu aria-label="filtrado de productos" onAction={category => router(ROUTES.category + category)}>
+                  <Header>Categorias</Header>
+                  {CATEGORIES.map(category => (
+                     <DropdownItem key={category.key} id={category.key}>
+                        <IoMusicalNoteSharp />
+                        <Label>{category.value}</Label>
+                     </DropdownItem>
+                  ))}
+               </DropdownMenu>
+            </DropdownPopover>
+         </Dropdown>
 
-               <div>
-                  {theme === 'light' && <Push><CustomButtonIcon variant="ghost" onPress={() => changeTheme('dark')}><IoMoonSharp /></CustomButtonIcon></Push>}
-                  {theme === 'dark' && <Push><CustomButtonIcon variant="ghost" onPress={() => changeTheme('light')}><IoSunnySharp /></CustomButtonIcon></Push>}
-               </div>
+         <div>
+            {theme === 'light' && <Push><CustomButtonIcon variant="ghost" onPress={() => changeTheme('dark')}><IoMoonSharp /></CustomButtonIcon></Push>}
+            {theme === 'dark' && <Push><CustomButtonIcon variant="ghost" onPress={() => changeTheme('light')}><IoSunnySharp /></CustomButtonIcon></Push>}
+         </div>
 
-               <BadgeAnchor>
-                  <CustomButtonIcon variant="ghost" onPress={() => router(ROUTES.cart)}><IoCartOutline /></CustomButtonIcon>
-                  {items !== 0 && <Badge color="accent" size="sm">{items < 10 ? items : "+9"}</Badge>}
-               </BadgeAnchor>
+         <BadgeAnchor>
+            <CustomButtonIcon variant="ghost" onPress={() => router(ROUTES.cart)}><IoCartOutline /></CustomButtonIcon>
+            {items !== 0 && <Badge color="accent" size="sm">{items < 10 ? items : "+9"}</Badge>}
+         </BadgeAnchor>
 
-               <div>
-                  {(token || isLogged) && <Profile />}
-               </div>
-            </>
-         }
-      />
+         <div>
+            {(token || isLogged) && <Profile />}
+         </div>
+      </Navbar>
    )
 };

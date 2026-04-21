@@ -7,18 +7,13 @@ export const MenuAdmin = () => {
    const { isLogged } = useUser();
    const { theme, changeTheme } = useTheme();
    return (
-      <Navbar
-         items={
-            <>
-               <div>
-                  {theme === 'light' && <Push><CustomButtonIcon variant="ghost" onPress={() => changeTheme('dark')}><IoMoonSharp /></CustomButtonIcon></Push>}
-                  {theme === 'dark' && <Push><CustomButtonIcon variant="ghost" onPress={() => changeTheme('light')}><IoSunnySharp /></CustomButtonIcon></Push>}
-               </div>
-               <div>
-                  {isLogged && <Profile />}
-               </div>
-            </>
-         }
-      />
-   )
+      <Navbar>
+         <div>
+            {theme === 'light' && <Push><CustomButtonIcon variant="ghost" onPress={() => changeTheme('dark')}><IoMoonSharp /></CustomButtonIcon></Push>}
+            {theme === 'dark' && <Push><CustomButtonIcon variant="ghost" onPress={() => changeTheme('light')}><IoSunnySharp /></CustomButtonIcon></Push>}
+         </div>
+         <div>
+            {isLogged && <Profile />}
+         </div>
+      </Navbar>)
 };
