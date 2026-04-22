@@ -1,3 +1,4 @@
+import { Badge, BadgeAnchor, Button, Dropdown, DropdownItem, DropdownMenu, DropdownPopover, Header, Label, useTheme as useThemeHero } from '@heroui/react';
 import { useNavigate } from 'react-router'
 import { Formik, Form } from 'formik'
 import { IoSearchOutline, IoCartOutline, IoFilterOutline, IoSunnySharp, IoMoonSharp, IoMusicalNoteSharp } from '@icons'
@@ -6,13 +7,13 @@ import { useCart, useTheme, useUser } from '@state';
 import { ROUTES } from '@navigation';
 import { CATEGORIES } from '@categories';
 import { Navbar } from './Navbar';
-import { Badge, BadgeAnchor, Button, Dropdown, DropdownItem, DropdownMenu, DropdownPopover, Header, Label } from '@heroui/react';
 interface ISearch { query: string }
 const values: ISearch = { query: '' }
 
 export const Menu = () => {
    const router = useNavigate();
    const { theme, changeTheme } = useTheme();
+   const { setTheme } = useThemeHero();
    const { items } = useCart();
    const { isLogged } = useUser();
    const token = localStorage.getItem('token');
@@ -46,8 +47,8 @@ export const Menu = () => {
          </Dropdown>
 
          <div>
-            {theme === 'light' && <Push><CustomButtonIcon variant="ghost" onPress={() => changeTheme('dark')}><IoMoonSharp /></CustomButtonIcon></Push>}
-            {theme === 'dark' && <Push><CustomButtonIcon variant="ghost" onPress={() => changeTheme('light')}><IoSunnySharp /></CustomButtonIcon></Push>}
+            {theme === 'light' && <Push><CustomButtonIcon variant="ghost" onPress={() => { changeTheme('dark'); setTheme('dark') }}><IoMoonSharp /></CustomButtonIcon></Push>}
+            {theme === 'dark' && <Push><CustomButtonIcon variant="ghost" onPress={() => { changeTheme('light'); setTheme('light') }}><IoSunnySharp /></CustomButtonIcon></Push>}
          </div>
 
          <BadgeAnchor>
