@@ -15,7 +15,7 @@ export const Banner = () => (
                Encuentra las mejores tablaturas en
                <span className="drop-shadow-[0_0_1px_#006FEE] bg-linear-to-bl from-blue-300 to-blue-950 bg-clip-text text-transparent leading-normal"> Street Guitar </span>
             </h1>
-            <Description>Accede a tablaturas, pistas, covers y más contenido <br /> para mejorar tu técnica y tocar tus canciones favoritas.</Description>
+            <Description className="text-lg">Accede a tablaturas, pistas, covers y más contenido <br /> para mejorar tu técnica y tocar tus canciones favoritas.</Description>
             <Flex>
                <CustomButton size="md" variant="outline" className="text-accent border-accent" icon={<IoLogoInstagram />}>Instagram</CustomButton>
                <CustomButtonLink size="md" isButtonLink to="https://github.com/brunostyle" icon={<IoLogoGithub />}>Github</CustomButtonLink>
