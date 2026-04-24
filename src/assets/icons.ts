@@ -40,5 +40,8 @@ export {
     IoPersonOutline,
     IoStarOutline,
     IoStarSharp,
-    IoMenuOutline
+    IoMenuOutline,
+    IoPeopleOutline,
+    IoMusicalNotesOutline,
+    IoRefreshOutline
 } from "react-icons/io5";

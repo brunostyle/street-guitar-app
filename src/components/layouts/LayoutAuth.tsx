@@ -9,7 +9,7 @@ export const LayoutAuth = () => (
    <Pattern>
       <Container className="grid grid-cols-2 gap-4 place-content-center items-center">
          <Flex className="justify-center">
-            <img className="hidden md:block" src="/auris.png" alt="Ilustracion" />
+            <img className="hidden md:block mask" src="/auricular.png" alt="Ilustracion" />
          </Flex>
          <Card className="col-span-2 md:col-span-1 bg-linear-to-r from-background via-surface-hover to-background border border-white/20">
             <CardHeader className="grid gap-2 justify-center text-center">

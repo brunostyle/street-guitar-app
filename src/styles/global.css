@@ -56,7 +56,6 @@
 [data-theme="dark"] {
   color-scheme: dark;
   --field-border: oklch(28.00% 0.0000 242.62);
-
   --accent: hsl(212.02 100% 46.67%);
   --accent-foreground: oklch(99.11% 0 0);
   --background: oklch(0% 0 0);
@@ -207,8 +206,8 @@ body {
   }
 }
 
-@media screen and (max-width: 444px) {
+@media screen and (max-width: 508px) {
   .wrap-fill {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   }
 }
