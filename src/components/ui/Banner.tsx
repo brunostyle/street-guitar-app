@@ -5,7 +5,7 @@ import { CustomButton, CustomButtonLink, Logo, Push } from "@components";
 export const Banner = () => (
    <Pattern mask>
       <Container className="grid gap-4 md:grid-cols-2 items-center">
-         <Gap className="items-center mb-20 md:mb-52 p-4 backdrop-blur">
+         <Gap className="items-center mb-20 md:mb-28 p-4 backdrop-blur">
             <Logo big />
             <h1 className="text-center text-4xl leading-snug font-bold">
                Encontra las mejores tablaturas en
@@ -18,7 +18,7 @@ export const Banner = () => (
                <CustomButtonLink isButtonLink to="https://github.com/brunostyle" icon={<IoLogoGithub />}>Github</CustomButtonLink>
             </Flex>
          </Gap>
-         <div className="hidden md:block mb-36 dark:opacity-80">
+         <div className="hidden md:block mb-12 dark:opacity-80">
             <Flex className="justify-center">
                <Push>
                   <img src="auris.png" className="w-99" alt="Ilustracion" />
