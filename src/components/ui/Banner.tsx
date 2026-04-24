@@ -21,7 +21,7 @@ export const Banner = () => (
          <div className="hidden md:block mb-36 dark:opacity-80">
             <Flex className="justify-center">
                <Push>
-                  <img src="auris.png" alt="Ilustracion" />
+                  <img src="auris.png" className="w-99" alt="Ilustracion" />
                </Push>
             </Flex>
          </div>

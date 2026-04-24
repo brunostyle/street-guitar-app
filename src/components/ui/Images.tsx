@@ -60,7 +60,6 @@ export const Images = () => {
                   <ProgressBarFill />
                </ProgressBarTrack>
             </ProgressBar>
-
          }
       </Gap>
    )
