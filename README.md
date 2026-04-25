@@ -1,4 +1,4 @@
-![Street Guitar](https://i.postimg.cc/t42DtW3v/pagina.png)
+![Street Guitar](https://res.cloudinary.com/di18krsr5/image/upload/v1777106504/pagina_adn8nz.png)
 # Street Guitar
 
 ¡Bienvenido a **Street Guitar**! Este es un proyecto dedicado a los amantes de la guitarra que desean explorar, aprender y mejorar sus habilidades.
