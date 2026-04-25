@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, Card, CardContent, Chip, ChipLabel, Description
 import { useParams } from "react-router";
 import { useEffect } from "react";
 import { IoCartOutline, FaSpotify, IoHomeOutline, IoMusicalNoteSharp, IoStatsChartOutline, IoShieldCheckmarkOutline, IoDocumentTextOutline, IoDownloadOutline, IoLaptopOutline, IoRibbonOutline } from "@icons";
-import { Between, Grid, GridContainer, ChipCategory, Container, Gap, ChipCuston, Flex, Pattern } from "@styles";
+import { Between, Grid, GridContainer, ChipCategory, Container, Gap, ChipCuston, Flex, Pattern, Title } from "@styles";
 import { useCart } from "@state";
 import { useGetProduct } from "@hooks";
 import { CustomBreadcrumbs, CustomButton, CustomButtonLink, Difficulty, Gallery } from "@components";
@@ -43,7 +43,7 @@ export const Product = () => {
                            }
                            {isLoading
                               ? <Skeleton className="rounded-3xl w-3/6 h-5" />
-                              : <h1 className="text-2xl font-semibold">{product?.title}</h1>
+                              : <Title>{product?.title}</Title>
                            }
                            {isLoading
                               ? <Skeleton className="rounded-3xl w-7/12 h-10" />
@@ -87,7 +87,7 @@ export const Product = () => {
                               {isLoading
                                  ? <Skeleton className="rounded-3xl w-14 h-5" />
                                  : <div className="flex gap-2">
-                                    <span className="text-2xl font-medium">${product?.price}</span>
+                                    <Title>${product?.price}</Title>
                                     <span className="text-lg line-through text-gray-500">$10</span>
                                  </div>
 

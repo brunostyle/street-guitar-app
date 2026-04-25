@@ -57,6 +57,7 @@
   color-scheme: dark;
   --field-border: oklch(28.00% 0.0000 242.62);
   --accent: hsl(212.02 100% 46.67%);
+  --accent: rgb(0, 111, 238);
   --accent-foreground: oklch(99.11% 0 0);
   --background: hsl(0, 0%, 0%);
   --border: oklch(28.00% 0.0000 242.62);
@@ -76,7 +77,7 @@
   --separator: hsl(0 0% 100% / 0.1);
   --success: oklch(73.29% 0.1935 149.47);
   --success-foreground: oklch(21.03% 0.0059 149.47);
-  --surface: oklch(14.479% 0.00002 271.152);
+  --surface: oklch(13.441% 0.00002 271.152);
   --surface-foreground: oklch(99.11% 0.0000 242.62);
   --surface-secondary: oklch(25.70% 0.0000 242.62);
   --surface-secondary-foreground: oklch(99.11% 0.0000 242.62);

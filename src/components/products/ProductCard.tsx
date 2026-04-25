@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage, Card, CardContent, CardFooter, Description } from "@heroui/react";
+import { Alert, AlertContent, AlertDescription, AlertIndicator, AlertTitle, Avatar, AvatarFallback, AvatarImage, Card, CardContent, CardFooter, Description } from "@heroui/react";
 import { Link } from "react-router";
 import type { IProduct } from "@interfaces"
 import { CustomButtonIcon, CustomButtonLink } from "@components"
@@ -40,5 +40,19 @@ export const ProductCard = ({ cart = [], page }: IProductCard) => {
             </CardFooter>
          </Card>
       ))}
+      <Alert status="accent" className="shadow-outset bg-center" style={{ backgroundImage: 'url(/pattern.svg)' }}>
+         <AlertIndicator>
+            <Avatar variant="soft" size="lg">
+               <AvatarImage src="/tabs.png" />
+            </Avatar>
+         </AlertIndicator>
+         <AlertContent>
+            <AlertTitle>¡Disfruta tus tablaturas!</AlertTitle>
+            <AlertDescription>
+               Todas las tablaturas de tu orden son completamente gratis.
+            </AlertDescription>
+         </AlertContent>
+      </Alert>
+
    </>
 }

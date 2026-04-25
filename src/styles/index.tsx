@@ -72,6 +72,14 @@ export const WrapFit = ({ children, ...props }: ComponentProps<"div">) => (
 
 // ------------------- TITLES -------------------
 
+export const Title = ({ children, className, ...props }: ComponentProps<"h4">) => (
+  <h4 className={`text-2xl font-medium ${className}`} {...props}>{children}</h4>
+)
+
+export const Subtitle = ({ children, className, ...props }: ComponentProps<"h4">) => (
+  <h4 className={`text-xl font-medium ${className}`} {...props}>{children}</h4>
+)
+
 export const SectionTitle = ({ children, className, ...props }: ComponentProps<"h1">) => (
   <h1 className={`font-bold text-2xl ${className}`} {...props}>{children}</h1>
 )

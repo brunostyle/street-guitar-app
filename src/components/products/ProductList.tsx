@@ -1,6 +1,6 @@
-import { Card, CardContent, CardFooter, Dropdown, DropdownMenu, DropdownSection, DropdownItem, Button, DropdownPopover, Separator, Avatar, AvatarImage, AvatarFallback, Label } from '@heroui/react';
+import { Card, CardContent, CardFooter, Dropdown, DropdownMenu, DropdownSection, DropdownItem, Button, DropdownPopover, Separator, Avatar, AvatarImage, AvatarFallback } from '@heroui/react';
 import { useNavigate as useRouter } from 'react-router';
-import { Between, HiddenTitle, WrapFill, ChipCategory, HiddenSubtitle, Flex, Gap } from '@styles';
+import { Between, HiddenTitle, WrapFill, ChipCategory, HiddenSubtitle, Flex, Gap, Subtitle } from '@styles';
 import type { IProduct } from "@interfaces"
 import { FaSpotify, IoFilterOutline, IoImageOutline } from '@icons';
 import { CustomButtonLink, Difficulty, ProductSkeleton } from '@components';
@@ -20,7 +20,7 @@ export const ProductList = ({ category, icon, products, isLoading = false }: IPr
          <Between>
             <Flex>
                {icon && icon}
-               <Label>{category}</Label>
+               <Subtitle>{category}</Subtitle>
             </Flex>
             <Dropdown>
                <Button variant="ghost" size="sm"><IoFilterOutline />Dificultad</Button>
