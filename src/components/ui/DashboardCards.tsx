@@ -1,6 +1,6 @@
-import { Card, CardFooter, CardHeader } from "@heroui/react";
+import { Card, CardFooter, CardHeader, Label } from "@heroui/react";
 import { IoPricetagsOutline, IoPersonAddOutline, IoTriangleOutline } from "@icons";
-import { Flex, Title, WrapFit } from "@styles";
+import { Flex, WrapFit } from "@styles";
 
 interface IDashboardCards {
    numberOfClients?: number;
@@ -12,34 +12,34 @@ export const DashboardCards = ({ numberOfClients = 0, numberOfProducts = 0, numb
    <WrapFit>
       <Card className="bg-accent text-white">
          <CardHeader>
-            <Title>Total clientes</Title>
+            <Label>Total clientes</Label>
          </CardHeader>
          <CardFooter>
             <Flex>
                <IoPersonAddOutline />
-               <Title>{numberOfClients}</Title>
+               <Label>{numberOfClients}</Label>
             </Flex>
          </CardFooter>
       </Card>
       <Card className="shadow-outset">
          <CardHeader>
-            <Title>Total productos</Title>
+            <Label>Total productos</Label>
          </CardHeader>
          <CardFooter>
             <Flex>
                <IoPricetagsOutline />
-               <Title>{numberOfProducts}</Title>
+               <Label>{numberOfProducts}</Label>
             </Flex>
          </CardFooter>
       </Card>
       <Card className="bg-success text-white">
          <CardHeader>
-            <Title>Total ventas</Title>
+            <Label>Total ventas</Label>
          </CardHeader>
          <CardFooter>
             <Flex>
                <IoTriangleOutline />
-               <Title>{numberOfOrders}</Title>
+               <Label>{numberOfOrders}</Label>
             </Flex>
          </CardFooter>
       </Card>

@@ -1,7 +1,8 @@
 import { useParams } from "react-router";
 import { FullScreenLoading, Nothing, ProductList, Difficulty as Diff } from "@components";
 import { useGetDifficulty } from "@hooks";
-import { Container, Title } from "@styles";
+import { Container } from "@styles";
+import { Label } from "@heroui/react";
 
 export const Difficulty = () => {
    const { difficulty } = useParams();
@@ -14,7 +15,7 @@ export const Difficulty = () => {
             : isEmpty
                ? <Nothing text={"No se encontraron resultados para " + difficulty + " estrellas"} svg="/nothing.svg" />
                : <div>
-                  <Title>Dificultad</Title>
+                  <Label>Dificultad</Label>
                   <ProductList category="" icon={<Diff difficulty={Number(difficulty)} />} products={products ?? []} />
                </div>
          }

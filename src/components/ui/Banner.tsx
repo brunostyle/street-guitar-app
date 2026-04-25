@@ -1,5 +1,5 @@
 import { IoLogoGithub, IoLogoInstagram, IoMusicalNotesOutline, IoPeopleOutline, IoRefreshOutline } from "@icons";
-import { ChipCuston, Container, Flex, Gap, Pattern, Subtitle } from "@styles";
+import { ChipCuston, Container, Flex, Gap, Pattern } from "@styles";
 import { CustomButton, CustomButtonLink, Logo, Push } from "@components";
 import { Avatar, AvatarFallback, Card, ChipLabel, Description, Label, Separator } from "@heroui/react";
 
@@ -20,7 +20,7 @@ export const Banner = () => (
                <CustomButton size="md" variant="outline" className="text-accent border-accent" icon={<IoLogoInstagram />}>Instagram</CustomButton>
                <CustomButtonLink size="md" isButtonLink to="https://github.com/brunostyle" icon={<IoLogoGithub />}>Github</CustomButtonLink>
             </Flex>
-            <Card className="grid grid-cols-1 xl:grid-cols-3 p-3 shadow-outset backdrop-blur-xs bg-transparent">
+            <Card className="hidden xl:grid grid-cols-3 p-3 shadow-outset backdrop-blur-xs bg-transparent">
                <Flex>
                   <Avatar color="accent" variant="soft" className="shadow-outset">
                      <AvatarFallback>
@@ -29,7 +29,7 @@ export const Banner = () => (
                   </Avatar>
                   <div className="flex flex-col">
                      <Label>+100</Label>
-                     <Subtitle>Tablaturas</Subtitle>
+                     <Description>Tablaturas</Description>
                   </div>
                </Flex>
                <Flex>
@@ -41,7 +41,7 @@ export const Banner = () => (
                   </Avatar>
                   <div className="flex flex-col">
                      <Label>+1000</Label>
-                     <Subtitle>Usuarios</Subtitle>
+                     <Description>Usuarios</Description>
                   </div>
                </Flex>
                <Flex>
@@ -53,7 +53,7 @@ export const Banner = () => (
                   </Avatar>
                   <div className="flex flex-col">
                      <Label>Actualizaciones</Label>
-                     <Subtitle>Constantes</Subtitle>
+                     <Description>Constantes</Description>
                   </div>
                </Flex>
             </Card>

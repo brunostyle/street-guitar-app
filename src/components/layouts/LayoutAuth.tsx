@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, Label, Tab, TabIndicator, TabList, TabListContainer, TabPanel, Tabs } from "@heroui/react";
-import { Container, Flex, Pattern, SectionTitle, Subtitle } from "@styles";
+import { Card, CardContent, CardHeader, Description, Label, Tab, TabIndicator, TabList, TabListContainer, TabPanel, Tabs } from "@heroui/react";
+import { Container, Flex, Pattern, SectionTitle } from "@styles";
 import { Logo } from "@components";
 import { Login } from "../../app/auth/login";
 import { Register } from "../../app/auth/register";
@@ -15,7 +15,7 @@ export const LayoutAuth = () => (
             <CardHeader className="grid gap-2 justify-center text-center">
                <Logo big />
                <SectionTitle>Street Guitar</SectionTitle>
-               <Subtitle>Tablaturas, tracks, covers gratis</Subtitle>
+               <Description>Tablaturas, tracks, covers gratis</Description>
             </CardHeader>
             <CardContent>
                <Tabs>

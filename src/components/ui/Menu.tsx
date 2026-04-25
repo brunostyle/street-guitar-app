@@ -26,7 +26,7 @@ export const Menu = () => {
          <div className="hidden lg:block">
             <Formik initialValues={values} onSubmit={handleSubmit}>
                <Form>
-                  <CustomInput name="query" placeholder="Buscar..." icon={<IoSearchOutline />} />
+                  <CustomInput name="query" placeholder="Buscar tablaturas..." icon={<IoSearchOutline />} />
                </Form>
             </Formik>
          </div>

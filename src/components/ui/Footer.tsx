@@ -1,6 +1,6 @@
-import { Separator } from '@heroui/react';
+import { Description, Separator } from '@heroui/react';
 import { Logo } from '@components';
-import { Between, Subtitle } from '@styles';
+import { Between } from '@styles';
 
 export const Footer = () => (
     <footer>
@@ -8,7 +8,7 @@ export const Footer = () => (
         <footer className="container mx-auto px-4 py-3">
             <Between>
                 <Logo />
-                <Subtitle>©Copyright 2026 Bruno Millalipe</Subtitle>
+                <Description>©Copyright 2026 Bruno Millalipe</Description>
             </Between>
         </footer>
     </footer>

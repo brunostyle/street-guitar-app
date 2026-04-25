@@ -80,16 +80,6 @@ export const SectionSubTitle = ({ children, className, ...props }: ComponentProp
   <h4 className={`text-muted text-sm mb-4 ${className}`} {...props}>{children}</h4>
 )
 
-export const Title = ({ children, className, ...props }: ComponentProps<"h4">) => (
-  <h4 className={`text-base font-medium ${className}`} {...props}>{children}</h4>
-)
-
-export const Subtitle = ({ children, className, ...props }: ComponentProps<"h4">) => (
-  <div className="max-w-screen-sm sm:max-w-max text-muted">
-    <h4 className={`overflow-hidden text-ellipsis whitespace-nowrap text-sm ${className}`} {...props}>{children}</h4>
-  </div>
-)
-
 export const HiddenTitle = ({ children, className, ...props }: ComponentProps<"h4">) => (
   <div className="max-w-40 sm:max-w-max">
     <h4 className={`overflow-hidden text-ellipsis whitespace-nowrap text-sm ${className}`} {...props}>{children}</h4>

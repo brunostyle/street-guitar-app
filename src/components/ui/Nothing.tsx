@@ -1,6 +1,7 @@
-import { Center, Title } from "@styles";
+import { Center } from "@styles";
 import { Push } from "@components";
 import type { JSX } from "react";
+import { Label } from "@heroui/react";
 
 interface INothing {
    text: string;
@@ -13,7 +14,7 @@ export const Nothing = ({ text, svg, children }: INothing) => (
       <Push>
          <img src={svg} width="300px" height="300px" alt="No se encontraron resultados" />
       </Push>
-      <Title>{text}</Title>
+      <Label>{text}</Label>
       {children}
    </Center>
 )

@@ -1,11 +1,12 @@
 import { useState, type JSX } from "react";
 import { Collapse } from "./Collapse";
 import { IoCloseOutline, IoMenuOutline } from "@icons";
-import { Between, Flex, Title } from "@styles";
+import { Between, Flex } from "@styles";
 import { Link } from "react-router";
 import { ROUTES } from "@navigation";
 import { Logo } from "./Logo";
 import { CustomButtonIcon } from "@components";
+import { Label } from "@heroui/react";
 
 interface NavbarProps {
     children: JSX.Element | JSX.Element[];
@@ -18,7 +19,7 @@ export function Navbar({ children }: NavbarProps) {
             <Between className="p-3 px-6">
                 <Flex>
                     <Link to={ROUTES.home}><Logo /></Link>
-                    <Title className="hidden sm:block text-lg">Street <span className="text-accent">Guitar</span></Title>
+                    <Label className="hidden sm:block text-lg">Street <span className="text-accent">Guitar</span></Label>
                 </Flex>
                 <Flex>
                     {children}
