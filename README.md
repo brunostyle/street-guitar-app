@@ -1,4 +1,4 @@
-[![Captura-de-pantalla-2026-04-25-050651.png](https://i.postimg.cc/t42DtW3v/Captura-de-pantalla-2026-04-25-050651.png)](https://postimg.cc/NK21QyPR)
+![Street Guitar](https://i.postimg.cc/t42DtW3v/pagina.png)
 # Street Guitar
 
 ¡Bienvenido a **Street Guitar**! Este es un proyecto dedicado a los amantes de la guitarra que desean explorar, aprender y mejorar sus habilidades.
