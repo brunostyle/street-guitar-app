@@ -1,8 +1,8 @@
-import { Card, CardContent, Separator } from "@heroui/react";
+import { Card, CardContent, Description, Label, Separator } from "@heroui/react";
 import { useNavigate as useRouter } from "react-router";
 import { IoPencil } from '@icons'
 import { CustomButtonIcon } from '@components'
-import { Between, Gap, Subtitle, Title } from "@styles";
+import { Between, Gap } from "@styles";
 import { ROUTES } from "@navigation";
 import type { JSX } from "react";
 
@@ -19,32 +19,32 @@ export const ProductOrder = ({ children, total, items, page }: IProductOrder) =>
       <Card className="h-max shadow-outset">
          <CardContent>
             <Gap>
-               {page === "cart" && <Title>Orden</Title>}
+               {page === "cart" && <Label>Orden</Label>}
                {page === "checkout" &&
                   <>
-                     <Title>Resumen ({items} {items === 1 ? 'tablatura' : 'tablaturas'})</Title>
+                     <Label>Resumen ({items} {items === 1 ? 'tablatura' : 'tablaturas'})</Label>
                      <Between>
-                        <Title>Orden</Title>
+                        <Label>Orden</Label>
                         <CustomButtonIcon onPress={() => router(ROUTES.cart)}><IoPencil /></CustomButtonIcon>
                      </Between>
                   </>
                }
                <Between>
-                  <Subtitle>Nro. Tablaturas:</Subtitle>
-                  <Subtitle>{items} {items === 1 ? 'item' : 'items'}</Subtitle>
+                  <Description>Nro. Tablaturas:</Description>
+                  <Description>{items} {items === 1 ? 'item' : 'items'}</Description>
                </Between>
                <Between>
-                  <Subtitle>Subtotal:</Subtitle>
-                  <Subtitle>${10 * items!}</Subtitle>
+                  <Description>Subtotal:</Description>
+                  <Description>${10 * items!}</Description>
                </Between>
                <Between>
-                  <Subtitle>Descuento:</Subtitle>
-                  <Subtitle>-${10 * items!}</Subtitle>
+                  <Description>Descuento:</Description>
+                  <Description>-${10 * items!}</Description>
                </Between>
                <Separator />
                <Between>
-                  <Title>Total:</Title>
-                  <Title>${total}</Title>
+                  <Label>Total:</Label>
+                  <Label>${total}</Label>
                </Between>
                <div>
                   {children}

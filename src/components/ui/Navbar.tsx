@@ -18,7 +18,7 @@ export function Navbar({ children }: NavbarProps) {
             <Between className="p-3 px-6">
                 <Flex>
                     <Link to={ROUTES.home}><Logo /></Link>
-                    <Title className="hidden sm:block">Street Guitar</Title>
+                    <Title className="hidden sm:block text-lg">Street <span className="text-accent">Guitar</span></Title>
                 </Flex>
                 <Flex>
                     {children}

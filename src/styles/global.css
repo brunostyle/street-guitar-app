@@ -58,7 +58,7 @@
   --field-border: oklch(28.00% 0.0000 242.62);
   --accent: hsl(212.02 100% 46.67%);
   --accent-foreground: oklch(99.11% 0 0);
-  --background: oklch(0% 0 0);
+  --background: hsl(0, 0%, 0%);
   --border: oklch(28.00% 0.0000 242.62);
   --danger: oklch(59.40% 0.1967 23.29);
   --danger-foreground: oklch(99.11% 0 0);
@@ -67,7 +67,7 @@
   --field-foreground: oklch(99.11% 0.0000 242.62);
   --field-placeholder: oklch(55.1% 0.027 264.364);
   --foreground: oklch(99.11% 0.0000 242.62);
-  --muted: oklch(55.1% 0.027 264.364);
+  --muted: oklch(70.7% 0.022 261.325);
   --overlay: hsl(240 10% 3.92%);
   --overlay-foreground: oklch(99.11% 0.0000 242.62);
   --scrollbar: oklch(70.50% 0.0000 242.62);

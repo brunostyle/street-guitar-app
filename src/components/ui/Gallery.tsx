@@ -24,7 +24,7 @@ export const Gallery = ({ images = [], isLoading }: IProps) => {
                             <Avatar
                                 key={image}
                                 onClick={() => setSelected(image)}
-                                className={`opacity w-full h-36 rounded-2xl cursor-pointer ${image === selected && 'outline-2 outline-separator'}`}
+                                className={`opacity w-full h-36 rounded-2xl cursor-pointer ${image === selected && 'outline-2 outline-accent'}`}
                             >
                                 <AvatarImage src={image} className="object-cover" />
                                 <AvatarFallback><IoImageOutline /></AvatarFallback>

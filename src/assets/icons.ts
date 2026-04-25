@@ -5,7 +5,6 @@ export {
     IoLogoInstagram,
     IoLogoGithub,
     IoDocumentTextOutline,
-    IoSunnySharp,
     IoAddOutline,
     IoGridOutline,
     IoPricetagsOutline,
@@ -14,7 +13,6 @@ export {
     IoCartOutline,
     IoLogoGoogle,
     IoFilterOutline,
-    IoMoonSharp,
     IoTriangleOutline,
     IoKeyOutline,
     IoHomeOutline,
@@ -43,5 +41,12 @@ export {
     IoMenuOutline,
     IoPeopleOutline,
     IoMusicalNotesOutline,
-    IoRefreshOutline
+    IoRefreshOutline,
+    IoStatsChartOutline,
+    IoShieldCheckmarkOutline,
+    IoDownloadOutline,
+    IoLaptopOutline,
+    IoRibbonOutline,
+    IoMoonOutline,
+    IoSunnyOutline
 } from "react-icons/io5";
