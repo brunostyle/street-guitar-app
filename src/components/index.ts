@@ -27,6 +27,7 @@ export * from './ui/Push';
 export * from './ui/Logo';
 export * from './ui/Menu';
 export * from './ui/MenuAdmin';
+export * from './ui/Metric';
 export * from './ui/Nothing';
 export * from './ui/Category';
 export * from './ui/Divider';

@@ -53,6 +53,5 @@ export const ProductCard = ({ cart = [], page }: IProductCard) => {
             </AlertDescription>
          </AlertContent>
       </Alert>
-
    </>
 }

@@ -1,11 +1,11 @@
-import { Avatar, AvatarFallback, Card, CardContent, Chip, ChipLabel, Description, Label, Separator, Skeleton } from "@heroui/react";
+import { Card, CardContent, Chip, ChipLabel, Description, Label, Separator, Skeleton } from "@heroui/react";
 import { useParams } from "react-router";
 import { useEffect } from "react";
 import { IoCartOutline, FaSpotify, IoHomeOutline, IoMusicalNoteSharp, IoStatsChartOutline, IoShieldCheckmarkOutline, IoDocumentTextOutline, IoDownloadOutline, IoLaptopOutline, IoRibbonOutline } from "@icons";
-import { Between, Grid, GridContainer, ChipCategory, Container, Gap, ChipCuston, Flex, Pattern, Title } from "@styles";
+import { Between, Grid, GridContainer, ChipCategory, Container, Gap, ChipCuston, Pattern, Title } from "@styles";
 import { useCart } from "@state";
 import { useGetProduct } from "@hooks";
-import { CustomBreadcrumbs, CustomButton, CustomButtonLink, Difficulty, Gallery } from "@components";
+import { CustomBreadcrumbs, CustomButton, CustomButtonLink, Difficulty, Gallery, Metric } from "@components";
 import { ROUTES } from "@navigation";
 
 const breadcrumbs = [
@@ -99,7 +99,7 @@ export const Product = () => {
                            </Between>
                            {isLoading
                               ? <Skeleton className="rounded-3xl h-9" />
-                              : <CustomButtonLink size="lg" to={product?.spotify!} variant="primary" className="bg-success" isButtonLink icon={<FaSpotify />}>Escuchala en spotify</CustomButtonLink>
+                              : <CustomButtonLink size="md" to={product?.spotify!} variant="primary" className="bg-success" isButtonLink icon={<FaSpotify />}>Escuchala en spotify</CustomButtonLink>
                            }
                            {isLoading
                               ? <Skeleton className="rounded-3xl h-9" />
@@ -108,60 +108,17 @@ export const Product = () => {
                            {isLoading
                               ? <Skeleton className="rounded-3xl w-2/6 h-5" />
                               : <Chip variant="tertiary" className="text-muted">
-                                 <IoShieldCheckmarkOutline className="text-accent" size="1.3em" />
+                                 <IoShieldCheckmarkOutline className="text-accent" size="1.5em" />
                                  <ChipLabel>Compra segura y acceso inmediato</ChipLabel>
                               </Chip>
                            }
                            {isLoading
                               ? <Skeleton className="rounded-3xl w-full h-16" />
-                              : <Card className="grid grid-cols-2 xl:grid-cols-4 shadow-outset backdrop-blur-xs bg-transparent">
-                                 <Flex>
-                                    <Avatar color="accent" variant="soft" className="shadow-outset">
-                                       <AvatarFallback>
-                                          <IoDocumentTextOutline size="1.5em" />
-                                       </AvatarFallback>
-                                    </Avatar>
-                                    <div className="flex flex-col">
-                                       <Label>Tablatura</Label>
-                                       <Description>100% precisa</Description>
-                                    </div>
-                                 </Flex>
-                                 <Flex>
-                                    <Separator orientation="vertical" />
-                                    <Avatar color="accent" variant="soft" className="shadow-outset">
-                                       <AvatarFallback>
-                                          <IoDownloadOutline size="1.5em" />
-                                       </AvatarFallback>
-                                    </Avatar>
-                                    <div className="flex flex-col">
-                                       <Label>Descarga</Label>
-                                       <Description>Inmediata</Description>
-                                    </div>
-                                 </Flex>
-                                 <Flex>
-                                    <Separator className="hidden xl:block" orientation="vertical" />
-                                    <Avatar color="accent" variant="soft" className="shadow-outset">
-                                       <AvatarFallback>
-                                          <IoLaptopOutline size="1.5em" />
-                                       </AvatarFallback>
-                                    </Avatar>
-                                    <div className="flex flex-col">
-                                       <Label>Compatible</Label>
-                                       <Description>Multiple</Description>
-                                    </div>
-                                 </Flex>
-                                 <Flex>
-                                    <Separator orientation="vertical" />
-                                    <Avatar color="warning" variant="soft" className="shadow-outset">
-                                       <AvatarFallback>
-                                          <IoRibbonOutline size="1.5em" />
-                                       </AvatarFallback>
-                                    </Avatar>
-                                    <div className="flex flex-col">
-                                       <Label>Calidad SG</Label>
-                                       <Description>Profesional</Description>
-                                    </div>
-                                 </Flex>
+                              : <Card className="grid grid-cols-2 xl:grid-cols-4 shadow-outset bg-transparent">
+                                 <Metric title="Tablatura" description="100% precisa" fallback={<IoDocumentTextOutline size="1.5em" />} />
+                                 <Metric title="Descarga" description="Inmediata" fallback={<IoDownloadOutline size="1.5em" />} />
+                                 <Metric title="Compatible" description="Multiple" fallback={<IoLaptopOutline size="1.5em" />} />
+                                 <Metric title="Calidad SG" description="Profesionals" fallback={<IoRibbonOutline size="1.5em" />} />
                               </Card>
                            }
                         </Gap>

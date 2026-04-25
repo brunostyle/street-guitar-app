@@ -1,11 +1,12 @@
 import { useNavigate as useRouter, useLocation } from 'react-router'
 import { Formik, Form } from 'formik'
 import { IoSearchOutline, IoHomeOutline, IoKeyOutline, IoPersonAddOutline, IoGridOutline, IoPricetagsOutline, IoTriangleOutline, IoExitOutline } from '@icons'
-import { CustomButton, CustomInput, Divider } from '@components';
+import { CustomButton, CustomInput } from '@components';
 import { useCart, useUser } from '@state';
 import { ROUTES } from '@navigation';
 import type { JSX } from 'react';
 import { Gap, Spacer } from '@styles';
+import { Separator } from '@heroui/react';
 
 interface ISearch { query: string }
 const values: ISearch = { query: '' }
@@ -30,12 +31,10 @@ export const Collapse = ({ setIsMenuOpen }: IProps) => {
                         <CustomInput name="query" placeholder="Buscar..." icon={<IoSearchOutline />} />
                     </Form>
                 </Formik>
+                <Spacer />
             </div>
 
-            <Spacer />
-            
             <Gap>
-                <Divider>Menu</Divider>
                 <Item text="Inicio" to="/" icon={<IoHomeOutline />} setIsMenuOpen={setIsMenuOpen} />
                 {!isLogged && <Item text="Ingresar" to="/auth" icon={<IoKeyOutline />} setIsMenuOpen={setIsMenuOpen} />}
                 {isLogged && <Exit setIsMenuOpen={setIsMenuOpen} />}
@@ -45,7 +44,7 @@ export const Collapse = ({ setIsMenuOpen }: IProps) => {
 
             {user?.role === "admin" &&
                 <Gap>
-                    <Divider>Administración</Divider>
+                    <Separator />
                     <Item text="Dashboard" to={ROUTES.dashboard} icon={<IoGridOutline />} setIsMenuOpen={setIsMenuOpen} />
                     <Item text="Productos" to={ROUTES.products} icon={<IoPricetagsOutline />} setIsMenuOpen={setIsMenuOpen} />
                     <Item text="Ordenes" to={ROUTES.orders} icon={<IoTriangleOutline />} setIsMenuOpen={setIsMenuOpen} />

@@ -14,7 +14,7 @@ export const LayoutAuth = () => (
          <Card className="col-span-2 md:col-span-1 bg-linear-to-r from-background via-surface-hover to-background border border-white/20">
             <CardHeader className="grid gap-2 justify-center text-center">
                <Logo big />
-               <SectionTitle>Street Guitar</SectionTitle>
+               <SectionTitle>Street <span className="text-accent">Guitar</span></SectionTitle>
                <Description>Tablaturas, tracks, covers gratis</Description>
             </CardHeader>
             <CardContent>

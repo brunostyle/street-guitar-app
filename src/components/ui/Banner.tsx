@@ -1,7 +1,7 @@
 import { IoLogoGithub, IoLogoInstagram, IoMusicalNotesOutline, IoPeopleOutline, IoRefreshOutline } from "@icons";
 import { ChipCuston, Container, Flex, Gap, Pattern } from "@styles";
-import { CustomButton, CustomButtonLink, Logo, Push } from "@components";
-import { Avatar, AvatarFallback, Card, ChipLabel, Description, Label, Separator } from "@heroui/react";
+import { CustomButton, CustomButtonLink, Logo, Metric, Push } from "@components";
+import { ChipLabel, Description, Separator } from "@heroui/react";
 
 export const Banner = () => (
    <Pattern mask>
@@ -11,7 +11,7 @@ export const Banner = () => (
                <Logo />
                <ChipLabel>Tablaturas 100% gratis</ChipLabel>
             </ChipCuston>
-            <h1 className="text-[42px] font-bold">
+            <h1 className="text-[42px] font-bold leading-10">
                Encuentra las mejores tablaturas en
                <span className="drop-shadow-[0_0_1px_#006FEE] bg-linear-to-bl from-blue-300 to-blue-950 bg-clip-text text-transparent leading-normal"> Street Guitar </span>
             </h1>
@@ -20,43 +20,13 @@ export const Banner = () => (
                <CustomButton size="md" variant="outline" className="text-accent border-accent" icon={<IoLogoInstagram />}>Instagram</CustomButton>
                <CustomButtonLink size="md" isButtonLink to="https://github.com/brunostyle" icon={<IoLogoGithub />}>Github</CustomButtonLink>
             </Flex>
-            <Card className="hidden xl:grid grid-cols-3 p-3 shadow-outset backdrop-blur-xs bg-transparent">
-               <Flex>
-                  <Avatar color="accent" variant="soft" className="shadow-outset">
-                     <AvatarFallback>
-                        <IoMusicalNotesOutline size="1.5em" />
-                     </AvatarFallback>
-                  </Avatar>
-                  <div className="flex flex-col">
-                     <Label>+100</Label>
-                     <Description>Tablaturas</Description>
-                  </div>
-               </Flex>
-               <Flex>
-               <Separator className="hidden xl:block" orientation="vertical" />
-                  <Avatar color="accent" variant="soft" className="shadow-outset">
-                     <AvatarFallback>
-                        <IoPeopleOutline size="1.5em" />
-                     </AvatarFallback>
-                  </Avatar>
-                  <div className="flex flex-col">
-                     <Label>+1000</Label>
-                     <Description>Usuarios</Description>
-                  </div>
-               </Flex>
-               <Flex>
-               <Separator className="hidden xl:block" orientation="vertical" />
-                  <Avatar color="accent" variant="soft" className="shadow-outset">
-                     <AvatarFallback>
-                        <IoRefreshOutline size="1.5em" />
-                     </AvatarFallback>
-                  </Avatar>
-                  <div className="flex flex-col">
-                     <Label>Actualizaciones</Label>
-                     <Description>Constantes</Description>
-                  </div>
-               </Flex>
-            </Card>
+            <Flex className="hidden md:flex">
+               <Metric title="+100" description="Tablaturas" fallback={<IoMusicalNotesOutline size="1.5em" />} />
+               <Separator orientation="vertical" />
+               <Metric title="+1000" description="Usuarios" fallback={<IoPeopleOutline size="1.5em" />} />
+               <Separator orientation="vertical" />
+               <Metric title="Actualizaciones" description="Constantes" fallback={<IoRefreshOutline size="1.5em" />} />
+            </Flex>
          </Gap>
          <div className="hidden md:block mb-12">
             <Push>
