@@ -6,7 +6,7 @@ import type { IChartData } from '@interfaces';
 
 const themes = {
     dark: {
-        layout: { background: { color: '#09090b' }, textColor: '#857575' },
+        layout: { background: { color: '#060919' }, textColor: '#857575' },
         grid: { vertLines: { color: '#001111' }, horzLines: { color: '#001111' }, border: { color: '#141414' } },
         areaStyles: { topColor: '#4B0082', bottomColor: '#09090b', lineColor: '#004493' }
     },
