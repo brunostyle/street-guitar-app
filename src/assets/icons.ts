@@ -20,12 +20,11 @@ export {
     IoPencil,
     IoCloseOutline,
     IoTrashOutline,
-    IoSaveOutline,
+    IoSyncOutline,
     IoMailOutline,
     IoLockClosedOutline,
     IoEyeOutline,
     IoEyeOffOutline,
-    IoCloudUploadOutline,
     IoCloudDownloadOutline,
     IoFolderOutline,
     IoCardOutline,
@@ -49,5 +48,5 @@ export {
     IoRibbonOutline,
     IoMoonOutline,
     IoSunnyOutline,
-    IoGiftSharp
+    IoGiftSharp,
 } from "react-icons/io5";

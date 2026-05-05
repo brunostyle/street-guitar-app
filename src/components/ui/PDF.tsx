@@ -1,11 +1,11 @@
-import { Card, CardContent, ProgressBar, ProgressBarFill, ProgressBarTrack } from "@heroui/react";
+import { Card, CardContent, CardFooter, CardHeader, Label, ProgressBar, ProgressBarFill, ProgressBarTrack } from "@heroui/react";
 import type { ChangeEvent } from "react";
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
 import { useField } from "formik";
-import { IoCloseOutline, IoDocumentTextOutline } from "@icons";
-import { Between, Gap, TitlePDF } from "@styles";
+import { IoCloseOutline, IoDocumentTextOutline, IoEyeOutline } from "@icons";
+import { Between, Flex, Gap, TitlePDF } from "@styles";
 import { useAddPDF, useDeletePDF } from "@hooks";
-import { CustomButtonIcon, FileInput, notify } from "@components";
+import { CustomButtonIcon, CustomButtonLink, FileInput, notify } from "@components";
 import { fetcherWithToken } from "@fetch";
 
 export const PDF = () => {
@@ -44,12 +44,15 @@ export const PDF = () => {
 
     return (
         <Gap>
+            <Label>Tablatura</Label>
             {fieldTAB.value &&
-                <Card className="p-1 shadow-outset">
+                <Card className="px-4 py-2 shadow-outset">
                     <Between>
-                        <IoDocumentTextOutline size="1.5rem" className="text-accent" />
+                        <CardHeader>
+                            <IoDocumentTextOutline size="1.5rem" className="text-accent" />
+                        </CardHeader>
                         <CardContent>
-                            <Link to={fieldPDF.value} target="_blank"><TitlePDF>{fieldTAB.value}</TitlePDF></Link>
+                            <TitlePDF>{fieldTAB.value}</TitlePDF>
                             {(isAdding || isDeleting) &&
                                 <ProgressBar size="sm" className="mt-4" isIndeterminate>
                                     <ProgressBarTrack>
@@ -57,7 +60,12 @@ export const PDF = () => {
                                     </ProgressBarTrack>
                                 </ProgressBar>}
                         </CardContent>
-                        <CustomButtonIcon variant="ghost" onPress={handleDelete}><IoCloseOutline /></CustomButtonIcon>
+                        <CardFooter>
+                            <Flex space="gap-2">
+                                <CustomButtonLink to={fieldPDF.value}><IoEyeOutline /></CustomButtonLink>
+                                <CustomButtonIcon onPress={handleDelete}><IoCloseOutline /></CustomButtonIcon>
+                            </Flex>
+                        </CardFooter>
                     </Between>
                 </Card>
             }

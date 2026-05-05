@@ -2,9 +2,9 @@ import { Card, CardContent } from "@heroui/react";
 import { useParams } from "react-router";
 import { Form, Formik } from "formik";
 import { Images, CustomInput, Admin, Category, Tags, PDF, CustomButton, CustomInputDifficulty, FullScreenLoading } from "@components";
-import { IoTrashOutline, IoSaveOutline, FaSpotify, IoCodeOutline, IoLogoUsd, IoPencil, IoPersonOutline } from "@icons";
+import { IoTrashOutline, IoSyncOutline, FaSpotify, IoCodeOutline, IoLogoUsd, IoPencil, IoPersonOutline } from "@icons";
 import { productSchema } from "@validations";
-import { Grid, GridContainer, SectionTitle, Spacer } from "@styles";
+import { Between, Grid, GridContainer, SectionTitle, Spacer } from "@styles";
 import { useDeleteProduct, useGetProduct, useUpdateProduct } from "@hooks";
 
 export const UpdateProduct = () => {
@@ -39,8 +39,10 @@ export const UpdateProduct = () => {
                                     <CustomInputDifficulty />
                                     <PDF />
                                     <Images />
-                                    <CustomButton fullWidth variant="outline" isLoading={isDeleting} icon={<IoTrashOutline />} onPress={() => deleteProduct(String(id))}>Eliminar</CustomButton>
-                                    <CustomButton fullWidth variant="outline" isLoading={isUpdating} icon={<IoSaveOutline />} onPress={() => form.handleSubmit()}>Actualizar</CustomButton>
+                                    <Between>
+                                        <CustomButton fullWidth isLoading={isDeleting} icon={<IoTrashOutline />} onPress={() => deleteProduct(String(id))}>Eliminar</CustomButton>
+                                        <CustomButton fullWidth isLoading={isUpdating} icon={<IoSyncOutline />} onPress={() => form.handleSubmit()}>Actualizar</CustomButton>
+                                    </Between>
                                 </Grid>
                             </GridContainer></Form>
                         )}

@@ -1,4 +1,4 @@
-import { IoCloudUploadOutline } from "@icons";
+import { IoDocumentTextOutline } from "@icons";
 import { CustomButton } from "@components";
 
 interface IProps {
@@ -13,6 +13,6 @@ export const FileInput = ({ id, label, onChange }: IProps) => {
 	};
 	return <>
 		<input onChange={onChange} type="file" id={id} style={{ display: 'none' }} />
-		<CustomButton fullWidth variant="outline" onPress={handleClick} icon={<IoCloudUploadOutline />}>{label}</CustomButton>
+		<CustomButton fullWidth variant="outline" onPress={handleClick} icon={<IoDocumentTextOutline />}>{label}</CustomButton>
 	</>
 }

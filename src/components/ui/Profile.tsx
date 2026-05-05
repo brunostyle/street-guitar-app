@@ -1,7 +1,7 @@
 import { Avatar, Drawer, DrawerContent, DrawerHeader, DrawerBody, Separator, ProgressBar, Modal, ModalHeader, ModalBody, ModalFooter, ModalBackdrop, ModalContainer, ModalDialog, AvatarImage, AvatarFallback, DrawerBackdrop, DrawerDialog, ProgressBarFill, ProgressBarTrack, ModalCloseTrigger, Description, Skeleton } from '@heroui/react';
 import { HiddenTitle, HiddenSubtitle, Between, Flex, Gap } from '@styles';
 import { CustomInput, FileImage, CustomButtonIcon, CustomButton, CustomInputPassword } from '@components';
-import { IoTrashOutline, IoPersonOutline, IoMailOutline, IoLockClosedOutline, IoPencil, IoSaveOutline } from '@icons';
+import { IoTrashOutline, IoPersonOutline, IoMailOutline, IoLockClosedOutline, IoPencil, IoSyncOutline } from '@icons';
 import { Form, Formik } from 'formik';
 import { useUser } from '@state';
 import { useState } from 'react';
@@ -96,7 +96,7 @@ export const Profile = () => {
                                         <CustomInput name="name" label="Nombre" placeholder={user?.name} isDisabled={!isEdit} icon={<IoPersonOutline />} />
                                         <CustomInput name="email" label="Email" placeholder={user?.email} isDisabled={!isEdit} icon={<IoMailOutline />} />
                                         <CustomInputPassword name="password" label="Contraseña" placeholder="******" isDisabled={!isEdit} icon={<IoLockClosedOutline />} isVisible={isVisible} setIsVisible={setIsVisible} />
-                                        <CustomButton fullWidth type="submit" isDisabled={!isEdit} variant="primary" icon={<IoSaveOutline />}>Guardar</CustomButton>
+                                        <CustomButton fullWidth type="submit" isDisabled={!isEdit} variant="primary" icon={<IoSyncOutline />}>Actualizar</CustomButton>
                                         {(isUpdating || isDeleting) && <ProgressBar size="sm" isIndeterminate>
                                             <ProgressBarTrack>
                                                 <ProgressBarFill />

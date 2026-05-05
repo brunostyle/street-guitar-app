@@ -1,5 +1,5 @@
 import { CATEGORIES } from "@categories";
-import { RadioGroup, Radio, RadioControl, RadioIndicator, RadioContent, Label } from "@heroui/react";
+import { RadioGroup, Radio, RadioControl, RadioIndicator, RadioContent, Label, Description } from "@heroui/react";
 import { useField } from "formik";
 
 export const Category = () => {
@@ -20,7 +20,7 @@ export const Category = () => {
                      <RadioIndicator />
                   </RadioControl>
                   <RadioContent>
-                     <Label>{category.value}</Label>
+                     <Description>{category.value}</Description>
                   </RadioContent>
                </Radio>
             ))}

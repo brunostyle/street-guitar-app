@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@heroui/react";
 import { Form, Formik } from "formik";
 import { Images, CustomInput, Admin, Category, Tags, PDF, CustomButton, CustomInputDifficulty } from "@components";
-import { IoSaveOutline, FaSpotify, IoCodeOutline, IoLogoUsd, IoAddOutline, IoPersonOutline } from "@icons";
+import { FaSpotify, IoCodeOutline, IoLogoUsd, IoAddOutline, IoPersonOutline } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle, Spacer } from "@styles";
 import { useAddProduct } from "@hooks";
@@ -34,7 +34,7 @@ export const NewProduct = () => {
                                 <CustomInputDifficulty />
                                 <PDF />
                                 <Images />
-                                <CustomButton fullWidth variant="outline" isLoading={isAdding} icon={<IoSaveOutline />} onPress={() => form.handleSubmit()}>Guardar</CustomButton>
+                                <CustomButton fullWidth isLoading={isAdding} icon={<IoAddOutline />} onPress={() => form.handleSubmit()}>Agregar</CustomButton>
                             </Grid>
                         </GridContainer></Form>
                     )}

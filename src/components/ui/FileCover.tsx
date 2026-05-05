@@ -18,11 +18,11 @@ export const FileCover = ({ id, image, isLoading, onChange, onDelete }: IProps) 
 	return <>
 		<input onChange={onChange} type="file" id={id} style={{ display: 'none' }} />
 		<BadgeAnchor>
-			<Avatar onClick={handleClick} className={`object-cover rounded-4xl size-32 ${!isLoading && 'cursor-pointer'}`}>
+			<Avatar onClick={handleClick} className={`object-cover rounded-4xl size-32 shadow-outset ${!isLoading && 'cursor-pointer'}`}>
 				<AvatarImage src={image} />
 				<AvatarFallback><IoImageOutline size={15} /></AvatarFallback>
 			</Avatar>
-			{!!image && <Badge color="accent" size="sm" className="cursor-pointer" onClick={() => onDelete(image!)}><IoCloseOutline /></Badge>}
+			{!!image && <Badge className="cursor-pointer" onClick={() => onDelete(image!)}><IoCloseOutline /></Badge>}
 		</BadgeAnchor >
 	</>
 }

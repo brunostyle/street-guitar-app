@@ -41,6 +41,7 @@ export const Images = () => {
    };
    return (
       <Gap>
+         <Label>Vista previa</Label>
          <Flex className="gap-x-8 justify-center flex-wrap">
             <FileCover id="image-cover" image={field.value && field.value[0]} isLoading={isAdding || isDeleting} onChange={handleImage} onDelete={handleDelete} />
             <FileCover id="image-tab" image={field.value && field.value[1]} isLoading={isAdding || isDeleting} onChange={handleImage} onDelete={handleDelete} />
