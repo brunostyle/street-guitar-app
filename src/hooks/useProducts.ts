@@ -82,7 +82,7 @@ export const useUpdateProduct = () => {
     mutationFn: (product: IProduct) => fetcherWithToken({ endpoint: '/products/' + product.id, method: 'PUT', data: product }),
     onSuccess: () => {
       notify.success('Producto actualizado')
-      router('/admin/products')
+      router(-1)
     }
   })
   return { updateProduct, isUpdating }

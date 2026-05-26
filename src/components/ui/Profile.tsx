@@ -48,7 +48,7 @@ export const Profile = () => {
             </CustomButtonIcon>
             <DrawerBackdrop>
                 <DrawerContent placement="left">
-                    <DrawerDialog className="rounded-none">
+                    <DrawerDialog>
                         <DrawerHeader>
                             <Between>
                                 <div>
