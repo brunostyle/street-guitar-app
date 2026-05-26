@@ -1,6 +1,6 @@
-import { Card, CardFooter, CardHeader, Label } from "@heroui/react";
+import { Avatar, AvatarFallback, Card, CardContent, Description } from "@heroui/react";
 import { IoPricetagsOutline, IoPersonAddOutline, IoTriangleOutline } from "@icons";
-import { Flex, WrapFit } from "@styles";
+import { Flex, Subtitle, WrapFit } from "@styles";
 
 interface IDashboardCards {
    numberOfClients?: number;
@@ -10,38 +10,50 @@ interface IDashboardCards {
 
 export const DashboardCards = ({ numberOfClients = 0, numberOfProducts = 0, numberOfOrders = 0 }: IDashboardCards) => (
    <WrapFit>
-      <Card className="bg-accent text-white">
-         <CardHeader>
-            <Label>Total clientes</Label>
-         </CardHeader>
-         <CardFooter>
+      <Card className="shadow-outset">
+         <CardContent>
             <Flex>
-               <IoPersonAddOutline />
-               <Label>{numberOfClients}</Label>
+               <Avatar color="accent">
+                  <AvatarFallback>
+                     <IoPersonAddOutline />
+                  </AvatarFallback>
+               </Avatar>
+               <div>
+                  <Description>Total clientes</Description>
+                  <Subtitle>{numberOfClients}</Subtitle>
+               </div>
             </Flex>
-         </CardFooter>
+         </CardContent>
       </Card>
       <Card className="shadow-outset">
-         <CardHeader>
-            <Label>Total productos</Label>
-         </CardHeader>
-         <CardFooter>
+         <CardContent>
             <Flex>
-               <IoPricetagsOutline />
-               <Label>{numberOfProducts}</Label>
+               <Avatar color="accent">
+                  <AvatarFallback>
+                     <IoPricetagsOutline />
+                  </AvatarFallback>
+               </Avatar>
+               <div>
+                  <Description>Total productos</Description>
+                  <Subtitle>{numberOfProducts}</Subtitle>
+               </div>
             </Flex>
-         </CardFooter>
+         </CardContent>
       </Card>
-      <Card className="bg-success text-white">
-         <CardHeader>
-            <Label>Total ventas</Label>
-         </CardHeader>
-         <CardFooter>
+      <Card className="shadow-outset">
+         <CardContent>
             <Flex>
-               <IoTriangleOutline />
-               <Label>{numberOfOrders}</Label>
+               <Avatar color="accent">
+                  <AvatarFallback>
+                     <IoTriangleOutline />
+                  </AvatarFallback>
+               </Avatar>
+               <div>
+                  <Description>Total ventas</Description>
+                  <Subtitle>{numberOfOrders}</Subtitle>
+               </div>
             </Flex>
-         </CardFooter>
+         </CardContent>
       </Card>
    </WrapFit>
 )

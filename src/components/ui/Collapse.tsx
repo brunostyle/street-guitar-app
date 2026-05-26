@@ -21,7 +21,7 @@ export const Collapse = () => {
 
     return (
         <Drawer>
-            <CustomButtonIcon variant="ghost" aria-label="Toggle menu">
+            <CustomButtonIcon aria-label="Toggle menu">
                 <span>
                     <IoMenuOutline className="size-[1.6em]" />
                 </span>
@@ -35,7 +35,7 @@ export const Collapse = () => {
                                     <Form>
                                         <CustomInput name="query" placeholder="Buscar..." icon={<IoSearchOutline />} />
                                     </Form>
-                                </Formik> 
+                                </Formik>
                             </div>
                             <Gap>
                                 <Item text="Inicio" to="/" icon={<IoHomeOutline />} />

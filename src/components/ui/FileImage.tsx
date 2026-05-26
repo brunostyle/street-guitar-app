@@ -22,7 +22,7 @@ export const FileImage = () => {
 
     return (
         <div className="flex justify-center my-4 relative">
-            <Avatar className="w-32 h-32 outline-2 outline-accent" color="accent">
+            <Avatar className="w-32 h-32 outline-2 outline-accent rounded-full" color="accent">
                 <AvatarImage src={user?.avatar} />
                 <AvatarFallback className='text-2xl'>{user?.name.charAt(0).toUpperCase()}</AvatarFallback>
             </Avatar>

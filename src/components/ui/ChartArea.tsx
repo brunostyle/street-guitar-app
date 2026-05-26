@@ -8,7 +8,7 @@ const themes = {
     dark: {
         layout: { background: { color: '#060919' }, textColor: '#857575' },
         grid: { vertLines: { color: '#001111' }, horzLines: { color: '#001111' }, border: { color: '#141414' } },
-        areaStyles: { topColor: '#4B0082', bottomColor: '#09090b', lineColor: '#004493' }
+        areaStyles: { topColor: '#4B0082', bottomColor: '#000111', lineColor: '#004493' }
     },
     light: {
         layout: { background: { color: '#FFFFFF' }, textColor: '#141414' },
@@ -56,16 +56,15 @@ export const ChartArea = ({ data = [] }: ChartComponentProps) => {
             lineColor: themes[theme].areaStyles.lineColor,
             lineWidth: 2,
         });
-
-        newAreaSeries.setData(data);
-        newChart.timeScale().fitContent();
-
+        
         const handleResize = () => {
             if (chartContainerRef.current) {
                 newChart.applyOptions({ width: chartContainerRef.current.clientWidth });
             }
         };
-
+        
+        newAreaSeries.setData(data);        
+        newChart.timeScale().fitContent();
         window.addEventListener('resize', handleResize);
 
         return () => {
@@ -76,9 +75,7 @@ export const ChartArea = ({ data = [] }: ChartComponentProps) => {
 
     return (
         <Card className="shadow-inset">
-            <CardContent>
-                <div className="chart" ref={chartContainerRef} />
-            </CardContent>
+            <CardContent className="chart" ref={chartContainerRef} />
         </Card>
     );
 };
