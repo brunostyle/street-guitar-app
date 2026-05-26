@@ -1,12 +1,12 @@
-import { useNavigate as useRouter, useLocation } from 'react-router'
+import { useNavigate as useRouter, useLocation, Link } from 'react-router'
 import { Formik, Form } from 'formik'
 import { IoSearchOutline, IoHomeOutline, IoKeyOutline, IoPersonAddOutline, IoGridOutline, IoPricetagsOutline, IoTriangleOutline, IoExitOutline, IoMenuOutline } from '@icons'
-import { CustomButton, CustomButtonIcon, CustomInput } from '@components';
+import { CustomButton, CustomButtonIcon, CustomInput, Logo } from '@components';
 import { useCart, useUser } from '@state';
 import { ROUTES } from '@navigation';
 import type { JSX } from 'react';
-import { Gap } from '@styles';
-import { Drawer, DrawerBackdrop, DrawerBody, DrawerContent, DrawerDialog, DrawerHeader, Separator } from '@heroui/react';
+import { Flex, Gap, Spacer } from '@styles';
+import { Drawer, DrawerBackdrop, DrawerBody, DrawerContent, DrawerDialog, DrawerHeader, Label, Separator } from '@heroui/react';
 
 interface ISearch { query: string }
 const values: ISearch = { query: '' }
@@ -30,20 +30,27 @@ export const Collapse = () => {
                 <DrawerContent placement="right">
                     <DrawerDialog className="min-w-56 max-w-max">
                         <DrawerHeader>
+                            <Flex>
+                                <Link to={ROUTES.home}><Logo /></Link>
+                                <Label className="text-lg">Street <span className="text-accent">Guitar</span></Label>
+                            </Flex>
+                        <Separator />
+                        </DrawerHeader>
+                        <DrawerBody>
                             <div className="block lg:hidden">
                                 <Formik initialValues={values} onSubmit={handleSubmit}>
                                     <Form>
                                         <CustomInput name="query" placeholder="Buscar..." icon={<IoSearchOutline />} />
                                     </Form>
                                 </Formik>
+                                <Spacer />
                             </div>
                             <Gap>
                                 <Item text="Inicio" to="/" icon={<IoHomeOutline />} />
                                 {!isLogged && <Item text="Ingresar" to="/auth" icon={<IoKeyOutline />} />}
                                 {isLogged && <Exit />}
                             </Gap>
-                        </DrawerHeader>
-                        <DrawerBody>
+                            <Spacer />
                             {user?.role === "admin" &&
                                 <Gap>
                                     <Separator />

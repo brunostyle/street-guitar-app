@@ -12,7 +12,7 @@ interface NavbarProps {
 
 export function Navbar({ children }: NavbarProps) {
     return (
-        <Between className="z-40 w-full border-b border-separator bg-background sticky top-0 p-3 px-6">
+        <Between className="z-40 w-full border-b border-separator bg-background/70 backdrop-blur-sm sticky top-0 p-3 px-6">
             <Flex>
                 <Link to={ROUTES.home}><Logo /></Link>
                 <Label className="hidden sm:block text-lg">Street <span className="text-accent">Guitar</span></Label>
