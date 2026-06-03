@@ -20,7 +20,7 @@ export const ProductCard = ({ cart = [], page }: IProductCard) => {
          <Card key={product.id} className="grid grid-cols-[2fr_10fr_auto] shadow-outset p-0 ">
             <Link to={ROUTES.product + product.id} className="h-28">
                <Avatar className="w-full h-full rounded-none">
-                  <AvatarImage src={product.images[0]} alt={product.title} className="object-cover" />
+                  <AvatarImage src={product.image} alt={product.title} className="object-cover" />
                   <AvatarFallback><IoImageOutline /></AvatarFallback>
                </Avatar>
             </Link>

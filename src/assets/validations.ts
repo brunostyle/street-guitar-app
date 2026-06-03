@@ -20,7 +20,8 @@ export const productSchema = object({
    spotify: string().required('Campo requerido').trim().url('Debe ser una url valida'),
    difficulty: number().required('Campo requerido'),
    tags: array().of(string()).optional(),
-   images: array().of(string()).optional(),
+   image: string().trim().optional(),
+   thumbnail: string().trim().optional(),
 })
 
 export const paySchema = object({

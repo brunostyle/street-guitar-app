@@ -6,7 +6,8 @@ export interface IProduct {
 	updatedAt?: string;
 	title: string;
 	description: string;
-	images: string[];
+	image?: string;
+	thumbnail?: string;
 	difficulty: number;
 	category: TValidCategory;
 	spotify: string;

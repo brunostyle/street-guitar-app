@@ -3,15 +3,16 @@ import { IoImageOutline } from "@icons";
 import { useEffect, useState } from "react"
 
 interface IProps {
-    images: string[];
+    image: string;
+    thumbnail: string;
     isLoading: boolean;
 }
 
-export const Gallery = ({ images = [], isLoading }: IProps) => {
+export const Gallery = ({ image, thumbnail, isLoading }: IProps) => {
     const [selected, setSelected] = useState<string>();
 
     useEffect(() => {
-        setSelected(images[0]);
+        setSelected(image);
     }, [isLoading]);
 
     return (
@@ -20,16 +21,17 @@ export const Gallery = ({ images = [], isLoading }: IProps) => {
                 <div className="preview_container">
                     {isLoading
                         ? [1, 2].map(num => <Skeleton key={num} className="w-full h-36 rounded-3xl" />)
-                        : images.map(image => (
-                            <Avatar
-                                key={image}
-                                onClick={() => setSelected(image)}
-                                className={`opacity w-full h-36 rounded-2xl cursor-pointer ${image === selected && 'outline-2 outline-accent'}`}
-                            >
+                        : <>
+                            <Avatar onClick={() => setSelected(image)} className={`opacity w-full h-36 rounded-2xl cursor-pointer ${image === selected && 'outline-2 outline-accent'}`}>
                                 <AvatarImage src={image} className="object-cover" />
                                 <AvatarFallback><IoImageOutline /></AvatarFallback>
                             </Avatar>
-                        ))}
+                            <Avatar onClick={() => setSelected(thumbnail)} className={`opacity w-full h-36 rounded-2xl cursor-pointer ${thumbnail === selected && 'outline-2 outline-accent'}`}>
+                                <AvatarImage src={thumbnail}/>
+                                <AvatarFallback><IoImageOutline /></AvatarFallback>
+                            </Avatar>
+                        </>
+                    }
                 </div>
             </div>
             <div className="col-span-12 lg:col-span-9">

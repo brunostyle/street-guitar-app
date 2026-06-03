@@ -29,7 +29,7 @@ export const Product = () => {
             <Card className="bg-transparent mb-16">
                <GridContainer>
                   <Grid>
-                     <Gallery images={product?.images!} isLoading={isLoading} />
+                     <Gallery image={product?.image!} thumbnail={product?.thumbnail!} isLoading={isLoading} />
                   </Grid>
                   <Grid>
                      <CardContent>

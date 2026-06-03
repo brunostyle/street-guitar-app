@@ -5,7 +5,7 @@ import { FaSpotify, IoCodeOutline, IoLogoUsd, IoAddOutline, IoPersonOutline } fr
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle, Spacer } from "@styles";
 import { useAddProduct } from "@hooks";
-const initial = { title: '', description: '', price: '', spotify: '', tab: '', pdf: '', difficulty: 1, category: 'rock', tags: [], images: [] }
+const initial = { title: '', description: '', price: '', spotify: '', tab: '', pdf: '', difficulty: 1, category: 'rock', tags: [], image: '', thumbnail: '' }
 
 export const NewProduct = () => {
     const { addProduct, isAdding } = useAddProduct();

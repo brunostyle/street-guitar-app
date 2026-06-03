@@ -34,7 +34,7 @@ export const Products = () => {
                               <TableRow key={product.id}>
                                  <TableCell>
                                     <Avatar size="sm" className="rounded-sm">
-                                       <AvatarImage src={product.images[0]} />
+                                       <AvatarImage src={product.image} className="object-cover" />
                                        <AvatarFallback><IoImageOutline /></AvatarFallback>
                                     </Avatar>
                                  </TableCell>
