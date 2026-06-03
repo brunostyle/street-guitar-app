@@ -1,4 +1,4 @@
-import { Alert, AlertContent, AlertDescription, AlertIndicator, AlertTitle, Avatar, AvatarFallback, AvatarImage, Card, CardContent, CardFooter, Description } from "@heroui/react";
+import { Alert, AlertContent, AlertDescription, AlertIndicator, AlertTitle, Avatar, AvatarFallback, AvatarImage, Card, CardContent, CardFooter, Description, Tooltip, TooltipContent } from "@heroui/react";
 import { Link } from "react-router";
 import type { IProduct } from "@interfaces"
 import { CustomButtonIcon, CustomButtonLink } from "@components"
@@ -17,9 +17,9 @@ export const ProductCard = ({ cart = [], page }: IProductCard) => {
    const { removeProductToCart } = useCart();
    return <>
       {cart.map(product => (
-         <Card key={product.id} className="grid grid-cols-[2fr_10fr_auto] shadow-outset p-0 ">
+         <Card key={product.id} className="grid grid-cols-[2fr_10fr_auto] shadow-outset p-0">
             <Link to={ROUTES.product + product.id} className="h-28">
-               <Avatar className="w-full h-full rounded-none">
+               <Avatar className="w-full h-full rounded-tr-none rounded-br-none">
                   <AvatarImage src={product.image} alt={product.title} className="object-cover" />
                   <AvatarFallback><IoImageOutline /></AvatarFallback>
                </Avatar>
@@ -35,7 +35,12 @@ export const ProductCard = ({ cart = [], page }: IProductCard) => {
             </CardContent>
             <CardFooter className="flex flex-col justify-between p-2">
                <CustomButtonLink to={product?.spotify} variant="ghost"><span><FaSpotify className="text-success size-[1.6em]" /></span></CustomButtonLink>
-               {(page === "checkout" && product.pdf) && <CustomButtonLink to={product.pdf} download={product.tab}><IoCloudDownloadOutline /></CustomButtonLink>}
+               {(page === "checkout" && product.pdf) && (
+                  <Tooltip delay={0}>
+                     <CustomButtonLink to={product.pdf} download={product.tab}><IoCloudDownloadOutline /></CustomButtonLink>
+                     <TooltipContent>Descargar tab</TooltipContent>
+                  </Tooltip>
+               )}
                {page === "cart" && <CustomButtonIcon onPress={() => removeProductToCart(product)}><IoTrashOutline /></CustomButtonIcon>}
             </CardFooter>
          </Card>

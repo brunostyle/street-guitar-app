@@ -2,8 +2,8 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 import { useNavigate } from "react-router";
 import type { IProduct } from "@interfaces";
 import { fetcher, fetcherWithToken, fetcherWithTokenFile } from "@fetch";
-import { useState } from "react";
 import { notify } from "@components";
+import { useSearchParams } from 'react-router';
 
 //--------------------------------- GET ---------------------------------
 
@@ -23,7 +23,11 @@ export const useProducts = () => {
 }
 //--------------------------------- GET PAGINATED---------------------------------
 export const usePaginateProducts = () => {
-  const [page, setPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams({ page: '1' });
+  const page = Number(searchParams.get('page'));
+  const setPage = (newPage: number) => {
+    setSearchParams({ page: newPage.toString() });
+  };
   const limit = 10;
   const { data, isLoading } = useQuery<useProductsProps>({
     queryKey: ["products", page],
@@ -105,7 +109,7 @@ export const useDeleteProduct = () => {
     },
     onSuccess: () => {
       notify.success('Producto eliminado')
-      router('/admin/products')
+      router(-1)
     }
   })
   return { deleteProduct, isDeleting }

@@ -3,7 +3,7 @@ import { Pagination, PaginationContent, PaginationItem, PaginationLink, Paginati
 interface IProps {
     page: number;
     total: number;
-    setPage: React.Dispatch<React.SetStateAction<number>>;
+    setPage: (newPage: number) => void;
 }
 
 export const CustomPagination = ({ page, setPage, total }: IProps) => {
@@ -12,19 +12,19 @@ export const CustomPagination = ({ page, setPage, total }: IProps) => {
         <Pagination size="sm" className="mt-4 justify-center">
             <PaginationContent>
                 <PaginationItem>
-                    <PaginationPrevious isDisabled={page === 1} onPress={() => setPage((p) => Math.max(1, p - 1))}>
+                    <PaginationPrevious isDisabled={page === 1} onPress={() => setPage(page - 1)}>
                         <PaginationPreviousIcon />
                     </PaginationPrevious>
                 </PaginationItem>
                 {pages.map((p) => (
                     <PaginationItem key={p}>
-                        <PaginationLink className={p === page ? 'bg-accent' : ''} isActive={p === page} onPress={() => setPage(p)}>
+                        <PaginationLink isActive={p === page} onPress={() => setPage(p)}>
                             {p}
                         </PaginationLink>
                     </PaginationItem>
                 ))}
                 <PaginationItem>
-                    <PaginationNext isDisabled={page === total} onPress={() => setPage((p) => Math.min(total, p + 1))}>
+                    <PaginationNext isDisabled={page === total} onPress={() => setPage(page + 1)}>
                         <PaginationNextIcon />
                     </PaginationNext>
                 </PaginationItem>

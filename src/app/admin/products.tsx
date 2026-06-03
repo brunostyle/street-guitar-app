@@ -20,7 +20,7 @@ export const Products = () => {
                   <TableScrollContainer>
                      <TableContent aria-label="Products">
                         <TableHeader>
-                           <TableColumn>IMAGEN</TableColumn>
+                           <TableColumn isRowHeader>IMAGEN</TableColumn>
                            <TableColumn>TITULO</TableColumn>
                            <TableColumn>DESCRIPCIÓN</TableColumn>
                            <TableColumn>PRECIO</TableColumn>
