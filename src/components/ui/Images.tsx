@@ -15,7 +15,6 @@ export const Images = () => {
    const [thumbnail, _thumbnailMeta, thumbnailHelpers] = useField('thumbnail');
 
    const handleDelete = (url: string) => {
-
       deleteImage({ url }, {
          onSuccess: async () => {
             if (url === image.value) {
@@ -65,8 +64,8 @@ export const Images = () => {
       <Gap>
          <Label>Vista previa</Label>
          <Flex className="gap-x-8 justify-center flex-wrap">
-            <FileCover id="image-cover" image={image.value && image.value} isLoading={isAdding || isDeleting} onChange={handleImage} onDelete={handleDelete} />
-            <FileCover id="image-tab" image={thumbnail.value && thumbnail.value} isLoading={isAdding || isDeleting} onChange={handleThumbnail} onDelete={handleDelete} />
+            <FileCover id="image-cover" label="imagen" image={image.value && image.value} isLoading={isAdding || isDeleting} onChange={handleImage} onDelete={handleDelete} />
+            <FileCover id="image-tab" label="thumbnail" image={thumbnail.value && thumbnail.value} isLoading={isAdding || isDeleting} onChange={handleThumbnail} onDelete={handleDelete} />
          </Flex>
          {isAdding &&
             <ProgressBar size="sm" isIndeterminate>
