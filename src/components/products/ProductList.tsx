@@ -47,7 +47,7 @@ export const ProductList = ({ category, icon, products, isLoading = false }: IPr
             <WrapFill>
                {products.map(product => (
                   <Card className="shadow-outset p-0 cursor-pointer" key={product.id} onClick={() => router(ROUTES.product + product.id)}>
-                     <Avatar className="w-full min-h-92.5 rounded-none opacity">
+                     <Avatar className="w-full min-h-92.5 rounded-bl-none rounded-br-none opacity">
                         <AvatarImage src={product.image} alt={product.title} className="object-cover" />
                         <AvatarFallback><IoImageOutline /></AvatarFallback>
                      </Avatar>

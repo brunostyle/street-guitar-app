@@ -27,7 +27,7 @@ export const Users = () => {
                               <TableRow key={user.id}>
                                  <TableCell>
                                     <Avatar size="sm" className="rounded-sm">
-                                       <AvatarImage src={user.avatar} />
+                                       <AvatarImage src={user.avatar} className="object-cover" />
                                        <AvatarFallback>{user.name.charAt(0).toUpperCase()}</AvatarFallback>
                                     </Avatar>
                                  </TableCell>

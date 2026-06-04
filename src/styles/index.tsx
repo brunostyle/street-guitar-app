@@ -9,20 +9,20 @@ import type { ComponentProps, JSX } from "react";
 // ------------------- CHIPS -------------------
 
 export const ChipCuston = ({ children }: { children: JSX.Element[] }) => (
-  <ChipHero className="gap-1 px-2 py-1 w-fit rounded-4xl" size="sm" variant="soft" color="accent">
+  <ChipHero className="gap-1 px-2 py-1 w-fit rounded-4xl shadow-outset" size="sm" variant="soft" color="accent">
     {children}
   </ChipHero>
 )
 
 export const ChipCategory = ({ children }: { children: TValidCategory }) => (
-  <ChipHero className="gap-1" size="sm" variant="soft" color={categories[children]}>
+  <ChipHero className="gap-1 shadow-outset" size="sm" variant="soft" color={categories[children]}>
     <IoMusicalNoteSharp />
     <ChipLabel>{children}</ChipLabel>
   </ChipHero>
 )
 
 export const ChipUser = ({ children }: { children: TValidRoles }) => (
-  <ChipHero className="gap-1" size="sm" variant="soft" color={roles[children]}>
+  <ChipHero className="gap-1 shadow-outset" size="sm" variant="soft" color={roles[children]}>
     <IoLockClosedOutline />
     <ChipLabel>{children}</ChipLabel>
   </ChipHero>
