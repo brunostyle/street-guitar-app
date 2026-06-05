@@ -46,7 +46,7 @@ export const Gallery = ({ image, thumbnail, isLoading }: IProps) => {
                         <Modal>
                             {thumbnail && thumbnail === selected && <Badge className="top-4 right-4 cursor-pointer" onClick={() => setIsOpen(true)}><IoScanOutline /></Badge>}
                             <ModalBackdrop isOpen={isOpen} onOpenChange={setIsOpen}>
-                                <ModalContainer size="cover">
+                                <ModalContainer size="full">
                                     <ModalDialog className="p-0">
                                         <ModalCloseTrigger className="z-1" />
                                         <ModalBody>
