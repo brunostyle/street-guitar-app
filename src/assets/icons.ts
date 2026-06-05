@@ -49,4 +49,5 @@ export {
     IoMoonOutline,
     IoSunnyOutline,
     IoGiftSharp,
+    IoScanOutline
 } from "react-icons/io5";

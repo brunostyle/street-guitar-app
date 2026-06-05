@@ -1,5 +1,6 @@
-import { Avatar, AvatarFallback, AvatarImage, Skeleton } from "@heroui/react"
-import { IoImageOutline } from "@icons";
+import { Avatar, AvatarFallback, AvatarImage, Badge, BadgeAnchor, Modal, ModalBackdrop, ModalBody, ModalCloseTrigger, ModalContainer, ModalDialog, Skeleton } from "@heroui/react"
+import { IoImageOutline, IoScanOutline } from "@icons";
+import { CustomButtonIcon } from "@components";
 import { useEffect, useState } from "react"
 
 interface IProps {
@@ -12,7 +13,8 @@ export const Gallery = ({ image, thumbnail, isLoading }: IProps) => {
     const [selected, setSelected] = useState<string>();
 
     useEffect(() => {
-        setSelected(image);
+        // setSelected(image);
+        setSelected(thumbnail);
     }, [isLoading]);
 
     return (
@@ -22,12 +24,12 @@ export const Gallery = ({ image, thumbnail, isLoading }: IProps) => {
                     {isLoading
                         ? [1, 2].map(num => <Skeleton key={num} className="w-full h-36 rounded-3xl" />)
                         : <>
-                            <Avatar onClick={() => setSelected(image)} className={`opacity w-full h-36 rounded-2xl cursor-pointer ${image === selected && 'outline-2 outline-accent'}`}>
+                            <Avatar onClick={() => setSelected(image)} className={`opacity shadow-outset w-full h-36 rounded-2xl cursor-pointer ${image === selected && 'outline-2 outline-accent'}`}>
                                 <AvatarImage src={image} className="object-cover" />
                                 <AvatarFallback><IoImageOutline /></AvatarFallback>
                             </Avatar>
-                            <Avatar onClick={() => setSelected(thumbnail)} className={`opacity w-full h-36 rounded-2xl cursor-pointer ${thumbnail === selected && 'outline-2 outline-accent'}`}>
-                                <AvatarImage src={thumbnail}/>
+                            <Avatar onClick={() => setSelected(thumbnail)} className={`opacity shadow-outset w-full h-36 rounded-2xl cursor-pointer ${thumbnail === selected && 'outline-2 outline-accent'}`}>
+                                <AvatarImage src={thumbnail} />
                                 <AvatarFallback><IoImageOutline /></AvatarFallback>
                             </Avatar>
                         </>
@@ -37,10 +39,33 @@ export const Gallery = ({ image, thumbnail, isLoading }: IProps) => {
             <div className="col-span-12 lg:col-span-9">
                 {isLoading
                     ? <Skeleton className="w-full h-137.5 rounded-3xl" />
-                    : <Avatar className="w-full h-137.5 rounded-lg shadow-outset">
-                        <AvatarImage src={selected} className="object-cover" />
-                        <AvatarFallback><IoImageOutline /></AvatarFallback>
-                    </Avatar>
+                    :
+                    <BadgeAnchor className="w-full">
+                        <Avatar className="w-full h-137.5 rounded-lg shadow-outset">
+                            <AvatarImage src={selected} className="object-cover" />
+                            <AvatarFallback><IoImageOutline /></AvatarFallback>
+                        </Avatar>
+                        <Modal>
+                            {thumbnail && thumbnail === selected &&
+                                <Badge className="top-4 right-4">
+                                    <CustomButtonIcon className="max-w-max max-h-max">
+                                        <IoScanOutline />
+                                        </CustomButtonIcon>
+                                </Badge>}
+                            <ModalBackdrop>
+                                <ModalContainer size="cover">
+                                    <ModalDialog className="p-0">
+                                        <ModalCloseTrigger className="z-1" />
+                                        <ModalBody>
+                                            <Avatar className="w-full min-h-full overflow-y-auto scrollbar-none">
+                                                <AvatarImage src={thumbnail} className="h-full lg:h-auto" />
+                                            </Avatar>
+                                        </ModalBody>
+                                    </ModalDialog>
+                                </ModalContainer>
+                            </ModalBackdrop>
+                        </Modal>
+                    </BadgeAnchor>
                 }
             </div>
         </section>
