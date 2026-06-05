@@ -1,6 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage, Badge, BadgeAnchor, Modal, ModalBackdrop, ModalBody, ModalCloseTrigger, ModalContainer, ModalDialog, Skeleton } from "@heroui/react"
 import { IoImageOutline, IoScanOutline } from "@icons";
-import { CustomButtonIcon } from "@components";
 import { useEffect, useState } from "react"
 
 interface IProps {
@@ -11,10 +10,9 @@ interface IProps {
 
 export const Gallery = ({ image, thumbnail, isLoading }: IProps) => {
     const [selected, setSelected] = useState<string>();
-
+    const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
-        // setSelected(image);
-        setSelected(thumbnail);
+        setSelected(image);
     }, [isLoading]);
 
     return (
@@ -46,13 +44,8 @@ export const Gallery = ({ image, thumbnail, isLoading }: IProps) => {
                             <AvatarFallback><IoImageOutline /></AvatarFallback>
                         </Avatar>
                         <Modal>
-                            {thumbnail && thumbnail === selected &&
-                                <Badge className="top-4 right-4">
-                                    <CustomButtonIcon className="max-w-max max-h-max">
-                                        <IoScanOutline />
-                                        </CustomButtonIcon>
-                                </Badge>}
-                            <ModalBackdrop>
+                            {thumbnail && thumbnail === selected && <Badge className="top-4 right-4 cursor-pointer" onClick={() => setIsOpen(true)}><IoScanOutline /></Badge>}
+                            <ModalBackdrop isOpen={isOpen} onOpenChange={setIsOpen}>
                                 <ModalContainer size="cover">
                                     <ModalDialog className="p-0">
                                         <ModalCloseTrigger className="z-1" />
