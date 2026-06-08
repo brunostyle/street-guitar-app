@@ -15,4 +15,15 @@ export interface IProduct {
 	tags: string[];
 	tab?: string;
 	pdf?: string;
+	tuning: {
+		label: string,
+		notes: {
+			first: number;
+			second: number;
+			third: number;
+			fourth: number;
+			fifth: number;
+			sixth: number;
+		}
+	}
 }

@@ -9,7 +9,7 @@ import type { ComponentProps, JSX } from "react";
 // ------------------- CHIPS -------------------
 
 export const ChipCuston = ({ children }: { children: JSX.Element[] }) => (
-  <ChipHero className="gap-1 px-2 py-1 w-fit rounded-4xl shadow-outset" size="sm" variant="soft" color="accent">
+  <ChipHero className="gap-1 px-2 py-1 w-fit rounded-4xl shadow-outset" size="sm" variant="tertiary" color="accent">
     {children}
   </ChipHero>
 )
@@ -43,7 +43,7 @@ export const GridContainer = ({ children, className, ...props }: ComponentProps<
 )
 
 export const Grid = ({ children, className, ...props }: ComponentProps<"div">) => (
-  <div className={`col-span-12 md:col-span-6 flex flex-col gap-4 ${className}`} {...props}>{children}</div>
+  <div className={`col-span-12 lg:col-span-6 flex flex-col gap-4 ${className}`} {...props}>{children}</div>
 )
 
 export const Between = ({ children, className, ...props }: ComponentProps<"div">) => (
@@ -96,12 +96,6 @@ export const HiddenTitle = ({ children, className, ...props }: ComponentProps<"h
 
 export const HiddenSubtitle = ({ children, className, ...props }: ComponentProps<"h4">) => (
   <div className="max-w-40 sm:max-w-max text-muted">
-    <h4 className={`overflow-hidden text-ellipsis whitespace-nowrap text-sm ${className}`} {...props}>{children}</h4>
-  </div>
-)
-
-export const TitlePDF = ({ children, className, ...props }: ComponentProps<"h4">) => (
-  <div className="max-w-screen-sm sm:max-w-max">
     <h4 className={`overflow-hidden text-ellipsis whitespace-nowrap text-sm ${className}`} {...props}>{children}</h4>
   </div>
 )

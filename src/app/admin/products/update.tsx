@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@heroui/react";
 import { useParams } from "react-router";
 import { Form, Formik } from "formik";
-import { Images, CustomInput, Admin, Category, Tags, PDF, CustomButton, CustomInputDifficulty, FullScreenLoading } from "@components";
+import { Images, CustomInput, Admin, Category, Tags, PDF, CustomButton, CustomInputDifficulty, FullScreenLoading, CustomTuning } from "@components";
 import { IoTrashOutline, IoSyncOutline, FaSpotify, IoCodeOutline, IoLogoUsd, IoPencil, IoPersonOutline } from "@icons";
 import { productSchema } from "@validations";
 import { Between, Grid, GridContainer, SectionTitle, Spacer } from "@styles";
@@ -32,6 +32,7 @@ export const UpdateProduct = () => {
                                     <CustomInput name="description" label="Artista" placeholder="Nombre del artista" icon={<IoPersonOutline />} />
                                     <CustomInput type="number" name="price" label="Precio" placeholder="0.00" icon={<IoLogoUsd />} />
                                     <CustomInput name="spotify" label="Spotify" placeholder="https://" icon={<FaSpotify />} />
+                                    <CustomTuning />
                                     <Tags />
                                 </Grid>
                                 <Grid>

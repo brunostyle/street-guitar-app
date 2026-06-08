@@ -1,16 +1,24 @@
 import { Card, CardContent } from "@heroui/react";
 import { Form, Formik } from "formik";
-import { Images, CustomInput, Admin, Category, Tags, PDF, CustomButton, CustomInputDifficulty } from "@components";
+import { Images, CustomInput, Admin, Category, Tags, PDF, CustomButton, CustomInputDifficulty, CustomTuning } from "@components";
 import { FaSpotify, IoCodeOutline, IoLogoUsd, IoAddOutline, IoPersonOutline } from "@icons";
 import { productSchema } from "@validations";
 import { Grid, GridContainer, SectionTitle, Spacer } from "@styles";
 import { useAddProduct } from "@hooks";
-const initial = { title: '', description: '', price: '', spotify: '', tab: '', pdf: '', difficulty: 1, category: 'rock', tags: [], image: '', thumbnail: '' }
+
+const tuning = {
+    label: 'Standard',
+    notes: { first: 4, second: 11, third: 7, fourth: 2, fifth: 9, sixth: 4 }
+};
+
+const initial = {
+    title: '', description: '', price: '', spotify: '', tab: '', pdf: '', difficulty: 1, category: 'rock', tags: [], image: '', thumbnail: '', tuning
+};
 
 export const NewProduct = () => {
     const { addProduct, isAdding } = useAddProduct();
 
-    const handleSubmit = (values: any) => {        
+    const handleSubmit = (values: any) => {
         addProduct({ ...values })
     };
 
@@ -27,6 +35,7 @@ export const NewProduct = () => {
                                 <CustomInput name="description" label="Artista" placeholder="Nombre del artista" icon={<IoPersonOutline />} />
                                 <CustomInput type="number" name="price" label="Precio" placeholder="0.00" icon={<IoLogoUsd />} />
                                 <CustomInput name="spotify" label="Spotify" placeholder="https://" icon={<FaSpotify />} />
+                                <CustomTuning />
                                 <Tags />
                             </Grid>
                             <Grid>

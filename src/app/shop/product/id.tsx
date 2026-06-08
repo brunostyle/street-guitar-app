@@ -5,7 +5,7 @@ import { IoCartOutline, FaSpotify, IoHomeOutline, IoMusicalNoteSharp, IoStatsCha
 import { Between, Grid, GridContainer, ChipCategory, Container, Gap, ChipCuston, Pattern, Title } from "@styles";
 import { useCart } from "@state";
 import { useGetProduct } from "@hooks";
-import { CustomBreadcrumbs, CustomButton, CustomButtonLink, Difficulty, Gallery, Metric } from "@components";
+import { CustomBreadcrumbs, CustomButton, CustomButtonLink, Difficulty, Gallery, Metric, Tuning } from "@components";
 import { ROUTES } from "@navigation";
 
 const breadcrumbs = [
@@ -34,13 +34,19 @@ export const Product = () => {
                   <Grid>
                      <CardContent>
                         <Gap>
-                           {isLoading
-                              ? <Skeleton className="rounded-3xl w-1/6 h-5" />
-                              : <ChipCuston>
-                                 <IoStatsChartOutline />
-                                 <ChipLabel>Popular</ChipLabel>
-                              </ChipCuston>
-                           }
+                           <Between>
+                              {isLoading
+                                 ? <Skeleton className="rounded-3xl w-1/6 h-5" />
+                                 : <ChipCuston>
+                                    <IoStatsChartOutline />
+                                    <ChipLabel>Popular</ChipLabel>
+                                 </ChipCuston>
+                              }
+                              {isLoading
+                                 ? <Skeleton className="rounded-3xl w-36 h-8" />
+                                 : <Tuning tuning={product?.tuning!} />
+                              }
+                           </Between>
                            {isLoading
                               ? <Skeleton className="rounded-3xl w-3/6 h-5" />
                               : <Title>{product?.title}</Title>

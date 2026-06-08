@@ -77,7 +77,7 @@
   --surface-tertiary-foreground: oklch(99.11% 0.0000 242.62);
   --warning: oklch(82.03% 0.1388 75.00);
   --warning-foreground: oklch(21.03% 0.0059 75.00);
-  
+
   /* --background: hsl(0, 0%, 0%); */
   /* --surface: oklch(13.441% 0.00002 271.152); */
   /* --default: oklch(17.764% 0.00002 271.152); */
@@ -85,14 +85,14 @@
   /* --separator: hsl(0 0% 100% / 0.1); */
   /* --border: oklch(28.00% 0.0000 242.62); */
   /* --field-border: oklch(28.00% 0.0000 242.62); */
-  
-  --background: hsl(227,100%,3%);
+
+  --background: hsl(227, 100%, 3%);
   --surface: hsl(231, 61%, 6%);
-  --default: hsl(221,95%,10%);
-  --overlay: hsl(231,63%,6%);
-  --separator: hsl(234,37%,10%);
-  --border: hsl(234,37%,18%);
-  --field-border: hsl(234,37%,18%);
+  --default: hsl(221, 95%, 10%);
+  --overlay: hsl(231, 63%, 6%);
+  --separator: hsl(216, 90%, 11%);
+  --border: hsl(216, 90%, 11%);
+  --field-border: hsl(216, 90%, 11%);
 }
 
 * {

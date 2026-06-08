@@ -3,7 +3,7 @@ import type { ChangeEvent } from "react";
 import { useParams } from "react-router";
 import { useField } from "formik";
 import { IoCloseOutline, IoDocumentTextOutline, IoEyeOutline } from "@icons";
-import { Between, Flex, Gap, TitlePDF } from "@styles";
+import { Between, Flex, Gap, HiddenTitle } from "@styles";
 import { useAddPDF, useDeletePDF } from "@hooks";
 import { CustomButtonIcon, CustomButtonLink, FileInput, notify } from "@components";
 import { fetcherWithToken } from "@fetch";
@@ -46,13 +46,13 @@ export const PDF = () => {
         <Gap>
             <Label>Tablatura</Label>
             {fieldTAB.value &&
-                <Card className="px-4 py-2 shadow-outset">
+                <Card className="p-2 shadow-outset">
                     <Between>
                         <CardHeader>
                             <IoDocumentTextOutline size="1.5rem" className="text-accent" />
                         </CardHeader>
                         <CardContent>
-                            <TitlePDF>{fieldTAB.value}</TitlePDF>
+                            <HiddenTitle>{fieldTAB.value}</HiddenTitle>
                             {(isAdding || isDeleting) &&
                                 <ProgressBar size="sm" className="mt-4" isIndeterminate>
                                     <ProgressBarTrack>
