@@ -36,7 +36,7 @@ export const Tuning = ({ tuning }: ITuning) => (
     <Popover>
         <CustomButton variant="outline" className="text-accent">
             <Avatar variant="soft" size="sm">
-                <AvatarImage src="/guitar.png" />
+                <AvatarImage src="/guitar.svg" />
             </Avatar>
             Afinación
             <IoChevronDownOutline className="mx-1" />
@@ -45,7 +45,7 @@ export const Tuning = ({ tuning }: ITuning) => (
             <PopoverDialog className="p-2">
                 <Flex>
                     <Avatar variant="soft" className="shadow-outset">
-                        <AvatarImage src="/guitar.png" />
+                        <AvatarImage src="/guitar.svg" />
                     </Avatar>
                     <Separator orientation="vertical" />
                     <div className="hidden sm:block">

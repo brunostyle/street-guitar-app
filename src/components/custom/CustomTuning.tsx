@@ -82,12 +82,11 @@ export const CustomTuning = () => {
                     <CardHeader>
                         <Flex>
                             <Avatar variant="soft" className="shadow-outset">
-                                <AvatarImage src="/guitar.png" />
+                                <AvatarImage src="/guitar.svg" />
                             </Avatar>
                             <Separator orientation="vertical" />
                             <div>
                                 <HiddenSubtitle className="text-accent">Afinación</HiddenSubtitle>
-                                {/* <HiddenSubtitle>Afinación</HiddenSubtitle> */}
                                 <Label>{field.value.label}</Label>
                             </div>
                         </Flex>
